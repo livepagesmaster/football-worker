@@ -287,9 +287,9 @@ const TOP_LEAGUES = [
 
 let allMatches = [];
 let selectedIds = new Set();
-let groups = {};              // leagueName -> [matches]
-let priorityOrder = {};       // leagueName -> rank (0..N-1), else Infinity
-let openGroups = new Set();   // which league headers are expanded
+let groups = {};
+let priorityOrder = {};
+let openGroups = new Set();
 
 // ============ HELPERS ============
 function getToken() { return localStorage.getItem(TOKEN_KEY) || ""; }
@@ -394,17 +394,13 @@ function buildGroups() {
     (groups[lg] = groups[lg] || []).push(m);
   }
 
-  // Assign priority rank by fuzzy match on TOP_LEAGUES
   priorityOrder = {};
   for (const lg of Object.keys(groups)) {
     const lgLower = lg.toLowerCase();
     let rank = Infinity;
     for (let i = 0; i < TOP_LEAGUES.length; i++) {
       const needle = TOP_LEAGUES[i].toLowerCase();
-      if (lgLower.includes(needle)) {
-        rank = i;
-        break;
-      }
+      if (lgLower.includes(needle)) { rank = i; break; }
     }
     priorityOrder[lg] = rank;
   }
@@ -457,7 +453,6 @@ function render() {
   const html = names.map(lg => {
     let list = groups[lg];
 
-    // Filter by search
     if (q) {
       list = list.filter(m => {
         const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
@@ -465,7 +460,6 @@ function render() {
       });
     }
 
-    // Filter by "only selected"
     if (onlySelected) {
       list = list.filter(m => selectedIds.has(String(m.event_id)));
     }
@@ -530,7 +524,6 @@ function toggleMatch(cb) {
   else selectedIds.delete(eid);
   updateCounter();
 
-  // Update the league badge live
   const groupEl = cb.closest(".group");
   if (groupEl) {
     const lg = groupEl.getAttribute("data-lg");
@@ -645,7 +638,6 @@ async function init() {
   buildGroups();
   populateLeagueDropdown();
 
-  // Open top leagues by default
   const names = sortedLeagueNames();
   for (const n of names) {
     if (priorityOrder[n] !== Infinity) openGroups.add(n);
@@ -666,14 +658,24 @@ document.getElementById("onlySelected").addEventListener("change", render);
 document.getElementById("saveBtn").addEventListener("click", saveSelection);
 
 document.getElementById("selectAllBtn").addEventListener("click", () => {
+  // Select only what's currently visible in the DOM (respects search + league filter)
   document.querySelectorAll('#content input[type=checkbox]').forEach(cb => {
     if (!cb.checked) { cb.checked = true; toggleMatch(cb); }
   });
 });
+
 document.getElementById("clearBtn").addEventListener("click", () => {
-  document.querySelectorAll('#content input[type=checkbox]').forEach(cb => {
-    if (cb.checked) { cb.checked = false; toggleMatch(cb); }
-  });
+  // Wipe the entire selection, not just visible checkboxes.
+  if (selectedIds.size === 0) {
+    toast("Nothing to clear");
+    return;
+  }
+  if (!confirm(`Clear all ${selectedIds.size} selected match${selectedIds.size === 1 ? "" : "es"}?`)) {
+    return;
+  }
+  selectedIds.clear();
+  render();
+  toast("Cleared — click Save to apply");
 });
 
 // Auto-unlock if token already stored
