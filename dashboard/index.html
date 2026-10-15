@@ -23,20 +23,13 @@
     box-shadow: 0 8px 30px rgba(0,0,0,.06);
     text-align: center;
   }
-  #lock .lock-icon {
-    font-size: 40px; margin-bottom: 12px;
-  }
-  #lock h1 {
-    font-size: 20px; margin-bottom: 6px; font-weight: 700;
-  }
-  #lock p {
-    font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.5;
-  }
+  #lock .lock-icon { font-size: 40px; margin-bottom: 12px; }
+  #lock h1 { font-size: 20px; margin-bottom: 6px; font-weight: 700; }
+  #lock p { font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.5; }
   #lock input {
     width: 100%; padding: 12px 14px;
     border: 1px solid #ddd; border-radius: 8px;
-    font-size: 14px; font-family: inherit;
-    outline: none;
+    font-size: 14px; font-family: inherit; outline: none;
   }
   #lock input:focus { border-color: #2563eb; }
   #lock button {
@@ -53,12 +46,18 @@
   }
 
   /* ---------- DASHBOARD ---------- */
-  #app { display: none; padding: 20px; max-width: 900px; margin: 0 auto; }
+  #app { display: none; padding: 20px; max-width: 960px; margin: 0 auto; }
   #app .topbar {
     display: flex; justify-content: space-between; align-items: center;
     margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
   }
   #app h1 { font-size: 20px; font-weight: 800; }
+  #app .topbar-right { display: flex; gap: 8px; align-items: center; }
+  #app .counter {
+    font-size: 13px; font-weight: 700; color: #2563eb;
+    background: #eff6ff; padding: 6px 14px; border-radius: 8px;
+    border: 1px solid #dbeafe;
+  }
   #app .logout {
     padding: 6px 14px; font-size: 12px; font-weight: 600;
     background: #e5e7eb; border: none; border-radius: 6px;
@@ -74,12 +73,19 @@
     display: flex; flex-wrap: wrap; gap: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
   }
-  .toolbar input {
-    flex: 1; min-width: 180px;
+  .toolbar input[type=text] {
+    flex: 1; min-width: 160px;
     padding: 9px 12px; border: 1px solid #ddd;
     border-radius: 8px; font-size: 14px; outline: none;
   }
-  .toolbar input:focus { border-color: #2563eb; }
+  .toolbar input[type=text]:focus { border-color: #2563eb; }
+  .toolbar select {
+    padding: 9px 12px; border: 1px solid #ddd;
+    border-radius: 8px; font-size: 13px; outline: none;
+    background: #fff; cursor: pointer;
+    max-width: 220px;
+  }
+  .toolbar select:focus { border-color: #2563eb; }
   .toolbar button {
     padding: 9px 16px; border: none; border-radius: 8px;
     font-size: 13px; font-weight: 600; cursor: pointer;
@@ -90,19 +96,61 @@
   .btn-save:hover { background: #15803d; }
   .btn-save:disabled { background: #86d0a2; cursor: wait; }
 
+  .toggle {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 600; color: #444;
+    padding: 0 6px; user-select: none; cursor: pointer;
+  }
+  .toggle input {
+    width: 16px; height: 16px; accent-color: #2563eb; cursor: pointer;
+  }
+
+  /* ---------- LEAGUE GROUPS ---------- */
   .group {
     background: #fff; border: 1px solid #e0e0e0;
-    border-radius: 10px; margin-bottom: 12px; overflow: hidden;
+    border-radius: 10px; margin-bottom: 10px; overflow: hidden;
   }
   .group-header {
-    padding: 10px 14px; font-weight: 700; font-size: 14px;
-    background: #f9fafb; border-bottom: 1px solid #eee;
+    padding: 11px 14px; font-weight: 700; font-size: 14px;
+    background: #f9fafb; border-bottom: 1px solid transparent;
     display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; user-select: none;
+    transition: background .15s;
   }
-  .group-header .count {
-    font-size: 11px; font-weight: 600; color: #888;
-    background: #eef2f7; padding: 2px 8px; border-radius: 9999px;
+  .group-header:hover { background: #f1f3f7; }
+  .group.open .group-header { border-bottom-color: #eee; }
+  .group-header .left {
+    display: flex; align-items: center; gap: 8px;
+    min-width: 0; flex: 1;
   }
+  .group-header .arrow {
+    display: inline-block; width: 12px; font-size: 10px;
+    color: #888; transition: transform .15s;
+  }
+  .group.open .group-header .arrow { transform: rotate(90deg); }
+  .group-header .name {
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .group-header .badges {
+    display: flex; gap: 6px; flex-shrink: 0;
+  }
+  .badge {
+    font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 9999px;
+  }
+  .badge-total {
+    background: #eef2f7; color: #666;
+  }
+  .badge-selected {
+    background: #dcfce7; color: #16a34a;
+  }
+  .group-body {
+    display: none;
+  }
+  .group.open .group-body {
+    display: block;
+  }
+
   .match {
     display: flex; align-items: center; gap: 10px;
     padding: 10px 14px; border-bottom: 1px solid #f0f0f0;
@@ -147,6 +195,11 @@
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .toast.error { background: #dc2626; }
+
+  @media (max-width: 600px) {
+    .toolbar select { max-width: 100%; }
+    #app { padding: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -167,11 +220,21 @@
 <div id="app">
   <div class="topbar">
     <h1>Match Selector</h1>
-    <button class="logout" id="logoutBtn">Lock</button>
+    <div class="topbar-right">
+      <span class="counter" id="counter">Selected: 0 of 0</span>
+      <button class="logout" id="logoutBtn">Lock</button>
+    </div>
   </div>
 
   <div class="toolbar">
     <input type="text" id="search" placeholder="Search team or league…">
+    <select id="leagueFilter">
+      <option value="">All leagues</option>
+    </select>
+    <label class="toggle">
+      <input type="checkbox" id="onlySelected">
+      <span>Only selected</span>
+    </label>
     <button class="btn-sec" id="selectAllBtn">Select all</button>
     <button class="btn-sec" id="clearBtn">Clear</button>
     <button class="btn-save" id="saveBtn">Save</button>
@@ -195,21 +258,43 @@ const SELECTED_PATH = "data/selected.json";
 const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${SELECTED_PATH}`;
 
 const TOKEN_KEY = "gh_token_fw";
+
+// Top leagues — ranked by global popularity. Matched by "contains" (fuzzy).
+// Everything not listed here falls into the alphabetical section below.
+const TOP_LEAGUES = [
+  "Champions League",
+  "World Cup",
+  "Euro",
+  "Premier League",
+  "La Liga",
+  "Serie A",
+  "Bundesliga",
+  "Ligue 1",
+  "Europa League",
+  "Copa Libertadores",
+  "Copa Sudamericana",
+  "Liga MX",
+  "MLS",
+  "Brasileirão",
+  "Liga Portugal",
+  "Eredivisie",
+  "FA Cup",
+  "Copa del Rey",
+  "Coppa Italia",
+  "DFB Pokal",
+];
 // ------------------------------------------------------------------
 
 let allMatches = [];
 let selectedIds = new Set();
+let groups = {};              // leagueName -> [matches]
+let priorityOrder = {};       // leagueName -> rank (0..N-1), else Infinity
+let openGroups = new Set();   // which league headers are expanded
 
 // ============ HELPERS ============
-function getToken() {
-  return localStorage.getItem(TOKEN_KEY) || "";
-}
-function setToken(t) {
-  localStorage.setItem(TOKEN_KEY, t);
-}
-function clearToken() {
-  localStorage.removeItem(TOKEN_KEY);
-}
+function getToken() { return localStorage.getItem(TOKEN_KEY) || ""; }
+function setToken(t) { localStorage.setItem(TOKEN_KEY, t); }
+function clearToken() { localStorage.removeItem(TOKEN_KEY); }
 
 function toast(msg, isError = false) {
   const t = document.getElementById("toast");
@@ -223,8 +308,7 @@ function toast(msg, isError = false) {
 function formatTime(iso) {
   if (!iso) return "";
   try {
-    const d = new Date(iso);
-    return d.toLocaleString([], {
+    return new Date(iso).toLocaleString([], {
       month: "short", day: "numeric",
       hour: "2-digit", minute: "2-digit"
     });
@@ -240,17 +324,13 @@ function escapeHtml(s) {
 
 // ============ VERIFY TOKEN ============
 async function verifyToken(token) {
-  // Lightweight check: read the repo with this token.
   try {
     const r = await fetch(
       `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
-    if (!r.ok) return false;
-    return true;
-  } catch {
-    return false;
-  }
+    return r.ok;
+  } catch { return false; }
 }
 
 // ============ UNLOCK / LOCK ============
@@ -262,19 +342,12 @@ async function unlock() {
 
   if (!token) { err.textContent = "Enter a token."; err.style.display = "block"; return; }
 
-  btn.disabled = true;
-  btn.textContent = "Checking…";
-  err.style.display = "none";
+  btn.disabled = true; btn.textContent = "Checking…"; err.style.display = "none";
 
   const ok = await verifyToken(token);
-  btn.disabled = false;
-  btn.textContent = "Unlock";
+  btn.disabled = false; btn.textContent = "Unlock";
 
-  if (!ok) {
-    err.textContent = "Invalid token. Try again.";
-    err.style.display = "block";
-    return;
-  }
+  if (!ok) { err.textContent = "Invalid token. Try again."; err.style.display = "block"; return; }
 
   setToken(token);
   showDashboard();
@@ -313,35 +386,95 @@ async function loadSelected() {
   } catch {}
 }
 
+// ============ GROUPING & PRIORITY ============
+function buildGroups() {
+  groups = {};
+  for (const m of allMatches) {
+    const lg = m.league || "Other";
+    (groups[lg] = groups[lg] || []).push(m);
+  }
+
+  // Assign priority rank by fuzzy match on TOP_LEAGUES
+  priorityOrder = {};
+  for (const lg of Object.keys(groups)) {
+    const lgLower = lg.toLowerCase();
+    let rank = Infinity;
+    for (let i = 0; i < TOP_LEAGUES.length; i++) {
+      const needle = TOP_LEAGUES[i].toLowerCase();
+      if (lgLower.includes(needle)) {
+        rank = i;
+        break;
+      }
+    }
+    priorityOrder[lg] = rank;
+  }
+}
+
+function sortedLeagueNames() {
+  return Object.keys(groups).sort((a, b) => {
+    const pa = priorityOrder[a];
+    const pb = priorityOrder[b];
+    if (pa !== pb) return pa - pb;
+    return a.localeCompare(b);
+  });
+}
+
+function populateLeagueDropdown() {
+  const sel = document.getElementById("leagueFilter");
+  const names = sortedLeagueNames();
+  sel.innerHTML = `<option value="">All leagues</option>` +
+    names.map(n => {
+      const count = groups[n].length;
+      return `<option value="${escapeHtml(n)}">${escapeHtml(n)} (${count})</option>`;
+    }).join("");
+}
+
 // ============ RENDER ============
 function render() {
   const q = document.getElementById("search").value.trim().toLowerCase();
-  const filtered = allMatches.filter(m => {
-    if (!q) return true;
-    const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
-    return hay.includes(q);
-  });
+  const leagueFilter = document.getElementById("leagueFilter").value;
+  const onlySelected = document.getElementById("onlySelected").checked;
 
   const content = document.getElementById("content");
 
   if (!allMatches.length) {
     content.innerHTML = `<div class="empty">No matches available yet.<br>The scraper hasn't produced any data.</div>`;
-    return;
-  }
-  if (!filtered.length) {
-    content.innerHTML = `<div class="empty">No matches match your search.</div>`;
+    updateCounter();
     return;
   }
 
-  // Group by league
-  const groups = {};
-  for (const m of filtered) {
-    const lg = m.league || "Other";
-    (groups[lg] = groups[lg] || []).push(m);
+  const names = sortedLeagueNames().filter(name => {
+    if (leagueFilter && name !== leagueFilter) return false;
+    return true;
+  });
+
+  if (!names.length) {
+    content.innerHTML = `<div class="empty">No leagues to show.</div>`;
+    updateCounter();
+    return;
   }
 
-  const html = Object.keys(groups).sort().map(lg => {
-    const list = groups[lg];
+  const html = names.map(lg => {
+    let list = groups[lg];
+
+    // Filter by search
+    if (q) {
+      list = list.filter(m => {
+        const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
+        return hay.includes(q);
+      });
+    }
+
+    // Filter by "only selected"
+    if (onlySelected) {
+      list = list.filter(m => selectedIds.has(String(m.event_id)));
+    }
+
+    if (!list.length) return "";
+
+    const selectedCount = list.filter(m => selectedIds.has(String(m.event_id))).length;
+    const isOpen = openGroups.has(lg);
+
     const rows = list.map(m => {
       const checked = selectedIds.has(String(m.event_id)) ? "checked" : "";
       return `
@@ -357,24 +490,79 @@ function render() {
         </label>
       `;
     }).join("");
+
+    const selectedBadge = selectedCount > 0
+      ? `<span class="badge badge-selected">${selectedCount} selected</span>`
+      : "";
+
     return `
-      <div class="group">
-        <div class="group-header">
-          <span>${escapeHtml(lg)}</span>
-          <span class="count">${list.length}</span>
+      <div class="group ${isOpen ? "open" : ""}" data-lg="${escapeHtml(lg)}">
+        <div class="group-header" onclick="toggleGroup('${escapeHtml(lg).replace(/'/g, "\\'")}')">
+          <div class="left">
+            <span class="arrow">▶</span>
+            <span class="name">${escapeHtml(lg)}</span>
+          </div>
+          <div class="badges">
+            ${selectedBadge}
+            <span class="badge badge-total">${list.length}</span>
+          </div>
         </div>
-        ${rows}
+        <div class="group-body">
+          ${rows}
+        </div>
       </div>
     `;
   }).join("");
 
-  content.innerHTML = html;
+  content.innerHTML = html || `<div class="empty">No matches match your filters.</div>`;
+  updateCounter();
+}
+
+function toggleGroup(lg) {
+  if (openGroups.has(lg)) openGroups.delete(lg);
+  else openGroups.add(lg);
+  render();
 }
 
 function toggleMatch(cb) {
   const eid = String(cb.getAttribute("data-eid"));
   if (cb.checked) selectedIds.add(eid);
   else selectedIds.delete(eid);
+  updateCounter();
+
+  // Update the league badge live
+  const groupEl = cb.closest(".group");
+  if (groupEl) {
+    const lg = groupEl.getAttribute("data-lg");
+    const list = groups[lg].filter(m => {
+      const q = document.getElementById("search").value.trim().toLowerCase();
+      if (q) {
+        const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+    const selCount = list.filter(m => selectedIds.has(String(m.event_id))).length;
+    const badge = groupEl.querySelector(".badge-selected");
+    if (selCount > 0) {
+      if (badge) badge.textContent = selCount + " selected";
+      else {
+        const container = groupEl.querySelector(".badges");
+        const el = document.createElement("span");
+        el.className = "badge badge-selected";
+        el.textContent = selCount + " selected";
+        container.insertBefore(el, container.firstChild);
+      }
+    } else if (badge) {
+      badge.remove();
+    }
+  }
+}
+
+function updateCounter() {
+  const total = allMatches.length;
+  const sel = selectedIds.size;
+  document.getElementById("counter").textContent = `Selected: ${sel} of ${total}`;
 }
 
 // ============ SAVE ============
@@ -383,10 +571,8 @@ async function saveSelection() {
   if (!token) { lock(); return; }
 
   const btn = document.getElementById("saveBtn");
-  btn.disabled = true;
-  btn.textContent = "Saving…";
+  btn.disabled = true; btn.textContent = "Saving…";
 
-  // Build the selected array — full match objects, not just IDs.
   const selectedMatches = allMatches.filter(m =>
     selectedIds.has(String(m.event_id))
   );
@@ -399,16 +585,12 @@ async function saveSelection() {
     JSON.stringify(payload, null, 2)
   )));
 
-  // Get current SHA
-  let sha = undefined;
+  let sha;
   try {
     const r = await fetch(`${API_BASE}?ref=${BRANCH}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
-    if (r.ok) {
-      const j = await r.json();
-      sha = j.sha;
-    }
+    if (r.ok) { const j = await r.json(); sha = j.sha; }
   } catch {}
 
   const body = {
@@ -434,8 +616,7 @@ async function saveSelection() {
       toast("Token no longer valid", true);
       lock();
     } else {
-      const err = await r.text();
-      console.error(err);
+      console.error(await r.text());
       toast("Save failed", true);
     }
   } catch (e) {
@@ -443,8 +624,7 @@ async function saveSelection() {
     toast("Save failed — network error", true);
   }
 
-  btn.disabled = false;
-  btn.textContent = "Save";
+  btn.disabled = false; btn.textContent = "Save";
 }
 
 // ============ INIT ============
@@ -462,6 +642,15 @@ async function init() {
     return;
   }
 
+  buildGroups();
+  populateLeagueDropdown();
+
+  // Open top leagues by default
+  const names = sortedLeagueNames();
+  for (const n of names) {
+    if (priorityOrder[n] !== Infinity) openGroups.add(n);
+  }
+
   render();
 }
 
@@ -472,22 +661,18 @@ document.getElementById("tokenInput").addEventListener("keydown", e => {
 });
 document.getElementById("logoutBtn").addEventListener("click", lock);
 document.getElementById("search").addEventListener("input", render);
+document.getElementById("leagueFilter").addEventListener("change", render);
+document.getElementById("onlySelected").addEventListener("change", render);
 document.getElementById("saveBtn").addEventListener("click", saveSelection);
 
 document.getElementById("selectAllBtn").addEventListener("click", () => {
   document.querySelectorAll('#content input[type=checkbox]').forEach(cb => {
-    if (!cb.checked) {
-      cb.checked = true;
-      toggleMatch(cb);
-    }
+    if (!cb.checked) { cb.checked = true; toggleMatch(cb); }
   });
 });
 document.getElementById("clearBtn").addEventListener("click", () => {
   document.querySelectorAll('#content input[type=checkbox]').forEach(cb => {
-    if (cb.checked) {
-      cb.checked = false;
-      toggleMatch(cb);
-    }
+    if (cb.checked) { cb.checked = false; toggleMatch(cb); }
   });
 });
 
