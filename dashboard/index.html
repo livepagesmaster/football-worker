@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Selector</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f5f5f7; color: #222;
+    min-height: 100vh;
+  }
+
+  /* ---------- LOCK SCREEN ---------- */
+  #lock {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 20px;
+  }
+  #lock .box {
+    background: #fff; border: 1px solid #e0e0e0; border-radius: 14px;
+    padding: 32px 28px; max-width: 400px; width: 100%;
+    box-shadow: 0 8px 30px rgba(0,0,0,.06);
+    text-align: center;
+  }
+  #lock .lock-icon {
+    font-size: 40px; margin-bottom: 12px;
+  }
+  #lock h1 {
+    font-size: 20px; margin-bottom: 6px; font-weight: 700;
+  }
+  #lock p {
+    font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.5;
+  }
+  #lock input {
+    width: 100%; padding: 12px 14px;
+    border: 1px solid #ddd; border-radius: 8px;
+    font-size: 14px; font-family: inherit;
+    outline: none;
+  }
+  #lock input:focus { border-color: #2563eb; }
+  #lock button {
+    width: 100%; margin-top: 12px;
+    padding: 12px; border: none; border-radius: 8px;
+    background: #2563eb; color: #fff;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+  }
+  #lock button:hover { background: #1d4ed8; }
+  #lock button:disabled { background: #93b3f5; cursor: wait; }
+  #lock .err {
+    display: none; margin-top: 12px;
+    font-size: 13px; color: #dc2626;
+  }
+
+  /* ---------- DASHBOARD ---------- */
+  #app { display: none; padding: 20px; max-width: 900px; margin: 0 auto; }
+  #app .topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
+  }
+  #app h1 { font-size: 20px; font-weight: 800; }
+  #app .logout {
+    padding: 6px 14px; font-size: 12px; font-weight: 600;
+    background: #e5e7eb; border: none; border-radius: 6px;
+    cursor: pointer; color: #444;
+  }
+  #app .logout:hover { background: #d1d5db; }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 10;
+    background: #fff; border: 1px solid #e0e0e0;
+    border-radius: 10px; padding: 12px;
+    margin-bottom: 14px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+  .toolbar input {
+    flex: 1; min-width: 180px;
+    padding: 9px 12px; border: 1px solid #ddd;
+    border-radius: 8px; font-size: 14px; outline: none;
+  }
+  .toolbar input:focus { border-color: #2563eb; }
+  .toolbar button {
+    padding: 9px 16px; border: none; border-radius: 8px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+  }
+  .btn-sec { background: #e5e7eb; color: #222; }
+  .btn-sec:hover { background: #d1d5db; }
+  .btn-save { background: #16a34a; color: #fff; }
+  .btn-save:hover { background: #15803d; }
+  .btn-save:disabled { background: #86d0a2; cursor: wait; }
+
+  .group {
+    background: #fff; border: 1px solid #e0e0e0;
+    border-radius: 10px; margin-bottom: 12px; overflow: hidden;
+  }
+  .group-header {
+    padding: 10px 14px; font-weight: 700; font-size: 14px;
+    background: #f9fafb; border-bottom: 1px solid #eee;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .group-header .count {
+    font-size: 11px; font-weight: 600; color: #888;
+    background: #eef2f7; padding: 2px 8px; border-radius: 9999px;
+  }
+  .match {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border-bottom: 1px solid #f0f0f0;
+    cursor: pointer; user-select: none;
+  }
+  .match:last-child { border-bottom: none; }
+  .match:hover { background: #fafafa; }
+  .match input[type=checkbox] {
+    width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;
+    accent-color: #2563eb;
+  }
+  .match .teams { flex: 1; font-size: 14px; min-width: 0; }
+  .match .teams .names {
+    font-weight: 500;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .match .teams .sub {
+    font-size: 11px; color: #999; margin-top: 2px;
+  }
+  .match .time {
+    font-size: 12px; color: #666; flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .empty {
+    text-align: center; padding: 60px 20px; color: #999;
+    font-size: 14px;
+  }
+  .loading {
+    text-align: center; padding: 40px; color: #888;
+  }
+
+  .toast {
+    position: fixed; bottom: 20px; left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #16a34a; color: #fff;
+    padding: 12px 22px; border-radius: 8px;
+    font-size: 14px; font-weight: 600;
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s, transform .25s;
+    z-index: 100;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast.error { background: #dc2626; }
+</style>
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lock">
+  <div class="box">
+    <div class="lock-icon">🔒</div>
+    <h1>Match Selector</h1>
+    <p>Enter your access token to continue.</p>
+    <input type="password" id="tokenInput" placeholder="Paste token" autocomplete="off">
+    <button id="unlockBtn">Unlock</button>
+    <div class="err" id="errMsg">Invalid token. Try again.</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="app">
+  <div class="topbar">
+    <h1>Match Selector</h1>
+    <button class="logout" id="logoutBtn">Lock</button>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="Search team or league…">
+    <button class="btn-sec" id="selectAllBtn">Select all</button>
+    <button class="btn-sec" id="clearBtn">Clear</button>
+    <button class="btn-save" id="saveBtn">Save</button>
+  </div>
+
+  <div id="content"><div class="loading">Loading…</div></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ------------------------------------------------------------------
+// CONFIG
+// ------------------------------------------------------------------
+const REPO_OWNER = "livepagesmaster";
+const REPO_NAME  = "football-worker";
+const BRANCH     = "main";
+
+const MATCHES_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/data/all-matches.json`;
+const SELECTED_PATH = "data/selected.json";
+const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${SELECTED_PATH}`;
+
+const TOKEN_KEY = "gh_token_fw";
+// ------------------------------------------------------------------
+
+let allMatches = [];
+let selectedIds = new Set();
+
+// ============ HELPERS ============
+function getToken() {
+  return localStorage.getItem(TOKEN_KEY) || "";
+}
+function setToken(t) {
+  localStorage.setItem(TOKEN_KEY, t);
+}
+function clearToken() {
+  localStorage.removeItem(TOKEN_KEY);
+}
+
+function toast(msg, isError = false) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.toggle("error", isError);
+  t.classList.add("show");
+  clearTimeout(t._tid);
+  t._tid = setTimeout(() => t.classList.remove("show"), 2400);
+}
+
+function formatTime(iso) {
+  if (!iso) return "";
+  try {
+    const d = new Date(iso);
+    return d.toLocaleString([], {
+      month: "short", day: "numeric",
+      hour: "2-digit", minute: "2-digit"
+    });
+  } catch { return ""; }
+}
+
+function escapeHtml(s) {
+  if (s == null) return "";
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+
+// ============ VERIFY TOKEN ============
+async function verifyToken(token) {
+  // Lightweight check: read the repo with this token.
+  try {
+    const r = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    if (!r.ok) return false;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// ============ UNLOCK / LOCK ============
+async function unlock() {
+  const input = document.getElementById("tokenInput");
+  const btn = document.getElementById("unlockBtn");
+  const err = document.getElementById("errMsg");
+  const token = input.value.trim();
+
+  if (!token) { err.textContent = "Enter a token."; err.style.display = "block"; return; }
+
+  btn.disabled = true;
+  btn.textContent = "Checking…";
+  err.style.display = "none";
+
+  const ok = await verifyToken(token);
+  btn.disabled = false;
+  btn.textContent = "Unlock";
+
+  if (!ok) {
+    err.textContent = "Invalid token. Try again.";
+    err.style.display = "block";
+    return;
+  }
+
+  setToken(token);
+  showDashboard();
+}
+
+function showDashboard() {
+  document.getElementById("lock").style.display = "none";
+  document.getElementById("app").style.display = "block";
+  init();
+}
+
+function lock() {
+  clearToken();
+  document.getElementById("app").style.display = "none";
+  document.getElementById("lock").style.display = "flex";
+  document.getElementById("tokenInput").value = "";
+  document.getElementById("errMsg").style.display = "none";
+}
+
+// ============ DATA LOAD ============
+async function loadAll() {
+  const r = await fetch(MATCHES_URL + "?t=" + Date.now());
+  const j = await r.json();
+  allMatches = Array.isArray(j.matches) ? j.matches : [];
+}
+
+async function loadSelected() {
+  try {
+    const r = await fetch(
+      `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${SELECTED_PATH}?t=${Date.now()}`
+    );
+    if (!r.ok) return;
+    const j = await r.json();
+    const sel = j.matches || [];
+    selectedIds = new Set(sel.map(m => String(m.event_id)));
+  } catch {}
+}
+
+// ============ RENDER ============
+function render() {
+  const q = document.getElementById("search").value.trim().toLowerCase();
+  const filtered = allMatches.filter(m => {
+    if (!q) return true;
+    const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
+    return hay.includes(q);
+  });
+
+  const content = document.getElementById("content");
+
+  if (!allMatches.length) {
+    content.innerHTML = `<div class="empty">No matches available yet.<br>The scraper hasn't produced any data.</div>`;
+    return;
+  }
+  if (!filtered.length) {
+    content.innerHTML = `<div class="empty">No matches match your search.</div>`;
+    return;
+  }
+
+  // Group by league
+  const groups = {};
+  for (const m of filtered) {
+    const lg = m.league || "Other";
+    (groups[lg] = groups[lg] || []).push(m);
+  }
+
+  const html = Object.keys(groups).sort().map(lg => {
+    const list = groups[lg];
+    const rows = list.map(m => {
+      const checked = selectedIds.has(String(m.event_id)) ? "checked" : "";
+      return `
+        <label class="match">
+          <input type="checkbox" ${checked}
+                 data-eid="${escapeHtml(String(m.event_id))}"
+                 onchange="toggleMatch(this)">
+          <div class="teams">
+            <div class="names">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
+            <div class="sub">${escapeHtml(m.start || "")}</div>
+          </div>
+          <div class="time">${escapeHtml(formatTime(m.start))}</div>
+        </label>
+      `;
+    }).join("");
+    return `
+      <div class="group">
+        <div class="group-header">
+          <span>${escapeHtml(lg)}</span>
+          <span class="count">${list.length}</span>
+        </div>
+        ${rows}
+      </div>
+    `;
+  }).join("");
+
+  content.innerHTML = html;
+}
+
+function toggleMatch(cb) {
+  const eid = String(cb.getAttribute("data-eid"));
+  if (cb.checked) selectedIds.add(eid);
+  else selectedIds.delete(eid);
+}
+
+// ============ SAVE ============
+async function saveSelection() {
+  const token = getToken();
+  if (!token) { lock(); return; }
+
+  const btn = document.getElementById("saveBtn");
+  btn.disabled = true;
+  btn.textContent = "Saving…";
+
+  // Build the selected array — full match objects, not just IDs.
+  const selectedMatches = allMatches.filter(m =>
+    selectedIds.has(String(m.event_id))
+  );
+
+  const payload = {
+    matches: selectedMatches,
+    updated_at: new Date().toISOString(),
+  };
+  const content = btoa(unescape(encodeURIComponent(
+    JSON.stringify(payload, null, 2)
+  )));
+
+  // Get current SHA
+  let sha = undefined;
+  try {
+    const r = await fetch(`${API_BASE}?ref=${BRANCH}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    if (r.ok) {
+      const j = await r.json();
+      sha = j.sha;
+    }
+  } catch {}
+
+  const body = {
+    message: "Update selection",
+    content,
+    branch: BRANCH,
+    ...(sha ? { sha } : {}),
+  };
+
+  try {
+    const r = await fetch(API_BASE, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (r.ok) {
+      toast("Saved — widget will update shortly");
+    } else if (r.status === 401 || r.status === 403) {
+      toast("Token no longer valid", true);
+      lock();
+    } else {
+      const err = await r.text();
+      console.error(err);
+      toast("Save failed", true);
+    }
+  } catch (e) {
+    console.error(e);
+    toast("Save failed — network error", true);
+  }
+
+  btn.disabled = false;
+  btn.textContent = "Save";
+}
+
+// ============ INIT ============
+async function init() {
+  document.getElementById("content").innerHTML =
+    `<div class="loading">Loading matches…</div>`;
+
+  try {
+    await loadSelected();
+    await loadAll();
+  } catch (e) {
+    console.error(e);
+    document.getElementById("content").innerHTML =
+      `<div class="empty">Failed to load matches.</div>`;
+    return;
+  }
+
+  render();
+}
+
+// ============ WIRE UP ============
+document.getElementById("unlockBtn").addEventListener("click", unlock);
+document.getElementById("tokenInput").addEventListener("keydown", e => {
+  if (e.key === "Enter") unlock();
+});
+document.getElementById("logoutBtn").addEventListener("click", lock);
+document.getElementById("search").addEventListener("input", render);
+document.getElementById("saveBtn").addEventListener("click", saveSelection);
+
+document.getElementById("selectAllBtn").addEventListener("click", () => {
+  document.querySelectorAll('#content input[type=checkbox]').forEach(cb => {
+    if (!cb.checked) {
+      cb.checked = true;
+      toggleMatch(cb);
+    }
+  });
+});
+document.getElementById("clearBtn").addEventListener("click", () => {
+  document.querySelectorAll('#content input[type=checkbox]').forEach(cb => {
+    if (cb.checked) {
+      cb.checked = false;
+      toggleMatch(cb);
+    }
+  });
+});
+
+// Auto-unlock if token already stored
+(async () => {
+  const t = getToken();
+  if (!t) return;
+  const ok = await verifyToken(t);
+  if (ok) showDashboard();
+  else clearToken();
+})();
+</script>
+</body>
+</html>
