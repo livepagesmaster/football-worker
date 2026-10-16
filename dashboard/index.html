@@ -11,17 +11,11 @@
     background: #f5f5f7; color: #222;
     min-height: 100vh;
   }
-
-  /* ---------- LOCK SCREEN ---------- */
-  #lock {
-    display: flex; align-items: center; justify-content: center;
-    min-height: 100vh; padding: 20px;
-  }
+  #lock { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
   #lock .box {
     background: #fff; border: 1px solid #e0e0e0; border-radius: 14px;
     padding: 32px 28px; max-width: 400px; width: 100%;
-    box-shadow: 0 8px 30px rgba(0,0,0,.06);
-    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,.06); text-align: center;
   }
   #lock .lock-icon { font-size: 40px; margin-bottom: 12px; }
   #lock h1 { font-size: 20px; margin-bottom: 6px; font-weight: 700; }
@@ -33,19 +27,13 @@
   }
   #lock input:focus { border-color: #2563eb; }
   #lock button {
-    width: 100%; margin-top: 12px;
-    padding: 12px; border: none; border-radius: 8px;
-    background: #2563eb; color: #fff;
-    font-size: 14px; font-weight: 700; cursor: pointer;
+    width: 100%; margin-top: 12px; padding: 12px; border: none; border-radius: 8px;
+    background: #2563eb; color: #fff; font-size: 14px; font-weight: 700; cursor: pointer;
   }
   #lock button:hover { background: #1d4ed8; }
   #lock button:disabled { background: #93b3f5; cursor: wait; }
-  #lock .err {
-    display: none; margin-top: 12px;
-    font-size: 13px; color: #dc2626;
-  }
+  #lock .err { display: none; margin-top: 12px; font-size: 13px; color: #dc2626; }
 
-  /* ---------- DASHBOARD ---------- */
   #app { display: none; padding: 20px; max-width: 900px; margin: 0 auto; }
   #app .topbar {
     display: flex; justify-content: space-between; align-items: center;
@@ -71,59 +59,35 @@
   }
   #app .logout:hover { background: #d1d5db; }
 
-  /* ---------- SEARCH HERO ---------- */
   .search-hero {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 14px;
-    padding: 20px;
-    margin-bottom: 16px;
+    background: #fff; border: 1px solid #e0e0e0; border-radius: 14px;
+    padding: 20px; margin-bottom: 16px;
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
   }
   .search-hero input {
-    width: 100%;
-    padding: 14px 18px;
-    border: 2px solid #dbeafe;
-    border-radius: 12px;
-    font-size: 16px;
-    font-family: inherit;
-    outline: none;
-    transition: border-color .15s;
-    background: #f8fbff;
+    width: 100%; padding: 14px 18px;
+    border: 2px solid #dbeafe; border-radius: 12px;
+    font-size: 16px; font-family: inherit; outline: none;
+    transition: border-color .15s; background: #f8fbff;
   }
-  .search-hero input:focus {
-    border-color: #2563eb;
-    background: #fff;
-  }
+  .search-hero input:focus { border-color: #2563eb; background: #fff; }
   .search-hero .hint {
-    font-size: 12px;
-    color: #888;
-    margin-top: 10px;
-    text-align: center;
+    font-size: 12px; color: #888; margin-top: 10px; text-align: center;
   }
 
-  /* ---------- QUICK FILTERS ---------- */
-  .filters {
-    display: flex; flex-wrap: wrap; gap: 8px;
-    margin-bottom: 16px;
-  }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
   .filters button {
     padding: 8px 14px; border-radius: 8px;
     font-size: 13px; font-weight: 600; cursor: pointer;
-    border: 1px solid #e0e0e0;
-    background: #fff;
-    color: #444;
+    border: 1px solid #e0e0e0; background: #fff; color: #444;
   }
   .filters button:hover { background: #f9fafb; border-color: #ccc; }
-  .filters button.active {
-    background: #2563eb; color: #fff; border-color: #2563eb;
-  }
+  .filters button.active { background: #2563eb; color: #fff; border-color: #2563eb; }
 
   .toolbar {
     position: sticky; top: 0; z-index: 10;
-    background: #fff; border: 1px solid #e0e0e0;
-    border-radius: 10px; padding: 10px 12px;
-    margin-bottom: 14px;
+    background: #fff; border: 1px solid #e0e0e0; border-radius: 10px;
+    padding: 10px 12px; margin-bottom: 14px;
     display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
   }
@@ -132,21 +96,15 @@
     font-size: 13px; font-weight: 600; color: #444;
     user-select: none; cursor: pointer;
   }
-  .toolbar .toggle input {
-    width: 16px; height: 16px; accent-color: #2563eb; cursor: pointer;
-  }
+  .toolbar .toggle input { width: 16px; height: 16px; accent-color: #2563eb; cursor: pointer; }
   .toolbar button {
     padding: 8px 14px; border: none; border-radius: 8px;
     font-size: 13px; font-weight: 600; cursor: pointer;
-    margin-left: auto;
   }
-  .toolbar .btn-save {
-    background: #16a34a; color: #fff; margin-left: auto;
-  }
+  .toolbar .btn-save { background: #16a34a; color: #fff; margin-left: auto; }
   .toolbar .btn-save:hover { background: #15803d; }
   .toolbar .btn-save:disabled { background: #86d0a2; cursor: wait; }
 
-  /* ---------- RESULT GROUPS ---------- */
   .group {
     background: #fff; border: 1px solid #e0e0e0;
     border-radius: 10px; margin-bottom: 10px; overflow: hidden;
@@ -156,12 +114,8 @@
     background: #f9fafb; border-bottom: 1px solid #eee;
     display: flex; justify-content: space-between; align-items: center;
   }
-  .group-header .left {
-    display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1;
-  }
-  .group-header .name {
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
+  .group-header .left { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1; }
+  .group-header .name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .group-header .badges { display: flex; gap: 6px; flex-shrink: 0; }
   .badge {
     font-size: 11px; font-weight: 700;
@@ -186,18 +140,10 @@
     font-weight: 500;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .match .teams .sub {
-    font-size: 11px; color: #999; margin-top: 2px;
-  }
-  .match .time {
-    font-size: 12px; color: #666; flex-shrink: 0;
-    white-space: nowrap;
-  }
+  .match .teams .sub { font-size: 11px; color: #999; margin-top: 2px; }
+  .match .time { font-size: 12px; color: #666; flex-shrink: 0; white-space: nowrap; }
 
-  .empty {
-    text-align: center; padding: 60px 20px; color: #999;
-    font-size: 14px;
-  }
+  .empty { text-align: center; padding: 60px 20px; color: #999; font-size: 14px; }
   .loading { text-align: center; padding: 40px; color: #888; }
 
   .toast {
@@ -213,7 +159,6 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .toast.error { background: #dc2626; }
 
-  /* ---------- MODAL ---------- */
   .modal-backdrop {
     display: none; position: fixed; inset: 0;
     background: rgba(0,0,0,.45); z-index: 200;
@@ -348,8 +293,6 @@ const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/conten
 
 const TOKEN_KEY = "gh_token_fw";
 
-// Quick-filter chips: pinned at the top of the dashboard. Click to search.
-// Search runs on team + league names, so these just trigger the search box.
 const QUICK_LEAGUES = [
   "Champions League",
   "Premier League",
@@ -363,15 +306,13 @@ const QUICK_LEAGUES = [
   "MLS",
 ];
 
-// Hide any league name containing these (case-insensitive).
 const WOMEN_KEYWORDS = ["women", "wsl", "nwsl", "(w)", " w ", "femminile", "féminine", "femenina"];
 // ==================================================================
 
 let allMatches = [];
 let selectedIds = new Set();
-let quickFilter = "";     // active quick-filter chip value
+let quickFilter = "";
 
-// ============ HELPERS ============
 function getToken() { return localStorage.getItem(TOKEN_KEY) || ""; }
 function setToken(t) { localStorage.setItem(TOKEN_KEY, t); }
 function clearToken() { localStorage.removeItem(TOKEN_KEY); }
@@ -407,7 +348,6 @@ function isWomenLeague(name) {
   return WOMEN_KEYWORDS.some(k => lower.includes(k));
 }
 
-// ============ TOKEN VERIFY ============
 async function verifyToken(token) {
   try {
     const r = await fetch(
@@ -418,7 +358,6 @@ async function verifyToken(token) {
   } catch { return false; }
 }
 
-// ============ UNLOCK / LOCK ============
 async function unlock() {
   const input = document.getElementById("tokenInput");
   const btn = document.getElementById("unlockBtn");
@@ -449,7 +388,6 @@ function lock() {
   document.getElementById("errMsg").style.display = "none";
 }
 
-// ============ DATA ============
 async function loadAll() {
   const r = await fetch(MATCHES_URL + "?t=" + Date.now());
   const j = await r.json();
@@ -468,12 +406,10 @@ async function loadSelected() {
   } catch {}
 }
 
-// ============ QUICK FILTERS ============
 function buildQuickFilters() {
   const wrap = document.getElementById("filters");
   const available = new Set(allMatches.map(m => m.league || "").filter(Boolean));
 
-  // Only show chips whose league actually exists in the feed.
   const visible = QUICK_LEAGUES.filter(name => {
     const lower = name.toLowerCase();
     for (const lg of available) {
@@ -493,9 +429,7 @@ function buildQuickFilters() {
     btn.addEventListener("click", () => {
       const val = btn.getAttribute("data-val");
       quickFilter = val;
-      // When chip is clicked, also fill the search box so user sees what's happening
       document.getElementById("search").value = val;
-      // Update active chip
       wrap.querySelectorAll("button").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       render();
@@ -503,18 +437,15 @@ function buildQuickFilters() {
   });
 }
 
-// ============ RENDER ============
 function render() {
   const q = document.getElementById("search").value.trim().toLowerCase();
   const onlySelected = document.getElementById("onlySelected").checked;
   const content = document.getElementById("content");
 
-  // If nothing in search and no chip and no filter — show placeholder
   const searching = q.length > 0;
 
   let list = allMatches;
 
-  // Filter by search text
   if (searching) {
     list = list.filter(m => {
       const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
@@ -522,7 +453,6 @@ function render() {
     });
   }
 
-  // Hide women's leagues unless the user explicitly searched for them
   if (!searching || !/women|wsl|nwsl|femminile|féminine|femenina/i.test(q)) {
     list = list.filter(m => !isWomenLeague(m.league || ""));
   }
@@ -543,12 +473,10 @@ function render() {
     return;
   }
 
-  // Cap the number of results to keep the page responsive
   const MAX_RESULTS = 300;
   const truncated = list.length > MAX_RESULTS;
   const showList = truncated ? list.slice(0, MAX_RESULTS) : list;
 
-  // Group by league
   const groups = {};
   for (const m of showList) {
     const lg = m.league || "Other";
@@ -566,7 +494,17 @@ function render() {
     const lgMatches = groups[lg];
     const selectedCount = lgMatches.filter(m => selectedIds.has(String(m.event_id))).length;
 
-    const rows = lgMatches.map(m => {
+    // >>> Sort matches inside this group by start time (earliest first) <<<
+    const sortedMatches = [...lgMatches].sort((a, b) => {
+      const ta = new Date(a.start || 0).getTime();
+      const tb = new Date(b.start || 0).getTime();
+      if (isNaN(ta) && isNaN(tb)) return 0;
+      if (isNaN(ta)) return 1;
+      if (isNaN(tb)) return -1;
+      return ta - tb;
+    });
+
+    const rows = sortedMatches.map(m => {
       const checked = selectedIds.has(String(m.event_id)) ? "checked" : "";
       return `
         <label class="match">
@@ -624,7 +562,6 @@ function updateMySelButton() {
   document.getElementById("mySelBtn").textContent = `My Selection (${selectedIds.size})`;
 }
 
-// ============ MODAL ============
 function openModal() {
   const picked = allMatches.filter(m => selectedIds.has(String(m.event_id)));
 
@@ -636,7 +573,17 @@ function openModal() {
   if (!picked.length) {
     body.innerHTML = `<div class="modal-empty">No matches selected yet.<br>Use the search to find matches and tick them.</div>`;
   } else {
-    body.innerHTML = picked.map(m => `
+    // Also sort modal picks by date
+    const sorted = [...picked].sort((a, b) => {
+      const ta = new Date(a.start || 0).getTime();
+      const tb = new Date(b.start || 0).getTime();
+      if (isNaN(ta) && isNaN(tb)) return 0;
+      if (isNaN(ta)) return 1;
+      if (isNaN(tb)) return -1;
+      return ta - tb;
+    });
+
+    body.innerHTML = sorted.map(m => `
       <div class="sel-item">
         <div class="sel-info">
           <div class="sel-teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
@@ -673,7 +620,6 @@ function clearAllSelection() {
   toast("Cleared — click Save to apply");
 }
 
-// ============ SAVE ============
 async function saveSelection() {
   const token = getToken();
   if (!token) { lock(); return; }
@@ -717,7 +663,6 @@ async function saveSelection() {
   btn.disabled = false; btn.textContent = "Save";
 }
 
-// ============ INIT ============
 async function init() {
   document.getElementById("content").innerHTML = `<div class="loading">Loading matches…</div>`;
   try {
@@ -731,14 +676,10 @@ async function init() {
 
   buildQuickFilters();
   updateMySelButton();
-
-  // Focus the search box
   setTimeout(() => document.getElementById("search").focus(), 100);
-
   render();
 }
 
-// ============ WIRE UP ============
 document.getElementById("unlockBtn").addEventListener("click", unlock);
 document.getElementById("tokenInput").addEventListener("keydown", e => { if (e.key === "Enter") unlock(); });
 document.getElementById("logoutBtn").addEventListener("click", lock);
