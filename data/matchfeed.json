@@ -16,6 +16,23 @@
       "endTime": 2.2,
       "type": "Champions League",
       "redirectUrl": "#"
+    },
+    {
+      "team1": {
+        "name": "Real Betis",
+        "img": "https://img.singhs.com.np/team/8603.png",
+        "code": "REA"
+      },
+      "team2": {
+        "name": "Barcelona",
+        "img": "https://img.singhs.com.np/team/8634.png",
+        "code": "BAR"
+      },
+      "time": "26/10/17 22:15:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "LaLiga",
+      "redirectUrl": "#"
     }
   ]
 }
