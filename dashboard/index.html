@@ -372,9 +372,6 @@ const MATCHES_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME
 const SELECTED_PATH = "data/selected.json";
 const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${SELECTED_PATH}`;
 
-// Worker cache purge endpoint — called after Save so the widget updates instantly
-const WORKER_REFRESH_URL = "https://matchfeed-proxy.norilsk-rs.workers.dev/refresh";
-
 const TOKEN_KEY = "gh_token_fw";
 
 const QUICK_LEAGUES = [
@@ -903,19 +900,7 @@ async function saveSelection() {
     });
     if (r.ok) {
       pendingSave = false;
-      toast("Saved — refreshing widget…");
-
-      // Ping the Worker to purge its cache immediately
-      try {
-        await fetch(WORKER_REFRESH_URL + "?t=" + Date.now(), {
-          method: "GET",
-          cache: "no-store",
-        });
-        toast("Saved — widget updated");
-      } catch (e) {
-        console.warn("Worker refresh ping failed:", e);
-        toast("Saved — widget will update within a minute");
-      }
+      toast("Saved — widget will update within a minute");
     } else if (r.status === 401 || r.status === 403) {
       toast("Token no longer valid", true); lock();
     } else {
