@@ -52,12 +52,18 @@
     margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
   }
   #app h1 { font-size: 20px; font-weight: 800; }
-  #app .topbar-right { display: flex; gap: 8px; align-items: center; }
+  #app .topbar-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
   #app .counter {
     font-size: 13px; font-weight: 700; color: #2563eb;
     background: #eff6ff; padding: 6px 14px; border-radius: 8px;
     border: 1px solid #dbeafe;
   }
+  #app .my-sel-btn {
+    font-size: 13px; font-weight: 700; color: #fff;
+    background: #7c3aed; padding: 6px 14px; border-radius: 8px;
+    border: none; cursor: pointer;
+  }
+  #app .my-sel-btn:hover { background: #6d28d9; }
   #app .logout {
     padding: 6px 14px; font-size: 12px; font-weight: 600;
     background: #e5e7eb; border: none; border-radius: 6px;
@@ -83,7 +89,7 @@
     padding: 9px 12px; border: 1px solid #ddd;
     border-radius: 8px; font-size: 13px; outline: none;
     background: #fff; cursor: pointer;
-    max-width: 220px;
+    max-width: 260px;
   }
   .toolbar select:focus { border-color: #2563eb; }
   .toolbar button {
@@ -105,7 +111,6 @@
     width: 16px; height: 16px; accent-color: #2563eb; cursor: pointer;
   }
 
-  /* ---------- SECTION LABELS ---------- */
   .section-label {
     font-size: 11px; font-weight: 700;
     text-transform: uppercase; letter-spacing: .8px;
@@ -118,7 +123,6 @@
   }
   .section-label:first-child { margin-top: 4px; }
 
-  /* ---------- LEAGUE GROUPS ---------- */
   .group {
     background: #fff; border: 1px solid #e0e0e0;
     border-radius: 10px; margin-bottom: 10px; overflow: hidden;
@@ -157,12 +161,8 @@
   .badge-selected {
     background: #dcfce7; color: #16a34a;
   }
-  .group-body {
-    display: none;
-  }
-  .group.open .group-body {
-    display: block;
-  }
+  .group-body { display: none; }
+  .group.open .group-body { display: block; }
 
   .match {
     display: flex; align-items: center; gap: 10px;
@@ -209,6 +209,77 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .toast.error { background: #dc2626; }
 
+  /* ---------- MODAL ---------- */
+  .modal-backdrop {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 200;
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .modal-backdrop.open { display: flex; }
+  .modal {
+    background: #fff; border-radius: 14px;
+    max-width: 640px; width: 100%;
+    max-height: 85vh;
+    display: flex; flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  }
+  .modal-head {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .modal-head h2 { font-size: 17px; font-weight: 800; }
+  .modal-head .close {
+    background: #f0f0f0; border: none; border-radius: 6px;
+    width: 30px; height: 30px; font-size: 18px; cursor: pointer;
+    color: #555;
+  }
+  .modal-head .close:hover { background: #e0e0e0; }
+  .modal-body {
+    overflow-y: auto; padding: 12px 20px 20px;
+    flex: 1;
+  }
+  .sel-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .sel-item:last-child { border-bottom: none; }
+  .sel-item .sel-info { flex: 1; min-width: 0; }
+  .sel-item .sel-teams {
+    font-size: 14px; font-weight: 500;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .sel-item .sel-meta {
+    font-size: 11px; color: #999; margin-top: 2px;
+  }
+  .sel-item .remove {
+    background: #fee2e2; color: #b91c1c;
+    border: none; border-radius: 6px;
+    padding: 6px 10px; font-size: 12px; font-weight: 700;
+    cursor: pointer; flex-shrink: 0;
+  }
+  .sel-item .remove:hover { background: #fecaca; }
+  .modal-empty {
+    text-align: center; padding: 40px 20px; color: #999;
+    font-size: 14px;
+  }
+  .modal-foot {
+    padding: 12px 20px; border-top: 1px solid #eee;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: #666;
+  }
+  .modal-foot .danger {
+    background: #fee2e2; color: #b91c1c;
+    border: none; border-radius: 6px;
+    padding: 8px 14px; font-weight: 700; font-size: 13px;
+    cursor: pointer;
+  }
+  .modal-foot .danger:hover { background: #fecaca; }
+
   @media (max-width: 600px) {
     .toolbar select { max-width: 100%; }
     #app { padding: 12px; }
@@ -235,14 +306,15 @@
     <h1>Match Selector</h1>
     <div class="topbar-right">
       <span class="counter" id="counter">Selected: 0 of 0</span>
+      <button class="my-sel-btn" id="mySelBtn">My Selection (0)</button>
       <button class="logout" id="logoutBtn">Lock</button>
     </div>
   </div>
 
   <div class="toolbar">
-    <input type="text" id="search" placeholder="Search team or league…">
+    <input type="text" id="search" placeholder="Search team or league… (shows all leagues)">
     <select id="leagueFilter">
-      <option value="">All leagues</option>
+      <option value="">Default leagues</option>
     </select>
     <label class="toggle">
       <input type="checkbox" id="onlySelected">
@@ -254,6 +326,21 @@
   </div>
 
   <div id="content"><div class="loading">Loading…</div></div>
+</div>
+
+<!-- MY SELECTION MODAL -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="modalTitle">My Selection (0)</h2>
+      <button class="close" id="modalClose">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot">
+      <span id="modalFootLeft">0 matches selected</span>
+      <button class="danger" id="modalClearBtn">Clear all</button>
+    </div>
+  </div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -272,36 +359,33 @@ const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/conten
 
 const TOKEN_KEY = "gh_token_fw";
 
-// Top leagues — ranked by global popularity. Fuzzy matched (contains).
-const TOP_LEAGUES = [
-  "Champions League",
-  "World Cup",
-  "Euro",
-  "Premier League",
-  "La Liga",
-  "Serie A",
-  "Bundesliga",
-  "Ligue 1",
-  "Europa League",
-  "Copa Libertadores",
-  "Copa Sudamericana",
-  "Liga MX",
-  "MLS",
-  "Brasileirão",
-  "Liga Portugal",
-  "Eredivisie",
-  "FA Cup",
-  "Copa del Rey",
-  "Coppa Italia",
-  "DFB Pokal",
+// Whitelist — only these leagues show by default.
+// Matched by full league name (exact, case-insensitive). Country shown in parens.
+const DEFAULT_LEAGUES = [
+  { name: "Champions League",  country: "Europe"       },
+  { name: "Premier League",    country: "England"      },
+  { name: "Bundesliga",        country: "Germany"      },
+  { name: "LaLiga",            country: "Spain"        },
+  { name: "La Liga",           country: "Spain"        },
+  { name: "Serie A",           country: "Italy"        },  // but may collide with Brazil — see below
+  { name: "Ligue 1",           country: "France"       },
+  { name: "Liga Portugal",     country: "Portugal"     },
+  { name: "Primeira Liga",     country: "Portugal"     },
+  { name: "Brasileirão",       country: "Brazil"       },
+  { name: "Saudi Pro League",  country: "Saudi Arabia" },
+  { name: "MLS",               country: "USA"          },
+  { name: "Major League Soccer", country: "USA"        },
 ];
+
+// Hide any league with these words (case-insensitive) from the default view.
+const WOMEN_KEYWORDS = ["women", "wsl", "nwsl", "(w)", " w ", "femminile", "féminine"];
+
 // ------------------------------------------------------------------
 
 let allMatches = [];
 let selectedIds = new Set();
-let groups = {};
-let priorityOrder = {};
-let openGroups = new Set();
+let leagueSet = new Set();     // every league name in the feed
+let defaultLeagues = new Set(); // league names that pass the whitelist + women filter
 
 // ============ HELPERS ============
 function getToken() { return localStorage.getItem(TOKEN_KEY) || ""; }
@@ -332,6 +416,28 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   }[c]));
+}
+
+// ============ LEAGUE MATCHING ============
+function isWomenLeague(name) {
+  const lower = name.toLowerCase();
+  return WOMEN_KEYWORDS.some(k => lower.includes(k));
+}
+
+function findDefaultConfig(leagueName) {
+  const lower = leagueName.toLowerCase();
+  return DEFAULT_LEAGUES.find(cfg => cfg.name.toLowerCase() === lower) || null;
+}
+
+function labelLeague(leagueName) {
+  const cfg = findDefaultConfig(leagueName);
+  if (cfg) return `${leagueName} (${cfg.country})`;
+  return leagueName;
+}
+
+function isDefaultLeague(leagueName) {
+  if (isWomenLeague(leagueName)) return false;
+  return !!findDefaultConfig(leagueName);
 }
 
 // ============ VERIFY TOKEN ============
@@ -398,72 +504,64 @@ async function loadSelected() {
   } catch {}
 }
 
-// ============ GROUPING & PRIORITY ============
-function buildGroups() {
-  groups = {};
+function computeLeagueSets() {
+  leagueSet = new Set();
+  defaultLeagues = new Set();
   for (const m of allMatches) {
     const lg = m.league || "Other";
-    (groups[lg] = groups[lg] || []).push(m);
+    leagueSet.add(lg);
+    if (isDefaultLeague(lg)) defaultLeagues.add(lg);
   }
-
-  priorityOrder = {};
-  for (const lg of Object.keys(groups)) {
-    const lgLower = lg.toLowerCase();
-    let rank = Infinity;
-    for (let i = 0; i < TOP_LEAGUES.length; i++) {
-      const needle = TOP_LEAGUES[i].toLowerCase();
-      if (lgLower.includes(needle)) { rank = i; break; }
-    }
-    priorityOrder[lg] = rank;
-  }
-}
-
-// Sorts top leagues by rank, then others with letters before digits.
-function sortedTopLeagues() {
-  return Object.keys(groups)
-    .filter(n => priorityOrder[n] !== Infinity)
-    .sort((a, b) => priorityOrder[a] - priorityOrder[b]);
-}
-
-function sortedOtherLeagues() {
-  return Object.keys(groups)
-    .filter(n => priorityOrder[n] === Infinity)
-    .sort((a, b) => {
-      const aStartsDigit = /^[0-9]/.test(a);
-      const bStartsDigit = /^[0-9]/.test(b);
-      if (aStartsDigit !== bStartsDigit) return aStartsDigit ? 1 : -1;
-      return a.localeCompare(b);
-    });
-}
-
-function sortedLeagueNames() {
-  return [...sortedTopLeagues(), ...sortedOtherLeagues()];
 }
 
 function populateLeagueDropdown() {
   const sel = document.getElementById("leagueFilter");
-  const top = sortedTopLeagues();
-  const other = sortedOtherLeagues();
 
-  let html = `<option value="">All leagues</option>`;
-  if (top.length) {
-    html += `<optgroup label="Top leagues">`;
-    html += top.map(n =>
-      `<option value="${escapeHtml(n)}">${escapeHtml(n)} (${groups[n].length})</option>`
+  // Default leagues first (in whitelist order), then others alphabetically.
+  const defaults = DEFAULT_LEAGUES
+    .map(c => c.name)
+    .filter(n => leagueSet.has(n) && !isWomenLeague(n));
+
+  const others = [...leagueSet]
+    .filter(n => !defaults.includes(n))
+    .sort((a, b) => {
+      const aD = /^[0-9]/.test(a);
+      const bD = /^[0-9]/.test(b);
+      if (aD !== bD) return aD ? 1 : -1;
+      return a.localeCompare(b);
+    });
+
+  let html = `<option value="__default__">Default leagues (${defaults.length})</option>`;
+  html += `<option value="__all__">All leagues</option>`;
+
+  if (defaults.length) {
+    html += `<optgroup label="Top">`;
+    html += defaults.map(n =>
+      `<option value="${escapeHtml(n)}">${escapeHtml(labelLeague(n))}</option>`
     ).join("");
     html += `</optgroup>`;
   }
-  if (other.length) {
+  if (others.length) {
     html += `<optgroup label="Other leagues">`;
-    html += other.map(n =>
-      `<option value="${escapeHtml(n)}">${escapeHtml(n)} (${groups[n].length})</option>`
+    html += others.map(n =>
+      `<option value="${escapeHtml(n)}">${escapeHtml(labelLeague(n))}</option>`
     ).join("");
     html += `</optgroup>`;
   }
+
   sel.innerHTML = html;
 }
 
 // ============ RENDER ============
+function groupMatches(matches) {
+  const g = {};
+  for (const m of matches) {
+    const lg = m.league || "Other";
+    (g[lg] = g[lg] || []).push(m);
+  }
+  return g;
+}
+
 function render() {
   const q = document.getElementById("search").value.trim().toLowerCase();
   const leagueFilter = document.getElementById("leagueFilter").value;
@@ -472,28 +570,68 @@ function render() {
   const content = document.getElementById("content");
 
   if (!allMatches.length) {
-    content.innerHTML = `<div class="empty">No matches available yet.<br>The scraper hasn't produced any data.</div>`;
+    content.innerHTML = `<div class="empty">No matches available yet.</div>`;
     updateCounter();
     return;
   }
 
-  const renderGroup = (lg, isTop) => {
-    let list = groups[lg];
-    if (q) {
-      list = list.filter(m => {
-        const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
-        return hay.includes(q);
-      });
-    }
-    if (onlySelected) {
-      list = list.filter(m => selectedIds.has(String(m.event_id)));
-    }
-    if (!list.length) return "";
+  // Build filtered match list
+  let list = [...allMatches];
 
-    const selectedCount = list.filter(m => selectedIds.has(String(m.event_id))).length;
-    const isOpen = openGroups.has(lg);
+  // Search overrides the default filter
+  const searching = q.length > 0;
 
-    const rows = list.map(m => {
+  if (!searching) {
+    if (leagueFilter === "__default__" || leagueFilter === "") {
+      list = list.filter(m => defaultLeagues.has(m.league || "Other"));
+    } else if (leagueFilter === "__all__") {
+      // no filter
+    } else {
+      list = list.filter(m => (m.league || "Other") === leagueFilter);
+    }
+  } else {
+    // When searching, search across ALL leagues (men + women, whitelisted or not)
+    list = list.filter(m => {
+      const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
+      return hay.includes(q);
+    });
+  }
+
+  if (onlySelected) {
+    list = list.filter(m => selectedIds.has(String(m.event_id)));
+  }
+
+  if (!list.length) {
+    content.innerHTML = `<div class="empty">No matches match your filters.</div>`;
+    updateCounter();
+    return;
+  }
+
+  // Group by league
+  const groups = groupMatches(list);
+
+  // Sort league names: whitelisted first (in whitelist order), then rest alphabetically (digits last)
+  const whitelistOrder = {};
+  DEFAULT_LEAGUES.forEach((cfg, i) => {
+    whitelistOrder[cfg.name.toLowerCase()] = i;
+  });
+
+  const names = Object.keys(groups).sort((a, b) => {
+    const ra = whitelistOrder[a.toLowerCase()] ?? 9999;
+    const rb = whitelistOrder[b.toLowerCase()] ?? 9999;
+    if (ra !== rb) return ra - rb;
+    const aD = /^[0-9]/.test(a);
+    const bD = /^[0-9]/.test(b);
+    if (aD !== bD) return aD ? 1 : -1;
+    return a.localeCompare(b);
+  });
+
+  const html = names.map(lg => {
+    const lgMatches = groups[lg];
+    const selectedCount = lgMatches.filter(m => selectedIds.has(String(m.event_id))).length;
+    const label = labelLeague(lg);
+
+    const rows = lgMatches.map(m => {
       const checked = selectedIds.has(String(m.event_id)) ? "checked" : "";
       return `
         <label class="match">
@@ -514,60 +652,28 @@ function render() {
       : "";
 
     return `
-      <div class="group ${isOpen ? "open" : ""}" data-lg="${escapeHtml(lg)}">
-        <div class="group-header" onclick="toggleGroup('${escapeHtml(lg).replace(/'/g, "\\'")}')">
+      <div class="group open" data-lg="${escapeHtml(lg)}">
+        <div class="group-header" onclick="toggleGroup(this)">
           <div class="left">
             <span class="arrow">▶</span>
-            <span class="name">${escapeHtml(lg)}</span>
+            <span class="name">${escapeHtml(label)}</span>
           </div>
           <div class="badges">
             ${selectedBadge}
-            <span class="badge badge-total">${list.length}</span>
+            <span class="badge badge-total">${lgMatches.length}</span>
           </div>
         </div>
         <div class="group-body">${rows}</div>
       </div>
     `;
-  };
+  }).join("");
 
-  let html = "";
-
-  if (leagueFilter) {
-    // Single league chosen from dropdown
-    const lg = leagueFilter;
-    if (groups[lg]) {
-      html += renderGroup(lg, priorityOrder[lg] !== Infinity);
-    }
-  } else {
-    // Pinned section
-    const topLeagues = sortedTopLeagues();
-    if (topLeagues.length) {
-      const topHtml = topLeagues.map(lg => renderGroup(lg, true)).join("");
-      if (topHtml) {
-        html += `<div class="section-label">Top leagues</div>`;
-        html += topHtml;
-      }
-    }
-
-    // Others section
-    const otherLeagues = sortedOtherLeagues();
-    if (otherLeagues.length) {
-      const otherHtml = otherLeagues.map(lg => renderGroup(lg, false)).join("");
-      if (otherHtml) {
-        html += `<div class="section-label">All other leagues</div>`;
-        html += otherHtml;
-      }
-    }
-  }
-
-  content.innerHTML = html || `<div class="empty">No matches match your filters.</div>`;
+  content.innerHTML = html;
   updateCounter();
 }
 
-function toggleGroup(lg) {
-  if (openGroups.has(lg)) openGroups.delete(lg);
-  else openGroups.add(lg);
-  render();
+function toggleGroup(header) {
+  header.parentElement.classList.toggle("open");
 }
 
 function toggleMatch(cb) {
@@ -575,39 +681,70 @@ function toggleMatch(cb) {
   if (cb.checked) selectedIds.add(eid);
   else selectedIds.delete(eid);
   updateCounter();
-
-  const groupEl = cb.closest(".group");
-  if (groupEl) {
-    const lg = groupEl.getAttribute("data-lg");
-    const list = groups[lg].filter(m => {
-      const q = document.getElementById("search").value.trim().toLowerCase();
-      if (q) {
-        const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
-        if (!hay.includes(q)) return false;
-      }
-      return true;
-    });
-    const selCount = list.filter(m => selectedIds.has(String(m.event_id))).length;
-    const badge = groupEl.querySelector(".badge-selected");
-    if (selCount > 0) {
-      if (badge) badge.textContent = selCount + " selected";
-      else {
-        const container = groupEl.querySelector(".badges");
-        const el = document.createElement("span");
-        el.className = "badge badge-selected";
-        el.textContent = selCount + " selected";
-        container.insertBefore(el, container.firstChild);
-      }
-    } else if (badge) {
-      badge.remove();
-    }
-  }
+  updateMySelButton();
 }
 
 function updateCounter() {
   const total = allMatches.length;
   const sel = selectedIds.size;
   document.getElementById("counter").textContent = `Selected: ${sel} of ${total}`;
+}
+
+function updateMySelButton() {
+  const btn = document.getElementById("mySelBtn");
+  btn.textContent = `My Selection (${selectedIds.size})`;
+}
+
+// ============ MY SELECTION MODAL ============
+function openModal() {
+  const backdrop = document.getElementById("modalBackdrop");
+  const body = document.getElementById("modalBody");
+  const title = document.getElementById("modalTitle");
+  const foot = document.getElementById("modalFootLeft");
+
+  const picked = allMatches.filter(m => selectedIds.has(String(m.event_id)));
+
+  title.textContent = `My Selection (${picked.length})`;
+  foot.textContent = `${picked.length} match${picked.length === 1 ? "" : "es"} selected`;
+
+  if (!picked.length) {
+    body.innerHTML = `<div class="modal-empty">No matches selected yet.<br>Tick some from the list to add them here.</div>`;
+  } else {
+    body.innerHTML = picked.map(m => `
+      <div class="sel-item">
+        <div class="sel-info">
+          <div class="sel-teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
+          <div class="sel-meta">${escapeHtml(labelLeague(m.league || "Other"))} · ${escapeHtml(formatTime(m.start))}</div>
+        </div>
+        <button class="remove" onclick="removeFromSelection('${escapeHtml(String(m.event_id))}')">Remove</button>
+      </div>
+    `).join("");
+  }
+
+  backdrop.classList.add("open");
+}
+
+function closeModal() {
+  document.getElementById("modalBackdrop").classList.remove("open");
+}
+
+function removeFromSelection(eid) {
+  selectedIds.delete(String(eid));
+  updateCounter();
+  updateMySelButton();
+  openModal();     // re-render modal
+  render();        // update main list checkboxes
+}
+
+function clearAllSelection() {
+  if (!selectedIds.size) return;
+  if (!confirm(`Clear all ${selectedIds.size} selected matches?`)) return;
+  selectedIds.clear();
+  updateCounter();
+  updateMySelButton();
+  openModal();
+  render();
+  toast("Cleared — click Save to apply");
 }
 
 // ============ SAVE ============
@@ -687,12 +824,9 @@ async function init() {
     return;
   }
 
-  buildGroups();
+  computeLeagueSets();
   populateLeagueDropdown();
-
-  // Open top leagues by default
-  for (const n of sortedTopLeagues()) openGroups.add(n);
-
+  updateMySelButton();
   render();
 }
 
@@ -706,6 +840,14 @@ document.getElementById("search").addEventListener("input", render);
 document.getElementById("leagueFilter").addEventListener("change", render);
 document.getElementById("onlySelected").addEventListener("change", render);
 document.getElementById("saveBtn").addEventListener("click", saveSelection);
+document.getElementById("mySelBtn").addEventListener("click", openModal);
+document.getElementById("modalClose").addEventListener("click", closeModal);
+document.getElementById("modalClearBtn").addEventListener("click", clearAllSelection);
+
+// Close modal when clicking backdrop
+document.getElementById("modalBackdrop").addEventListener("click", e => {
+  if (e.target.id === "modalBackdrop") closeModal();
+});
 
 document.getElementById("selectAllBtn").addEventListener("click", () => {
   document.querySelectorAll('#content input[type=checkbox]').forEach(cb => {
@@ -713,13 +855,12 @@ document.getElementById("selectAllBtn").addEventListener("click", () => {
   });
 });
 
-document.getElementById("clearBtn").addEventListener("click", () => {
-  if (selectedIds.size === 0) { toast("Nothing to clear"); return; }
-  if (!confirm(`Clear all ${selectedIds.size} selected match${selectedIds.size === 1 ? "" : "es"}?`)) return;
-  selectedIds.clear();
-  render();
-  toast("Cleared — click Save to apply");
-});
+document.getElementById("clearBtn").addEventListener("click", clearAllSelection);
+
+// Expose functions to inline handlers
+window.toggleGroup = toggleGroup;
+window.toggleMatch = toggleMatch;
+window.removeFromSelection = removeFromSelection;
 
 // Auto-unlock if token already stored
 (async () => {
