@@ -38,3 +38,10 @@ jobs:
             git commit -m "Rebuild widget feed"
             git push
           fi
+          
+      - name: Upload matchfeed to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy data --project-name=football-feed
