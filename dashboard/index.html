@@ -111,18 +111,6 @@
     width: 16px; height: 16px; accent-color: #2563eb; cursor: pointer;
   }
 
-  .section-label {
-    font-size: 11px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .8px;
-    color: #888; margin: 20px 4px 8px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-label::before,
-  .section-label::after {
-    content: ""; flex: 1; height: 1px; background: #e0e0e0;
-  }
-  .section-label:first-child { margin-top: 4px; }
-
   .group {
     background: #fff; border: 1px solid #e0e0e0;
     border-radius: 10px; margin-bottom: 10px; overflow: hidden;
@@ -155,12 +143,8 @@
     font-size: 11px; font-weight: 700;
     padding: 2px 8px; border-radius: 9999px;
   }
-  .badge-total {
-    background: #eef2f7; color: #666;
-  }
-  .badge-selected {
-    background: #dcfce7; color: #16a34a;
-  }
+  .badge-total { background: #eef2f7; color: #666; }
+  .badge-selected { background: #dcfce7; color: #16a34a; }
   .group-body { display: none; }
   .group.open .group-body { display: block; }
 
@@ -188,13 +172,8 @@
     white-space: nowrap;
   }
 
-  .empty {
-    text-align: center; padding: 60px 20px; color: #999;
-    font-size: 14px;
-  }
-  .loading {
-    text-align: center; padding: 40px; color: #888;
-  }
+  .empty { text-align: center; padding: 60px 20px; color: #999; font-size: 14px; }
+  .loading { text-align: center; padding: 40px; color: #888; }
 
   .toast {
     position: fixed; bottom: 20px; left: 50%;
@@ -209,7 +188,6 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .toast.error { background: #dc2626; }
 
-  /* ---------- MODAL ---------- */
   .modal-backdrop {
     display: none;
     position: fixed; inset: 0;
@@ -238,14 +216,10 @@
     color: #555;
   }
   .modal-head .close:hover { background: #e0e0e0; }
-  .modal-body {
-    overflow-y: auto; padding: 12px 20px 20px;
-    flex: 1;
-  }
+  .modal-body { overflow-y: auto; padding: 12px 20px 20px; flex: 1; }
   .sel-item {
     display: flex; align-items: center; gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 10px 0; border-bottom: 1px solid #f0f0f0;
   }
   .sel-item:last-child { border-bottom: none; }
   .sel-item .sel-info { flex: 1; min-width: 0; }
@@ -253,9 +227,7 @@
     font-size: 14px; font-weight: 500;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .sel-item .sel-meta {
-    font-size: 11px; color: #999; margin-top: 2px;
-  }
+  .sel-item .sel-meta { font-size: 11px; color: #999; margin-top: 2px; }
   .sel-item .remove {
     background: #fee2e2; color: #b91c1c;
     border: none; border-radius: 6px;
@@ -263,10 +235,7 @@
     cursor: pointer; flex-shrink: 0;
   }
   .sel-item .remove:hover { background: #fecaca; }
-  .modal-empty {
-    text-align: center; padding: 40px 20px; color: #999;
-    font-size: 14px;
-  }
+  .modal-empty { text-align: center; padding: 40px 20px; color: #999; font-size: 14px; }
   .modal-foot {
     padding: 12px 20px; border-top: 1px solid #eee;
     display: flex; justify-content: space-between; align-items: center;
@@ -288,7 +257,6 @@
 </head>
 <body>
 
-<!-- LOCK SCREEN -->
 <div id="lock">
   <div class="box">
     <div class="lock-icon">🔒</div>
@@ -300,7 +268,6 @@
   </div>
 </div>
 
-<!-- DASHBOARD -->
 <div id="app">
   <div class="topbar">
     <h1>Match Selector</h1>
@@ -312,9 +279,9 @@
   </div>
 
   <div class="toolbar">
-    <input type="text" id="search" placeholder="Search team or league… (shows all leagues)">
+    <input type="text" id="search" placeholder="Search team or league… (searches all leagues)">
     <select id="leagueFilter">
-      <option value="">Default leagues</option>
+      <option value="__default__">Default leagues</option>
     </select>
     <label class="toggle">
       <input type="checkbox" id="onlySelected">
@@ -328,7 +295,6 @@
   <div id="content"><div class="loading">Loading…</div></div>
 </div>
 
-<!-- MY SELECTION MODAL -->
 <div class="modal-backdrop" id="modalBackdrop">
   <div class="modal">
     <div class="modal-head">
@@ -346,9 +312,9 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// ------------------------------------------------------------------
+// ==================================================================
 // CONFIG
-// ------------------------------------------------------------------
+// ==================================================================
 const REPO_OWNER = "livepagesmaster";
 const REPO_NAME  = "football-worker";
 const BRANCH     = "main";
@@ -359,33 +325,30 @@ const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/conten
 
 const TOKEN_KEY = "gh_token_fw";
 
-// Whitelist — only these leagues show by default.
-// Matched by full league name (exact, case-insensitive). Country shown in parens.
+// Whitelist — matched by league_id. Only these show by default.
+// Get IDs from all-matches.json if any look wrong.
 const DEFAULT_LEAGUES = [
-  { name: "Champions League",  country: "Europe"       },
-  { name: "Premier League",    country: "England"      },
-  { name: "Bundesliga",        country: "Germany"      },
-  { name: "LaLiga",            country: "Spain"        },
-  { name: "La Liga",           country: "Spain"        },
-  { name: "Serie A",           country: "Italy"        },  // but may collide with Brazil — see below
-  { name: "Ligue 1",           country: "France"       },
-  { name: "Liga Portugal",     country: "Portugal"     },
-  { name: "Primeira Liga",     country: "Portugal"     },
-  { name: "Brasileirão",       country: "Brazil"       },
-  { name: "Saudi Pro League",  country: "Saudi Arabia" },
-  { name: "MLS",               country: "USA"          },
-  { name: "Major League Soccer", country: "USA"        },
+  { id: 42,  label: "Champions League" },        // UEFA Champions League
+  { id: 47,  label: "Premier League (England)" },
+  { id: 54,  label: "Bundesliga (Germany)" },
+  { id: 87,  label: "LaLiga (Spain)" },
+  { id: 55,  label: "Serie A (Italy)" },
+  { id: 53,  label: "Ligue 1 (France)" },
+  { id: 61,  label: "Liga Portugal" },
+  { id: 268, label: "Brasileirão (Brazil)" },
+  { id: 536, label: "Saudi Pro League" },
+  { id: 130, label: "MLS (USA)" },
 ];
 
-// Hide any league with these words (case-insensitive) from the default view.
-const WOMEN_KEYWORDS = ["women", "wsl", "nwsl", "(w)", " w ", "femminile", "féminine"];
+// Hide any league whose name contains one of these (case-insensitive).
+const WOMEN_KEYWORDS = ["women", "wsl", "nwsl", "(w)", " w ", "femminile", "féminine", "femenina"];
 
-// ------------------------------------------------------------------
+// ==================================================================
 
 let allMatches = [];
 let selectedIds = new Set();
-let leagueSet = new Set();     // every league name in the feed
-let defaultLeagues = new Set(); // league names that pass the whitelist + women filter
+let leagueGroups = {};       // groupKey -> { id, label, matches }
+let defaultGroupKeys = new Set();
 
 // ============ HELPERS ============
 function getToken() { return localStorage.getItem(TOKEN_KEY) || ""; }
@@ -418,29 +381,23 @@ function escapeHtml(s) {
   }[c]));
 }
 
-// ============ LEAGUE MATCHING ============
 function isWomenLeague(name) {
-  const lower = name.toLowerCase();
+  const lower = (name || "").toLowerCase();
   return WOMEN_KEYWORDS.some(k => lower.includes(k));
 }
 
-function findDefaultConfig(leagueName) {
-  const lower = leagueName.toLowerCase();
-  return DEFAULT_LEAGUES.find(cfg => cfg.name.toLowerCase() === lower) || null;
+function findWhitelist(leagueId) {
+  if (leagueId == null) return null;
+  return DEFAULT_LEAGUES.find(c => String(c.id) === String(leagueId)) || null;
 }
 
-function labelLeague(leagueName) {
-  const cfg = findDefaultConfig(leagueName);
-  if (cfg) return `${leagueName} (${cfg.country})`;
-  return leagueName;
+function labelForMatch(m) {
+  const cfg = findWhitelist(m.league_id);
+  if (cfg) return cfg.label;
+  return m.league || "Other";
 }
 
-function isDefaultLeague(leagueName) {
-  if (isWomenLeague(leagueName)) return false;
-  return !!findDefaultConfig(leagueName);
-}
-
-// ============ VERIFY TOKEN ============
+// ============ TOKEN VERIFY ============
 async function verifyToken(token) {
   try {
     const r = await fetch(
@@ -457,14 +414,11 @@ async function unlock() {
   const btn = document.getElementById("unlockBtn");
   const err = document.getElementById("errMsg");
   const token = input.value.trim();
-
   if (!token) { err.textContent = "Enter a token."; err.style.display = "block"; return; }
 
   btn.disabled = true; btn.textContent = "Checking…"; err.style.display = "none";
-
   const ok = await verifyToken(token);
   btn.disabled = false; btn.textContent = "Unlock";
-
   if (!ok) { err.textContent = "Invalid token. Try again."; err.style.display = "block"; return; }
 
   setToken(token);
@@ -485,7 +439,7 @@ function lock() {
   document.getElementById("errMsg").style.display = "none";
 }
 
-// ============ DATA LOAD ============
+// ============ DATA ============
 async function loadAll() {
   const r = await fetch(MATCHES_URL + "?t=" + Date.now());
   const j = await r.json();
@@ -504,48 +458,79 @@ async function loadSelected() {
   } catch {}
 }
 
-function computeLeagueSets() {
-  leagueSet = new Set();
-  defaultLeagues = new Set();
+// ============ GROUPING ============
+function buildLeagueGroups() {
+  leagueGroups = {};
+  defaultGroupKeys = new Set();
+
   for (const m of allMatches) {
-    const lg = m.league || "Other";
-    leagueSet.add(lg);
-    if (isDefaultLeague(lg)) defaultLeagues.add(lg);
+    const cfg = findWhitelist(m.league_id);
+
+    let key, label;
+    if (cfg) {
+      key = `W:${cfg.id}`;
+      label = cfg.label;
+    } else {
+      key = `O:${m.league || "Other"}`;
+      label = m.league || "Other";
+    }
+
+    if (!leagueGroups[key]) {
+      leagueGroups[key] = { key, id: cfg ? cfg.id : null, label, matches: [] };
+    }
+    leagueGroups[key].matches.push(m);
+
+    if (cfg && !isWomenLeague(m.league)) {
+      defaultGroupKeys.add(key);
+    }
   }
 }
 
-function populateLeagueDropdown() {
+function whitelistRank(group) {
+  if (group.id == null) return 9999;
+  const i = DEFAULT_LEAGUES.findIndex(c => String(c.id) === String(group.id));
+  return i === -1 ? 9999 : i;
+}
+
+function sortedGroupKeys(groups) {
+  return Object.keys(groups).sort((a, b) => {
+    const ga = groups[a], gb = groups[b];
+    const ra = whitelistRank(ga);
+    const rb = whitelistRank(gb);
+    if (ra !== rb) return ra - rb;
+
+    const la = ga.label, lb = gb.label;
+    const aD = /^[0-9]/.test(la);
+    const bD = /^[0-9]/.test(lb);
+    if (aD !== bD) return aD ? 1 : -1;
+    return la.localeCompare(lb);
+  });
+}
+
+function populateDropdown() {
   const sel = document.getElementById("leagueFilter");
+  const keys = sortedGroupKeys(leagueGroups);
 
-  // Default leagues first (in whitelist order), then others alphabetically.
-  const defaults = DEFAULT_LEAGUES
-    .map(c => c.name)
-    .filter(n => leagueSet.has(n) && !isWomenLeague(n));
-
-  const others = [...leagueSet]
-    .filter(n => !defaults.includes(n))
-    .sort((a, b) => {
-      const aD = /^[0-9]/.test(a);
-      const bD = /^[0-9]/.test(b);
-      if (aD !== bD) return aD ? 1 : -1;
-      return a.localeCompare(b);
-    });
+  const defaults = keys.filter(k => defaultGroupKeys.has(k));
+  const others = keys.filter(k => !defaultGroupKeys.has(k));
 
   let html = `<option value="__default__">Default leagues (${defaults.length})</option>`;
   html += `<option value="__all__">All leagues</option>`;
 
   if (defaults.length) {
     html += `<optgroup label="Top">`;
-    html += defaults.map(n =>
-      `<option value="${escapeHtml(n)}">${escapeHtml(labelLeague(n))}</option>`
-    ).join("");
+    html += defaults.map(k => {
+      const g = leagueGroups[k];
+      return `<option value="${escapeHtml(k)}">${escapeHtml(g.label)} (${g.matches.length})</option>`;
+    }).join("");
     html += `</optgroup>`;
   }
   if (others.length) {
     html += `<optgroup label="Other leagues">`;
-    html += others.map(n =>
-      `<option value="${escapeHtml(n)}">${escapeHtml(labelLeague(n))}</option>`
-    ).join("");
+    html += others.map(k => {
+      const g = leagueGroups[k];
+      return `<option value="${escapeHtml(k)}">${escapeHtml(g.label)} (${g.matches.length})</option>`;
+    }).join("");
     html += `</optgroup>`;
   }
 
@@ -553,19 +538,11 @@ function populateLeagueDropdown() {
 }
 
 // ============ RENDER ============
-function groupMatches(matches) {
-  const g = {};
-  for (const m of matches) {
-    const lg = m.league || "Other";
-    (g[lg] = g[lg] || []).push(m);
-  }
-  return g;
-}
-
 function render() {
   const q = document.getElementById("search").value.trim().toLowerCase();
-  const leagueFilter = document.getElementById("leagueFilter").value;
+  const filter = document.getElementById("leagueFilter").value;
   const onlySelected = document.getElementById("onlySelected").checked;
+  const searching = q.length > 0;
 
   const content = document.getElementById("content");
 
@@ -575,63 +552,57 @@ function render() {
     return;
   }
 
-  // Build filtered match list
-  let list = [...allMatches];
+  let groups = leagueGroups;
 
-  // Search overrides the default filter
-  const searching = q.length > 0;
-
+  // Filter groups
   if (!searching) {
-    if (leagueFilter === "__default__" || leagueFilter === "") {
-      list = list.filter(m => defaultLeagues.has(m.league || "Other"));
-    } else if (leagueFilter === "__all__") {
-      // no filter
-    } else {
-      list = list.filter(m => (m.league || "Other") === leagueFilter);
+    if (filter === "__default__" || filter === "") {
+      groups = {};
+      for (const k of defaultGroupKeys) groups[k] = leagueGroups[k];
+    } else if (filter === "__all__") {
+      // all
+    } else if (leagueGroups[filter]) {
+      groups = { [filter]: leagueGroups[filter] };
     }
-  } else {
-    // When searching, search across ALL leagues (men + women, whitelisted or not)
-    list = list.filter(m => {
-      const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
-      return hay.includes(q);
-    });
   }
 
-  if (onlySelected) {
-    list = list.filter(m => selectedIds.has(String(m.event_id)));
+  // Build list of visible matches
+  let visible = [];
+  const visibleGroups = {};
+
+  for (const k of sortedGroupKeys(groups)) {
+    const g = groups[k];
+    let list = g.matches;
+
+    if (searching) {
+      list = list.filter(m => {
+        const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
+        return hay.includes(q);
+      });
+    }
+
+    if (onlySelected) {
+      list = list.filter(m => selectedIds.has(String(m.event_id)));
+    }
+
+    if (list.length) {
+      visibleGroups[k] = { ...g, matches: list };
+    }
   }
 
-  if (!list.length) {
+  const keys = sortedGroupKeys(visibleGroups);
+
+  if (!keys.length) {
     content.innerHTML = `<div class="empty">No matches match your filters.</div>`;
     updateCounter();
     return;
   }
 
-  // Group by league
-  const groups = groupMatches(list);
+  const html = keys.map(k => {
+    const g = visibleGroups[k];
+    const selectedCount = g.matches.filter(m => selectedIds.has(String(m.event_id))).length;
 
-  // Sort league names: whitelisted first (in whitelist order), then rest alphabetically (digits last)
-  const whitelistOrder = {};
-  DEFAULT_LEAGUES.forEach((cfg, i) => {
-    whitelistOrder[cfg.name.toLowerCase()] = i;
-  });
-
-  const names = Object.keys(groups).sort((a, b) => {
-    const ra = whitelistOrder[a.toLowerCase()] ?? 9999;
-    const rb = whitelistOrder[b.toLowerCase()] ?? 9999;
-    if (ra !== rb) return ra - rb;
-    const aD = /^[0-9]/.test(a);
-    const bD = /^[0-9]/.test(b);
-    if (aD !== bD) return aD ? 1 : -1;
-    return a.localeCompare(b);
-  });
-
-  const html = names.map(lg => {
-    const lgMatches = groups[lg];
-    const selectedCount = lgMatches.filter(m => selectedIds.has(String(m.event_id))).length;
-    const label = labelLeague(lg);
-
-    const rows = lgMatches.map(m => {
+    const rows = g.matches.map(m => {
       const checked = selectedIds.has(String(m.event_id)) ? "checked" : "";
       return `
         <label class="match">
@@ -647,20 +618,19 @@ function render() {
       `;
     }).join("");
 
-    const selectedBadge = selectedCount > 0
-      ? `<span class="badge badge-selected">${selectedCount} selected</span>`
-      : "";
+    const selBadge = selectedCount > 0
+      ? `<span class="badge badge-selected">${selectedCount} selected</span>` : "";
 
     return `
-      <div class="group open" data-lg="${escapeHtml(lg)}">
+      <div class="group open" data-lg="${escapeHtml(k)}">
         <div class="group-header" onclick="toggleGroup(this)">
           <div class="left">
             <span class="arrow">▶</span>
-            <span class="name">${escapeHtml(label)}</span>
+            <span class="name">${escapeHtml(g.label)}</span>
           </div>
           <div class="badges">
-            ${selectedBadge}
-            <span class="badge badge-total">${lgMatches.length}</span>
+            ${selBadge}
+            <span class="badge badge-total">${g.matches.length}</span>
           </div>
         </div>
         <div class="group-body">${rows}</div>
@@ -685,28 +655,24 @@ function toggleMatch(cb) {
 }
 
 function updateCounter() {
-  const total = allMatches.length;
-  const sel = selectedIds.size;
-  document.getElementById("counter").textContent = `Selected: ${sel} of ${total}`;
+  document.getElementById("counter").textContent =
+    `Selected: ${selectedIds.size} of ${allMatches.length}`;
 }
 
 function updateMySelButton() {
-  const btn = document.getElementById("mySelBtn");
-  btn.textContent = `My Selection (${selectedIds.size})`;
+  document.getElementById("mySelBtn").textContent =
+    `My Selection (${selectedIds.size})`;
 }
 
-// ============ MY SELECTION MODAL ============
+// ============ MODAL ============
 function openModal() {
-  const backdrop = document.getElementById("modalBackdrop");
-  const body = document.getElementById("modalBody");
-  const title = document.getElementById("modalTitle");
-  const foot = document.getElementById("modalFootLeft");
-
   const picked = allMatches.filter(m => selectedIds.has(String(m.event_id)));
 
-  title.textContent = `My Selection (${picked.length})`;
-  foot.textContent = `${picked.length} match${picked.length === 1 ? "" : "es"} selected`;
+  document.getElementById("modalTitle").textContent = `My Selection (${picked.length})`;
+  document.getElementById("modalFootLeft").textContent =
+    `${picked.length} match${picked.length === 1 ? "" : "es"} selected`;
 
+  const body = document.getElementById("modalBody");
   if (!picked.length) {
     body.innerHTML = `<div class="modal-empty">No matches selected yet.<br>Tick some from the list to add them here.</div>`;
   } else {
@@ -714,14 +680,14 @@ function openModal() {
       <div class="sel-item">
         <div class="sel-info">
           <div class="sel-teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
-          <div class="sel-meta">${escapeHtml(labelLeague(m.league || "Other"))} · ${escapeHtml(formatTime(m.start))}</div>
+          <div class="sel-meta">${escapeHtml(labelForMatch(m))} · ${escapeHtml(formatTime(m.start))}</div>
         </div>
         <button class="remove" onclick="removeFromSelection('${escapeHtml(String(m.event_id))}')">Remove</button>
       </div>
     `).join("");
   }
 
-  backdrop.classList.add("open");
+  document.getElementById("modalBackdrop").classList.add("open");
 }
 
 function closeModal() {
@@ -732,8 +698,8 @@ function removeFromSelection(eid) {
   selectedIds.delete(String(eid));
   updateCounter();
   updateMySelButton();
-  openModal();     // re-render modal
-  render();        // update main list checkboxes
+  openModal();
+  render();
 }
 
 function clearAllSelection() {
@@ -755,17 +721,10 @@ async function saveSelection() {
   const btn = document.getElementById("saveBtn");
   btn.disabled = true; btn.textContent = "Saving…";
 
-  const selectedMatches = allMatches.filter(m =>
-    selectedIds.has(String(m.event_id))
-  );
+  const selectedMatches = allMatches.filter(m => selectedIds.has(String(m.event_id)));
 
-  const payload = {
-    matches: selectedMatches,
-    updated_at: new Date().toISOString(),
-  };
-  const content = btoa(unescape(encodeURIComponent(
-    JSON.stringify(payload, null, 2)
-  )));
+  const payload = { matches: selectedMatches, updated_at: new Date().toISOString() };
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
 
   let sha;
   try {
@@ -777,30 +736,19 @@ async function saveSelection() {
 
   const body = {
     message: "Update selection",
-    content,
-    branch: BRANCH,
+    content, branch: BRANCH,
     ...(sha ? { sha } : {}),
   };
 
   try {
     const r = await fetch(API_BASE, {
       method: "PUT",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
-
-    if (r.ok) {
-      toast("Saved — widget will update shortly");
-    } else if (r.status === 401 || r.status === 403) {
-      toast("Token no longer valid", true);
-      lock();
-    } else {
-      console.error(await r.text());
-      toast("Save failed", true);
-    }
+    if (r.ok) toast("Saved — widget will update shortly");
+    else if (r.status === 401 || r.status === 403) { toast("Token no longer valid", true); lock(); }
+    else { console.error(await r.text()); toast("Save failed", true); }
   } catch (e) {
     console.error(e);
     toast("Save failed — network error", true);
@@ -811,30 +759,25 @@ async function saveSelection() {
 
 // ============ INIT ============
 async function init() {
-  document.getElementById("content").innerHTML =
-    `<div class="loading">Loading matches…</div>`;
-
+  document.getElementById("content").innerHTML = `<div class="loading">Loading matches…</div>`;
   try {
     await loadSelected();
     await loadAll();
   } catch (e) {
     console.error(e);
-    document.getElementById("content").innerHTML =
-      `<div class="empty">Failed to load matches.</div>`;
+    document.getElementById("content").innerHTML = `<div class="empty">Failed to load matches.</div>`;
     return;
   }
 
-  computeLeagueSets();
-  populateLeagueDropdown();
+  buildLeagueGroups();
+  populateDropdown();
   updateMySelButton();
   render();
 }
 
 // ============ WIRE UP ============
 document.getElementById("unlockBtn").addEventListener("click", unlock);
-document.getElementById("tokenInput").addEventListener("keydown", e => {
-  if (e.key === "Enter") unlock();
-});
+document.getElementById("tokenInput").addEventListener("keydown", e => { if (e.key === "Enter") unlock(); });
 document.getElementById("logoutBtn").addEventListener("click", lock);
 document.getElementById("search").addEventListener("input", render);
 document.getElementById("leagueFilter").addEventListener("change", render);
@@ -843,26 +786,20 @@ document.getElementById("saveBtn").addEventListener("click", saveSelection);
 document.getElementById("mySelBtn").addEventListener("click", openModal);
 document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("modalClearBtn").addEventListener("click", clearAllSelection);
-
-// Close modal when clicking backdrop
 document.getElementById("modalBackdrop").addEventListener("click", e => {
   if (e.target.id === "modalBackdrop") closeModal();
 });
-
 document.getElementById("selectAllBtn").addEventListener("click", () => {
   document.querySelectorAll('#content input[type=checkbox]').forEach(cb => {
     if (!cb.checked) { cb.checked = true; toggleMatch(cb); }
   });
 });
-
 document.getElementById("clearBtn").addEventListener("click", clearAllSelection);
 
-// Expose functions to inline handlers
 window.toggleGroup = toggleGroup;
 window.toggleMatch = toggleMatch;
 window.removeFromSelection = removeFromSelection;
 
-// Auto-unlock if token already stored
 (async () => {
   const t = getToken();
   if (!t) return;
