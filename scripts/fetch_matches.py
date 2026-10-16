@@ -87,6 +87,8 @@ def transform_match(lg: dict, m: dict) -> dict:
     home_id = (m.get("home") or {}).get("id")
     away_id = (m.get("away") or {}).get("id")
     league = lg.get("name") or "Football"
+    league_id = lg.get("primaryId") or lg.get("id")
+    league_country = lg.get("ccode") or ""
 
     start = normalize_start(
         (m.get("status") or {}).get("utcTime")
@@ -109,6 +111,8 @@ def transform_match(lg: dict, m: dict) -> dict:
         "team2_logo": logo_url(away_id),
         "team2_logo_fallback": logo_fallback(away_id),
         "league": league,
+        "league_id": league_id,
+        "league_country": league_country,
         "start": start,
         "duration": 2.2,
         "event_id": event_id,
