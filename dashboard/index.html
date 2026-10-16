@@ -163,7 +163,6 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .toast.error { background: #dc2626; }
 
-  /* ---------- MODAL ---------- */
   .modal-backdrop {
     display: none; position: fixed; inset: 0;
     background: rgba(0,0,0,.45); z-index: 200;
@@ -256,7 +255,6 @@
   }
   .modal-foot .danger:hover { background: #fecaca; }
 
-  /* ---------- EDIT FORM (inside modal) ---------- */
   .edit-form { padding: 4px 0; }
   .edit-form h3 {
     font-size: 14px; font-weight: 800;
@@ -374,6 +372,9 @@ const MATCHES_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME
 const SELECTED_PATH = "data/selected.json";
 const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${SELECTED_PATH}`;
 
+// Worker cache purge endpoint — called after Save so the widget updates instantly
+const WORKER_REFRESH_URL = "https://matchfeed-proxy.norilsk-rs.workers.dev/refresh";
+
 const TOKEN_KEY = "gh_token_fw";
 
 const QUICK_LEAGUES = [
@@ -384,7 +385,6 @@ const QUICK_LEAGUES = [
 
 const WOMEN_KEYWORDS = ["women", "wsl", "nwsl", "(w)", " w ", "femminile", "féminine", "femenina"];
 
-// Fields compared for "stale" detection — anything pulled from the feed.
 const FEED_FIELDS = [
   "team1", "team2",
   "team1_logo", "team2_logo",
@@ -395,7 +395,7 @@ const FEED_FIELDS = [
 // ==================================================================
 
 let allMatches = [];
-let selectedMatches = [];      // full objects as loaded from selected.json
+let selectedMatches = [];
 let selectedIds = new Set();
 let pendingSave = false;
 
@@ -410,7 +410,7 @@ function toast(msg, isError = false) {
   t.classList.toggle("error", isError);
   t.classList.add("show");
   clearTimeout(t._tid);
-  t._tid = setTimeout(() => t.classList.remove("show"), 2400);
+  t._tid = setTimeout(() => t.classList.remove("show"), 2600);
 }
 
 function escapeHtml(s) {
@@ -445,12 +445,10 @@ function formatTimeOnly(iso) {
 
 function findInFeed(saved) {
   if (!saved) return null;
-  // Match by event_id first
   if (saved.event_id != null) {
     const byId = allMatches.find(m => String(m.event_id) === String(saved.event_id));
     if (byId) return byId;
   }
-  // Fallback: team names (either orientation)
   const t1 = (saved.team1 || "").toLowerCase().trim();
   const t2 = (saved.team2 || "").toLowerCase().trim();
   if (!t1 || !t2) return null;
@@ -463,7 +461,7 @@ function findInFeed(saved) {
 
 function isStale(saved) {
   const feed = findInFeed(saved);
-  if (!feed) return false;  // missing, not stale
+  if (!feed) return false;
   for (const f of FEED_FIELDS) {
     const a = saved[f];
     const b = feed[f];
@@ -483,15 +481,14 @@ function isCustomized(saved) {
 
 function refreshFromFeed(saved) {
   const feed = findInFeed(saved);
-  if (!feed) return saved;  // nothing to refresh
+  if (!feed) return saved;
   const merged = { ...feed };
-  // Preserve redirect_url and custom flag
   if (saved.redirect_url) merged.redirect_url = saved.redirect_url;
   if (saved._custom) merged._custom = true;
   return merged;
 }
 
-// ---------- token verify ----------
+// ---------- token ----------
 async function verifyToken(token) {
   try {
     const r = await fetch(
@@ -534,7 +531,7 @@ function lock() {
 
 // ---------- data ----------
 async function loadAll() {
-  const r = await fetch(MATCHES_URL + "?t=" + Date.now());
+  const r = await fetch(MATCHES_URL + "?t=" + Date.now(), { cache: "no-store" });
   const j = await r.json();
   allMatches = Array.isArray(j.matches) ? j.matches : [];
 }
@@ -542,7 +539,8 @@ async function loadAll() {
 async function loadSelected() {
   try {
     const r = await fetch(
-      `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${SELECTED_PATH}?t=${Date.now()}`
+      `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${SELECTED_PATH}?t=${Date.now()}`,
+      { cache: "no-store" }
     );
     if (!r.ok) { selectedMatches = []; selectedIds = new Set(); return; }
     const j = await r.json();
@@ -582,7 +580,7 @@ function buildQuickFilters() {
   });
 }
 
-// ---------- render main list ----------
+// ---------- render ----------
 function render() {
   const q = document.getElementById("search").value.trim().toLowerCase();
   const onlySelected = document.getElementById("onlySelected").checked;
@@ -656,12 +654,10 @@ function render() {
   updateCounter();
 }
 
-// ---------- selection toggling ----------
 function toggleMatch(cb) {
   const eid = String(cb.getAttribute("data-eid"));
   if (cb.checked) {
     selectedIds.add(eid);
-    // Add full object from feed into selectedMatches
     const feed = allMatches.find(m => String(m.event_id) === eid);
     if (feed && !selectedMatches.find(s => String(s.event_id) === eid)) {
       selectedMatches.push({ ...feed });
@@ -762,10 +758,7 @@ function refreshOne(eid) {
 function refreshAllStale() {
   let count = 0;
   selectedMatches = selectedMatches.map(m => {
-    if (isStale(m)) {
-      count++;
-      return refreshFromFeed(m);
-    }
+    if (isStale(m)) { count++; return refreshFromFeed(m); }
     return m;
   });
   if (count === 0) { toast("Nothing to refresh"); return; }
@@ -799,7 +792,7 @@ function clearAllSelection() {
   toast("Cleared — click Save to apply");
 }
 
-// ---------- edit form ----------
+// ---------- edit ----------
 function editOne(eid) {
   const m = selectedMatches.find(x => String(x.event_id) === String(eid));
   if (!m) return;
@@ -846,9 +839,7 @@ function editOne(eid) {
   `;
 }
 
-function cancelEdit() {
-  renderModalBody();
-}
+function cancelEdit() { renderModalBody(); }
 
 function applyEdit(eid) {
   const idx = selectedMatches.findIndex(m => String(m.event_id) === String(eid));
@@ -912,7 +903,19 @@ async function saveSelection() {
     });
     if (r.ok) {
       pendingSave = false;
-      toast("Saved — widget will update shortly");
+      toast("Saved — refreshing widget…");
+
+      // Ping the Worker to purge its cache immediately
+      try {
+        await fetch(WORKER_REFRESH_URL + "?t=" + Date.now(), {
+          method: "GET",
+          cache: "no-store",
+        });
+        toast("Saved — widget updated");
+      } catch (e) {
+        console.warn("Worker refresh ping failed:", e);
+        toast("Saved — widget will update within a minute");
+      }
     } else if (r.status === 401 || r.status === 403) {
       toast("Token no longer valid", true); lock();
     } else {
