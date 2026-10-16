@@ -1,38 +1,3 @@
 {
-  "matches": [
-    {
-      "team1": {
-        "name": "Bayern München",
-        "img": "https://img.singhs.com.np/team/9823.png",
-        "code": "BAY"
-      },
-      "team2": {
-        "name": "Arsenal",
-        "img": "https://img.singhs.com.np/team/9825.png",
-        "code": "ARS"
-      },
-      "time": "26/10/22 00:45:00",
-      "status": "Upcoming",
-      "endTime": 2.2,
-      "type": "Champions League",
-      "redirectUrl": "#"
-    },
-    {
-      "team1": {
-        "name": "Real Betis",
-        "img": "https://img.singhs.com.np/team/8603.png",
-        "code": "REA"
-      },
-      "team2": {
-        "name": "Barcelona",
-        "img": "https://img.singhs.com.np/team/8634.png",
-        "code": "BAR"
-      },
-      "time": "26/10/17 22:15:00",
-      "status": "Upcoming",
-      "endTime": 2.2,
-      "type": "LaLiga",
-      "redirectUrl": "#"
-    }
-  ]
+  "matches": []
 }
