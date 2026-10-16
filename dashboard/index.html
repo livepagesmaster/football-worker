@@ -46,12 +46,12 @@
   }
 
   /* ---------- DASHBOARD ---------- */
-  #app { display: none; padding: 20px; max-width: 960px; margin: 0 auto; }
+  #app { display: none; padding: 20px; max-width: 900px; margin: 0 auto; }
   #app .topbar {
     display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
   }
-  #app h1 { font-size: 20px; font-weight: 800; }
+  #app h1 { font-size: 22px; font-weight: 800; }
   #app .topbar-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
   #app .counter {
     font-size: 13px; font-weight: 700; color: #2563eb;
@@ -71,82 +71,104 @@
   }
   #app .logout:hover { background: #d1d5db; }
 
+  /* ---------- SEARCH HERO ---------- */
+  .search-hero {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+  .search-hero input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #dbeafe;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color .15s;
+    background: #f8fbff;
+  }
+  .search-hero input:focus {
+    border-color: #2563eb;
+    background: #fff;
+  }
+  .search-hero .hint {
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  /* ---------- QUICK FILTERS ---------- */
+  .filters {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 16px;
+  }
+  .filters button {
+    padding: 8px 14px; border-radius: 8px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    color: #444;
+  }
+  .filters button:hover { background: #f9fafb; border-color: #ccc; }
+  .filters button.active {
+    background: #2563eb; color: #fff; border-color: #2563eb;
+  }
+
   .toolbar {
     position: sticky; top: 0; z-index: 10;
     background: #fff; border: 1px solid #e0e0e0;
-    border-radius: 10px; padding: 12px;
+    border-radius: 10px; padding: 10px 12px;
     margin-bottom: 14px;
-    display: flex; flex-wrap: wrap; gap: 8px;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
   }
-  .toolbar input[type=text] {
-    flex: 1; min-width: 160px;
-    padding: 9px 12px; border: 1px solid #ddd;
-    border-radius: 8px; font-size: 14px; outline: none;
-  }
-  .toolbar input[type=text]:focus { border-color: #2563eb; }
-  .toolbar select {
-    padding: 9px 12px; border: 1px solid #ddd;
-    border-radius: 8px; font-size: 13px; outline: none;
-    background: #fff; cursor: pointer;
-    max-width: 260px;
-  }
-  .toolbar select:focus { border-color: #2563eb; }
-  .toolbar button {
-    padding: 9px 16px; border: none; border-radius: 8px;
-    font-size: 13px; font-weight: 600; cursor: pointer;
-  }
-  .btn-sec { background: #e5e7eb; color: #222; }
-  .btn-sec:hover { background: #d1d5db; }
-  .btn-save { background: #16a34a; color: #fff; }
-  .btn-save:hover { background: #15803d; }
-  .btn-save:disabled { background: #86d0a2; cursor: wait; }
-
-  .toggle {
+  .toolbar .toggle {
     display: flex; align-items: center; gap: 6px;
     font-size: 13px; font-weight: 600; color: #444;
-    padding: 0 6px; user-select: none; cursor: pointer;
+    user-select: none; cursor: pointer;
   }
-  .toggle input {
+  .toolbar .toggle input {
     width: 16px; height: 16px; accent-color: #2563eb; cursor: pointer;
   }
+  .toolbar button {
+    padding: 8px 14px; border: none; border-radius: 8px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    margin-left: auto;
+  }
+  .toolbar .btn-save {
+    background: #16a34a; color: #fff; margin-left: auto;
+  }
+  .toolbar .btn-save:hover { background: #15803d; }
+  .toolbar .btn-save:disabled { background: #86d0a2; cursor: wait; }
 
+  /* ---------- RESULT GROUPS ---------- */
   .group {
     background: #fff; border: 1px solid #e0e0e0;
     border-radius: 10px; margin-bottom: 10px; overflow: hidden;
   }
   .group-header {
     padding: 11px 14px; font-weight: 700; font-size: 14px;
-    background: #f9fafb; border-bottom: 1px solid transparent;
+    background: #f9fafb; border-bottom: 1px solid #eee;
     display: flex; justify-content: space-between; align-items: center;
-    cursor: pointer; user-select: none;
-    transition: background .15s;
   }
-  .group-header:hover { background: #f1f3f7; }
-  .group.open .group-header { border-bottom-color: #eee; }
   .group-header .left {
-    display: flex; align-items: center; gap: 8px;
-    min-width: 0; flex: 1;
+    display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1;
   }
-  .group-header .arrow {
-    display: inline-block; width: 12px; font-size: 10px;
-    color: #888; transition: transform .15s;
-  }
-  .group.open .group-header .arrow { transform: rotate(90deg); }
   .group-header .name {
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .group-header .badges {
-    display: flex; gap: 6px; flex-shrink: 0;
-  }
+  .group-header .badges { display: flex; gap: 6px; flex-shrink: 0; }
   .badge {
     font-size: 11px; font-weight: 700;
     padding: 2px 8px; border-radius: 9999px;
   }
   .badge-total { background: #eef2f7; color: #666; }
   .badge-selected { background: #dcfce7; color: #16a34a; }
-  .group-body { display: none; }
-  .group.open .group-body { display: block; }
 
   .match {
     display: flex; align-items: center; gap: 10px;
@@ -172,7 +194,10 @@
     white-space: nowrap;
   }
 
-  .empty { text-align: center; padding: 60px 20px; color: #999; font-size: 14px; }
+  .empty {
+    text-align: center; padding: 60px 20px; color: #999;
+    font-size: 14px;
+  }
   .loading { text-align: center; padding: 40px; color: #888; }
 
   .toast {
@@ -188,25 +213,21 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .toast.error { background: #dc2626; }
 
+  /* ---------- MODAL ---------- */
   .modal-backdrop {
-    display: none;
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,.45);
-    z-index: 200;
-    align-items: center; justify-content: center;
-    padding: 20px;
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,.45); z-index: 200;
+    align-items: center; justify-content: center; padding: 20px;
   }
   .modal-backdrop.open { display: flex; }
   .modal {
     background: #fff; border-radius: 14px;
-    max-width: 640px; width: 100%;
-    max-height: 85vh;
+    max-width: 640px; width: 100%; max-height: 85vh;
     display: flex; flex-direction: column;
     box-shadow: 0 20px 60px rgba(0,0,0,.25);
   }
   .modal-head {
-    padding: 16px 20px;
-    border-bottom: 1px solid #eee;
+    padding: 16px 20px; border-bottom: 1px solid #eee;
     display: flex; justify-content: space-between; align-items: center;
   }
   .modal-head h2 { font-size: 17px; font-weight: 800; }
@@ -250,8 +271,9 @@
   .modal-foot .danger:hover { background: #fecaca; }
 
   @media (max-width: 600px) {
-    .toolbar select { max-width: 100%; }
     #app { padding: 12px; }
+    .search-hero { padding: 14px; }
+    .search-hero input { font-size: 15px; padding: 12px 14px; }
   }
 </style>
 </head>
@@ -272,27 +294,28 @@
   <div class="topbar">
     <h1>Match Selector</h1>
     <div class="topbar-right">
-      <span class="counter" id="counter">Selected: 0 of 0</span>
+      <span class="counter" id="counter">Selected: 0</span>
       <button class="my-sel-btn" id="mySelBtn">My Selection (0)</button>
       <button class="logout" id="logoutBtn">Lock</button>
     </div>
   </div>
 
+  <div class="search-hero">
+    <input type="text" id="search" placeholder="Type team or league to search…" autofocus autocomplete="off">
+    <div class="hint" id="hint">Start typing to see matches — try "Liverpool", "Real Madrid", or "Champions League"</div>
+  </div>
+
+  <div class="filters" id="filters"></div>
+
   <div class="toolbar">
-    <input type="text" id="search" placeholder="Search team or league… (searches all leagues)">
-    <select id="leagueFilter">
-      <option value="__default__">Default leagues</option>
-    </select>
     <label class="toggle">
       <input type="checkbox" id="onlySelected">
       <span>Only selected</span>
     </label>
-    <button class="btn-sec" id="selectAllBtn">Select all</button>
-    <button class="btn-sec" id="clearBtn">Clear</button>
     <button class="btn-save" id="saveBtn">Save</button>
   </div>
 
-  <div id="content"><div class="loading">Loading…</div></div>
+  <div id="content"><div class="empty">Start typing above to search for matches.</div></div>
 </div>
 
 <div class="modal-backdrop" id="modalBackdrop">
@@ -325,30 +348,28 @@ const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/conten
 
 const TOKEN_KEY = "gh_token_fw";
 
-// Whitelist — matched by league_id. Only these show by default.
-// Get IDs from all-matches.json if any look wrong.
-const DEFAULT_LEAGUES = [
-  { id: 42,  label: "Champions League" },        // UEFA Champions League
-  { id: 47,  label: "Premier League (England)" },
-  { id: 54,  label: "Bundesliga (Germany)" },
-  { id: 87,  label: "LaLiga (Spain)" },
-  { id: 55,  label: "Serie A (Italy)" },
-  { id: 53,  label: "Ligue 1 (France)" },
-  { id: 61,  label: "Liga Portugal" },
-  { id: 268, label: "Brasileirão (Brazil)" },
-  { id: 536, label: "Saudi Pro League" },
-  { id: 130, label: "MLS (USA)" },
+// Quick-filter chips: pinned at the top of the dashboard. Click to search.
+// Search runs on team + league names, so these just trigger the search box.
+const QUICK_LEAGUES = [
+  "Champions League",
+  "Premier League",
+  "Bundesliga",
+  "LaLiga",
+  "Serie A",
+  "Ligue 1",
+  "Liga Portugal",
+  "Brasileirão",
+  "Saudi Pro League",
+  "MLS",
 ];
 
-// Hide any league whose name contains one of these (case-insensitive).
+// Hide any league name containing these (case-insensitive).
 const WOMEN_KEYWORDS = ["women", "wsl", "nwsl", "(w)", " w ", "femminile", "féminine", "femenina"];
-
 // ==================================================================
 
 let allMatches = [];
 let selectedIds = new Set();
-let leagueGroups = {};       // groupKey -> { id, label, matches }
-let defaultGroupKeys = new Set();
+let quickFilter = "";     // active quick-filter chip value
 
 // ============ HELPERS ============
 function getToken() { return localStorage.getItem(TOKEN_KEY) || ""; }
@@ -384,17 +405,6 @@ function escapeHtml(s) {
 function isWomenLeague(name) {
   const lower = (name || "").toLowerCase();
   return WOMEN_KEYWORDS.some(k => lower.includes(k));
-}
-
-function findWhitelist(leagueId) {
-  if (leagueId == null) return null;
-  return DEFAULT_LEAGUES.find(c => String(c.id) === String(leagueId)) || null;
-}
-
-function labelForMatch(m) {
-  const cfg = findWhitelist(m.league_id);
-  if (cfg) return cfg.label;
-  return m.league || "Other";
 }
 
 // ============ TOKEN VERIFY ============
@@ -458,151 +468,105 @@ async function loadSelected() {
   } catch {}
 }
 
-// ============ GROUPING ============
-function buildLeagueGroups() {
-  leagueGroups = {};
-  defaultGroupKeys = new Set();
+// ============ QUICK FILTERS ============
+function buildQuickFilters() {
+  const wrap = document.getElementById("filters");
+  const available = new Set(allMatches.map(m => m.league || "").filter(Boolean));
 
-  for (const m of allMatches) {
-    const cfg = findWhitelist(m.league_id);
-
-    let key, label;
-    if (cfg) {
-      key = `W:${cfg.id}`;
-      label = cfg.label;
-    } else {
-      key = `O:${m.league || "Other"}`;
-      label = m.league || "Other";
+  // Only show chips whose league actually exists in the feed.
+  const visible = QUICK_LEAGUES.filter(name => {
+    const lower = name.toLowerCase();
+    for (const lg of available) {
+      if (lg.toLowerCase().includes(lower)) return true;
     }
-
-    if (!leagueGroups[key]) {
-      leagueGroups[key] = { key, id: cfg ? cfg.id : null, label, matches: [] };
-    }
-    leagueGroups[key].matches.push(m);
-
-    if (cfg && !isWomenLeague(m.league)) {
-      defaultGroupKeys.add(key);
-    }
-  }
-}
-
-function whitelistRank(group) {
-  if (group.id == null) return 9999;
-  const i = DEFAULT_LEAGUES.findIndex(c => String(c.id) === String(group.id));
-  return i === -1 ? 9999 : i;
-}
-
-function sortedGroupKeys(groups) {
-  return Object.keys(groups).sort((a, b) => {
-    const ga = groups[a], gb = groups[b];
-    const ra = whitelistRank(ga);
-    const rb = whitelistRank(gb);
-    if (ra !== rb) return ra - rb;
-
-    const la = ga.label, lb = gb.label;
-    const aD = /^[0-9]/.test(la);
-    const bD = /^[0-9]/.test(lb);
-    if (aD !== bD) return aD ? 1 : -1;
-    return la.localeCompare(lb);
+    return false;
   });
-}
 
-function populateDropdown() {
-  const sel = document.getElementById("leagueFilter");
-  const keys = sortedGroupKeys(leagueGroups);
+  let html = `<button data-val="" class="active">All</button>`;
+  html += visible.map(name =>
+    `<button data-val="${escapeHtml(name)}">${escapeHtml(name)}</button>`
+  ).join("");
 
-  const defaults = keys.filter(k => defaultGroupKeys.has(k));
-  const others = keys.filter(k => !defaultGroupKeys.has(k));
+  wrap.innerHTML = html;
 
-  let html = `<option value="__default__">Default leagues (${defaults.length})</option>`;
-  html += `<option value="__all__">All leagues</option>`;
-
-  if (defaults.length) {
-    html += `<optgroup label="Top">`;
-    html += defaults.map(k => {
-      const g = leagueGroups[k];
-      return `<option value="${escapeHtml(k)}">${escapeHtml(g.label)} (${g.matches.length})</option>`;
-    }).join("");
-    html += `</optgroup>`;
-  }
-  if (others.length) {
-    html += `<optgroup label="Other leagues">`;
-    html += others.map(k => {
-      const g = leagueGroups[k];
-      return `<option value="${escapeHtml(k)}">${escapeHtml(g.label)} (${g.matches.length})</option>`;
-    }).join("");
-    html += `</optgroup>`;
-  }
-
-  sel.innerHTML = html;
+  wrap.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const val = btn.getAttribute("data-val");
+      quickFilter = val;
+      // When chip is clicked, also fill the search box so user sees what's happening
+      document.getElementById("search").value = val;
+      // Update active chip
+      wrap.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      render();
+    });
+  });
 }
 
 // ============ RENDER ============
 function render() {
   const q = document.getElementById("search").value.trim().toLowerCase();
-  const filter = document.getElementById("leagueFilter").value;
   const onlySelected = document.getElementById("onlySelected").checked;
-  const searching = q.length > 0;
-
   const content = document.getElementById("content");
 
-  if (!allMatches.length) {
-    content.innerHTML = `<div class="empty">No matches available yet.</div>`;
+  // If nothing in search and no chip and no filter — show placeholder
+  const searching = q.length > 0;
+
+  let list = allMatches;
+
+  // Filter by search text
+  if (searching) {
+    list = list.filter(m => {
+      const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
+      return hay.includes(q);
+    });
+  }
+
+  // Hide women's leagues unless the user explicitly searched for them
+  if (!searching || !/women|wsl|nwsl|femminile|féminine|femenina/i.test(q)) {
+    list = list.filter(m => !isWomenLeague(m.league || ""));
+  }
+
+  if (onlySelected) {
+    list = list.filter(m => selectedIds.has(String(m.event_id)));
+  }
+
+  if (!searching && !onlySelected) {
+    content.innerHTML = `<div class="empty">Start typing above, or tap a league chip to browse.</div>`;
     updateCounter();
     return;
   }
 
-  let groups = leagueGroups;
-
-  // Filter groups
-  if (!searching) {
-    if (filter === "__default__" || filter === "") {
-      groups = {};
-      for (const k of defaultGroupKeys) groups[k] = leagueGroups[k];
-    } else if (filter === "__all__") {
-      // all
-    } else if (leagueGroups[filter]) {
-      groups = { [filter]: leagueGroups[filter] };
-    }
-  }
-
-  // Build list of visible matches
-  let visible = [];
-  const visibleGroups = {};
-
-  for (const k of sortedGroupKeys(groups)) {
-    const g = groups[k];
-    let list = g.matches;
-
-    if (searching) {
-      list = list.filter(m => {
-        const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
-        return hay.includes(q);
-      });
-    }
-
-    if (onlySelected) {
-      list = list.filter(m => selectedIds.has(String(m.event_id)));
-    }
-
-    if (list.length) {
-      visibleGroups[k] = { ...g, matches: list };
-    }
-  }
-
-  const keys = sortedGroupKeys(visibleGroups);
-
-  if (!keys.length) {
-    content.innerHTML = `<div class="empty">No matches match your filters.</div>`;
+  if (!list.length) {
+    content.innerHTML = `<div class="empty">No matches found.</div>`;
     updateCounter();
     return;
   }
 
-  const html = keys.map(k => {
-    const g = visibleGroups[k];
-    const selectedCount = g.matches.filter(m => selectedIds.has(String(m.event_id))).length;
+  // Cap the number of results to keep the page responsive
+  const MAX_RESULTS = 300;
+  const truncated = list.length > MAX_RESULTS;
+  const showList = truncated ? list.slice(0, MAX_RESULTS) : list;
 
-    const rows = g.matches.map(m => {
+  // Group by league
+  const groups = {};
+  for (const m of showList) {
+    const lg = m.league || "Other";
+    (groups[lg] = groups[lg] || []).push(m);
+  }
+
+  const names = Object.keys(groups).sort((a, b) => {
+    const aD = /^[0-9]/.test(a);
+    const bD = /^[0-9]/.test(b);
+    if (aD !== bD) return aD ? 1 : -1;
+    return a.localeCompare(b);
+  });
+
+  const html = names.map(lg => {
+    const lgMatches = groups[lg];
+    const selectedCount = lgMatches.filter(m => selectedIds.has(String(m.event_id))).length;
+
+    const rows = lgMatches.map(m => {
       const checked = selectedIds.has(String(m.event_id)) ? "checked" : "";
       return `
         <label class="match">
@@ -622,15 +586,14 @@ function render() {
       ? `<span class="badge badge-selected">${selectedCount} selected</span>` : "";
 
     return `
-      <div class="group open" data-lg="${escapeHtml(k)}">
-        <div class="group-header" onclick="toggleGroup(this)">
+      <div class="group">
+        <div class="group-header">
           <div class="left">
-            <span class="arrow">▶</span>
-            <span class="name">${escapeHtml(g.label)}</span>
+            <span class="name">${escapeHtml(lg)}</span>
           </div>
           <div class="badges">
             ${selBadge}
-            <span class="badge badge-total">${g.matches.length}</span>
+            <span class="badge badge-total">${lgMatches.length}</span>
           </div>
         </div>
         <div class="group-body">${rows}</div>
@@ -638,12 +601,11 @@ function render() {
     `;
   }).join("");
 
-  content.innerHTML = html;
-  updateCounter();
-}
+  content.innerHTML = html + (truncated
+    ? `<div class="empty" style="padding:20px;">Showing first ${MAX_RESULTS} of ${list.length}. Narrow your search to see more.</div>`
+    : "");
 
-function toggleGroup(header) {
-  header.parentElement.classList.toggle("open");
+  updateCounter();
 }
 
 function toggleMatch(cb) {
@@ -655,13 +617,11 @@ function toggleMatch(cb) {
 }
 
 function updateCounter() {
-  document.getElementById("counter").textContent =
-    `Selected: ${selectedIds.size} of ${allMatches.length}`;
+  document.getElementById("counter").textContent = `Selected: ${selectedIds.size}`;
 }
 
 function updateMySelButton() {
-  document.getElementById("mySelBtn").textContent =
-    `My Selection (${selectedIds.size})`;
+  document.getElementById("mySelBtn").textContent = `My Selection (${selectedIds.size})`;
 }
 
 // ============ MODAL ============
@@ -674,13 +634,13 @@ function openModal() {
 
   const body = document.getElementById("modalBody");
   if (!picked.length) {
-    body.innerHTML = `<div class="modal-empty">No matches selected yet.<br>Tick some from the list to add them here.</div>`;
+    body.innerHTML = `<div class="modal-empty">No matches selected yet.<br>Use the search to find matches and tick them.</div>`;
   } else {
     body.innerHTML = picked.map(m => `
       <div class="sel-item">
         <div class="sel-info">
           <div class="sel-teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
-          <div class="sel-meta">${escapeHtml(labelForMatch(m))} · ${escapeHtml(formatTime(m.start))}</div>
+          <div class="sel-meta">${escapeHtml(m.league || "")} · ${escapeHtml(formatTime(m.start))}</div>
         </div>
         <button class="remove" onclick="removeFromSelection('${escapeHtml(String(m.event_id))}')">Remove</button>
       </div>
@@ -769,9 +729,12 @@ async function init() {
     return;
   }
 
-  buildLeagueGroups();
-  populateDropdown();
+  buildQuickFilters();
   updateMySelButton();
+
+  // Focus the search box
+  setTimeout(() => document.getElementById("search").focus(), 100);
+
   render();
 }
 
@@ -780,7 +743,6 @@ document.getElementById("unlockBtn").addEventListener("click", unlock);
 document.getElementById("tokenInput").addEventListener("keydown", e => { if (e.key === "Enter") unlock(); });
 document.getElementById("logoutBtn").addEventListener("click", lock);
 document.getElementById("search").addEventListener("input", render);
-document.getElementById("leagueFilter").addEventListener("change", render);
 document.getElementById("onlySelected").addEventListener("change", render);
 document.getElementById("saveBtn").addEventListener("click", saveSelection);
 document.getElementById("mySelBtn").addEventListener("click", openModal);
@@ -789,14 +751,7 @@ document.getElementById("modalClearBtn").addEventListener("click", clearAllSelec
 document.getElementById("modalBackdrop").addEventListener("click", e => {
   if (e.target.id === "modalBackdrop") closeModal();
 });
-document.getElementById("selectAllBtn").addEventListener("click", () => {
-  document.querySelectorAll('#content input[type=checkbox]').forEach(cb => {
-    if (!cb.checked) { cb.checked = true; toggleMatch(cb); }
-  });
-});
-document.getElementById("clearBtn").addEventListener("click", clearAllSelection);
 
-window.toggleGroup = toggleGroup;
 window.toggleMatch = toggleMatch;
 window.removeFromSelection = removeFromSelection;
 
