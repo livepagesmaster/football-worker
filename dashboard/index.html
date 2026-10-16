@@ -21,8 +21,7 @@
   #lock h1 { font-size: 20px; margin-bottom: 6px; font-weight: 700; }
   #lock p { font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.5; }
   #lock input {
-    width: 100%; padding: 12px 14px;
-    border: 1px solid #ddd; border-radius: 8px;
+    width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px;
     font-size: 14px; font-family: inherit; outline: none;
   }
   #lock input:focus { border-color: #2563eb; }
@@ -97,6 +96,9 @@
     user-select: none; cursor: pointer;
   }
   .toolbar .toggle input { width: 16px; height: 16px; accent-color: #2563eb; cursor: pointer; }
+  .toolbar .count {
+    font-size: 12px; font-weight: 600; color: #888;
+  }
   .toolbar button {
     padding: 8px 14px; border: none; border-radius: 8px;
     font-size: 13px; font-weight: 600; cursor: pointer;
@@ -105,28 +107,15 @@
   .toolbar .btn-save:hover { background: #15803d; }
   .toolbar .btn-save:disabled { background: #86d0a2; cursor: wait; }
 
-  .group {
+  /* ---------- FLAT LIST (no groups) ---------- */
+  .match-list {
     background: #fff; border: 1px solid #e0e0e0;
-    border-radius: 10px; margin-bottom: 10px; overflow: hidden;
+    border-radius: 10px; overflow: hidden;
   }
-  .group-header {
-    padding: 11px 14px; font-weight: 700; font-size: 14px;
-    background: #f9fafb; border-bottom: 1px solid #eee;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .group-header .left { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1; }
-  .group-header .name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .group-header .badges { display: flex; gap: 6px; flex-shrink: 0; }
-  .badge {
-    font-size: 11px; font-weight: 700;
-    padding: 2px 8px; border-radius: 9999px;
-  }
-  .badge-total { background: #eef2f7; color: #666; }
-  .badge-selected { background: #dcfce7; color: #16a34a; }
-
   .match {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 14px; border-bottom: 1px solid #f0f0f0;
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #f0f0f0;
     cursor: pointer; user-select: none;
   }
   .match:last-child { border-bottom: none; }
@@ -135,13 +124,26 @@
     width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;
     accent-color: #2563eb;
   }
-  .match .teams { flex: 1; font-size: 14px; min-width: 0; }
-  .match .teams .names {
-    font-weight: 500;
+  .match .col-main { flex: 1; min-width: 0; }
+  .match .teams {
+    font-size: 14px; font-weight: 600;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .match .teams .sub { font-size: 11px; color: #999; margin-top: 2px; }
-  .match .time { font-size: 12px; color: #666; flex-shrink: 0; white-space: nowrap; }
+  .match .league {
+    font-size: 11px; color: #999; margin-top: 3px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .match .col-time {
+    text-align: right; flex-shrink: 0;
+  }
+  .match .date {
+    font-size: 13px; font-weight: 700; color: #333;
+    white-space: nowrap;
+  }
+  .match .time {
+    font-size: 11px; color: #888; margin-top: 3px;
+    white-space: nowrap;
+  }
 
   .empty { text-align: center; padding: 60px 20px; color: #999; font-size: 14px; }
   .loading { text-align: center; padding: 40px; color: #888; }
@@ -247,7 +249,7 @@
 
   <div class="search-hero">
     <input type="text" id="search" placeholder="Type team or league to search…" autofocus autocomplete="off">
-    <div class="hint" id="hint">Start typing to see matches — try "Liverpool", "Real Madrid", or "Champions League"</div>
+    <div class="hint" id="hint">Start typing to see matches — results are sorted by date.</div>
   </div>
 
   <div class="filters" id="filters"></div>
@@ -257,6 +259,7 @@
       <input type="checkbox" id="onlySelected">
       <span>Only selected</span>
     </label>
+    <span class="count" id="resultCount"></span>
     <button class="btn-save" id="saveBtn">Save</button>
   </div>
 
@@ -311,7 +314,6 @@ const WOMEN_KEYWORDS = ["women", "wsl", "nwsl", "(w)", " w ", "femminile", "fém
 
 let allMatches = [];
 let selectedIds = new Set();
-let quickFilter = "";
 
 function getToken() { return localStorage.getItem(TOKEN_KEY) || ""; }
 function setToken(t) { localStorage.setItem(TOKEN_KEY, t); }
@@ -326,16 +328,6 @@ function toast(msg, isError = false) {
   t._tid = setTimeout(() => t.classList.remove("show"), 2400);
 }
 
-function formatTime(iso) {
-  if (!iso) return "";
-  try {
-    return new Date(iso).toLocaleString([], {
-      month: "short", day: "numeric",
-      hour: "2-digit", minute: "2-digit"
-    });
-  } catch { return ""; }
-}
-
 function escapeHtml(s) {
   if (s == null) return "";
   return String(s).replace(/[&<>"']/g, c => ({
@@ -346,6 +338,26 @@ function escapeHtml(s) {
 function isWomenLeague(name) {
   const lower = (name || "").toLowerCase();
   return WOMEN_KEYWORDS.some(k => lower.includes(k));
+}
+
+function parseStart(iso) {
+  if (!iso) return Infinity;
+  const t = new Date(iso).getTime();
+  return isNaN(t) ? Infinity : t;
+}
+
+function formatDate(iso) {
+  if (!iso) return "";
+  try {
+    return new Date(iso).toLocaleDateString([], { month: "short", day: "numeric" });
+  } catch { return ""; }
+}
+
+function formatTimeOnly(iso) {
+  if (!iso) return "";
+  try {
+    return new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  } catch { return ""; }
 }
 
 async function verifyToken(token) {
@@ -428,7 +440,6 @@ function buildQuickFilters() {
   wrap.querySelectorAll("button").forEach(btn => {
     btn.addEventListener("click", () => {
       const val = btn.getAttribute("data-val");
-      quickFilter = val;
       document.getElementById("search").value = val;
       wrap.querySelectorAll("button").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
@@ -441,6 +452,7 @@ function render() {
   const q = document.getElementById("search").value.trim().toLowerCase();
   const onlySelected = document.getElementById("onlySelected").checked;
   const content = document.getElementById("content");
+  const countEl = document.getElementById("resultCount");
 
   const searching = q.length > 0;
 
@@ -463,86 +475,54 @@ function render() {
 
   if (!searching && !onlySelected) {
     content.innerHTML = `<div class="empty">Start typing above, or tap a league chip to browse.</div>`;
+    countEl.textContent = "";
     updateCounter();
     return;
   }
 
   if (!list.length) {
     content.innerHTML = `<div class="empty">No matches found.</div>`;
+    countEl.textContent = "0 results";
     updateCounter();
     return;
   }
 
-  const MAX_RESULTS = 300;
-  const truncated = list.length > MAX_RESULTS;
-  const showList = truncated ? list.slice(0, MAX_RESULTS) : list;
-
-  const groups = {};
-  for (const m of showList) {
-    const lg = m.league || "Other";
-    (groups[lg] = groups[lg] || []).push(m);
-  }
-
-  const names = Object.keys(groups).sort((a, b) => {
-    const aD = /^[0-9]/.test(a);
-    const bD = /^[0-9]/.test(b);
-    if (aD !== bD) return aD ? 1 : -1;
-    return a.localeCompare(b);
+  // Sort by date (earliest first). Tie-break by team name for stability.
+  const sorted = [...list].sort((a, b) => {
+    const ta = parseStart(a.start);
+    const tb = parseStart(b.start);
+    if (ta !== tb) return ta - tb;
+    return (a.team1 || "").localeCompare(b.team1 || "");
   });
 
-  const html = names.map(lg => {
-    const lgMatches = groups[lg];
-    const selectedCount = lgMatches.filter(m => selectedIds.has(String(m.event_id))).length;
+  const MAX_RESULTS = 500;
+  const truncated = sorted.length > MAX_RESULTS;
+  const show = truncated ? sorted.slice(0, MAX_RESULTS) : sorted;
 
-    // >>> Sort matches inside this group by start time (earliest first) <<<
-    const sortedMatches = [...lgMatches].sort((a, b) => {
-      const ta = new Date(a.start || 0).getTime();
-      const tb = new Date(b.start || 0).getTime();
-      if (isNaN(ta) && isNaN(tb)) return 0;
-      if (isNaN(ta)) return 1;
-      if (isNaN(tb)) return -1;
-      return ta - tb;
-    });
-
-    const rows = sortedMatches.map(m => {
-      const checked = selectedIds.has(String(m.event_id)) ? "checked" : "";
-      return `
-        <label class="match">
-          <input type="checkbox" ${checked}
-                 data-eid="${escapeHtml(String(m.event_id))}"
-                 onchange="toggleMatch(this)">
-          <div class="teams">
-            <div class="names">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
-            <div class="sub">${escapeHtml(m.start || "")}</div>
-          </div>
-          <div class="time">${escapeHtml(formatTime(m.start))}</div>
-        </label>
-      `;
-    }).join("");
-
-    const selBadge = selectedCount > 0
-      ? `<span class="badge badge-selected">${selectedCount} selected</span>` : "";
-
+  const rows = show.map(m => {
+    const checked = selectedIds.has(String(m.event_id)) ? "checked" : "";
     return `
-      <div class="group">
-        <div class="group-header">
-          <div class="left">
-            <span class="name">${escapeHtml(lg)}</span>
-          </div>
-          <div class="badges">
-            ${selBadge}
-            <span class="badge badge-total">${lgMatches.length}</span>
-          </div>
+      <label class="match">
+        <input type="checkbox" ${checked}
+               data-eid="${escapeHtml(String(m.event_id))}"
+               onchange="toggleMatch(this)">
+        <div class="col-main">
+          <div class="teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
+          <div class="league">${escapeHtml(m.league || "")}</div>
         </div>
-        <div class="group-body">${rows}</div>
-      </div>
+        <div class="col-time">
+          <div class="date">${escapeHtml(formatDate(m.start))}</div>
+          <div class="time">${escapeHtml(formatTimeOnly(m.start))}</div>
+        </div>
+      </label>
     `;
   }).join("");
 
-  content.innerHTML = html + (truncated
-    ? `<div class="empty" style="padding:20px;">Showing first ${MAX_RESULTS} of ${list.length}. Narrow your search to see more.</div>`
+  content.innerHTML = `<div class="match-list">${rows}</div>` + (truncated
+    ? `<div class="empty" style="padding:16px;">Showing first ${MAX_RESULTS} of ${sorted.length}. Narrow your search to see more.</div>`
     : "");
 
+  countEl.textContent = `${sorted.length} result${sorted.length === 1 ? "" : "s"}`;
   updateCounter();
 }
 
@@ -573,21 +553,13 @@ function openModal() {
   if (!picked.length) {
     body.innerHTML = `<div class="modal-empty">No matches selected yet.<br>Use the search to find matches and tick them.</div>`;
   } else {
-    // Also sort modal picks by date
-    const sorted = [...picked].sort((a, b) => {
-      const ta = new Date(a.start || 0).getTime();
-      const tb = new Date(b.start || 0).getTime();
-      if (isNaN(ta) && isNaN(tb)) return 0;
-      if (isNaN(ta)) return 1;
-      if (isNaN(tb)) return -1;
-      return ta - tb;
-    });
+    const sorted = [...picked].sort((a, b) => parseStart(a.start) - parseStart(b.start));
 
     body.innerHTML = sorted.map(m => `
       <div class="sel-item">
         <div class="sel-info">
           <div class="sel-teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
-          <div class="sel-meta">${escapeHtml(m.league || "")} · ${escapeHtml(formatTime(m.start))}</div>
+          <div class="sel-meta">${escapeHtml(m.league || "")} · ${escapeHtml(formatDate(m.start))} ${escapeHtml(formatTimeOnly(m.start))}</div>
         </div>
         <button class="remove" onclick="removeFromSelection('${escapeHtml(String(m.event_id))}')">Remove</button>
       </div>
