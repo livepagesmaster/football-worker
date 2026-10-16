@@ -105,6 +105,19 @@
     width: 16px; height: 16px; accent-color: #2563eb; cursor: pointer;
   }
 
+  /* ---------- SECTION LABELS ---------- */
+  .section-label {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .8px;
+    color: #888; margin: 20px 4px 8px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before,
+  .section-label::after {
+    content: ""; flex: 1; height: 1px; background: #e0e0e0;
+  }
+  .section-label:first-child { margin-top: 4px; }
+
   /* ---------- LEAGUE GROUPS ---------- */
   .group {
     background: #fff; border: 1px solid #e0e0e0;
@@ -259,8 +272,7 @@ const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/conten
 
 const TOKEN_KEY = "gh_token_fw";
 
-// Top leagues — ranked by global popularity. Matched by "contains" (fuzzy).
-// Everything not listed here falls into the alphabetical section below.
+// Top leagues — ranked by global popularity. Fuzzy matched (contains).
 const TOP_LEAGUES = [
   "Champions League",
   "World Cup",
@@ -406,23 +418,49 @@ function buildGroups() {
   }
 }
 
+// Sorts top leagues by rank, then others with letters before digits.
+function sortedTopLeagues() {
+  return Object.keys(groups)
+    .filter(n => priorityOrder[n] !== Infinity)
+    .sort((a, b) => priorityOrder[a] - priorityOrder[b]);
+}
+
+function sortedOtherLeagues() {
+  return Object.keys(groups)
+    .filter(n => priorityOrder[n] === Infinity)
+    .sort((a, b) => {
+      const aStartsDigit = /^[0-9]/.test(a);
+      const bStartsDigit = /^[0-9]/.test(b);
+      if (aStartsDigit !== bStartsDigit) return aStartsDigit ? 1 : -1;
+      return a.localeCompare(b);
+    });
+}
+
 function sortedLeagueNames() {
-  return Object.keys(groups).sort((a, b) => {
-    const pa = priorityOrder[a];
-    const pb = priorityOrder[b];
-    if (pa !== pb) return pa - pb;
-    return a.localeCompare(b);
-  });
+  return [...sortedTopLeagues(), ...sortedOtherLeagues()];
 }
 
 function populateLeagueDropdown() {
   const sel = document.getElementById("leagueFilter");
-  const names = sortedLeagueNames();
-  sel.innerHTML = `<option value="">All leagues</option>` +
-    names.map(n => {
-      const count = groups[n].length;
-      return `<option value="${escapeHtml(n)}">${escapeHtml(n)} (${count})</option>`;
-    }).join("");
+  const top = sortedTopLeagues();
+  const other = sortedOtherLeagues();
+
+  let html = `<option value="">All leagues</option>`;
+  if (top.length) {
+    html += `<optgroup label="Top leagues">`;
+    html += top.map(n =>
+      `<option value="${escapeHtml(n)}">${escapeHtml(n)} (${groups[n].length})</option>`
+    ).join("");
+    html += `</optgroup>`;
+  }
+  if (other.length) {
+    html += `<optgroup label="Other leagues">`;
+    html += other.map(n =>
+      `<option value="${escapeHtml(n)}">${escapeHtml(n)} (${groups[n].length})</option>`
+    ).join("");
+    html += `</optgroup>`;
+  }
+  sel.innerHTML = html;
 }
 
 // ============ RENDER ============
@@ -439,31 +477,17 @@ function render() {
     return;
   }
 
-  const names = sortedLeagueNames().filter(name => {
-    if (leagueFilter && name !== leagueFilter) return false;
-    return true;
-  });
-
-  if (!names.length) {
-    content.innerHTML = `<div class="empty">No leagues to show.</div>`;
-    updateCounter();
-    return;
-  }
-
-  const html = names.map(lg => {
+  const renderGroup = (lg, isTop) => {
     let list = groups[lg];
-
     if (q) {
       list = list.filter(m => {
         const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
         return hay.includes(q);
       });
     }
-
     if (onlySelected) {
       list = list.filter(m => selectedIds.has(String(m.event_id)));
     }
-
     if (!list.length) return "";
 
     const selectedCount = list.filter(m => selectedIds.has(String(m.event_id))).length;
@@ -501,12 +525,40 @@ function render() {
             <span class="badge badge-total">${list.length}</span>
           </div>
         </div>
-        <div class="group-body">
-          ${rows}
-        </div>
+        <div class="group-body">${rows}</div>
       </div>
     `;
-  }).join("");
+  };
+
+  let html = "";
+
+  if (leagueFilter) {
+    // Single league chosen from dropdown
+    const lg = leagueFilter;
+    if (groups[lg]) {
+      html += renderGroup(lg, priorityOrder[lg] !== Infinity);
+    }
+  } else {
+    // Pinned section
+    const topLeagues = sortedTopLeagues();
+    if (topLeagues.length) {
+      const topHtml = topLeagues.map(lg => renderGroup(lg, true)).join("");
+      if (topHtml) {
+        html += `<div class="section-label">Top leagues</div>`;
+        html += topHtml;
+      }
+    }
+
+    // Others section
+    const otherLeagues = sortedOtherLeagues();
+    if (otherLeagues.length) {
+      const otherHtml = otherLeagues.map(lg => renderGroup(lg, false)).join("");
+      if (otherHtml) {
+        html += `<div class="section-label">All other leagues</div>`;
+        html += otherHtml;
+      }
+    }
+  }
 
   content.innerHTML = html || `<div class="empty">No matches match your filters.</div>`;
   updateCounter();
@@ -638,10 +690,8 @@ async function init() {
   buildGroups();
   populateLeagueDropdown();
 
-  const names = sortedLeagueNames();
-  for (const n of names) {
-    if (priorityOrder[n] !== Infinity) openGroups.add(n);
-  }
+  // Open top leagues by default
+  for (const n of sortedTopLeagues()) openGroups.add(n);
 
   render();
 }
@@ -658,21 +708,14 @@ document.getElementById("onlySelected").addEventListener("change", render);
 document.getElementById("saveBtn").addEventListener("click", saveSelection);
 
 document.getElementById("selectAllBtn").addEventListener("click", () => {
-  // Select only what's currently visible in the DOM (respects search + league filter)
   document.querySelectorAll('#content input[type=checkbox]').forEach(cb => {
     if (!cb.checked) { cb.checked = true; toggleMatch(cb); }
   });
 });
 
 document.getElementById("clearBtn").addEventListener("click", () => {
-  // Wipe the entire selection, not just visible checkboxes.
-  if (selectedIds.size === 0) {
-    toast("Nothing to clear");
-    return;
-  }
-  if (!confirm(`Clear all ${selectedIds.size} selected match${selectedIds.size === 1 ? "" : "es"}?`)) {
-    return;
-  }
+  if (selectedIds.size === 0) { toast("Nothing to clear"); return; }
+  if (!confirm(`Clear all ${selectedIds.size} selected match${selectedIds.size === 1 ? "" : "es"}?`)) return;
   selectedIds.clear();
   render();
   toast("Cleared — click Save to apply");
