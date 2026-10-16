@@ -49,8 +49,16 @@
     font-size: 13px; font-weight: 700; color: #fff;
     background: #7c3aed; padding: 6px 14px; border-radius: 8px;
     border: none; cursor: pointer;
+    position: relative;
   }
   #app .my-sel-btn:hover { background: #6d28d9; }
+  #app .my-sel-btn .dot {
+    position: absolute; top: -4px; right: -4px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: #f59e0b; border: 2px solid #f5f5f7;
+    display: none;
+  }
+  #app .my-sel-btn.has-stale .dot { display: block; }
   #app .logout {
     padding: 6px 14px; font-size: 12px; font-weight: 600;
     background: #e5e7eb; border: none; border-radius: 6px;
@@ -96,9 +104,7 @@
     user-select: none; cursor: pointer;
   }
   .toolbar .toggle input { width: 16px; height: 16px; accent-color: #2563eb; cursor: pointer; }
-  .toolbar .count {
-    font-size: 12px; font-weight: 600; color: #888;
-  }
+  .toolbar .count { font-size: 12px; font-weight: 600; color: #888; }
   .toolbar button {
     padding: 8px 14px; border: none; border-radius: 8px;
     font-size: 13px; font-weight: 600; cursor: pointer;
@@ -107,15 +113,13 @@
   .toolbar .btn-save:hover { background: #15803d; }
   .toolbar .btn-save:disabled { background: #86d0a2; cursor: wait; }
 
-  /* ---------- FLAT LIST (no groups) ---------- */
   .match-list {
     background: #fff; border: 1px solid #e0e0e0;
     border-radius: 10px; overflow: hidden;
   }
   .match {
     display: flex; align-items: center; gap: 12px;
-    padding: 12px 14px;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 12px 14px; border-bottom: 1px solid #f0f0f0;
     cursor: pointer; user-select: none;
   }
   .match:last-child { border-bottom: none; }
@@ -133,9 +137,7 @@
     font-size: 11px; color: #999; margin-top: 3px;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .match .col-time {
-    text-align: right; flex-shrink: 0;
-  }
+  .match .col-time { text-align: right; flex-shrink: 0; }
   .match .date {
     font-size: 13px; font-weight: 700; color: #333;
     white-space: nowrap;
@@ -156,11 +158,12 @@
     font-size: 14px; font-weight: 600;
     opacity: 0; pointer-events: none;
     transition: opacity .25s, transform .25s;
-    z-index: 100;
+    z-index: 300;
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .toast.error { background: #dc2626; }
 
+  /* ---------- MODAL ---------- */
   .modal-backdrop {
     display: none; position: fixed; inset: 0;
     background: rgba(0,0,0,.45); z-index: 200;
@@ -169,15 +172,24 @@
   .modal-backdrop.open { display: flex; }
   .modal {
     background: #fff; border-radius: 14px;
-    max-width: 640px; width: 100%; max-height: 85vh;
+    max-width: 720px; width: 100%; max-height: 88vh;
     display: flex; flex-direction: column;
     box-shadow: 0 20px 60px rgba(0,0,0,.25);
   }
   .modal-head {
     padding: 16px 20px; border-bottom: 1px solid #eee;
     display: flex; justify-content: space-between; align-items: center;
+    gap: 10px;
   }
   .modal-head h2 { font-size: 17px; font-weight: 800; }
+  .modal-head .actions { display: flex; gap: 8px; align-items: center; }
+  .modal-head .refresh-all {
+    background: #f59e0b; color: #fff;
+    border: none; border-radius: 6px;
+    padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer;
+  }
+  .modal-head .refresh-all:hover { background: #d97706; }
+  .modal-head .refresh-all:disabled { background: #fcd9a4; cursor: not-allowed; }
   .modal-head .close {
     background: #f0f0f0; border: none; border-radius: 6px;
     width: 30px; height: 30px; font-size: 18px; cursor: pointer;
@@ -185,9 +197,10 @@
   }
   .modal-head .close:hover { background: #e0e0e0; }
   .modal-body { overflow-y: auto; padding: 12px 20px 20px; flex: 1; }
+
   .sel-item {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 0; border-bottom: 1px solid #f0f0f0;
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 12px 0; border-bottom: 1px solid #f0f0f0;
   }
   .sel-item:last-child { border-bottom: none; }
   .sel-item .sel-info { flex: 1; min-width: 0; }
@@ -195,14 +208,40 @@
     font-size: 14px; font-weight: 500;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .sel-item .sel-meta { font-size: 11px; color: #999; margin-top: 2px; }
-  .sel-item .remove {
-    background: #fee2e2; color: #b91c1c;
-    border: none; border-radius: 6px;
-    padding: 6px 10px; font-size: 12px; font-weight: 700;
-    cursor: pointer; flex-shrink: 0;
+  .sel-item .sel-meta {
+    font-size: 11px; color: #999; margin-top: 3px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .sel-item .remove:hover { background: #fecaca; }
+  .sel-item .sel-badges {
+    display: flex; gap: 5px; margin-top: 5px; flex-wrap: wrap;
+  }
+  .sel-badge {
+    font-size: 10px; font-weight: 700;
+    padding: 2px 7px; border-radius: 9999px;
+    letter-spacing: .3px;
+  }
+  .sel-badge.stale { background: #fef3c7; color: #92400e; }
+  .sel-badge.missing { background: #e5e7eb; color: #4b5563; }
+  .sel-badge.custom { background: #ede9fe; color: #6d28d9; }
+
+  .sel-item .sel-actions {
+    display: flex; flex-direction: column; gap: 5px;
+    flex-shrink: 0;
+  }
+  .sel-item .sel-actions button {
+    font-size: 11px; font-weight: 700;
+    padding: 5px 9px; border-radius: 5px;
+    cursor: pointer; border: none;
+    min-width: 68px;
+  }
+  .btn-refresh { background: #fef3c7; color: #92400e; }
+  .btn-refresh:hover { background: #fde68a; }
+  .btn-refresh:disabled { background: #f5f5f5; color: #bbb; cursor: not-allowed; }
+  .btn-edit { background: #dbeafe; color: #1e40af; }
+  .btn-edit:hover { background: #bfdbfe; }
+  .btn-remove { background: #fee2e2; color: #b91c1c; }
+  .btn-remove:hover { background: #fecaca; }
+
   .modal-empty { text-align: center; padding: 40px 20px; color: #999; font-size: 14px; }
   .modal-foot {
     padding: 12px 20px; border-top: 1px solid #eee;
@@ -217,10 +256,45 @@
   }
   .modal-foot .danger:hover { background: #fecaca; }
 
+  /* ---------- EDIT FORM (inside modal) ---------- */
+  .edit-form { padding: 4px 0; }
+  .edit-form h3 {
+    font-size: 14px; font-weight: 800;
+    margin-bottom: 12px; color: #333;
+  }
+  .edit-form label {
+    display: block;
+    font-size: 12px; font-weight: 700;
+    color: #555; margin-bottom: 4px; margin-top: 10px;
+  }
+  .edit-form input {
+    width: 100%; padding: 9px 12px;
+    border: 1px solid #ddd; border-radius: 7px;
+    font-size: 13px; font-family: inherit;
+    outline: none;
+  }
+  .edit-form input:focus { border-color: #2563eb; }
+  .edit-form .row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .edit-form .form-actions {
+    display: flex; gap: 8px; justify-content: flex-end;
+    margin-top: 16px;
+  }
+  .edit-form .form-actions button {
+    padding: 8px 16px; border: none; border-radius: 7px;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+  }
+  .btn-cancel { background: #e5e7eb; color: #444; }
+  .btn-cancel:hover { background: #d1d5db; }
+  .btn-apply { background: #2563eb; color: #fff; }
+  .btn-apply:hover { background: #1d4ed8; }
+
   @media (max-width: 600px) {
     #app { padding: 12px; }
     .search-hero { padding: 14px; }
     .search-hero input { font-size: 15px; padding: 12px 14px; }
+    .edit-form .row { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -242,7 +316,10 @@
     <h1>Match Selector</h1>
     <div class="topbar-right">
       <span class="counter" id="counter">Selected: 0</span>
-      <button class="my-sel-btn" id="mySelBtn">My Selection (0)</button>
+      <button class="my-sel-btn" id="mySelBtn">
+        My Selection (0)
+        <span class="dot"></span>
+      </button>
       <button class="logout" id="logoutBtn">Lock</button>
     </div>
   </div>
@@ -270,7 +347,10 @@
   <div class="modal">
     <div class="modal-head">
       <h2 id="modalTitle">My Selection (0)</h2>
-      <button class="close" id="modalClose">×</button>
+      <div class="actions">
+        <button class="refresh-all" id="refreshAllBtn">Refresh all</button>
+        <button class="close" id="modalClose">×</button>
+      </div>
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-foot">
@@ -297,24 +377,29 @@ const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/conten
 const TOKEN_KEY = "gh_token_fw";
 
 const QUICK_LEAGUES = [
-  "Champions League",
-  "Premier League",
-  "Bundesliga",
-  "LaLiga",
-  "Serie A",
-  "Ligue 1",
-  "Liga Portugal",
-  "Brasileirão",
-  "Saudi Pro League",
-  "MLS",
+  "Champions League", "Premier League", "Bundesliga", "LaLiga",
+  "Serie A", "Ligue 1", "Liga Portugal", "Brasileirão",
+  "Saudi Pro League", "MLS",
 ];
 
 const WOMEN_KEYWORDS = ["women", "wsl", "nwsl", "(w)", " w ", "femminile", "féminine", "femenina"];
+
+// Fields compared for "stale" detection — anything pulled from the feed.
+const FEED_FIELDS = [
+  "team1", "team2",
+  "team1_logo", "team2_logo",
+  "team1_logo_fallback", "team2_logo_fallback",
+  "league", "league_id", "league_country",
+  "start", "duration",
+];
 // ==================================================================
 
 let allMatches = [];
+let selectedMatches = [];      // full objects as loaded from selected.json
 let selectedIds = new Set();
+let pendingSave = false;
 
+// ---------- helpers ----------
 function getToken() { return localStorage.getItem(TOKEN_KEY) || ""; }
 function setToken(t) { localStorage.setItem(TOKEN_KEY, t); }
 function clearToken() { localStorage.removeItem(TOKEN_KEY); }
@@ -348,18 +433,65 @@ function parseStart(iso) {
 
 function formatDate(iso) {
   if (!iso) return "";
-  try {
-    return new Date(iso).toLocaleDateString([], { month: "short", day: "numeric" });
-  } catch { return ""; }
+  try { return new Date(iso).toLocaleDateString([], { month: "short", day: "numeric" }); }
+  catch { return ""; }
 }
 
 function formatTimeOnly(iso) {
   if (!iso) return "";
-  try {
-    return new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-  } catch { return ""; }
+  try { return new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); }
+  catch { return ""; }
 }
 
+function findInFeed(saved) {
+  if (!saved) return null;
+  // Match by event_id first
+  if (saved.event_id != null) {
+    const byId = allMatches.find(m => String(m.event_id) === String(saved.event_id));
+    if (byId) return byId;
+  }
+  // Fallback: team names (either orientation)
+  const t1 = (saved.team1 || "").toLowerCase().trim();
+  const t2 = (saved.team2 || "").toLowerCase().trim();
+  if (!t1 || !t2) return null;
+  return allMatches.find(m => {
+    const a = (m.team1 || "").toLowerCase().trim();
+    const b = (m.team2 || "").toLowerCase().trim();
+    return (a === t1 && b === t2) || (a === t2 && b === t1);
+  }) || null;
+}
+
+function isStale(saved) {
+  const feed = findInFeed(saved);
+  if (!feed) return false;  // missing, not stale
+  for (const f of FEED_FIELDS) {
+    const a = saved[f];
+    const b = feed[f];
+    if (a == null && b == null) continue;
+    if (String(a ?? "") !== String(b ?? "")) return true;
+  }
+  return false;
+}
+
+function isMissing(saved) {
+  return !findInFeed(saved);
+}
+
+function isCustomized(saved) {
+  return !!saved._custom;
+}
+
+function refreshFromFeed(saved) {
+  const feed = findInFeed(saved);
+  if (!feed) return saved;  // nothing to refresh
+  const merged = { ...feed };
+  // Preserve redirect_url and custom flag
+  if (saved.redirect_url) merged.redirect_url = saved.redirect_url;
+  if (saved._custom) merged._custom = true;
+  return merged;
+}
+
+// ---------- token verify ----------
 async function verifyToken(token) {
   try {
     const r = await fetch(
@@ -400,6 +532,7 @@ function lock() {
   document.getElementById("errMsg").style.display = "none";
 }
 
+// ---------- data ----------
 async function loadAll() {
   const r = await fetch(MATCHES_URL + "?t=" + Date.now());
   const j = await r.json();
@@ -411,22 +544,25 @@ async function loadSelected() {
     const r = await fetch(
       `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${SELECTED_PATH}?t=${Date.now()}`
     );
-    if (!r.ok) return;
+    if (!r.ok) { selectedMatches = []; selectedIds = new Set(); return; }
     const j = await r.json();
-    const sel = j.matches || [];
+    const sel = Array.isArray(j.matches) ? j.matches : [];
+    selectedMatches = sel.map(m => ({ ...m }));
     selectedIds = new Set(sel.map(m => String(m.event_id)));
-  } catch {}
+  } catch {
+    selectedMatches = [];
+    selectedIds = new Set();
+  }
 }
 
+// ---------- quick filters ----------
 function buildQuickFilters() {
   const wrap = document.getElementById("filters");
   const available = new Set(allMatches.map(m => m.league || "").filter(Boolean));
 
   const visible = QUICK_LEAGUES.filter(name => {
     const lower = name.toLowerCase();
-    for (const lg of available) {
-      if (lg.toLowerCase().includes(lower)) return true;
-    }
+    for (const lg of available) if (lg.toLowerCase().includes(lower)) return true;
     return false;
   });
 
@@ -436,11 +572,9 @@ function buildQuickFilters() {
   ).join("");
 
   wrap.innerHTML = html;
-
   wrap.querySelectorAll("button").forEach(btn => {
     btn.addEventListener("click", () => {
-      const val = btn.getAttribute("data-val");
-      document.getElementById("search").value = val;
+      document.getElementById("search").value = btn.getAttribute("data-val");
       wrap.querySelectorAll("button").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       render();
@@ -448,6 +582,7 @@ function buildQuickFilters() {
   });
 }
 
+// ---------- render main list ----------
 function render() {
   const q = document.getElementById("search").value.trim().toLowerCase();
   const onlySelected = document.getElementById("onlySelected").checked;
@@ -455,7 +590,6 @@ function render() {
   const countEl = document.getElementById("resultCount");
 
   const searching = q.length > 0;
-
   let list = allMatches;
 
   if (searching) {
@@ -464,11 +598,9 @@ function render() {
       return hay.includes(q);
     });
   }
-
   if (!searching || !/women|wsl|nwsl|femminile|féminine|femenina/i.test(q)) {
     list = list.filter(m => !isWomenLeague(m.league || ""));
   }
-
   if (onlySelected) {
     list = list.filter(m => selectedIds.has(String(m.event_id)));
   }
@@ -487,10 +619,8 @@ function render() {
     return;
   }
 
-  // Sort by date (earliest first). Tie-break by team name for stability.
   const sorted = [...list].sort((a, b) => {
-    const ta = parseStart(a.start);
-    const tb = parseStart(b.start);
+    const ta = parseStart(a.start), tb = parseStart(b.start);
     if (ta !== tb) return ta - tb;
     return (a.team1 || "").localeCompare(b.team1 || "");
   });
@@ -519,17 +649,28 @@ function render() {
   }).join("");
 
   content.innerHTML = `<div class="match-list">${rows}</div>` + (truncated
-    ? `<div class="empty" style="padding:16px;">Showing first ${MAX_RESULTS} of ${sorted.length}. Narrow your search to see more.</div>`
+    ? `<div class="empty" style="padding:16px;">Showing first ${MAX_RESULTS} of ${sorted.length}.</div>`
     : "");
 
   countEl.textContent = `${sorted.length} result${sorted.length === 1 ? "" : "s"}`;
   updateCounter();
 }
 
+// ---------- selection toggling ----------
 function toggleMatch(cb) {
   const eid = String(cb.getAttribute("data-eid"));
-  if (cb.checked) selectedIds.add(eid);
-  else selectedIds.delete(eid);
+  if (cb.checked) {
+    selectedIds.add(eid);
+    // Add full object from feed into selectedMatches
+    const feed = allMatches.find(m => String(m.event_id) === eid);
+    if (feed && !selectedMatches.find(s => String(s.event_id) === eid)) {
+      selectedMatches.push({ ...feed });
+    }
+  } else {
+    selectedIds.delete(eid);
+    selectedMatches = selectedMatches.filter(s => String(s.event_id) !== eid);
+  }
+  pendingSave = true;
   updateCounter();
   updateMySelButton();
 }
@@ -539,33 +680,15 @@ function updateCounter() {
 }
 
 function updateMySelButton() {
-  document.getElementById("mySelBtn").textContent = `My Selection (${selectedIds.size})`;
+  const btn = document.getElementById("mySelBtn");
+  btn.childNodes[0].nodeValue = `My Selection (${selectedIds.size})`;
+  const hasStale = selectedMatches.some(m => isStale(m));
+  btn.classList.toggle("has-stale", hasStale);
 }
 
+// ---------- modal ----------
 function openModal() {
-  const picked = allMatches.filter(m => selectedIds.has(String(m.event_id)));
-
-  document.getElementById("modalTitle").textContent = `My Selection (${picked.length})`;
-  document.getElementById("modalFootLeft").textContent =
-    `${picked.length} match${picked.length === 1 ? "" : "es"} selected`;
-
-  const body = document.getElementById("modalBody");
-  if (!picked.length) {
-    body.innerHTML = `<div class="modal-empty">No matches selected yet.<br>Use the search to find matches and tick them.</div>`;
-  } else {
-    const sorted = [...picked].sort((a, b) => parseStart(a.start) - parseStart(b.start));
-
-    body.innerHTML = sorted.map(m => `
-      <div class="sel-item">
-        <div class="sel-info">
-          <div class="sel-teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
-          <div class="sel-meta">${escapeHtml(m.league || "")} · ${escapeHtml(formatDate(m.start))} ${escapeHtml(formatTimeOnly(m.start))}</div>
-        </div>
-        <button class="remove" onclick="removeFromSelection('${escapeHtml(String(m.event_id))}')">Remove</button>
-      </div>
-    `).join("");
-  }
-
+  renderModalBody();
   document.getElementById("modalBackdrop").classList.add("open");
 }
 
@@ -573,25 +696,187 @@ function closeModal() {
   document.getElementById("modalBackdrop").classList.remove("open");
 }
 
+function renderModalBody() {
+  document.getElementById("modalTitle").textContent =
+    `My Selection (${selectedMatches.length})`;
+
+  const titleEl = document.getElementById("modalFootLeft");
+  const staleCount = selectedMatches.filter(isStale).length;
+  const missingCount = selectedMatches.filter(isMissing).length;
+  titleEl.textContent = `${selectedMatches.length} match${selectedMatches.length === 1 ? "" : "es"} · ${staleCount} updated · ${missingCount} missing`;
+
+  const refreshAllBtn = document.getElementById("refreshAllBtn");
+  refreshAllBtn.disabled = staleCount === 0;
+  refreshAllBtn.textContent = staleCount > 0
+    ? `Refresh all (${staleCount})`
+    : "Refresh all";
+
+  const body = document.getElementById("modalBody");
+  if (!selectedMatches.length) {
+    body.innerHTML = `<div class="modal-empty">No matches selected yet.<br>Use the search to find matches and tick them.</div>`;
+    return;
+  }
+
+  const sorted = [...selectedMatches].sort((a, b) => parseStart(a.start) - parseStart(b.start));
+
+  body.innerHTML = sorted.map(m => {
+    const stale = isStale(m);
+    const missing = isMissing(m);
+    const custom = isCustomized(m);
+
+    const badges = [
+      stale ? `<span class="sel-badge stale">UPDATED</span>` : "",
+      missing ? `<span class="sel-badge missing">NOT IN FEED</span>` : "",
+      custom ? `<span class="sel-badge custom">EDITED</span>` : "",
+    ].filter(Boolean).join("");
+
+    const eid = escapeHtml(String(m.event_id));
+    return `
+      <div class="sel-item">
+        <div class="sel-info">
+          <div class="sel-teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
+          <div class="sel-meta">${escapeHtml(m.league || "")} · ${escapeHtml(formatDate(m.start))} ${escapeHtml(formatTimeOnly(m.start))}</div>
+          ${badges ? `<div class="sel-badges">${badges}</div>` : ""}
+        </div>
+        <div class="sel-actions">
+          <button class="btn-refresh" onclick="refreshOne('${eid}')" ${stale ? "" : "disabled"}>Refresh</button>
+          <button class="btn-edit" onclick="editOne('${eid}')">Edit</button>
+          <button class="btn-remove" onclick="removeFromSelection('${eid}')">Delete</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function refreshOne(eid) {
+  const idx = selectedMatches.findIndex(m => String(m.event_id) === String(eid));
+  if (idx === -1) return;
+  const updated = refreshFromFeed(selectedMatches[idx]);
+  selectedMatches[idx] = updated;
+  pendingSave = true;
+  renderModalBody();
+  updateMySelButton();
+  toast("Refreshed");
+}
+
+function refreshAllStale() {
+  let count = 0;
+  selectedMatches = selectedMatches.map(m => {
+    if (isStale(m)) {
+      count++;
+      return refreshFromFeed(m);
+    }
+    return m;
+  });
+  if (count === 0) { toast("Nothing to refresh"); return; }
+  pendingSave = true;
+  renderModalBody();
+  updateMySelButton();
+  toast(`Refreshed ${count} match${count === 1 ? "" : "es"}`);
+}
+
 function removeFromSelection(eid) {
   selectedIds.delete(String(eid));
+  selectedMatches = selectedMatches.filter(s => String(s.event_id) !== String(eid));
+  pendingSave = true;
   updateCounter();
   updateMySelButton();
-  openModal();
+  renderModalBody();
   render();
+  toast("Removed");
 }
 
 function clearAllSelection() {
-  if (!selectedIds.size) return;
-  if (!confirm(`Clear all ${selectedIds.size} selected matches?`)) return;
+  if (!selectedMatches.length) return;
+  if (!confirm(`Clear all ${selectedMatches.length} selected matches?`)) return;
   selectedIds.clear();
+  selectedMatches = [];
+  pendingSave = true;
   updateCounter();
   updateMySelButton();
-  openModal();
+  renderModalBody();
   render();
   toast("Cleared — click Save to apply");
 }
 
+// ---------- edit form ----------
+function editOne(eid) {
+  const m = selectedMatches.find(x => String(x.event_id) === String(eid));
+  if (!m) return;
+
+  const body = document.getElementById("modalBody");
+  body.innerHTML = `
+    <div class="edit-form">
+      <h3>Edit match</h3>
+
+      <label>Team 1</label>
+      <input id="ef-team1" type="text" value="${escapeHtml(m.team1 || "")}">
+
+      <label>Team 1 logo URL</label>
+      <input id="ef-team1_logo" type="text" value="${escapeHtml(m.team1_logo || "")}">
+
+      <label>Team 2</label>
+      <input id="ef-team2" type="text" value="${escapeHtml(m.team2 || "")}">
+
+      <label>Team 2 logo URL</label>
+      <input id="ef-team2_logo" type="text" value="${escapeHtml(m.team2_logo || "")}">
+
+      <label>League</label>
+      <input id="ef-league" type="text" value="${escapeHtml(m.league || "")}">
+
+      <div class="row">
+        <div>
+          <label>Start (ISO)</label>
+          <input id="ef-start" type="text" value="${escapeHtml(m.start || "")}" placeholder="2026-10-16T08:30Z">
+        </div>
+        <div>
+          <label>Duration (hours)</label>
+          <input id="ef-duration" type="text" value="${escapeHtml(String(m.duration ?? "2.2"))}">
+        </div>
+      </div>
+
+      <label>Redirect URL (stream link)</label>
+      <input id="ef-redirect" type="text" value="${escapeHtml(m.redirect_url || "")}" placeholder="https://...">
+
+      <div class="form-actions">
+        <button class="btn-cancel" onclick="cancelEdit()">Cancel</button>
+        <button class="btn-apply" onclick="applyEdit('${escapeHtml(String(m.event_id))}')">Apply</button>
+      </div>
+    </div>
+  `;
+}
+
+function cancelEdit() {
+  renderModalBody();
+}
+
+function applyEdit(eid) {
+  const idx = selectedMatches.findIndex(m => String(m.event_id) === String(eid));
+  if (idx === -1) return;
+
+  const get = id => document.getElementById(id).value.trim();
+
+  const updated = {
+    ...selectedMatches[idx],
+    team1: get("ef-team1"),
+    team1_logo: get("ef-team1_logo"),
+    team2: get("ef-team2"),
+    team2_logo: get("ef-team2_logo"),
+    league: get("ef-league"),
+    start: get("ef-start"),
+    duration: parseFloat(get("ef-duration")) || 2.2,
+    redirect_url: get("ef-redirect"),
+    _custom: true,
+  };
+
+  selectedMatches[idx] = updated;
+  pendingSave = true;
+  renderModalBody();
+  updateMySelButton();
+  toast("Saved — click Save to publish");
+}
+
+// ---------- save ----------
 async function saveSelection() {
   const token = getToken();
   if (!token) { lock(); return; }
@@ -599,9 +884,10 @@ async function saveSelection() {
   const btn = document.getElementById("saveBtn");
   btn.disabled = true; btn.textContent = "Saving…";
 
-  const selectedMatches = allMatches.filter(m => selectedIds.has(String(m.event_id)));
-
-  const payload = { matches: selectedMatches, updated_at: new Date().toISOString() };
+  const payload = {
+    matches: selectedMatches,
+    updated_at: new Date().toISOString(),
+  };
   const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
 
   let sha;
@@ -624,17 +910,22 @@ async function saveSelection() {
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
-    if (r.ok) toast("Saved — widget will update shortly");
-    else if (r.status === 401 || r.status === 403) { toast("Token no longer valid", true); lock(); }
-    else { console.error(await r.text()); toast("Save failed", true); }
+    if (r.ok) {
+      pendingSave = false;
+      toast("Saved — widget will update shortly");
+    } else if (r.status === 401 || r.status === 403) {
+      toast("Token no longer valid", true); lock();
+    } else {
+      console.error(await r.text()); toast("Save failed", true);
+    }
   } catch (e) {
-    console.error(e);
-    toast("Save failed — network error", true);
+    console.error(e); toast("Save failed — network error", true);
   }
 
   btn.disabled = false; btn.textContent = "Save";
 }
 
+// ---------- init ----------
 async function init() {
   document.getElementById("content").innerHTML = `<div class="loading">Loading matches…</div>`;
   try {
@@ -652,6 +943,7 @@ async function init() {
   render();
 }
 
+// ---------- wire up ----------
 document.getElementById("unlockBtn").addEventListener("click", unlock);
 document.getElementById("tokenInput").addEventListener("keydown", e => { if (e.key === "Enter") unlock(); });
 document.getElementById("logoutBtn").addEventListener("click", lock);
@@ -661,12 +953,17 @@ document.getElementById("saveBtn").addEventListener("click", saveSelection);
 document.getElementById("mySelBtn").addEventListener("click", openModal);
 document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("modalClearBtn").addEventListener("click", clearAllSelection);
+document.getElementById("refreshAllBtn").addEventListener("click", refreshAllStale);
 document.getElementById("modalBackdrop").addEventListener("click", e => {
   if (e.target.id === "modalBackdrop") closeModal();
 });
 
 window.toggleMatch = toggleMatch;
 window.removeFromSelection = removeFromSelection;
+window.refreshOne = refreshOne;
+window.editOne = editOne;
+window.cancelEdit = cancelEdit;
+window.applyEdit = applyEdit;
 
 (async () => {
   const t = getToken();
