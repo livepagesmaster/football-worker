@@ -8,32 +8,25 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f7; color: #222; padding: 20px; }
   .wrap { max-width: 900px; margin: 0 auto; }
-  
   #lock { display: flex; align-items: center; justify-content: center; min-height: 80vh; }
   #lock .box { background: #fff; border: 1px solid #e0e0e0; border-radius: 14px; padding: 32px; width: 100%; max-width: 400px; text-align: center; }
   #lock input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; }
   #lock button { width: 100%; padding: 12px; border: none; border-radius: 8px; background: #2563eb; color: #fff; font-weight: 700; cursor: pointer; }
-
   #app { display: none; }
   .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
   .topbar h1 { font-size: 22px; font-weight: 800; }
   .btn-save { background: #16a34a; color: #fff; padding: 10px 20px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
-  
   .match-item { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
   .match-header { padding: 16px; background: #f9fafb; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
   .match-header h3 { font-size: 16px; margin: 0; }
   .match-header .meta { font-size: 12px; color: #666; margin-top: 4px; }
   .match-body { padding: 16px; display: none; }
   .match-item.open .match-body { display: block; }
-  
   .input-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 16px; }
   .input-group label { display: block; font-size: 12px; font-weight: 700; color: #555; margin-bottom: 6px; }
-  .input-group input { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; outline: none; transition: border-color 0.2s; }
-  .input-group input:focus { border-color: #2563eb; }
-  
+  .input-group input { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; outline: none; }
   .common-box { margin-bottom: 20px; background: #eff6ff; padding: 12px; border-radius: 8px; border: 1px solid #bfdbfe; }
   .common-box label { color: #1d4ed8; }
-  
   .empty { text-align: center; padding: 40px; color: #888; background: #fff; border-radius: 10px; border: 1px dashed #ccc; }
 </style>
 </head>
@@ -93,7 +86,6 @@ async function loadData() {
             fetch(FEED_URL + "?t=" + Date.now()),
             fetch(LINKS_URL + "?t=" + Date.now()).catch(() => null)
         ]);
-        
         const feed = await feedRes.json();
         activeMatches = feed.matches || [];
         
@@ -102,7 +94,6 @@ async function loadData() {
         } else {
             currentLinks = {};
         }
-        
         renderList();
     } catch(e) {
         console.error(e);
@@ -113,20 +104,17 @@ async function loadData() {
 function renderList() {
     const container = document.getElementById("matchesList");
     if(activeMatches.length === 0) {
-        container.innerHTML = `<div class="empty">No matches on widget right now.<br>Add matches in your main dashboard first.</div>`;
+        container.innerHTML = `<div class="empty">No matches on widget right now.</div>`;
         return;
     }
 
     container.innerHTML = activeMatches.map(m => {
         const matchId = m.id || `${m.team1.name}-vs-${m.team2.name}`;
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
-        
         const saved = currentLinks[matchId] || {};
         
-        // Build 7 rows
         let rowsHtml = '';
         for(let i=1; i<=7; i++) {
-            // Handle old string format if they saved it before
             const linkObj = saved[`link${i}`] || { url: '' };
             const lUrl = typeof linkObj === 'string' ? linkObj : (linkObj.url || '');
 
@@ -145,7 +133,7 @@ function renderList() {
                 <div class="match-header" onclick="toggleItem('${safeId}')">
                     <div>
                         <h3>${m.team1.name} vs ${m.team2.name}</h3>
-                        <div class="meta">${m.type} · ${m.time} (ID: ${matchId})</div>
+                        <div class="meta">${m.type} · ${m.time}</div>
                     </div>
                     <span>▼</span>
                 </div>
@@ -169,7 +157,6 @@ window.toggleItem = function(safeId) {
     document.getElementById(`card-${safeId}`).classList.toggle('open');
 }
 
-// --- AUTO-DETECT LINK TYPE ---
 function detectLinkType(url) {
     if (!url) return 'redirect';
     const lower = url.toLowerCase();
