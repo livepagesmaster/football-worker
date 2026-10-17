@@ -6,294 +6,59 @@
 <title>Match Selector</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #f5f5f7; color: #222;
-    min-height: 100vh;
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f7; color: #222; min-height: 100vh; }
   #lock { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
-  #lock .box {
-    background: #fff; border: 1px solid #e0e0e0; border-radius: 14px;
-    padding: 32px 28px; max-width: 400px; width: 100%;
-    box-shadow: 0 8px 30px rgba(0,0,0,.06); text-align: center;
-  }
-  #lock .lock-icon { font-size: 40px; margin-bottom: 12px; }
+  #lock .box { background: #fff; border: 1px solid #e0e0e0; border-radius: 14px; padding: 32px 28px; max-width: 400px; width: 100%; box-shadow: 0 8px 30px rgba(0,0,0,.06); text-align: center; }
   #lock h1 { font-size: 20px; margin-bottom: 6px; font-weight: 700; }
-  #lock p { font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.5; }
-  #lock input {
-    width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px;
-    font-size: 14px; font-family: inherit; outline: none;
-  }
-  #lock input:focus { border-color: #2563eb; }
-  #lock button {
-    width: 100%; margin-top: 12px; padding: 12px; border: none; border-radius: 8px;
-    background: #2563eb; color: #fff; font-size: 14px; font-weight: 700; cursor: pointer;
-  }
-  #lock button:hover { background: #1d4ed8; }
-  #lock button:disabled { background: #93b3f5; cursor: wait; }
-  #lock .err { display: none; margin-top: 12px; font-size: 13px; color: #dc2626; }
-
+  #lock input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: inherit; outline: none; margin-bottom: 12px;}
+  #lock button { width: 100%; padding: 12px; border: none; border-radius: 8px; background: #2563eb; color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; }
   #app { display: none; padding: 20px; max-width: 900px; margin: 0 auto; }
-  #app .topbar {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
-  }
-  #app h1 { font-size: 22px; font-weight: 800; }
-  #app .topbar-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-  #app .counter {
-    font-size: 13px; font-weight: 700; color: #2563eb;
-    background: #eff6ff; padding: 6px 14px; border-radius: 8px;
-    border: 1px solid #dbeafe;
-  }
-  #app .my-sel-btn {
-    font-size: 13px; font-weight: 700; color: #fff;
-    background: #7c3aed; padding: 6px 14px; border-radius: 8px;
-    border: none; cursor: pointer;
-    position: relative;
-  }
-  #app .my-sel-btn:hover { background: #6d28d9; }
-  #app .my-sel-btn .dot {
-    position: absolute; top: -4px; right: -4px;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: #f59e0b; border: 2px solid #f5f5f7;
-    display: none;
-  }
-  #app .my-sel-btn.has-stale .dot { display: block; }
-  #app .logout {
-    padding: 6px 14px; font-size: 12px; font-weight: 600;
-    background: #e5e7eb; border: none; border-radius: 6px;
-    cursor: pointer; color: #444;
-  }
-  #app .logout:hover { background: #d1d5db; }
-
-  .search-hero {
-    background: #fff; border: 1px solid #e0e0e0; border-radius: 14px;
-    padding: 20px; margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.05);
-  }
-  .search-hero input {
-    width: 100%; padding: 14px 18px;
-    border: 2px solid #dbeafe; border-radius: 12px;
-    font-size: 16px; font-family: inherit; outline: none;
-    transition: border-color .15s; background: #f8fbff;
-  }
+  .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+  .topbar h1 { font-size: 22px; font-weight: 800; }
+  .topbar-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .counter { font-size: 13px; font-weight: 700; color: #2563eb; background: #eff6ff; padding: 6px 14px; border-radius: 8px; border: 1px solid #dbeafe; }
+  .my-sel-btn { font-size: 13px; font-weight: 700; color: #fff; background: #7c3aed; padding: 6px 14px; border-radius: 8px; border: none; cursor: pointer; position: relative; }
+  .logout { padding: 6px 14px; font-size: 12px; font-weight: 600; background: #e5e7eb; border: none; border-radius: 6px; cursor: pointer; color: #444; }
+  .search-hero { background: #fff; border: 1px solid #e0e0e0; border-radius: 14px; padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+  .search-hero input { width: 100%; padding: 14px 18px; border: 2px solid #dbeafe; border-radius: 12px; font-size: 16px; font-family: inherit; outline: none; transition: border-color .15s; background: #f8fbff; }
   .search-hero input:focus { border-color: #2563eb; background: #fff; }
-  .search-hero .hint {
-    font-size: 12px; color: #888; margin-top: 10px; text-align: center;
-  }
-
+  .search-hero .hint { font-size: 12px; color: #888; margin-top: 10px; text-align: center; }
   .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-  .filters button {
-    padding: 8px 14px; border-radius: 8px;
-    font-size: 13px; font-weight: 600; cursor: pointer;
-    border: 1px solid #e0e0e0; background: #fff; color: #444;
-  }
-  .filters button:hover { background: #f9fafb; border-color: #ccc; }
+  .filters button { padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid #e0e0e0; background: #fff; color: #444; }
   .filters button.active { background: #2563eb; color: #fff; border-color: #2563eb; }
-
-  .toolbar {
-    position: sticky; top: 0; z-index: 10;
-    background: #fff; border: 1px solid #e0e0e0; border-radius: 10px;
-    padding: 10px 12px; margin-bottom: 14px;
-    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,.05);
-  }
-  .toolbar .toggle {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 13px; font-weight: 600; color: #444;
-    user-select: none; cursor: pointer;
-  }
-  .toolbar .toggle input { width: 16px; height: 16px; accent-color: #2563eb; cursor: pointer; }
+  .toolbar { position: sticky; top: 0; z-index: 10; background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 10px 12px; margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+  .toolbar .toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #444; user-select: none; cursor: pointer; }
   .toolbar .count { font-size: 12px; font-weight: 600; color: #888; }
-  .toolbar button {
-    padding: 8px 14px; border: none; border-radius: 8px;
-    font-size: 13px; font-weight: 600; cursor: pointer;
-  }
-  .toolbar .btn-save { background: #16a34a; color: #fff; margin-left: auto; }
-  .toolbar .btn-save:hover { background: #15803d; }
-  .toolbar .btn-save:disabled { background: #86d0a2; cursor: wait; }
-
-  .match-list {
-    background: #fff; border: 1px solid #e0e0e0;
-    border-radius: 10px; overflow: hidden;
-  }
-  .match {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px 14px; border-bottom: 1px solid #f0f0f0;
-    cursor: pointer; user-select: none;
-  }
-  .match:last-child { border-bottom: none; }
-  .match:hover { background: #fafafa; }
-  .match input[type=checkbox] {
-    width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;
-    accent-color: #2563eb;
-  }
+  .toolbar button { padding: 8px 14px; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .btn-save { background: #16a34a; color: #fff; margin-left: auto; }
+  .match-list { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; }
+  .match { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid #f0f0f0; cursor: pointer; user-select: none; }
+  .match input[type=checkbox] { width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; accent-color: #2563eb; }
   .match .col-main { flex: 1; min-width: 0; }
-  .match .teams {
-    font-size: 14px; font-weight: 600;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .match .league {
-    font-size: 11px; color: #999; margin-top: 3px;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
+  .match .teams { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .match .league { font-size: 11px; color: #999; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .match .col-time { text-align: right; flex-shrink: 0; }
-  .match .date {
-    font-size: 13px; font-weight: 700; color: #333;
-    white-space: nowrap;
-  }
-  .match .time {
-    font-size: 11px; color: #888; margin-top: 3px;
-    white-space: nowrap;
-  }
-
+  .match .date { font-size: 13px; font-weight: 700; color: #333; white-space: nowrap; }
+  .match .time { font-size: 11px; color: #888; margin-top: 3px; white-space: nowrap; }
   .empty { text-align: center; padding: 60px 20px; color: #999; font-size: 14px; }
   .loading { text-align: center; padding: 40px; color: #888; }
-
-  .toast {
-    position: fixed; bottom: 20px; left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    background: #16a34a; color: #fff;
-    padding: 12px 22px; border-radius: 8px;
-    font-size: 14px; font-weight: 600;
-    opacity: 0; pointer-events: none;
-    transition: opacity .25s, transform .25s;
-    z-index: 300;
-  }
+  .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px); background: #16a34a; color: #fff; padding: 12px 22px; border-radius: 8px; font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 300; }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .toast.error { background: #dc2626; }
-
-  .modal-backdrop {
-    display: none; position: fixed; inset: 0;
-    background: rgba(0,0,0,.45); z-index: 200;
-    align-items: center; justify-content: center; padding: 20px;
-  }
+  .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
   .modal-backdrop.open { display: flex; }
-  .modal {
-    background: #fff; border-radius: 14px;
-    max-width: 720px; width: 100%; max-height: 88vh;
-    display: flex; flex-direction: column;
-    box-shadow: 0 20px 60px rgba(0,0,0,.25);
-  }
-  .modal-head {
-    padding: 16px 20px; border-bottom: 1px solid #eee;
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 10px;
-  }
+  .modal { background: #fff; border-radius: 14px; max-width: 720px; width: 100%; max-height: 88vh; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+  .modal-head { padding: 16px 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
   .modal-head h2 { font-size: 17px; font-weight: 800; }
-  .modal-head .actions { display: flex; gap: 8px; align-items: center; }
-  .modal-head .refresh-all {
-    background: #f59e0b; color: #fff;
-    border: none; border-radius: 6px;
-    padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer;
-  }
-  .modal-head .refresh-all:hover { background: #d97706; }
-  .modal-head .refresh-all:disabled { background: #fcd9a4; cursor: not-allowed; }
-  .modal-head .close {
-    background: #f0f0f0; border: none; border-radius: 6px;
-    width: 30px; height: 30px; font-size: 18px; cursor: pointer;
-    color: #555;
-  }
-  .modal-head .close:hover { background: #e0e0e0; }
+  .modal-head .close { background: #f0f0f0; border: none; border-radius: 6px; width: 30px; height: 30px; font-size: 18px; cursor: pointer; color: #555; }
   .modal-body { overflow-y: auto; padding: 12px 20px 20px; flex: 1; }
-
-  .sel-item {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 12px 0; border-bottom: 1px solid #f0f0f0;
-  }
-  .sel-item:last-child { border-bottom: none; }
+  .sel-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
   .sel-item .sel-info { flex: 1; min-width: 0; }
-  .sel-item .sel-teams {
-    font-size: 14px; font-weight: 500;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .sel-item .sel-meta {
-    font-size: 11px; color: #999; margin-top: 3px;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .sel-item .sel-badges {
-    display: flex; gap: 5px; margin-top: 5px; flex-wrap: wrap;
-  }
-  .sel-badge {
-    font-size: 10px; font-weight: 700;
-    padding: 2px 7px; border-radius: 9999px;
-    letter-spacing: .3px;
-  }
-  .sel-badge.stale { background: #fef3c7; color: #92400e; }
-  .sel-badge.missing { background: #e5e7eb; color: #4b5563; }
-  .sel-badge.custom { background: #ede9fe; color: #6d28d9; }
-
-  .sel-item .sel-actions {
-    display: flex; flex-direction: column; gap: 5px;
-    flex-shrink: 0;
-  }
-  .sel-item .sel-actions button {
-    font-size: 11px; font-weight: 700;
-    padding: 5px 9px; border-radius: 5px;
-    cursor: pointer; border: none;
-    min-width: 68px;
-  }
-  .btn-refresh { background: #fef3c7; color: #92400e; }
-  .btn-refresh:hover { background: #fde68a; }
-  .btn-refresh:disabled { background: #f5f5f5; color: #bbb; cursor: not-allowed; }
-  .btn-edit { background: #dbeafe; color: #1e40af; }
-  .btn-edit:hover { background: #bfdbfe; }
-  .btn-remove { background: #fee2e2; color: #b91c1c; }
-  .btn-remove:hover { background: #fecaca; }
-
-  .modal-empty { text-align: center; padding: 40px 20px; color: #999; font-size: 14px; }
-  .modal-foot {
-    padding: 12px 20px; border-top: 1px solid #eee;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 13px; color: #666;
-  }
-  .modal-foot .danger {
-    background: #fee2e2; color: #b91c1c;
-    border: none; border-radius: 6px;
-    padding: 8px 14px; font-weight: 700; font-size: 13px;
-    cursor: pointer;
-  }
-  .modal-foot .danger:hover { background: #fecaca; }
-
-  .edit-form { padding: 4px 0; }
-  .edit-form h3 {
-    font-size: 14px; font-weight: 800;
-    margin-bottom: 12px; color: #333;
-  }
-  .edit-form label {
-    display: block;
-    font-size: 12px; font-weight: 700;
-    color: #555; margin-bottom: 4px; margin-top: 10px;
-  }
-  .edit-form input {
-    width: 100%; padding: 9px 12px;
-    border: 1px solid #ddd; border-radius: 7px;
-    font-size: 13px; font-family: inherit;
-    outline: none;
-  }
-  .edit-form input:focus { border-color: #2563eb; }
-  .edit-form .row {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-  }
-  .edit-form .form-actions {
-    display: flex; gap: 8px; justify-content: flex-end;
-    margin-top: 16px;
-  }
-  .edit-form .form-actions button {
-    padding: 8px 16px; border: none; border-radius: 7px;
-    font-size: 13px; font-weight: 700; cursor: pointer;
-  }
-  .btn-cancel { background: #e5e7eb; color: #444; }
-  .btn-cancel:hover { background: #d1d5db; }
-  .btn-apply { background: #2563eb; color: #fff; }
-  .btn-apply:hover { background: #1d4ed8; }
-
-  @media (max-width: 600px) {
-    #app { padding: 12px; }
-    .search-hero { padding: 14px; }
-    .search-hero input { font-size: 15px; padding: 12px 14px; }
-    .edit-form .row { grid-template-columns: 1fr; }
-  }
+  .sel-item .sel-teams { font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sel-item .sel-meta { font-size: 11px; color: #999; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sel-item .remove { background: #fee2e2; color: #b91c1c; border: none; border-radius: 6px; padding: 6px 10px; font-size: 12px; font-weight: 700; cursor: pointer; flex-shrink: 0; }
+  .modal-foot { padding: 12px 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #666; }
+  .modal-foot .danger { background: #fee2e2; color: #b91c1c; border: none; border-radius: 6px; padding: 8px 14px; font-weight: 700; font-size: 13px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -302,10 +67,9 @@
   <div class="box">
     <div class="lock-icon">🔒</div>
     <h1>Match Selector</h1>
-    <p>Enter your access token to continue.</p>
-    <input type="password" id="tokenInput" placeholder="Paste token" autocomplete="off">
+    <p style="margin-bottom:20px; font-size:14px; color:#666;">Enter token to unlock</p>
+    <input type="password" id="tokenInput" placeholder="ghp_...">
     <button id="unlockBtn">Unlock</button>
-    <div class="err" id="errMsg">Invalid token. Try again.</div>
   </div>
 </div>
 
@@ -314,30 +78,20 @@
     <h1>Match Selector</h1>
     <div class="topbar-right">
       <span class="counter" id="counter">Selected: 0</span>
-      <button class="my-sel-btn" id="mySelBtn">
-        My Selection (0)
-        <span class="dot"></span>
-      </button>
+      <button class="my-sel-btn" id="mySelBtn">My Selection (0)</button>
       <button class="logout" id="logoutBtn">Lock</button>
     </div>
   </div>
-
   <div class="search-hero">
     <input type="text" id="search" placeholder="Type team or league to search…" autofocus autocomplete="off">
     <div class="hint" id="hint">Start typing to see matches — results are sorted by date.</div>
   </div>
-
   <div class="filters" id="filters"></div>
-
   <div class="toolbar">
-    <label class="toggle">
-      <input type="checkbox" id="onlySelected">
-      <span>Only selected</span>
-    </label>
+    <label class="toggle"><input type="checkbox" id="onlySelected"><span>Only selected</span></label>
     <span class="count" id="resultCount"></span>
     <button class="btn-save" id="saveBtn">Save</button>
   </div>
-
   <div id="content"><div class="empty">Start typing above to search for matches.</div></div>
 </div>
 
@@ -345,10 +99,7 @@
   <div class="modal">
     <div class="modal-head">
       <h2 id="modalTitle">My Selection (0)</h2>
-      <div class="actions">
-        <button class="refresh-all" id="refreshAllBtn">Refresh all</button>
-        <button class="close" id="modalClose">×</button>
-      </div>
+      <button class="close" id="modalClose">×</button>
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-foot">
@@ -361,276 +112,77 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// ==================================================================
-// CONFIG
-// ==================================================================
 const REPO_OWNER = "livepagesmaster";
 const REPO_NAME  = "football-worker";
 const BRANCH     = "main";
-
 const MATCHES_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/data/all-matches.json`;
 const SELECTED_PATH = "data/selected.json";
 const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${SELECTED_PATH}`;
-
 const TOKEN_KEY = "gh_token_fw";
 
-const QUICK_LEAGUES = [
-  "Champions League", "Premier League", "Bundesliga", "LaLiga",
-  "Serie A", "Ligue 1", "Liga Portugal", "Brasileirão",
-  "Saudi Pro League", "MLS",
-];
-
+const QUICK_LEAGUES = ["Champions League", "Premier League", "Bundesliga", "LaLiga", "Serie A", "Ligue 1", "Liga Portugal", "Brasileirão", "Saudi Pro League", "MLS"];
 const WOMEN_KEYWORDS = ["women", "wsl", "nwsl", "(w)", " w ", "femminile", "féminine", "femenina"];
-
-const FEED_FIELDS = [
-  "team1", "team2",
-  "team1_logo", "team2_logo",
-  "team1_logo_fallback", "team2_logo_fallback",
-  "league", "league_id", "league_country",
-  "start", "duration",
-];
-// ==================================================================
 
 let allMatches = [];
 let selectedMatches = [];
 let selectedIds = new Set();
 let pendingSave = false;
 
-// ---------- helpers ----------
 function getToken() { return localStorage.getItem(TOKEN_KEY) || ""; }
 function setToken(t) { localStorage.setItem(TOKEN_KEY, t); }
 function clearToken() { localStorage.removeItem(TOKEN_KEY); }
+function toast(msg, isError = false) { const t = document.getElementById("toast"); t.textContent = msg; t.classList.toggle("error", isError); t.classList.add("show"); clearTimeout(t._tid); t._tid = setTimeout(() => t.classList.remove("show"), 2600); }
+function escapeHtml(s) { if (s == null) return ""; return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+function isWomenLeague(name) { const lower = (name || "").toLowerCase(); return WOMEN_KEYWORDS.some(k => lower.includes(k)); }
+function parseStart(iso) { if (!iso) return Infinity; const t = new Date(iso).getTime(); return isNaN(t) ? Infinity : t; }
+function formatDate(iso) { if (!iso) return ""; try { return new Date(iso).toLocaleDateString([], { month: "short", day: "numeric" }); } catch { return ""; } }
+function formatTimeOnly(iso) { if (!iso) return ""; try { return new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); } catch { return ""; } }
 
-function toast(msg, isError = false) {
-  const t = document.getElementById("toast");
-  t.textContent = msg;
-  t.classList.toggle("error", isError);
-  t.classList.add("show");
-  clearTimeout(t._tid);
-  t._tid = setTimeout(() => t.classList.remove("show"), 2600);
-}
-
-function escapeHtml(s) {
-  if (s == null) return "";
-  return String(s).replace(/[&<>"']/g, c => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  }[c]));
-}
-
-function isWomenLeague(name) {
-  const lower = (name || "").toLowerCase();
-  return WOMEN_KEYWORDS.some(k => lower.includes(k));
-}
-
-function parseStart(iso) {
-  if (!iso) return Infinity;
-  const t = new Date(iso).getTime();
-  return isNaN(t) ? Infinity : t;
-}
-
-function formatDate(iso) {
-  if (!iso) return "";
-  try { return new Date(iso).toLocaleDateString([], { month: "short", day: "numeric" }); }
-  catch { return ""; }
-}
-
-function formatTimeOnly(iso) {
-  if (!iso) return "";
-  try { return new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); }
-  catch { return ""; }
-}
-
-function findInFeed(saved) {
-  if (!saved) return null;
-  if (saved.event_id != null) {
-    const byId = allMatches.find(m => String(m.event_id) === String(saved.event_id));
-    if (byId) return byId;
-  }
-  const t1 = (saved.team1 || "").toLowerCase().trim();
-  const t2 = (saved.team2 || "").toLowerCase().trim();
-  if (!t1 || !t2) return null;
-  return allMatches.find(m => {
-    const a = (m.team1 || "").toLowerCase().trim();
-    const b = (m.team2 || "").toLowerCase().trim();
-    return (a === t1 && b === t2) || (a === t2 && b === t1);
-  }) || null;
-}
-
-function isStale(saved) {
-  const feed = findInFeed(saved);
-  if (!feed) return false;
-  for (const f of FEED_FIELDS) {
-    const a = saved[f];
-    const b = feed[f];
-    if (a == null && b == null) continue;
-    if (String(a ?? "") !== String(b ?? "")) return true;
-  }
-  return false;
-}
-
-function isMissing(saved) {
-  return !findInFeed(saved);
-}
-
-function isCustomized(saved) {
-  return !!saved._custom;
-}
-
-function refreshFromFeed(saved) {
-  const feed = findInFeed(saved);
-  if (!feed) return saved;
-  const merged = { ...feed };
-  if (saved.redirect_url) merged.redirect_url = saved.redirect_url;
-  if (saved._custom) merged._custom = true;
-  return merged;
-}
-
-// ---------- token ----------
-async function verifyToken(token) {
-  try {
-    const r = await fetch(
-      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`,
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-    return r.ok;
-  } catch { return false; }
-}
+async function verifyToken(token) { try { const r = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`, { headers: { Authorization: `Bearer ${token}` } }); return r.ok; } catch { return false; } }
 
 async function unlock() {
-  const input = document.getElementById("tokenInput");
-  const btn = document.getElementById("unlockBtn");
-  const err = document.getElementById("errMsg");
-  const token = input.value.trim();
-  if (!token) { err.textContent = "Enter a token."; err.style.display = "block"; return; }
-
-  btn.disabled = true; btn.textContent = "Checking…"; err.style.display = "none";
-  const ok = await verifyToken(token);
-  btn.disabled = false; btn.textContent = "Unlock";
-  if (!ok) { err.textContent = "Invalid token. Try again."; err.style.display = "block"; return; }
-
-  setToken(token);
-  showDashboard();
+  const input = document.getElementById("tokenInput"), btn = document.getElementById("unlockBtn"), err = document.getElementById("errMsg");
+  const token = input.value.trim(); if (!token) return alert("Enter token");
+  btn.disabled = true; btn.textContent = "Checking…";
+  const ok = await verifyToken(token); btn.disabled = false; btn.textContent = "Unlock";
+  if (!ok) return alert("Invalid token");
+  setToken(token); showDashboard();
 }
 
-function showDashboard() {
-  document.getElementById("lock").style.display = "none";
-  document.getElementById("app").style.display = "block";
-  init();
-}
+function showDashboard() { document.getElementById("lock").style.display = "none"; document.getElementById("app").style.display = "block"; init(); }
+function lock() { clearToken(); location.reload(); }
 
-function lock() {
-  clearToken();
-  document.getElementById("app").style.display = "none";
-  document.getElementById("lock").style.display = "flex";
-  document.getElementById("tokenInput").value = "";
-  document.getElementById("errMsg").style.display = "none";
-}
+async function loadAll() { const r = await fetch(MATCHES_URL + "?t=" + Date.now(), { cache: "no-store" }); const j = await r.json(); allMatches = Array.isArray(j.matches) ? j.matches : []; }
+async function loadSelected() { try { const r = await fetch(`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${SELECTED_PATH}?t=${Date.now()}`, { cache: "no-store" }); if (!r.ok) { selectedMatches = []; selectedIds = new Set(); return; } const j = await r.json(); selectedMatches = (j.matches || []).map(m => ({ ...m })); selectedIds = new Set(selectedMatches.map(m => String(m.event_id))); } catch { selectedMatches = []; selectedIds = new Set(); } }
 
-// ---------- data ----------
-async function loadAll() {
-  const r = await fetch(MATCHES_URL + "?t=" + Date.now(), { cache: "no-store" });
-  const j = await r.json();
-  allMatches = Array.isArray(j.matches) ? j.matches : [];
-}
-
-async function loadSelected() {
-  try {
-    const r = await fetch(
-      `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${SELECTED_PATH}?t=${Date.now()}`,
-      { cache: "no-store" }
-    );
-    if (!r.ok) { selectedMatches = []; selectedIds = new Set(); return; }
-    const j = await r.json();
-    const sel = Array.isArray(j.matches) ? j.matches : [];
-    selectedMatches = sel.map(m => ({ ...m }));
-    selectedIds = new Set(sel.map(m => String(m.event_id)));
-  } catch {
-    selectedMatches = [];
-    selectedIds = new Set();
-  }
-}
-
-// ---------- quick filters ----------
 function buildQuickFilters() {
   const wrap = document.getElementById("filters");
   const available = new Set(allMatches.map(m => m.league || "").filter(Boolean));
-
-  const visible = QUICK_LEAGUES.filter(name => {
-    const lower = name.toLowerCase();
-    for (const lg of available) if (lg.toLowerCase().includes(lower)) return true;
-    return false;
-  });
-
-  let html = `<button data-val="" class="active">All</button>`;
-  html += visible.map(name =>
-    `<button data-val="${escapeHtml(name)}">${escapeHtml(name)}</button>`
-  ).join("");
-
-  wrap.innerHTML = html;
-  wrap.querySelectorAll("button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.getElementById("search").value = btn.getAttribute("data-val");
-      wrap.querySelectorAll("button").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      render();
-    });
-  });
+  const visible = QUICK_LEAGUES.filter(name => { const lower = name.toLowerCase(); for (const lg of available) if (lg.toLowerCase().includes(lower)) return true; return false; });
+  wrap.innerHTML = `<button data-val="" class="active">All</button>` + visible.map(name => `<button data-val="${escapeHtml(name)}">${escapeHtml(name)}</button>`).join("");
+  wrap.querySelectorAll("button").forEach(btn => btn.addEventListener("click", () => { document.getElementById("search").value = btn.getAttribute("data-val"); wrap.querySelectorAll("button").forEach(b => b.classList.remove("active")); btn.classList.add("active"); render(); }));
 }
 
-// ---------- render ----------
 function render() {
-  const q = document.getElementById("search").value.trim().toLowerCase();
-  const onlySelected = document.getElementById("onlySelected").checked;
-  const content = document.getElementById("content");
-  const countEl = document.getElementById("resultCount");
+  const q = document.getElementById("search").value.trim().toLowerCase(), onlySelected = document.getElementById("onlySelected").checked;
+  const content = document.getElementById("content"), countEl = document.getElementById("resultCount");
+  const searching = q.length > 0; let list = allMatches;
+  
+  if (searching) list = list.filter(m => ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase().includes(q));
+  if (!searching || !/women|wsl|nwsl|femminile|féminine|femenina/i.test(q)) list = list.filter(m => !isWomenLeague(m.league || ""));
+  if (onlySelected) list = list.filter(m => selectedIds.has(String(m.event_id)));
+  
+  if (!searching && !onlySelected) { content.innerHTML = `<div class="empty">Start typing above, or tap a league chip to browse.</div>`; countEl.textContent = ""; updateCounter(); return; }
+  if (!list.length) { content.innerHTML = `<div class="empty">No matches found.</div>`; countEl.textContent = "0 results"; updateCounter(); return; }
 
-  const searching = q.length > 0;
-  let list = allMatches;
-
-  if (searching) {
-    list = list.filter(m => {
-      const hay = ((m.team1 || "") + " " + (m.team2 || "") + " " + (m.league || "")).toLowerCase();
-      return hay.includes(q);
-    });
-  }
-  if (!searching || !/women|wsl|nwsl|femminile|féminine|femenina/i.test(q)) {
-    list = list.filter(m => !isWomenLeague(m.league || ""));
-  }
-  if (onlySelected) {
-    list = list.filter(m => selectedIds.has(String(m.event_id)));
-  }
-
-  if (!searching && !onlySelected) {
-    content.innerHTML = `<div class="empty">Start typing above, or tap a league chip to browse.</div>`;
-    countEl.textContent = "";
-    updateCounter();
-    return;
-  }
-
-  if (!list.length) {
-    content.innerHTML = `<div class="empty">No matches found.</div>`;
-    countEl.textContent = "0 results";
-    updateCounter();
-    return;
-  }
-
-  const sorted = [...list].sort((a, b) => {
-    const ta = parseStart(a.start), tb = parseStart(b.start);
-    if (ta !== tb) return ta - tb;
-    return (a.team1 || "").localeCompare(b.team1 || "");
-  });
-
-  const MAX_RESULTS = 500;
-  const truncated = sorted.length > MAX_RESULTS;
-  const show = truncated ? sorted.slice(0, MAX_RESULTS) : sorted;
-
+  const sorted = [...list].sort((a, b) => { const ta = parseStart(a.start), tb = parseStart(b.start); if (ta !== tb) return ta - tb; return (a.team1 || "").localeCompare(b.team1 || ""); });
+  const MAX_RESULTS = 500, truncated = sorted.length > MAX_RESULTS, show = truncated ? sorted.slice(0, MAX_RESULTS) : sorted;
+  
   const rows = show.map(m => {
     const checked = selectedIds.has(String(m.event_id)) ? "checked" : "";
     return `
       <label class="match">
-        <input type="checkbox" ${checked}
-               data-eid="${escapeHtml(String(m.event_id))}"
-               onchange="toggleMatch(this)">
+        <input type="checkbox" ${checked} data-eid="${escapeHtml(String(m.event_id))}" onchange="toggleMatch(this)">
         <div class="col-main">
           <div class="teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
           <div class="league">${escapeHtml(m.league || "")}</div>
@@ -639,14 +191,10 @@ function render() {
           <div class="date">${escapeHtml(formatDate(m.start))}</div>
           <div class="time">${escapeHtml(formatTimeOnly(m.start))}</div>
         </div>
-      </label>
-    `;
+      </label>`;
   }).join("");
 
-  content.innerHTML = `<div class="match-list">${rows}</div>` + (truncated
-    ? `<div class="empty" style="padding:16px;">Showing first ${MAX_RESULTS} of ${sorted.length}.</div>`
-    : "");
-
+  content.innerHTML = `<div class="match-list">${rows}</div>` + (truncated ? `<div class="empty" style="padding:16px;">Showing first ${MAX_RESULTS} of ${sorted.length}.</div>` : "");
   countEl.textContent = `${sorted.length} result${sorted.length === 1 ? "" : "s"}`;
   updateCounter();
 }
@@ -656,282 +204,60 @@ function toggleMatch(cb) {
   if (cb.checked) {
     selectedIds.add(eid);
     const feed = allMatches.find(m => String(m.event_id) === eid);
-    if (feed && !selectedMatches.find(s => String(s.event_id) === eid)) {
-      selectedMatches.push({ ...feed });
-    }
+    if (feed && !selectedMatches.find(s => String(s.event_id) === eid)) selectedMatches.push({ ...feed });
   } else {
     selectedIds.delete(eid);
     selectedMatches = selectedMatches.filter(s => String(s.event_id) !== eid);
   }
-  pendingSave = true;
-  updateCounter();
-  updateMySelButton();
+  pendingSave = true; updateCounter(); updateMySelButton();
 }
 
-function updateCounter() {
-  document.getElementById("counter").textContent = `Selected: ${selectedIds.size}`;
-}
+function updateCounter() { document.getElementById("counter").textContent = `Selected: ${selectedIds.size}`; }
+function updateMySelButton() { document.getElementById("mySelBtn").textContent = `My Selection (${selectedIds.size})`; }
 
-function updateMySelButton() {
-  const btn = document.getElementById("mySelBtn");
-  btn.childNodes[0].nodeValue = `My Selection (${selectedIds.size})`;
-  const hasStale = selectedMatches.some(m => isStale(m));
-  btn.classList.toggle("has-stale", hasStale);
-}
-
-// ---------- modal ----------
-function openModal() {
-  renderModalBody();
-  document.getElementById("modalBackdrop").classList.add("open");
-}
-
-function closeModal() {
-  document.getElementById("modalBackdrop").classList.remove("open");
-}
+function openModal() { renderModalBody(); document.getElementById("modalBackdrop").classList.add("open"); }
+function closeModal() { document.getElementById("modalBackdrop").classList.remove("open"); }
 
 function renderModalBody() {
-  document.getElementById("modalTitle").textContent =
-    `My Selection (${selectedMatches.length})`;
+  const title = document.getElementById("modalTitle"), foot = document.getElementById("modalFootLeft"), body = document.getElementById("modalBody");
+  title.textContent = `My Selection (${selectedMatches.length})`;
+  foot.textContent = `${selectedMatches.length} matches selected`;
 
-  const titleEl = document.getElementById("modalFootLeft");
-  const staleCount = selectedMatches.filter(isStale).length;
-  const missingCount = selectedMatches.filter(isMissing).length;
-  titleEl.textContent = `${selectedMatches.length} match${selectedMatches.length === 1 ? "" : "es"} · ${staleCount} updated · ${missingCount} missing`;
+  if (!selectedMatches.length) { body.innerHTML = `<div class="modal-empty">No matches selected yet.</div>`; return; }
 
-  const refreshAllBtn = document.getElementById("refreshAllBtn");
-  refreshAllBtn.disabled = staleCount === 0;
-  refreshAllBtn.textContent = staleCount > 0
-    ? `Refresh all (${staleCount})`
-    : "Refresh all";
-
-  const body = document.getElementById("modalBody");
-  if (!selectedMatches.length) {
-    body.innerHTML = `<div class="modal-empty">No matches selected yet.<br>Use the search to find matches and tick them.</div>`;
-    return;
-  }
-
-  const sorted = [...selectedMatches].sort((a, b) => parseStart(a.start) - parseStart(b.start));
-
-  body.innerHTML = sorted.map(m => {
-    const stale = isStale(m);
-    const missing = isMissing(m);
-    const custom = isCustomized(m);
-
-    const badges = [
-      stale ? `<span class="sel-badge stale">UPDATED</span>` : "",
-      missing ? `<span class="sel-badge missing">NOT IN FEED</span>` : "",
-      custom ? `<span class="sel-badge custom">EDITED</span>` : "",
-    ].filter(Boolean).join("");
-
-    const eid = escapeHtml(String(m.event_id));
-    return `
+  body.innerHTML = [...selectedMatches].sort((a,b) => parseStart(a.start) - parseStart(b.start)).map(m => `
       <div class="sel-item">
         <div class="sel-info">
           <div class="sel-teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
-          <div class="sel-meta">${escapeHtml(m.league || "")} · ${escapeHtml(formatDate(m.start))} ${escapeHtml(formatTimeOnly(m.start))}</div>
-          ${badges ? `<div class="sel-badges">${badges}</div>` : ""}
+          <div class="sel-meta">${escapeHtml(m.league || "")} · ${escapeHtml(formatDate(m.start))}</div>
         </div>
-        <div class="sel-actions">
-          <button class="btn-refresh" onclick="refreshOne('${eid}')" ${stale ? "" : "disabled"}>Refresh</button>
-          <button class="btn-edit" onclick="editOne('${eid}')">Edit</button>
-          <button class="btn-remove" onclick="removeFromSelection('${eid}')">Delete</button>
-        </div>
+        <button class="remove" onclick="removeFromSelection('${escapeHtml(String(m.event_id))}')">Remove</button>
       </div>
-    `;
-  }).join("");
+    `).join("");
 }
 
-function refreshOne(eid) {
-  const idx = selectedMatches.findIndex(m => String(m.event_id) === String(eid));
-  if (idx === -1) return;
-  const updated = refreshFromFeed(selectedMatches[idx]);
-  selectedMatches[idx] = updated;
-  pendingSave = true;
-  renderModalBody();
-  updateMySelButton();
-  toast("Refreshed");
-}
+function removeFromSelection(eid) { selectedIds.delete(String(eid)); selectedMatches = selectedMatches.filter(s => String(s.event_id) !== String(eid)); pendingSave = true; updateCounter(); updateMySelButton(); renderModalBody(); render(); }
+function clearAllSelection() { if (!selectedMatches.length) return; if (!confirm(`Clear all ${selectedMatches.length} selected matches?`)) return; selectedIds.clear(); selectedMatches = []; pendingSave = true; updateCounter(); updateMySelButton(); renderModalBody(); render(); toast("Cleared — click Save to apply"); }
 
-function refreshAllStale() {
-  let count = 0;
-  selectedMatches = selectedMatches.map(m => {
-    if (isStale(m)) { count++; return refreshFromFeed(m); }
-    return m;
-  });
-  if (count === 0) { toast("Nothing to refresh"); return; }
-  pendingSave = true;
-  renderModalBody();
-  updateMySelButton();
-  toast(`Refreshed ${count} match${count === 1 ? "" : "es"}`);
-}
-
-function removeFromSelection(eid) {
-  selectedIds.delete(String(eid));
-  selectedMatches = selectedMatches.filter(s => String(s.event_id) !== String(eid));
-  pendingSave = true;
-  updateCounter();
-  updateMySelButton();
-  renderModalBody();
-  render();
-  toast("Removed");
-}
-
-function clearAllSelection() {
-  if (!selectedMatches.length) return;
-  if (!confirm(`Clear all ${selectedMatches.length} selected matches?`)) return;
-  selectedIds.clear();
-  selectedMatches = [];
-  pendingSave = true;
-  updateCounter();
-  updateMySelButton();
-  renderModalBody();
-  render();
-  toast("Cleared — click Save to apply");
-}
-
-// ---------- edit ----------
-function editOne(eid) {
-  const m = selectedMatches.find(x => String(x.event_id) === String(eid));
-  if (!m) return;
-
-  const body = document.getElementById("modalBody");
-  body.innerHTML = `
-    <div class="edit-form">
-      <h3>Edit match</h3>
-
-      <label>Team 1</label>
-      <input id="ef-team1" type="text" value="${escapeHtml(m.team1 || "")}">
-
-      <label>Team 1 logo URL</label>
-      <input id="ef-team1_logo" type="text" value="${escapeHtml(m.team1_logo || "")}">
-
-      <label>Team 2</label>
-      <input id="ef-team2" type="text" value="${escapeHtml(m.team2 || "")}">
-
-      <label>Team 2 logo URL</label>
-      <input id="ef-team2_logo" type="text" value="${escapeHtml(m.team2_logo || "")}">
-
-      <label>League</label>
-      <input id="ef-league" type="text" value="${escapeHtml(m.league || "")}">
-
-      <div class="row">
-        <div>
-          <label>Start (ISO)</label>
-          <input id="ef-start" type="text" value="${escapeHtml(m.start || "")}" placeholder="2026-10-16T08:30Z">
-        </div>
-        <div>
-          <label>Duration (hours)</label>
-          <input id="ef-duration" type="text" value="${escapeHtml(String(m.duration ?? "2.2"))}">
-        </div>
-      </div>
-
-      <label>Redirect URL (stream link)</label>
-      <input id="ef-redirect" type="text" value="${escapeHtml(m.redirect_url || "")}" placeholder="https://...">
-
-      <div class="form-actions">
-        <button class="btn-cancel" onclick="cancelEdit()">Cancel</button>
-        <button class="btn-apply" onclick="applyEdit('${escapeHtml(String(m.event_id))}')">Apply</button>
-      </div>
-    </div>
-  `;
-}
-
-function cancelEdit() { renderModalBody(); }
-
-function applyEdit(eid) {
-  const idx = selectedMatches.findIndex(m => String(m.event_id) === String(eid));
-  if (idx === -1) return;
-
-  const get = id => document.getElementById(id).value.trim();
-
-  const updated = {
-    ...selectedMatches[idx],
-    team1: get("ef-team1"),
-    team1_logo: get("ef-team1_logo"),
-    team2: get("ef-team2"),
-    team2_logo: get("ef-team2_logo"),
-    league: get("ef-league"),
-    start: get("ef-start"),
-    duration: parseFloat(get("ef-duration")) || 2.2,
-    redirect_url: get("ef-redirect"),
-    _custom: true,
-  };
-
-  selectedMatches[idx] = updated;
-  pendingSave = true;
-  renderModalBody();
-  updateMySelButton();
-  toast("Saved — click Save to publish");
-}
-
-// ---------- save ----------
 async function saveSelection() {
-  const token = getToken();
-  if (!token) { lock(); return; }
-
-  const btn = document.getElementById("saveBtn");
-  btn.disabled = true; btn.textContent = "Saving…";
-
-  const payload = {
-    matches: selectedMatches,
-    updated_at: new Date().toISOString(),
-  };
+  const token = getToken(); if (!token) return lock();
+  const btn = document.getElementById("saveBtn"); btn.disabled = true; btn.textContent = "Saving…";
+  
+  const payload = { matches: selectedMatches, updated_at: new Date().toISOString() };
   const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
-
   let sha;
+  try { const r = await fetch(`${API_BASE}?ref=${BRANCH}`, { headers: { Authorization: `Bearer ${token}` } }); if (r.ok) sha = (await r.json()).sha; } catch {}
+
+  const body = { message: "Update selection", content, branch: BRANCH, ...(sha ? { sha } : {}) };
   try {
-    const r = await fetch(`${API_BASE}?ref=${BRANCH}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    if (r.ok) { const j = await r.json(); sha = j.sha; }
-  } catch {}
-
-  const body = {
-    message: "Update selection",
-    content, branch: BRANCH,
-    ...(sha ? { sha } : {}),
-  };
-
-  try {
-    const r = await fetch(API_BASE, {
-      method: "PUT",
-      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    if (r.ok) {
-      pendingSave = false;
-      toast("Saved — widget will update within a minute");
-    } else if (r.status === 401 || r.status === 403) {
-      toast("Token no longer valid", true); lock();
-    } else {
-      console.error(await r.text()); toast("Save failed", true);
-    }
-  } catch (e) {
-    console.error(e); toast("Save failed — network error", true);
-  }
-
+    const r = await fetch(API_BASE, { method: "PUT", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    if (r.ok) { pendingSave = false; toast("Saved — widget will update within a minute"); } else { toast("Save failed", true); }
+  } catch (e) { toast("Save failed", true); }
   btn.disabled = false; btn.textContent = "Save";
 }
 
-// ---------- init ----------
-async function init() {
-  document.getElementById("content").innerHTML = `<div class="loading">Loading matches…</div>`;
-  try {
-    await loadSelected();
-    await loadAll();
-  } catch (e) {
-    console.error(e);
-    document.getElementById("content").innerHTML = `<div class="empty">Failed to load matches.</div>`;
-    return;
-  }
+async function init() { document.getElementById("content").innerHTML = `<div class="loading">Loading matches…</div>`; try { await loadSelected(); await loadAll(); } catch (e) { return; } buildQuickFilters(); updateMySelButton(); setTimeout(() => document.getElementById("search").focus(), 100); render(); }
 
-  buildQuickFilters();
-  updateMySelButton();
-  setTimeout(() => document.getElementById("search").focus(), 100);
-  render();
-}
-
-// ---------- wire up ----------
 document.getElementById("unlockBtn").addEventListener("click", unlock);
 document.getElementById("tokenInput").addEventListener("keydown", e => { if (e.key === "Enter") unlock(); });
 document.getElementById("logoutBtn").addEventListener("click", lock);
@@ -941,25 +267,10 @@ document.getElementById("saveBtn").addEventListener("click", saveSelection);
 document.getElementById("mySelBtn").addEventListener("click", openModal);
 document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("modalClearBtn").addEventListener("click", clearAllSelection);
-document.getElementById("refreshAllBtn").addEventListener("click", refreshAllStale);
-document.getElementById("modalBackdrop").addEventListener("click", e => {
-  if (e.target.id === "modalBackdrop") closeModal();
-});
+document.getElementById("modalBackdrop").addEventListener("click", e => { if (e.target.id === "modalBackdrop") closeModal(); });
+window.toggleMatch = toggleMatch; window.removeFromSelection = removeFromSelection;
 
-window.toggleMatch = toggleMatch;
-window.removeFromSelection = removeFromSelection;
-window.refreshOne = refreshOne;
-window.editOne = editOne;
-window.cancelEdit = cancelEdit;
-window.applyEdit = applyEdit;
-
-(async () => {
-  const t = getToken();
-  if (!t) return;
-  const ok = await verifyToken(t);
-  if (ok) showDashboard();
-  else clearToken();
-})();
+if(getToken()) { fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`, { headers: { Authorization: `Bearer ${getToken()}` } }).then(r => { if(r.ok) showDashboard(); else clearToken(); }); }
 </script>
 </body>
 </html>
