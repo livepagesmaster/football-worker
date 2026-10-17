@@ -1,6 +1,7 @@
 {
   "matches": [
     {
+      "id": "everton-vs-chelsea-5795478",
       "team1": {
         "name": "Everton",
         "img": "https://img.singhs.com.np/team/8668.png",
@@ -15,9 +16,10 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "Premier League",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=everton-vs-chelsea-5795478"
     },
     {
+      "id": "espanyol-vs-atlético-madrid-5868094",
       "team1": {
         "name": "Espanyol",
         "img": "https://img.singhs.com.np/team/8558.png",
@@ -32,9 +34,10 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "LaLiga",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=espanyol-vs-atlético-madrid-5868094"
     },
     {
+      "id": "venezia-vs-napoli-5749709",
       "team1": {
         "name": "Venezia",
         "img": "https://img.singhs.com.np/team/7881.png",
@@ -49,9 +52,10 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "Serie A",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=venezia-vs-napoli-5749709"
     },
     {
+      "id": "manchester-city-vs-ipswich-town-5795481",
       "team1": {
         "name": "Manchester City",
         "img": "https://img.singhs.com.np/team/8456.png",
@@ -66,9 +70,10 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "Premier League",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=manchester-city-vs-ipswich-town-5795481"
     },
     {
+      "id": "brentford-vs-liverpool-5795476",
       "team1": {
         "name": "Brentford",
         "img": "https://img.singhs.com.np/team/9937.png",
@@ -83,9 +88,10 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "Premier League",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=brentford-vs-liverpool-5795476"
     },
     {
+      "id": "union-berlin-vs-borussia-dortmund-5881195",
       "team1": {
         "name": "Union Berlin",
         "img": "https://img.singhs.com.np/team/8149.png",
@@ -100,9 +106,10 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "Bundesliga",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=union-berlin-vs-borussia-dortmund-5881195"
     },
     {
+      "id": "strasbourg-vs-paris-saint-germain-5802962",
       "team1": {
         "name": "Strasbourg",
         "img": "https://img.singhs.com.np/team/9848.png",
@@ -117,9 +124,10 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "Ligue 1",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=strasbourg-vs-paris-saint-germain-5802962"
     },
     {
+      "id": "real-betis-vs-barcelona-5868091",
       "team1": {
         "name": "Real Betis",
         "img": "https://img.singhs.com.np/team/8603.png",
@@ -134,9 +142,10 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "LaLiga",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=real-betis-vs-barcelona-5868091"
     },
     {
+      "id": "bologna-vs-inter-5749702",
       "team1": {
         "name": "Bologna",
         "img": "https://img.singhs.com.np/team/9857.png",
@@ -151,9 +160,10 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "Serie A",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=bologna-vs-inter-5749702"
     },
     {
+      "id": "atlanta-united-vs-inter-miami-cf-5071426",
       "team1": {
         "name": "Atlanta United",
         "img": "https://ssl.gstatic.com/onebox/media/sports/logos/optimized/eidGSv2BqwGMycT5Se1tpQ_48x48.png",
@@ -168,9 +178,10 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "Major League Soccer",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=atlanta-united-vs-inter-miami-cf-5071426"
     },
     {
+      "id": "bayern-münchen-vs-rb-leipzig-5881189",
       "team1": {
         "name": "Bayern München",
         "img": "https://img.singhs.com.np/team/9823.png",
@@ -185,7 +196,7 @@
       "status": "Upcoming",
       "endTime": 2.2,
       "type": "Bundesliga",
-      "redirectUrl": "#"
+      "redirectUrl": "https://www.yashintv.xyz/match-details.html?id=bayern-münchen-vs-rb-leipzig-5881189"
     }
   ]
 }
