@@ -27,12 +27,14 @@
   .match-item.open .match-body { display: block; }
   
   .input-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 16px; }
-  .input-row { display: flex; gap: 10px; align-items: center; background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; }
-  .input-row select { padding: 9px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; background: #fff; outline: none; }
-  .input-row input { flex: 1; padding: 9px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; outline: none; }
+  .input-group label { display: block; font-size: 12px; font-weight: 700; color: #555; margin-bottom: 6px; }
+  .input-group input { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; outline: none; transition: border-color 0.2s; }
+  .input-group input:focus { border-color: #2563eb; }
+  
+  .common-box { margin-bottom: 20px; background: #eff6ff; padding: 12px; border-radius: 8px; border: 1px solid #bfdbfe; }
+  .common-box label { color: #1d4ed8; }
   
   .empty { text-align: center; padding: 40px; color: #888; background: #fff; border-radius: 10px; border: 1px dashed #ccc; }
-  @media (max-width: 600px) { .input-row { flex-direction: column; align-items: stretch; } }
 </style>
 </head>
 <body>
@@ -116,54 +118,44 @@ function renderList() {
     }
 
     container.innerHTML = activeMatches.map(m => {
-        const urlStr = m.redirectUrl || "";
-        const matchId = urlStr.includes('id=') ? urlStr.split('id=')[1] : `${m.team1.name}-vs-${m.team2.name}`;
+        const matchId = m.id || `${m.team1.name}-vs-${m.team2.name}`;
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
         
         const saved = currentLinks[matchId] || {};
         
-        // Create 7 rows
+        // Build 7 rows
         let rowsHtml = '';
         for(let i=1; i<=7; i++) {
-            const linkObj = saved[`link${i}`] || { type: 'redirect', url: '' };
-            // Backwards compatibility if it was just a string
-            const lType = typeof linkObj === 'string' ? 'redirect' : (linkObj.type || 'redirect');
+            // Handle old string format if they saved it before
+            const linkObj = saved[`link${i}`] || { url: '' };
             const lUrl = typeof linkObj === 'string' ? linkObj : (linkObj.url || '');
 
             rowsHtml += `
-                <div class="input-row">
-                    <select id="type${i}-${safeId}">
-                        <option value="redirect" ${lType === 'redirect' ? 'selected' : ''}>Redirect</option>
-                        <option value="iframe" ${lType === 'iframe' ? 'selected' : ''}>Iframe / Embed</option>
-                        <option value="hls" ${lType === 'hls' ? 'selected' : ''}>M3U8 / HLS</option>
-                    </select>
-                    <input type="text" id="link${i}-${safeId}" value="${lUrl}" placeholder="https://...">
+                <div class="input-group">
+                    <label>Link ${i}</label>
+                    <input type="text" id="link${i}-${safeId}" value="${lUrl}" placeholder="Paste link here (m3u8, iframe, or redirect)">
                 </div>
             `;
         }
+
+        const commonUrl = saved.common?.url || (typeof saved.common === 'string' ? saved.common : '');
 
         return `
             <div class="match-item" id="card-${safeId}">
                 <div class="match-header" onclick="toggleItem('${safeId}')">
                     <div>
                         <h3>${m.team1.name} vs ${m.team2.name}</h3>
-                        <div class="meta">${m.type} · ${m.time}</div>
+                        <div class="meta">${m.type} · ${m.time} (ID: ${matchId})</div>
                     </div>
                     <span>▼</span>
                 </div>
                 <div class="match-body">
-                    <div style="margin-bottom:15px; background:#eff6ff; padding:12px; border-radius:8px; border:1px solid #bfdbfe;">
-                        <label style="font-size:12px; font-weight:bold; color:#1d4ed8; display:block; margin-bottom:5px;">Common Link (Fallback for all)</label>
-                        <div class="input-row" style="background:transparent; border:none; padding:0;">
-                            <select id="typeCommon-${safeId}">
-                                <option value="redirect" ${saved.common?.type === 'redirect' ? 'selected' : ''}>Redirect</option>
-                                <option value="iframe" ${saved.common?.type === 'iframe' ? 'selected' : ''}>Iframe</option>
-                                <option value="hls" ${saved.common?.type === 'hls' ? 'selected' : ''}>M3U8</option>
-                            </select>
-                            <input type="text" id="common-${safeId}" value="${saved.common?.url || saved.common || ''}" placeholder="https://...">
+                    <div class="common-box">
+                        <div class="input-group">
+                            <label>Common Link (Applies to all 7 if they are empty)</label>
+                            <input type="text" id="common-${safeId}" value="${commonUrl}" placeholder="Paste common link here...">
                         </div>
                     </div>
-                    
                     <div class="input-grid">
                         ${rowsHtml}
                     </div>
@@ -177,6 +169,15 @@ window.toggleItem = function(safeId) {
     document.getElementById(`card-${safeId}`).classList.toggle('open');
 }
 
+// --- AUTO-DETECT LINK TYPE ---
+function detectLinkType(url) {
+    if (!url) return 'redirect';
+    const lower = url.toLowerCase();
+    if (lower.includes('.m3u8')) return 'hls';
+    if (lower.includes('<iframe') || lower.includes('youtube.com/embed') || lower.includes('player') || lower.includes('embed') || lower.includes('streamtape')) return 'iframe';
+    return 'redirect';
+}
+
 document.getElementById("saveBtn").onclick = () => {
     const btn = document.getElementById("saveBtn");
     const oldText = btn.textContent;
@@ -184,22 +185,19 @@ document.getElementById("saveBtn").onclick = () => {
     btn.disabled = true;
 
     activeMatches.forEach(m => {
-        const urlStr = m.redirectUrl || "";
-        const matchId = urlStr.includes('id=') ? urlStr.split('id=')[1] : `${m.team1.name}-vs-${m.team2.name}`;
+        const matchId = m.id || `${m.team1.name}-vs-${m.team2.name}`;
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
         
         if(document.getElementById(`common-${safeId}`)) {
             const commonUrl = document.getElementById(`common-${safeId}`).value.trim();
-            const commonType = document.getElementById(`typeCommon-${safeId}`).value;
             
             const linkData = {
-                common: commonUrl ? { type: commonType, url: commonUrl } : null
+                common: commonUrl ? { type: detectLinkType(commonUrl), url: commonUrl } : null
             };
             
             for(let i=1; i<=7; i++) {
                 const url = document.getElementById(`link${i}-${safeId}`).value.trim();
-                const type = document.getElementById(`type${i}-${safeId}`).value;
-                linkData[`link${i}`] = url ? { type, url } : null;
+                linkData[`link${i}`] = url ? { type: detectLinkType(url), url } : null;
             }
             
             currentLinks[matchId] = linkData;
