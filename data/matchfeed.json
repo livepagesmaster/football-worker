@@ -13,7 +13,7 @@
         "code": "CHE"
       },
       "time": "26/10/17 17:15:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=everton"
@@ -31,7 +31,7 @@
         "code": "NAP"
       },
       "time": "26/10/17 18:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=venezia"
@@ -49,7 +49,7 @@
         "code": "ATL"
       },
       "time": "26/10/17 17:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "LaLiga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=espanyol"
@@ -85,7 +85,7 @@
         "code": "BOR"
       },
       "time": "26/10/17 19:15:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Bundesliga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=union"
