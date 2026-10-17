@@ -80,7 +80,14 @@ def main():
         start_iso = m.get("start") or ""
         duration = float(m.get("duration") or 2.2)
 
+        # Generate the unique ID for the URL (e.g. real-betis-vs-barcelona)
+        t1_slug = (m.get("team1") or "team1").strip().lower().replace(" ", "-")
+        t2_slug = (m.get("team2") or "team2").strip().lower().replace(" ", "-")
+        eid = m.get("event_id") or ""
+        match_id = f"{t1_slug}-vs-{t2_slug}-{eid}"
+
         out_matches.append({
+            "id": match_id, # <--- THIS IS THE UNIQUE ID
             "team1": {
                 "name": m.get("team1") or "TBD",
                 "img": m.get("team1_logo") or "",
@@ -95,7 +102,7 @@ def main():
             "status": compute_status(start_iso, duration),
             "endTime": duration,
             "type": m.get("league") or "Football",
-            "redirectUrl": m.get("redirect_url") or "#",
+            "redirectUrl": f"https://www.yashintv.xyz/match-details.html?id={match_id}",
         })
 
     OUT_FILE.write_text(
