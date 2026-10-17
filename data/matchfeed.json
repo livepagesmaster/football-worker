@@ -103,7 +103,7 @@
         "code": "PAR"
       },
       "time": "26/10/17 21:00:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Ligue 1",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=strasbourg"
@@ -139,7 +139,7 @@
         "code": "INT"
       },
       "time": "26/10/17 21:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=bologna"
@@ -157,7 +157,7 @@
         "code": "BAR"
       },
       "time": "26/10/17 22:15:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "LaLiga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=real"
@@ -175,7 +175,7 @@
         "code": "RB "
       },
       "time": "26/10/17 22:15:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Bundesliga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=bayern"
