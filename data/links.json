@@ -1,1 +1,115 @@
-{}
+{
+  "everton": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "venezia": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "espanyol": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "brentford": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "union": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "strasbourg": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "manchester": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "bologna": {
+    "common": {
+      "type": "hls",
+      "url": "https://hls-harbor-livepush.akamaized.net/live_cdn/nsqIStpj8PaG-Ev/emcQJ0pGpremocy/index.m3u8"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "real": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "bayern": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "atlanta": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  }
+}
