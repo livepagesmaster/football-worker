@@ -148,7 +148,8 @@
       "start": "2026-10-17T23:30Z",
       "duration": 2.2,
       "event_id": 5071426,
-      "slug": "atlantaunited"
+      "slug": "atlantaunited",
+      "_custom": true
     },
     {
       "team1": "Bayern München",
@@ -166,5 +167,5 @@
       "slug": "bayernmnchen"
     }
   ],
-  "updated_at": "2026-10-17T07:18:18.695Z"
+  "updated_at": "2026-10-17T07:21:37.855Z"
 }
