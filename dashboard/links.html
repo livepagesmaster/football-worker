@@ -109,7 +109,13 @@ function renderList() {
     }
 
     container.innerHTML = activeMatches.map(m => {
-        const matchId = m.id || `${m.team1.name}-vs-${m.team2.name}`;
+        // Ensure Cricket/Others have an ID generated here too
+        let matchId = m.id;
+        if (!matchId) {
+            let firstWord = m.team1.name.split(' ')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+            matchId = firstWord;
+        }
+
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
         const saved = currentLinks[matchId] || {};
         
@@ -133,7 +139,7 @@ function renderList() {
                 <div class="match-header" onclick="toggleItem('${safeId}')">
                     <div>
                         <h3>${m.team1.name} vs ${m.team2.name}</h3>
-                        <div class="meta">${m.type} · ${m.time}</div>
+                        <div class="meta">${m.type} · ${m.time} (ID: ${matchId})</div>
                     </div>
                     <span>▼</span>
                 </div>
@@ -172,7 +178,11 @@ document.getElementById("saveBtn").onclick = () => {
     btn.disabled = true;
 
     activeMatches.forEach(m => {
-        const matchId = m.id || `${m.team1.name}-vs-${m.team2.name}`;
+        let matchId = m.id;
+        if (!matchId) {
+            let firstWord = m.team1.name.split(' ')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+            matchId = firstWord;
+        }
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
         
         if(document.getElementById(`common-${safeId}`)) {
