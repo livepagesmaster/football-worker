@@ -9,19 +9,16 @@
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f7; color: #222; padding: 20px; }
   .wrap { max-width: 900px; margin: 0 auto; }
   
-  /* Lock Screen */
   #lock { display: flex; align-items: center; justify-content: center; min-height: 80vh; }
   #lock .box { background: #fff; border: 1px solid #e0e0e0; border-radius: 14px; padding: 32px; width: 100%; max-width: 400px; text-align: center; }
   #lock input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; }
   #lock button { width: 100%; padding: 12px; border: none; border-radius: 8px; background: #2563eb; color: #fff; font-weight: 700; cursor: pointer; }
 
-  /* Main App */
   #app { display: none; }
   .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
   .topbar h1 { font-size: 22px; font-weight: 800; }
   .btn-save { background: #16a34a; color: #fff; padding: 10px 20px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
   
-  /* Match Item */
   .match-item { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
   .match-header { padding: 16px; background: #f9fafb; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
   .match-header h3 { font-size: 16px; margin: 0; }
@@ -29,12 +26,13 @@
   .match-body { padding: 16px; display: none; }
   .match-item.open .match-body { display: block; }
   
-  .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
-  .input-group label { display: block; font-size: 11px; font-weight: 700; color: #555; margin-bottom: 4px; }
-  .input-group input { width: 100%; padding: 9px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; }
+  .input-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 16px; }
+  .input-row { display: flex; gap: 10px; align-items: center; background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; }
+  .input-row select { padding: 9px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; background: #fff; outline: none; }
+  .input-row input { flex: 1; padding: 9px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; outline: none; }
   
   .empty { text-align: center; padding: 40px; color: #888; background: #fff; border-radius: 10px; border: 1px dashed #ccc; }
-  @media (max-width: 600px) { .input-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .input-row { flex-direction: column; align-items: stretch; } }
 </style>
 </head>
 <body>
@@ -53,7 +51,6 @@
     <h1>Manage Stream Links</h1>
     <button class="btn-save" id="saveBtn">Save to Cloudflare</button>
   </div>
-
   <div id="matchesList"></div>
 </div>
 
@@ -119,18 +116,31 @@ function renderList() {
     }
 
     container.innerHTML = activeMatches.map(m => {
-        // Extract the id from the URL (e.g. https://...?id=real-betis-vs-barcelona-123)
         const urlStr = m.redirectUrl || "";
         const matchId = urlStr.includes('id=') ? urlStr.split('id=')[1] : `${m.team1.name}-vs-${m.team2.name}`;
-        
-        // Make a safe ID for HTML attributes
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
         
         const saved = currentLinks[matchId] || {};
-        const links = [
-            saved.link1 || '', saved.link2 || '', saved.link3 || '', 
-            saved.link4 || '', saved.link5 || '', saved.link6 || '', saved.link7 || ''
-        ];
+        
+        // Create 7 rows
+        let rowsHtml = '';
+        for(let i=1; i<=7; i++) {
+            const linkObj = saved[`link${i}`] || { type: 'redirect', url: '' };
+            // Backwards compatibility if it was just a string
+            const lType = typeof linkObj === 'string' ? 'redirect' : (linkObj.type || 'redirect');
+            const lUrl = typeof linkObj === 'string' ? linkObj : (linkObj.url || '');
+
+            rowsHtml += `
+                <div class="input-row">
+                    <select id="type${i}-${safeId}">
+                        <option value="redirect" ${lType === 'redirect' ? 'selected' : ''}>Redirect</option>
+                        <option value="iframe" ${lType === 'iframe' ? 'selected' : ''}>Iframe / Embed</option>
+                        <option value="hls" ${lType === 'hls' ? 'selected' : ''}>M3U8 / HLS</option>
+                    </select>
+                    <input type="text" id="link${i}-${safeId}" value="${lUrl}" placeholder="https://...">
+                </div>
+            `;
+        }
 
         return `
             <div class="match-item" id="card-${safeId}">
@@ -143,17 +153,19 @@ function renderList() {
                 </div>
                 <div class="match-body">
                     <div style="margin-bottom:15px; background:#eff6ff; padding:12px; border-radius:8px; border:1px solid #bfdbfe;">
-                        <label style="font-size:12px; font-weight:bold; color:#1d4ed8; display:block; margin-bottom:5px;">Common Link (Applies to all 7 if individual is empty)</label>
-                        <input type="text" id="common-${safeId}" value="${saved.common || ''}" placeholder="https://..." style="width:100%; padding:8px; border:1px solid #93c5fd; border-radius:6px;">
+                        <label style="font-size:12px; font-weight:bold; color:#1d4ed8; display:block; margin-bottom:5px;">Common Link (Fallback for all)</label>
+                        <div class="input-row" style="background:transparent; border:none; padding:0;">
+                            <select id="typeCommon-${safeId}">
+                                <option value="redirect" ${saved.common?.type === 'redirect' ? 'selected' : ''}>Redirect</option>
+                                <option value="iframe" ${saved.common?.type === 'iframe' ? 'selected' : ''}>Iframe</option>
+                                <option value="hls" ${saved.common?.type === 'hls' ? 'selected' : ''}>M3U8</option>
+                            </select>
+                            <input type="text" id="common-${safeId}" value="${saved.common?.url || saved.common || ''}" placeholder="https://...">
+                        </div>
                     </div>
                     
                     <div class="input-grid">
-                        ${links.map((val, i) => `
-                            <div class="input-group">
-                                <label>Link ${i+1}</label>
-                                <input type="text" id="link${i+1}-${safeId}" value="${val}" placeholder="https://...">
-                            </div>
-                        `).join('')}
+                        ${rowsHtml}
                     </div>
                 </div>
             </div>
@@ -177,16 +189,20 @@ document.getElementById("saveBtn").onclick = () => {
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
         
         if(document.getElementById(`common-${safeId}`)) {
-            currentLinks[matchId] = {
-                common: document.getElementById(`common-${safeId}`).value.trim(),
-                link1: document.getElementById(`link1-${safeId}`).value.trim(),
-                link2: document.getElementById(`link2-${safeId}`).value.trim(),
-                link3: document.getElementById(`link3-${safeId}`).value.trim(),
-                link4: document.getElementById(`link4-${safeId}`).value.trim(),
-                link5: document.getElementById(`link5-${safeId}`).value.trim(),
-                link6: document.getElementById(`link6-${safeId}`).value.trim(),
-                link7: document.getElementById(`link7-${safeId}`).value.trim()
+            const commonUrl = document.getElementById(`common-${safeId}`).value.trim();
+            const commonType = document.getElementById(`typeCommon-${safeId}`).value;
+            
+            const linkData = {
+                common: commonUrl ? { type: commonType, url: commonUrl } : null
             };
+            
+            for(let i=1; i<=7; i++) {
+                const url = document.getElementById(`link${i}-${safeId}`).value.trim();
+                const type = document.getElementById(`type${i}-${safeId}`).value;
+                linkData[`link${i}`] = url ? { type, url } : null;
+            }
+            
+            currentLinks[matchId] = linkData;
         }
     });
 
@@ -225,7 +241,6 @@ async function pushToGitHub(dataObj) {
     }
 }
 
-// Auto-unlock
 if(getToken()) {
     fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`, { headers: { Authorization: `Bearer ${getToken()}` } })
     .then(r => { if(r.ok) showApp(); else localStorage.removeItem(TOKEN_KEY); });
