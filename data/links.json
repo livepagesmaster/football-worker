@@ -1,7 +1,10 @@
 {
   "everton": {
     "common": null,
-    "link1": null,
+    "link1": {
+      "type": "hls",
+      "url": "https://hls-harbor-livepush.akamaized.net/live_cdn/nsqIStpj8PaG-Ev/emcQJ0pGpremocy/index.m3u8"
+    },
     "link2": null,
     "link3": null,
     "link4": null,
