@@ -13,7 +13,7 @@
         "code": "FRE"
       },
       "time": "26/10/18 19:15:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Bundesliga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=bayer"
@@ -31,7 +31,7 @@
         "code": "MAN"
       },
       "time": "26/10/18 18:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=leeds"
@@ -49,7 +49,7 @@
         "code": "ARS"
       },
       "time": "26/10/18 21:15:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=nottingham"
@@ -67,7 +67,7 @@
         "code": "ATA"
       },
       "time": "26/10/18 21:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=milan"
