@@ -197,6 +197,24 @@
       "endTime": 2.2,
       "type": "Major League Soccer",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=atlanta"
+    },
+    {
+      "id": "leeds",
+      "team1": {
+        "name": "Leeds United",
+        "img": "https://img.singhs.com.np/team/8463.png",
+        "code": "LEE"
+      },
+      "team2": {
+        "name": "Manchester United",
+        "img": "https://img.singhs.com.np/team/10260.png",
+        "code": "MAN"
+      },
+      "time": "26/10/18 18:45:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "Premier League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=leeds"
     }
   ]
 }
