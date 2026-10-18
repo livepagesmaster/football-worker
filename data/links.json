@@ -117,8 +117,8 @@
   },
   "southafrica": {
     "common": {
-      "type": "hls",
-      "url": "https://hls-harbor-livepush.akamaized.net/live_cdn/nsqIStpj8PaG-Ev/emcQJ0pGpremocy/index.m3u8"
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-fox-cricket"
     },
     "link1": null,
     "link2": null,
