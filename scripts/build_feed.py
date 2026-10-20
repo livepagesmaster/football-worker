@@ -69,8 +69,18 @@ def main():
 
         out_matches.append({
             "id": match_id,
-            "team1": { "name": m.get("team1") or "TBD", "img": m.get("team1_logo") or "", "code": team_code(m.get("team1") or "") },
-            "team2": { "name": m.get("team2") or "TBD", "img": m.get("team2_logo") or "", "code": team_code(m.get("team2") or "") },
+            "team1": { 
+                "name": m.get("team1") or "TBD", 
+                "img": m.get("team1_logo") or "", 
+                "img_fallback": m.get("team1_logo_fallback") or "", # <--- FALLBACK ADDED
+                "code": team_code(m.get("team1") or "") 
+            },
+            "team2": { 
+                "name": m.get("team2") or "TBD", 
+                "img": m.get("team2_logo") or "", 
+                "img_fallback": m.get("team2_logo_fallback") or "", # <--- FALLBACK ADDED
+                "code": team_code(m.get("team2") or "") 
+            },
             "time": iso_to_widget_time(start_iso),
             "status": compute_status(start_iso, duration),
             "endTime": duration,
