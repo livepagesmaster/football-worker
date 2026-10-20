@@ -6,6 +6,9 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import requests
 
+# ---------------------------------------------------------------
+# CONFIG
+# ---------------------------------------------------------------
 SOURCE_URL = "https://www.fotmob.com/api/data/matches"
 TIMEZONE = "Asia%2FKathmandu"
 REGION = "NPL"
@@ -37,17 +40,17 @@ def team_slug(name: str) -> str:
 def get_logo_url(team_id):
     if not team_id: return ""
     
-    # 1. Try the SingHS mirror first
+    
     singhs_url = f"https://img.singhs.com.np/team/{team_id}.png"
     try:
-        # Quick HEAD request to check if the image exists
+        # Quick HEAD request to check if the image actually exists
         head = requests.head(singhs_url, timeout=3)
         if head.status_code == 200:
             return singhs_url
     except Exception:
         pass
         
-    # 2. Fallback to FotMob naturally
+   
     return f"https://images.fotmob.com/image_resources/logo/teamlogo/{team_id}.png"
 
 def normalize_start(utc_time):
