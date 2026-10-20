@@ -40,6 +40,8 @@
   .match .col-time { text-align: right; flex-shrink: 0; }
   .match .date { font-size: 13px; font-weight: 700; color: #333; white-space: nowrap; }
   .match .time { font-size: 11px; color: #888; margin-top: 3px; white-space: nowrap; }
+  .match .edit-btn { background: #e5e7eb; color: #333; border: none; border-radius: 6px; padding: 6px 10px; font-size: 12px; font-weight: 700; cursor: pointer; margin-left: 10px; display: none; }
+  .match:hover .edit-btn { display: block; } /* Show edit only on hover */
   .empty { text-align: center; padding: 60px 20px; color: #999; font-size: 14px; }
   .loading { text-align: center; padding: 40px; color: #888; }
   .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px); background: #16a34a; color: #fff; padding: 12px 22px; border-radius: 8px; font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 300; }
@@ -141,7 +143,7 @@ function formatTimeOnly(iso) { if (!iso) return ""; try { return new Date(iso).t
 async function verifyToken(token) { try { const r = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`, { headers: { Authorization: `Bearer ${token}` } }); return r.ok; } catch { return false; } }
 
 async function unlock() {
-  const input = document.getElementById("tokenInput"), btn = document.getElementById("unlockBtn"), err = document.getElementById("errMsg");
+  const input = document.getElementById("tokenInput"), btn = document.getElementById("unlockBtn");
   const token = input.value.trim(); if (!token) return alert("Enter token");
   btn.disabled = true; btn.textContent = "Checking…";
   const ok = await verifyToken(token); btn.disabled = false; btn.textContent = "Unlock";
@@ -191,6 +193,7 @@ function render() {
           <div class="date">${escapeHtml(formatDate(m.start))}</div>
           <div class="time">${escapeHtml(formatTimeOnly(m.start))}</div>
         </div>
+        <button class="edit-btn" onclick="editPreSelection(event, '${escapeHtml(String(m.event_id))}')">✏️ Edit</button>
       </label>`;
   }).join("");
 
@@ -198,6 +201,28 @@ function render() {
   countEl.textContent = `${sorted.length} result${sorted.length === 1 ? "" : "s"}`;
   updateCounter();
 }
+
+// Edit before selecting
+window.editPreSelection = function(e, eid) {
+    e.preventDefault(); // Stop checkbox from toggling
+    const match = allMatches.find(m => String(m.event_id) === eid);
+    if(!match) return;
+
+    const newTeam1 = prompt("Enter Team 1 Name:", match.team1);
+    if (newTeam1 !== null) match.team1 = newTeam1;
+
+    const newLogo1 = prompt("Enter Team 1 Logo URL:", match.team1_logo || "");
+    if (newLogo1 !== null) match.team1_logo = newLogo1;
+
+    const newTeam2 = prompt("Enter Team 2 Name:", match.team2);
+    if (newTeam2 !== null) match.team2 = newTeam2;
+
+    const newLogo2 = prompt("Enter Team 2 Logo URL:", match.team2_logo || "");
+    if (newLogo2 !== null) match.team2_logo = newLogo2;
+
+    toast("Match updated locally");
+    render(); // Refresh the view
+};
 
 function toggleMatch(cb) {
   const eid = String(cb.getAttribute("data-eid"));
