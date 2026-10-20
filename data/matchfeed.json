@@ -67,7 +67,7 @@
         "code": "BAR"
       },
       "time": "26/10/21 00:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Champions League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=paris"
@@ -85,7 +85,7 @@
         "code": "VIL"
       },
       "time": "26/10/21 00:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Champions League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=liverpool"
@@ -103,7 +103,7 @@
         "code": "AEK"
       },
       "time": "26/10/21 00:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Champions League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=manchester"
@@ -121,7 +121,7 @@
         "code": "BOD"
       },
       "time": "26/10/21 00:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Champions League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=napoli"
@@ -139,7 +139,7 @@
         "code": "PSV"
       },
       "time": "26/10/21 00:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Champions League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=fc"
@@ -157,7 +157,7 @@
         "code": "ATL"
       },
       "time": "26/10/21 00:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Champions League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=vfb"
