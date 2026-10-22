@@ -1,66 +1,6 @@
 {
   "matches": [
     {
-      "team1": "Beşiktaş",
-      "team2": "Crystal Palace",
-      "team1_logo": "https://img.singhs.com.np/team/10188.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10188.png",
-      "team2_logo": "https://img.singhs.com.np/team/9826.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9826.png",
-      "league": "Europa League",
-      "league_id": 73,
-      "league_country": "INT",
-      "start": "2026-10-22T19:00Z",
-      "duration": 2.2,
-      "event_id": 6112356,
-      "slug": "beikta"
-    },
-    {
-      "team1": "AFC Bournemouth",
-      "team2": "Milan",
-      "team1_logo": "https://img.singhs.com.np/team/8678.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8678.png",
-      "team2_logo": "https://img.singhs.com.np/team/8564.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8564.png",
-      "league": "Europa League",
-      "league_id": 73,
-      "league_country": "INT",
-      "start": "2026-10-22T19:00Z",
-      "duration": 2.2,
-      "event_id": 6112326,
-      "slug": "afcbournemouth"
-    },
-    {
-      "team1": "Omonia Nicosia",
-      "team2": "Benfica",
-      "team1_logo": "https://img.singhs.com.np/team/8044.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8044.png",
-      "team2_logo": "https://img.singhs.com.np/team/9772.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9772.png",
-      "league": "Europa League",
-      "league_id": 73,
-      "league_country": "INT",
-      "start": "2026-10-22T19:00Z",
-      "duration": 2.2,
-      "event_id": 6112342,
-      "slug": "omonianicosia"
-    },
-    {
-      "team1": "Celtic",
-      "team2": "Celta Vigo",
-      "team1_logo": "https://img.singhs.com.np/team/9925.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9925.png",
-      "team2_logo": "https://img.singhs.com.np/team/9910.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9910.png",
-      "league": "Europa League",
-      "league_id": 73,
-      "league_country": "INT",
-      "start": "2026-10-22T19:00Z",
-      "duration": 2.2,
-      "event_id": 6112300,
-      "slug": "celtic"
-    },
-    {
       "team1": "Ararat Armenia",
       "team2": "AZ Alkmaar",
       "team1_logo": "https://img.singhs.com.np/team/866109.png",
@@ -76,5 +16,5 @@
       "slug": "araratarmenia"
     }
   ],
-  "updated_at": "2026-10-22T03:20:43.760Z"
+  "updated_at": "2026-10-22T03:29:46.772Z"
 }
