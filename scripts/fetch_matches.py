@@ -6,9 +6,6 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import requests
 
-# ---------------------------------------------------------------
-# CONFIG
-# ---------------------------------------------------------------
 SOURCE_URL = "https://www.fotmob.com/api/data/matches"
 TIMEZONE = "Asia%2FKathmandu"
 REGION = "NPL"
@@ -37,22 +34,6 @@ def team_slug(name: str) -> str:
     if not name: return "unknown"
     return re.sub(r"[^a-z0-9]", "", name.strip().lower())
 
-def get_logo_url(team_id):
-    if not team_id: return ""
-    
-    
-    singhs_url = f"https://img.singhs.com.np/team/{team_id}.png"
-    try:
-        # Quick HEAD request to check if the image actually exists
-        head = requests.head(singhs_url, timeout=3)
-        if head.status_code == 200:
-            return singhs_url
-    except Exception:
-        pass
-        
-   
-    return f"https://images.fotmob.com/image_resources/logo/teamlogo/{team_id}.png"
-
 def normalize_start(utc_time):
     if not utc_time: return None
     m = re.match(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2})", utc_time)
@@ -74,8 +55,10 @@ def transform_match(lg: dict, m: dict) -> dict:
     return {
         "team1": team1,
         "team2": team2,
-        "team1_logo": get_logo_url(home_id),
-        "team2_logo": get_logo_url(away_id),
+        "team1_logo": f"https://img.singhs.com.np/team/{home_id}.png" if home_id else "",
+        "team1_logo_fallback": f"https://images.fotmob.com/image_resources/logo/teamlogo/{home_id}.png" if home_id else "",
+        "team2_logo": f"https://img.singhs.com.np/team/{away_id}.png" if away_id else "",
+        "team2_logo_fallback": f"https://images.fotmob.com/image_resources/logo/teamlogo/{away_id}.png" if away_id else "",
         "league": league,
         "league_id": league_id,
         "league_country": league_country,
