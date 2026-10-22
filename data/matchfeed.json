@@ -1,87 +1,17 @@
 {
   "matches": [
     {
-      "id": "beikta",
-      "team1": {
-        "name": "Beşiktaş",
-        "img": "https://img.singhs.com.np/team/10188.png",
-        "code": "BEŞ"
-      },
-      "team2": {
-        "name": "Crystal Palace",
-        "img": "https://img.singhs.com.np/team/9826.png",
-        "code": "CRY"
-      },
-      "time": "26/10/23 00:45:00",
-      "status": "Upcoming",
-      "endTime": 2.2,
-      "type": "Europa League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=beikta"
-    },
-    {
-      "id": "afc",
-      "team1": {
-        "name": "AFC Bournemouth",
-        "img": "https://img.singhs.com.np/team/8678.png",
-        "code": "A B"
-      },
-      "team2": {
-        "name": "Milan",
-        "img": "https://img.singhs.com.np/team/8564.png",
-        "code": "MIL"
-      },
-      "time": "26/10/23 00:45:00",
-      "status": "Upcoming",
-      "endTime": 2.2,
-      "type": "Europa League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=afc"
-    },
-    {
-      "id": "omonia",
-      "team1": {
-        "name": "Omonia Nicosia",
-        "img": "https://img.singhs.com.np/team/8044.png",
-        "code": "OMO"
-      },
-      "team2": {
-        "name": "Benfica",
-        "img": "https://img.singhs.com.np/team/9772.png",
-        "code": "BEN"
-      },
-      "time": "26/10/23 00:45:00",
-      "status": "Upcoming",
-      "endTime": 2.2,
-      "type": "Europa League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=omonia"
-    },
-    {
-      "id": "celtic",
-      "team1": {
-        "name": "Celtic",
-        "img": "https://img.singhs.com.np/team/9925.png",
-        "code": "CEL"
-      },
-      "team2": {
-        "name": "Celta Vigo",
-        "img": "https://img.singhs.com.np/team/9910.png",
-        "code": "CEL"
-      },
-      "time": "26/10/23 00:45:00",
-      "status": "Upcoming",
-      "endTime": 2.2,
-      "type": "Europa League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=celtic"
-    },
-    {
       "id": "ararat",
       "team1": {
         "name": "Ararat Armenia",
         "img": "https://img.singhs.com.np/team/866109.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/866109.png",
         "code": "ARA"
       },
       "team2": {
         "name": "AZ Alkmaar",
         "img": "https://img.singhs.com.np/team/10229.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10229.png",
         "code": "AZ "
       },
       "time": "26/10/22 22:30:00",
