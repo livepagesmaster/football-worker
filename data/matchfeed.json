@@ -19,6 +19,66 @@
       "endTime": 2.2,
       "type": "Europa League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=ararat"
+    },
+    {
+      "id": "celtic",
+      "team1": {
+        "name": "Celtic",
+        "img": "https://img.singhs.com.np/team/9925.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9925.png",
+        "code": "CEL"
+      },
+      "team2": {
+        "name": "Celta Vigo",
+        "img": "https://img.singhs.com.np/team/9910.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9910.png",
+        "code": "CEL"
+      },
+      "time": "26/10/23 00:45:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "Europa League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=celtic"
+    },
+    {
+      "id": "afc",
+      "team1": {
+        "name": "AFC Bournemouth",
+        "img": "https://img.singhs.com.np/team/8678.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8678.png",
+        "code": "A B"
+      },
+      "team2": {
+        "name": "Milan",
+        "img": "https://img.singhs.com.np/team/8564.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8564.png",
+        "code": "MIL"
+      },
+      "time": "26/10/23 00:45:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "Europa League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=afc"
+    },
+    {
+      "id": "omonia",
+      "team1": {
+        "name": "Omonia Nicosia",
+        "img": "https://img.singhs.com.np/team/8044.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8044.png",
+        "code": "OMO"
+      },
+      "team2": {
+        "name": "Benfica",
+        "img": "https://img.singhs.com.np/team/9772.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9772.png",
+        "code": "BEN"
+      },
+      "time": "26/10/23 00:45:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "Europa League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=omonia"
     }
   ]
 }
