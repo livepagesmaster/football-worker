@@ -40,8 +40,6 @@
   .match .col-time { text-align: right; flex-shrink: 0; }
   .match .date { font-size: 13px; font-weight: 700; color: #333; white-space: nowrap; }
   .match .time { font-size: 11px; color: #888; margin-top: 3px; white-space: nowrap; }
-  .match .edit-btn { background: #e5e7eb; color: #333; border: none; border-radius: 6px; padding: 6px 10px; font-size: 12px; font-weight: 700; cursor: pointer; margin-left: 10px; display: none; }
-  .match:hover .edit-btn { display: block; } /* Show edit only on hover */
   .empty { text-align: center; padding: 60px 20px; color: #999; font-size: 14px; }
   .loading { text-align: center; padding: 40px; color: #888; }
   .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px); background: #16a34a; color: #fff; padding: 12px 22px; border-radius: 8px; font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 300; }
@@ -58,7 +56,20 @@
   .sel-item .sel-info { flex: 1; min-width: 0; }
   .sel-item .sel-teams { font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sel-item .sel-meta { font-size: 11px; color: #999; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .sel-item .remove { background: #fee2e2; color: #b91c1c; border: none; border-radius: 6px; padding: 6px 10px; font-size: 12px; font-weight: 700; cursor: pointer; flex-shrink: 0; }
+  .sel-item .sel-actions { display: flex; flex-direction: column; gap: 5px; flex-shrink: 0; }
+  .sel-item .sel-actions button { font-size: 11px; font-weight: 700; padding: 5px 9px; border-radius: 5px; cursor: pointer; border: none; min-width: 68px; }
+  .btn-edit { background: #dbeafe; color: #1e40af; }
+  .btn-remove { background: #fee2e2; color: #b91c1c; }
+  
+  .edit-form { padding: 4px 0; }
+  .edit-form label { display: block; font-size: 12px; font-weight: 700; color: #555; margin-bottom: 4px; margin-top: 10px; }
+  .edit-form input { width: 100%; padding: 9px 12px; border: 1px solid #ddd; border-radius: 7px; font-size: 13px; font-family: inherit; outline: none; }
+  .edit-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .edit-form .form-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+  .edit-form .form-actions button { padding: 8px 16px; border: none; border-radius: 7px; font-size: 13px; font-weight: 700; cursor: pointer; }
+  .btn-cancel { background: #e5e7eb; color: #444; }
+  .btn-apply { background: #2563eb; color: #fff; }
+  
   .modal-foot { padding: 12px 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #666; }
   .modal-foot .danger { background: #fee2e2; color: #b91c1c; border: none; border-radius: 6px; padding: 8px 14px; font-weight: 700; font-size: 13px; cursor: pointer; }
 </style>
@@ -193,7 +204,6 @@ function render() {
           <div class="date">${escapeHtml(formatDate(m.start))}</div>
           <div class="time">${escapeHtml(formatTimeOnly(m.start))}</div>
         </div>
-        <button class="edit-btn" onclick="editPreSelection(event, '${escapeHtml(String(m.event_id))}')">✏️ Edit</button>
       </label>`;
   }).join("");
 
@@ -201,28 +211,6 @@ function render() {
   countEl.textContent = `${sorted.length} result${sorted.length === 1 ? "" : "s"}`;
   updateCounter();
 }
-
-// Edit before selecting
-window.editPreSelection = function(e, eid) {
-    e.preventDefault(); // Stop checkbox from toggling
-    const match = allMatches.find(m => String(m.event_id) === eid);
-    if(!match) return;
-
-    const newTeam1 = prompt("Enter Team 1 Name:", match.team1);
-    if (newTeam1 !== null) match.team1 = newTeam1;
-
-    const newLogo1 = prompt("Enter Team 1 Logo URL:", match.team1_logo || "");
-    if (newLogo1 !== null) match.team1_logo = newLogo1;
-
-    const newTeam2 = prompt("Enter Team 2 Name:", match.team2);
-    if (newTeam2 !== null) match.team2 = newTeam2;
-
-    const newLogo2 = prompt("Enter Team 2 Logo URL:", match.team2_logo || "");
-    if (newLogo2 !== null) match.team2_logo = newLogo2;
-
-    toast("Match updated locally");
-    render(); // Refresh the view
-};
 
 function toggleMatch(cb) {
   const eid = String(cb.getAttribute("data-eid"));
@@ -256,9 +244,75 @@ function renderModalBody() {
           <div class="sel-teams">${escapeHtml(m.team1)} vs ${escapeHtml(m.team2)}</div>
           <div class="sel-meta">${escapeHtml(m.league || "")} · ${escapeHtml(formatDate(m.start))}</div>
         </div>
-        <button class="remove" onclick="removeFromSelection('${escapeHtml(String(m.event_id))}')">Remove</button>
+        <div class="sel-actions">
+          <button class="btn-edit" onclick="editMatch('${escapeHtml(String(m.event_id))}')">Edit</button>
+          <button class="btn-remove" onclick="removeFromSelection('${escapeHtml(String(m.event_id))}')">Delete</button>
+        </div>
       </div>
     `).join("");
+}
+
+function editMatch(eid) {
+  const m = selectedMatches.find(x => String(x.event_id) === String(eid));
+  if (!m) return;
+  
+  const body = document.getElementById("modalBody");
+  body.innerHTML = `
+    <div class="edit-form">
+      <h3>Edit match</h3>
+      <label>Team 1</label>
+      <input id="ef-team1" type="text" value="${escapeHtml(m.team1 || "")}">
+      <label>Team 1 logo URL</label>
+      <input id="ef-team1_logo" type="text" value="${escapeHtml(m.team1_logo || "")}">
+      <label>Team 2</label>
+      <input id="ef-team2" type="text" value="${escapeHtml(m.team2 || "")}">
+      <label>Team 2 logo URL</label>
+      <input id="ef-team2_logo" type="text" value="${escapeHtml(m.team2_logo || "")}">
+      <label>League</label>
+      <input id="ef-league" type="text" value="${escapeHtml(m.league || "")}">
+      <div class="row">
+        <div>
+          <label>Start (ISO)</label>
+          <input id="ef-start" type="text" value="${escapeHtml(m.start || "")}" placeholder="2026-10-16T08:30Z">
+        </div>
+        <div>
+          <label>Duration (hours)</label>
+          <input id="ef-duration" type="text" value="${escapeHtml(String(m.duration ?? "2.2"))}">
+        </div>
+      </div>
+      <label>Redirect URL (stream link)</label>
+      <input id="ef-redirect" type="text" value="${escapeHtml(m.redirect_url || "")}" placeholder="https://...">
+      <div class="form-actions">
+        <button class="btn-cancel" onclick="renderModalBody()">Cancel</button>
+        <button class="btn-apply" onclick="applyEdit('${escapeHtml(String(m.event_id))}')">Apply</button>
+      </div>
+    </div>
+  `;
+}
+
+function applyEdit(eid) {
+  const idx = selectedMatches.findIndex(m => String(m.event_id) === String(eid));
+  if (idx === -1) return;
+
+  const get = id => document.getElementById(id).value.trim();
+
+  selectedMatches[idx] = {
+    ...selectedMatches[idx],
+    team1: get("ef-team1"),
+    team1_logo: get("ef-team1_logo"),
+    team2: get("ef-team2"),
+    team2_logo: get("ef-team2_logo"),
+    league: get("ef-league"),
+    start: get("ef-start"),
+    duration: parseFloat(get("ef-duration")) || 2.2,
+    redirect_url: get("ef-redirect"),
+    _custom: true,
+  };
+
+  pendingSave = true;
+  renderModalBody();
+  updateMySelButton();
+  toast("Updated — click Save to apply");
 }
 
 function removeFromSelection(eid) { selectedIds.delete(String(eid)); selectedMatches = selectedMatches.filter(s => String(s.event_id) !== String(eid)); pendingSave = true; updateCounter(); updateMySelButton(); renderModalBody(); render(); }
@@ -293,7 +347,7 @@ document.getElementById("mySelBtn").addEventListener("click", openModal);
 document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("modalClearBtn").addEventListener("click", clearAllSelection);
 document.getElementById("modalBackdrop").addEventListener("click", e => { if (e.target.id === "modalBackdrop") closeModal(); });
-window.toggleMatch = toggleMatch; window.removeFromSelection = removeFromSelection;
+window.toggleMatch = toggleMatch; window.removeFromSelection = removeFromSelection; window.editMatch = editMatch; window.applyEdit = applyEdit; window.renderModalBody = renderModalBody;
 
 if(getToken()) { fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`, { headers: { Authorization: `Bearer ${getToken()}` } }).then(r => { if(r.ok) showDashboard(); else clearToken(); }); }
 </script>
