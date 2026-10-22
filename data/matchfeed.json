@@ -71,6 +71,24 @@
       "endTime": 2.2,
       "type": "Europa League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=celtic"
+    },
+    {
+      "id": "ararat",
+      "team1": {
+        "name": "Ararat Armenia",
+        "img": "https://img.singhs.com.np/team/866109.png",
+        "code": "ARA"
+      },
+      "team2": {
+        "name": "AZ Alkmaar",
+        "img": "https://img.singhs.com.np/team/10229.png",
+        "code": "AZ "
+      },
+      "time": "26/10/22 22:30:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "Europa League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=ararat"
     }
   ]
 }
