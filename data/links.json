@@ -200,7 +200,7 @@
     },
     "link2": {
       "type": "hls",
-      "url": "https://hugh.cdn.rumble.cloud/live/v13wgnv6/live-hls/dbbt-pv6x/chunklist_i1_DVR.m3u8"
+      "url": "https://hugh.cdn.rumble.cloud/live/k1ub38pe/live-hls/pvyy-hhsa/chunklist_i1.m3u8"
     },
     "link3": {
       "type": "redirect",
@@ -208,7 +208,7 @@
     },
     "link4": {
       "type": "hls",
-      "url": "https://hugh.cdn.rumble.cloud/live/v13wgnv6/live-hls/dbbt-pv6x/chunklist_i1_DVR.m3u8"
+      "url": "https://hugh.cdn.rumble.cloud/live/k1ub38pe/live-hls/pvyy-hhsa/chunklist_i1.m3u8"
     },
     "link5": {
       "type": "redirect",
@@ -216,7 +216,7 @@
     },
     "link6": {
       "type": "hls",
-      "url": "https://hugh.cdn.rumble.cloud/live/v13wgnv6/live-hls/dbbt-pv6x/chunklist_i1_DVR.m3u8"
+      "url": "https://hugh.cdn.rumble.cloud/live/k1ub38pe/live-hls/pvyy-hhsa/chunklist_i1.m3u8"
     },
     "link7": {
       "type": "redirect",
