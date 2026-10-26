@@ -144,7 +144,7 @@ function renderList() {
                 <div class="match-body">
                     <div class="common-box">
                         <div class="input-group">
-                            <label>Common Link (Applies to all 7 if they are empty)</label>
+                            <label>Common Link (Overrides all 7 links below)</label>
                             <input type="text" id="common-${safeId}" value="${commonUrl}" placeholder="Paste common link here...">
                         </div>
                     </div>
@@ -186,22 +186,13 @@ document.getElementById("saveBtn").onclick = () => {
         if(document.getElementById(`common-${safeId}`)) {
             const commonUrl = document.getElementById(`common-${safeId}`).value.trim();
             
-            const linkData = {};
+            const linkData = {
+                common: commonUrl ? { type: detectLinkType(commonUrl), url: commonUrl } : null
+            };
             
-            // IF COMMON URL EXISTS, IT OVERRIDES EVERYTHING
-            if (commonUrl) {
-                const detectedType = detectLinkType(commonUrl);
-                linkData.common = { type: detectedType, url: commonUrl };
-                
-                for(let i=1; i<=7; i++) {
-                    linkData[`link${i}`] = { type: detectedType, url: commonUrl };
-                }
-            } else {
-                // Otherwise just save what's in the boxes
-                for(let i=1; i<=7; i++) {
-                    const url = document.getElementById(`link${i}-${safeId}`).value.trim();
-                    linkData[`link${i}`] = url ? { type: detectLinkType(url), url } : null;
-                }
+            for(let i=1; i<=7; i++) {
+                const url = document.getElementById(`link${i}-${safeId}`).value.trim();
+                linkData[`link${i}`] = url ? { type: detectLinkType(url), url } : null;
             }
             
             currentLinks[matchId] = linkData;
