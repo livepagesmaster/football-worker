@@ -298,5 +298,36 @@
     "link5": null,
     "link6": null,
     "link7": null
+  },
+  "paris": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-26/psg-lyon"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-26/psg-lyon"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-26/psg-lyon"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-26/psg-lyon"
+    }
   }
 }
