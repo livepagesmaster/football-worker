@@ -190,18 +190,35 @@
       "url": "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8"
     },
     "link1": {
-      "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/247-willow-2"
+      "type": "hls",
+      "url": "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8"
     },
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link2": {
+      "type": "hls",
+      "url": "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8"
+    },
+    "link6": {
+      "type": "hls",
+      "url": "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8"
+    },
+    "link7": {
+      "type": "hls",
+      "url": "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8"
+    }
   },
   "celtic": {
-    "common": null,
     "link1": null,
     "link2": null,
     "link3": null,
@@ -211,7 +228,6 @@
     "link7": null
   },
   "afc": {
-    "common": null,
     "link1": null,
     "link2": null,
     "link3": null,
@@ -221,7 +237,6 @@
     "link7": null
   },
   "omonia": {
-    "common": null,
     "link1": null,
     "link2": null,
     "link3": null,
