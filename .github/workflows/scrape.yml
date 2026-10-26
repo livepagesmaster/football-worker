@@ -21,9 +21,10 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install curl_cffi
+        run: pip install -U curl_cffi
 
       - name: Run scraper
+        continue-on-error: true
         run: python scripts/fetch_matches.py
 
       - name: Commit and push
