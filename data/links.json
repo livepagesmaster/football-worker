@@ -193,17 +193,35 @@
     }
   },
   "lumbini": {
-    "common": {
+    "common": null,
+    "link1": {
+      "type": "redirect",
+      "url": "https://yonotv.pages.dev/fc"
+    },
+    "link2": {
       "type": "hls",
       "url": "https://hugh.cdn.rumble.cloud/live/v13wgnv6/live-hls/dbbt-pv6x/chunklist_i1_DVR.m3u8"
     },
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link3": {
+      "type": "redirect",
+      "url": "https://yonotv.pages.dev/fc"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://hugh.cdn.rumble.cloud/live/v13wgnv6/live-hls/dbbt-pv6x/chunklist_i1_DVR.m3u8"
+    },
+    "link5": {
+      "type": "redirect",
+      "url": "https://yonotv.pages.dev/fc"
+    },
+    "link6": {
+      "type": "hls",
+      "url": "https://hugh.cdn.rumble.cloud/live/v13wgnv6/live-hls/dbbt-pv6x/chunklist_i1_DVR.m3u8"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://yonotv.pages.dev/fc"
+    }
   },
   "ararat": {
     "common": {
