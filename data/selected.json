@@ -1,65 +1,20 @@
 {
   "matches": [
     {
-      "team1": "Ararat Armenia",
-      "team2": "AZ Alkmaar",
-      "team1_logo": "https://img.singhs.com.np/team/866109.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/866109.png",
-      "team2_logo": "https://img.singhs.com.np/team/10229.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10229.png",
-      "league": "Europa League",
-      "league_id": 73,
-      "league_country": "INT",
-      "start": "2026-10-22T16:45Z",
+      "team1": "Paris Saint-Germain",
+      "team2": "Lyon",
+      "team1_logo": "https://img.singhs.com.np/team/9847.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9847.png",
+      "team2_logo": "https://img.singhs.com.np/team/9748.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9748.png",
+      "league": "Ligue 1",
+      "league_id": 53,
+      "league_country": "FRA",
+      "start": "2026-10-26T19:30Z",
       "duration": 2.2,
-      "event_id": 6112382,
-      "slug": "araratarmenia"
-    },
-    {
-      "team1": "Celtic",
-      "team2": "Celta Vigo",
-      "team1_logo": "https://img.singhs.com.np/team/9925.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9925.png",
-      "team2_logo": "https://img.singhs.com.np/team/9910.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9910.png",
-      "league": "Europa League",
-      "league_id": 73,
-      "league_country": "INT",
-      "start": "2026-10-22T19:00Z",
-      "duration": 2.2,
-      "event_id": 6112300,
-      "slug": "celtic"
-    },
-    {
-      "team1": "AFC Bournemouth",
-      "team2": "Milan",
-      "team1_logo": "https://img.singhs.com.np/team/8678.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8678.png",
-      "team2_logo": "https://img.singhs.com.np/team/8564.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8564.png",
-      "league": "Europa League",
-      "league_id": 73,
-      "league_country": "INT",
-      "start": "2026-10-22T19:00Z",
-      "duration": 2.2,
-      "event_id": 6112326,
-      "slug": "afcbournemouth"
-    },
-    {
-      "team1": "Omonia Nicosia",
-      "team2": "Benfica",
-      "team1_logo": "https://img.singhs.com.np/team/8044.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8044.png",
-      "team2_logo": "https://img.singhs.com.np/team/9772.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9772.png",
-      "league": "Europa League",
-      "league_id": 73,
-      "league_country": "INT",
-      "start": "2026-10-22T19:00Z",
-      "duration": 2.2,
-      "event_id": 6112342,
-      "slug": "omonianicosia"
+      "event_id": 5802972,
+      "slug": "parissaintgermain"
     }
   ],
-  "updated_at": "2026-10-22T03:31:56.305Z"
+  "updated_at": "2026-10-26T06:56:23.777Z"
 }
