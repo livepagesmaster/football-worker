@@ -194,8 +194,8 @@
   },
   "lumbini": {
     "common": {
-      "type": "hls",
-      "url": "https://hls-harbor-livepush.akamaized.net/live_cdn/nsqIStpj8PaG-Ev/emcQJ0pGpremocy/index.m3u8"
+      "type": "redirect",
+      "url": "https://yonotv.pages.dev/fc"
     },
     "link1": null,
     "link2": null,
