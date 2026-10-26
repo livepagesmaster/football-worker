@@ -163,13 +163,34 @@
   },
   "newzealand": {
     "common": null,
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-willow"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://embed.st/embed/admin/admin-willow-cricket/1"
+    },
+    "link3": {
+      "type": "iframe",
+      "url": "https://freecdn.st/hembedplayer/csstream1/1/960/540"
+    },
+    "link4": {
+      "type": "iframe",
+      "url": "https://embed.st/embed/admin/admin-willow-cricket/1"
+    },
+    "link5": {
+      "type": "iframe",
+      "url": "https://freecdn.st/hembedplayer/csstream1/1/960/540"
+    },
+    "link6": {
+      "type": "redirect",
+      "url": "https://suniliv.pages.dev/ptest1?id=sony-ten-5-hd"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-willow"
+    }
   },
   "lumbini": {
     "common": {
@@ -221,6 +242,36 @@
     "link7": null
   },
   "omonia": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "biratnagar": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "karnali": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "pokhara": {
     "common": null,
     "link1": null,
     "link2": null,
