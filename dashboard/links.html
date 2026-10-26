@@ -12,10 +12,17 @@
   #lock .box { background: #fff; border: 1px solid #e0e0e0; border-radius: 14px; padding: 32px; width: 100%; max-width: 400px; text-align: center; }
   #lock input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; }
   #lock button { width: 100%; padding: 12px; border: none; border-radius: 8px; background: #2563eb; color: #fff; font-weight: 700; cursor: pointer; }
+  
   #app { display: none; }
   .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
   .topbar h1 { font-size: 22px; font-weight: 800; }
   .btn-save { background: #16a34a; color: #fff; padding: 10px 20px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
+  
+  /* TABS */
+  .tabs { display: flex; gap: 10px; margin-bottom: 16px; }
+  .tab { padding: 8px 16px; background: #fff; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-weight: 600; color: #555; }
+  .tab.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+
   .match-item { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
   .match-header { padding: 16px; background: #f9fafb; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
   .match-header h3 { font-size: 16px; margin: 0; }
@@ -27,6 +34,7 @@
   .input-group input { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; outline: none; }
   .common-box { margin-bottom: 20px; background: #eff6ff; padding: 12px; border-radius: 8px; border: 1px solid #bfdbfe; }
   .common-box label { color: #1d4ed8; }
+  
   .empty { text-align: center; padding: 40px; color: #888; background: #fff; border-radius: 10px; border: 1px dashed #ccc; }
 </style>
 </head>
@@ -46,6 +54,14 @@
     <h1>Manage Stream Links</h1>
     <button class="btn-save" id="saveBtn">Save to Cloudflare</button>
   </div>
+  
+  <!-- TABS ADDED BACK -->
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('football')">Football</div>
+    <div class="tab" onclick="switchTab('cricket')">Cricket</div>
+    <div class="tab" onclick="switchTab('others')">Others</div>
+  </div>
+
   <div id="matchesList"></div>
 </div>
 
@@ -53,13 +69,19 @@
 const REPO_OWNER = "livepagesmaster";
 const REPO_NAME  = "football-worker";
 const BRANCH     = "main";
-const FEED_URL   = 'https://football-feed.pages.dev/matchfeed.json';
-const LINKS_URL  = 'https://football-feed.pages.dev/links.json';
 const API_BASE   = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/`;
 const TOKEN_KEY  = "gh_token_fw";
 
-let activeMatches = [];
+const FEEDS = {
+    football: 'https://football-feed.pages.dev/matchfeed.json',
+    cricket: 'https://live-pages-be0.pages.dev/cricket-feed.json',
+    others: 'https://live-pages-be0.pages.dev/other-feed.json'
+};
+const LINKS_URL = 'https://football-feed.pages.dev/links.json';
+
+let activeMatches = { football: [], cricket: [], others: [] };
 let currentLinks = {};
+let currentTab = 'football';
 
 function getToken() { return localStorage.getItem(TOKEN_KEY); }
 
@@ -82,18 +104,20 @@ function showApp() {
 
 async function loadData() {
     try {
-        const [feedRes, linksRes] = await Promise.all([
-            fetch(FEED_URL + "?t=" + Date.now()),
+        const [fb, cr, ot, linksRes] = await Promise.all([
+            fetch(FEEDS.football + "?t=" + Date.now()).then(r => r.json()).catch(()=>null),
+            fetch(FEEDS.cricket + "?t=" + Date.now()).then(r => r.json()).catch(()=>null),
+            fetch(FEEDS.others + "?t=" + Date.now()).then(r => r.json()).catch(()=>null),
             fetch(LINKS_URL + "?t=" + Date.now()).catch(() => null)
         ]);
-        const feed = await feedRes.json();
-        activeMatches = feed.matches || [];
         
-        if(linksRes && linksRes.ok) {
-            currentLinks = await linksRes.json();
-        } else {
-            currentLinks = {};
-        }
+        activeMatches.football = fb && fb.matches ? fb.matches : [];
+        activeMatches.cricket = cr && cr.matches ? cr.matches : [];
+        activeMatches.others = ot && ot.matches ? ot.matches : [];
+        
+        if(linksRes && linksRes.ok) currentLinks = await linksRes.json();
+        else currentLinks = {};
+        
         renderList();
     } catch(e) {
         console.error(e);
@@ -101,19 +125,32 @@ async function loadData() {
     }
 }
 
+function switchTab(tab) {
+    currentTab = tab;
+    document.querySelectorAll('.tab').forEach((el, i) => {
+        el.classList.toggle('active', ['football', 'cricket', 'others'][i] === tab);
+    });
+    renderList();
+}
+
+function getMatchId(m) {
+    if (m.id) return m.id;
+    // Fallback for cricket/others: use first word of team1
+    let firstWord = (m.team1?.name || 'match').split(' ')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+    return firstWord || 'match';
+}
+
 function renderList() {
     const container = document.getElementById("matchesList");
-    if(activeMatches.length === 0) {
-        container.innerHTML = `<div class="empty">No matches on widget right now.</div>`;
+    const matches = activeMatches[currentTab];
+
+    if(matches.length === 0) {
+        container.innerHTML = `<div class="empty">No ${currentTab} matches on widget right now.</div>`;
         return;
     }
 
-    container.innerHTML = activeMatches.map(m => {
-        let matchId = m.id;
-        if (!matchId) {
-            let firstWord = m.team1.name.split(' ')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
-            matchId = firstWord;
-        }
+    container.innerHTML = matches.map(m => {
+        const matchId = getMatchId(m);
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
         const saved = currentLinks[matchId] || {};
         
@@ -137,7 +174,7 @@ function renderList() {
                 <div class="match-header" onclick="toggleItem('${safeId}')">
                     <div>
                         <h3>${m.team1.name} vs ${m.team2.name}</h3>
-                        <div class="meta">${m.type} · ${m.time} (ID: ${matchId})</div>
+                        <div class="meta">${m.type || m.league} · ${m.time} (ID: ${matchId})</div>
                     </div>
                     <span>▼</span>
                 </div>
@@ -175,12 +212,9 @@ document.getElementById("saveBtn").onclick = () => {
     btn.textContent = "Saving...";
     btn.disabled = true;
 
-    activeMatches.forEach(m => {
-        let matchId = m.id;
-        if (!matchId) {
-            let firstWord = m.team1.name.split(' ')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
-            matchId = firstWord;
-        }
+    // Save links for ALL matches across ALL tabs
+    Object.values(activeMatches).flat().forEach(m => {
+        const matchId = getMatchId(m);
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
         
         if(document.getElementById(`common-${safeId}`)) {
@@ -191,8 +225,11 @@ document.getElementById("saveBtn").onclick = () => {
             };
             
             for(let i=1; i<=7; i++) {
-                const url = document.getElementById(`link${i}-${safeId}`).value.trim();
-                linkData[`link${i}`] = url ? { type: detectLinkType(url), url } : null;
+                const inputEl = document.getElementById(`link${i}-${safeId}`);
+                if (inputEl) {
+                    const url = inputEl.value.trim();
+                    linkData[`link${i}`] = url ? { type: detectLinkType(url), url } : null;
+                }
             }
             
             currentLinks[matchId] = linkData;
