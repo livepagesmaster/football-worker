@@ -420,13 +420,34 @@
   },
   "borussia": {
     "common": null,
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link1": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/hd/hd3.php"
+    },
+    "link2": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/hd/hd3.php"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.meung.app/live/16226575_tsc.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.meung.app/live/16226575_tsc.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.meung.app/live/16226575_tsc.m3u8"
+    },
+    "link6": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/hd/hd3.php"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/hd/hd3.php"
+    }
   },
   "roma": {
     "common": {
