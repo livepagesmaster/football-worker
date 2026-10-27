@@ -344,11 +344,11 @@
     },
     "link2": {
       "type": "hls",
-      "url": "https://hugh.cdn.rumble.cloud/live/t5qc33px/live-hls/amxu-r5y3/chunklist_i1.m3u8"
+      "url": "https://hugh.cdn.rumble.cloud/live/hd37fm8g/live-hls/v71q-jyrd/chunklist_i1.m3u8"
     },
     "link3": {
       "type": "hls",
-      "url": "https://lb-ottnp.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
+      "url": "https://ott-nlive.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
     },
     "link4": {
       "type": "redirect",
