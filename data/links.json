@@ -329,5 +329,51 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ligue1/2026-10-26/psg-lyon"
     }
+  },
+  "fleetwood": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "borussia": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "roma": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-27/roma-cag"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "torino": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-27/tor-como"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
   }
 }
