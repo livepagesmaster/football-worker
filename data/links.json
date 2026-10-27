@@ -307,8 +307,8 @@
   },
   "biratnagar": {
     "common": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
+      "type": "hls",
+      "url": "https://hugh.cdn.rumble.cloud/live/r8wvl35k/live-hls/zrk3-916q/chunklist_i1_DVR.m3u8"
     },
     "link1": {
       "type": "redirect",
@@ -410,6 +410,16 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/seriea/2026-10-27/tor-como"
     },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "janakpur": {
+    "common": null,
     "link1": null,
     "link2": null,
     "link3": null,
