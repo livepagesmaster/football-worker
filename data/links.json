@@ -340,11 +340,11 @@
     "common": null,
     "link1": {
       "type": "hls",
-      "url": "https://hugh.cdn.rumble.cloud/live/t5qc33px/live-hls/jb9a-9hin/chunklist_i1_DVR.m3u8"
+      "url": "https://lb-ottnp.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
     },
     "link2": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "type": "hls",
+      "url": "https://lb-ottnp.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
     },
     "link3": {
       "type": "redirect",
