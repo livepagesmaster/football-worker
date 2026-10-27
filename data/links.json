@@ -340,7 +340,7 @@
     "common": null,
     "link1": {
       "type": "hls",
-      "url": "https://lb-ottnp.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
+      "url": "https://ott-nlive.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
     },
     "link2": {
       "type": "hls",
@@ -348,7 +348,7 @@
     },
     "link3": {
       "type": "hls",
-      "url": "https://ott-nlive.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
+      "url": "https://lb-ottnp.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
     },
     "link4": {
       "type": "redirect",
