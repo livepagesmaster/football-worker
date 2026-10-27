@@ -312,12 +312,12 @@
       "url": "https://hugh.cdn.rumble.cloud/live/r8wvl35k/live-hls/zrk3-916q/chunklist_i1_DVR.m3u8"
     },
     "link2": {
-      "type": "iframe",
-      "url": "https://my.finalspot.top/hembedplayer/NEPALCRIC/4/500/400"
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     },
     "link3": {
-      "type": "iframe",
-      "url": "https://my.finalspot.top/hembedplayer/NEPALCRIC/4/500/400"
+      "type": "hls",
+      "url": "https://hugh.cdn.rumble.cloud/live/r8wvl35k/live-hls/zrk3-916q/chunklist_i1_DVR.m3u8"
     },
     "link4": {
       "type": "redirect",
@@ -332,8 +332,8 @@
       "url": "https://yakotv.pages.dev/nfc"
     },
     "link7": {
-      "type": "iframe",
-      "url": "https://my.finalspot.top/hembedplayer/NEPALCRIC/4/500/400"
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     }
   },
   "karnali": {
