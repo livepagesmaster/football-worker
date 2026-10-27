@@ -270,7 +270,10 @@
     "link7": null
   },
   "biratnagar": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nfc"
+    },
     "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/nfc"
