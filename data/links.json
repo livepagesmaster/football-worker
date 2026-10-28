@@ -14,13 +14,34 @@
   },
   "venezia": {
     "common": null,
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-28/ven-int"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-28/ven-int"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.meung.app/live/08552895_tsc.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.meung.app/live/08552895_tsc.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.meung.app/live/08552895_tsc.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-28/ven-int"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-28/ven-int"
+    }
   },
   "espanyol": {
     "common": null,
@@ -497,6 +518,76 @@
     "link7": null
   },
   "janakpur": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "liverpool": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "inter": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "milan": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "genoa": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "monza": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "fc": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "santos": {
     "common": null,
     "link1": null,
     "link2": null,
