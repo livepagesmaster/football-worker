@@ -710,7 +710,10 @@
     "link7": null
   },
   "fc": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
