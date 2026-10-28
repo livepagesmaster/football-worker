@@ -411,13 +411,34 @@
   },
   "pokhara": {
     "common": null,
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link1": {
+      "type": "hls",
+      "url": "https://ott-nlive.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
+    },
+    "link2": {
+      "type": "hls",
+      "url": "https://ott-nlive.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://lb-ottnp.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
+    },
+    "link4": {
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+    },
+    "link5": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/fxc"
+    },
+    "link6": {
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/fxc"
+    }
   },
   "paris": {
     "common": null,
