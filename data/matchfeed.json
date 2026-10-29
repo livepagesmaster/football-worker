@@ -15,7 +15,7 @@
         "code": "ATA"
       },
       "time": "26/10/30 01:30:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=fiorentina"
@@ -35,7 +35,7 @@
         "code": "AL "
       },
       "time": "26/10/29 23:45:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Saudi Pro League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=al"
@@ -55,7 +55,7 @@
         "code": "NEW"
       },
       "time": "26/10/30 01:30:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "EFL Cup",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=everton"
