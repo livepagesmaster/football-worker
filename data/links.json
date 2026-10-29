@@ -406,23 +406,23 @@
     "common": null,
     "link1": {
       "type": "hls",
-      "url": "https://ott-nlive.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
     },
     "link2": {
       "type": "hls",
-      "url": "https://hugh.cdn.rumble.cloud/live/qt9k24wa/live-hls/em4e-t4b8/chunklist_i1_DVR.m3u8"
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
     },
     "link3": {
       "type": "hls",
-      "url": "https://lb-ottnp.nettvstreamz.com/ottnpweb/npl_live3/index.m3u8"
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
     },
     "link4": {
       "type": "redirect",
       "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     },
     "link5": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "type": "hls",
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
     },
     "link6": {
       "type": "redirect",
