@@ -15,7 +15,7 @@
         "code": "B&H"
       },
       "time": "26/10/29 01:15:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "EFL Cup",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=manchester"
@@ -35,7 +35,7 @@
         "code": "CHE"
       },
       "time": "26/10/29 01:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "EFL Cup",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=liverpool"
@@ -55,7 +55,7 @@
         "code": "MAG"
       },
       "time": "26/10/29 01:30:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "DFB Pokal",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=bayern"
@@ -95,7 +95,7 @@
         "code": "CIN"
       },
       "time": "26/10/29 05:15:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Major League Soccer",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=inter"
@@ -135,7 +135,7 @@
         "code": "JUV"
       },
       "time": "26/10/29 01:30:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=genoa"
@@ -155,7 +155,7 @@
         "code": "NAP"
       },
       "time": "26/10/29 01:30:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=monza"
@@ -175,7 +175,7 @@
         "code": "ACA"
       },
       "time": "26/10/29 02:15:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "League Cup",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=fc"
@@ -195,7 +195,7 @@
         "code": "PAL"
       },
       "time": "26/10/29 04:15:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Série A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=santos"
