@@ -2,15 +2,33 @@
   "everton": {
     "common": null,
     "link1": {
-      "type": "hls",
-      "url": "https://hls-harbor-livepush.akamaized.net/live_cdn/nsqIStpj8PaG-Ev/emcQJ0pGpremocy/index.m3u8"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/carabao-cup/2026-10-29/eve-new"
     },
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/carabao-cup/2026-10-29/eve-new"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/02456966_tsc.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/02456966_tsc.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/02456966_tsc.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/carabao-cup/2026-10-29/eve-new"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/carabao-cup/2026-10-29/eve-new"
+    }
   },
   "venezia": {
     "common": null,
@@ -784,6 +802,57 @@
     "link3": null,
     "link4": null,
     "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "fiorentina": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-29/fio-ata"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "al": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link6": null,
+    "link7": null
+  },
+  "benfica": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/87547578_tsc.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/87547578_tsc.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/87547578_tsc.m3u8"
+    },
     "link6": null,
     "link7": null
   }
