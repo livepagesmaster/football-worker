@@ -584,31 +584,31 @@
     "common": null,
     "link1": {
       "type": "hls",
-      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+      "url": "https://hugh.cdn.rumble.cloud/live/v13wgnv6/live-hls/nu6r-ajm1/chunklist_i1.m3u8"
     },
     "link2": {
-      "type": "redirect",
-      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+      "type": "hls",
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
     },
     "link3": {
       "type": "hls",
-      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+      "url": "https://ott-lb.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8"
     },
     "link4": {
       "type": "redirect",
       "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     },
     "link5": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "type": "hls",
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
     },
     "link6": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/fxc"
     },
     "link7": {
-      "type": "hls",
-      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     }
   },
   "liverpool": {
