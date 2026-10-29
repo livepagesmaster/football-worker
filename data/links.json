@@ -406,7 +406,7 @@
     "common": null,
     "link1": {
       "type": "hls",
-      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+      "url": "https://ott-lb.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8"
     },
     "link2": {
       "type": "hls",
