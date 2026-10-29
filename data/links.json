@@ -839,8 +839,14 @@
   },
   "benfica": {
     "common": null,
-    "link1": null,
-    "link2": null,
+    "link1": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+    },
+    "link2": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+    },
     "link3": {
       "type": "hls",
       "url": "https://live05.yefpwmc.app/live/87547578_tsc.m3u8"
@@ -853,7 +859,13 @@
       "type": "hls",
       "url": "https://live05.yefpwmc.app/live/87547578_tsc.m3u8"
     },
-    "link6": null,
-    "link7": null
+    "link6": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+    }
   }
 }
