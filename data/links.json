@@ -877,5 +877,36 @@
     "link5": null,
     "link6": null,
     "link7": null
+  },
+  "le": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-30/hac-psg"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-30/hac-psg"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/87547578.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/87547578.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/87547578.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-30/hac-psg"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-30/hac-psg"
+    }
   }
 }
