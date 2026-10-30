@@ -285,7 +285,7 @@
     "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://hlsplayers.pages.dev/iframe?url=https://freecdn.st/hembedplayer/csstream1/1/960/540"
+      "url": "https://freecdn.st/hembedplayer/csstream1/1/960/540"
     },
     "link2": {
       "type": "iframe",
