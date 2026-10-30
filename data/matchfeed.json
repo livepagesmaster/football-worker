@@ -15,7 +15,7 @@
         "code": "ATA"
       },
       "time": "26/10/30 01:30:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=fiorentina"
@@ -55,7 +55,7 @@
         "code": "NEW"
       },
       "time": "26/10/30 01:30:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "EFL Cup",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=everton"
@@ -75,7 +75,7 @@
         "code": "GIL"
       },
       "time": "26/10/30 02:30:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "League Cup",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=benfica"
