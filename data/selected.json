@@ -1,65 +1,20 @@
 {
   "matches": [
     {
-      "team1": "Fiorentina",
-      "team2": "Atalanta",
-      "team1_logo": "https://img.singhs.com.np/team/8535.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8535.png",
-      "team2_logo": "https://img.singhs.com.np/team/8524.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8524.png",
-      "league": "Serie A",
-      "league_id": 55,
-      "league_country": "ITA",
-      "start": "2026-10-29T19:45Z",
+      "team1": "Le Havre",
+      "team2": "Paris Saint-Germain",
+      "team1_logo": "https://img.singhs.com.np/team/9746.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9746.png",
+      "team2_logo": "https://img.singhs.com.np/team/9847.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9847.png",
+      "league": "Ligue 1",
+      "league_id": 53,
+      "league_country": "FRA",
+      "start": "2026-10-30T18:00Z",
       "duration": 2.2,
-      "event_id": 5749722,
-      "slug": "fiorentina"
-    },
-    {
-      "team1": "Al Nassr FC",
-      "team2": "Al Kholood",
-      "team1_logo": "https://img.singhs.com.np/team/101918.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/101918.png",
-      "team2_logo": "https://img.singhs.com.np/team/1523706.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1523706.png",
-      "league": "Saudi Pro League",
-      "league_id": 536,
-      "league_country": "KSA",
-      "start": "2026-10-29T18:00Z",
-      "duration": 2.2,
-      "event_id": 5970193,
-      "slug": "alnassrfc"
-    },
-    {
-      "team1": "Everton",
-      "team2": "Newcastle United",
-      "team1_logo": "https://img.singhs.com.np/team/8668.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8668.png",
-      "team2_logo": "https://img.singhs.com.np/team/10261.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10261.png",
-      "league": "EFL Cup",
-      "league_id": 133,
-      "league_country": "ENG",
-      "start": "2026-10-29T19:45Z",
-      "duration": 2.2,
-      "event_id": 6275369,
-      "slug": "everton"
-    },
-    {
-      "team1": "Benfica",
-      "team2": "Gil Vicente",
-      "team1_logo": "https://img.singhs.com.np/team/9772.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9772.png",
-      "team2_logo": "https://img.singhs.com.np/team/9764.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9764.png",
-      "league": "League Cup",
-      "league_id": 187,
-      "league_country": "POR",
-      "start": "2026-10-29T20:45Z",
-      "duration": 2.2,
-      "event_id": 5985965,
-      "slug": "benfica"
+      "event_id": 5802973,
+      "slug": "lehavre"
     }
   ],
-  "updated_at": "2026-10-29T02:31:56.564Z"
+  "updated_at": "2026-10-30T03:19:23.277Z"
 }
