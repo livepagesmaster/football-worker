@@ -228,7 +228,10 @@
     }
   },
   "pakistan": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://webcric.im/frame3.htm"
+    },
     "link1": {
       "type": "iframe",
       "url": "https://embedindia.st/embed/247-willow-2"
