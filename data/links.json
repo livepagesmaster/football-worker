@@ -313,7 +313,10 @@
     }
   },
   "lumbini": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://live.yashintv.xyz/p/live-starting-soon.html?m=1"
+    },
     "link1": {
       "type": "hls",
       "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
