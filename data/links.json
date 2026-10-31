@@ -315,32 +315,32 @@
   "lumbini": {
     "common": null,
     "link1": {
-      "type": "redirect",
-      "url": "https://yonotv.pages.dev/fc"
+      "type": "hls",
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
     },
     "link2": {
-      "type": "hls",
-      "url": "https://hugh.cdn.rumble.cloud/live/k1ub38pe/live-hls/pvyy-hhsa/chunklist_i1.m3u8"
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     },
     "link3": {
-      "type": "redirect",
-      "url": "https://yonotv.pages.dev/fc"
+      "type": "hls",
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
     },
     "link4": {
-      "type": "hls",
-      "url": "https://hugh.cdn.rumble.cloud/live/k1ub38pe/live-hls/pvyy-hhsa/chunklist_i1.m3u8"
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     },
     "link5": {
       "type": "redirect",
-      "url": "https://yonotv.pages.dev/fc"
+      "url": "https://yakotv.pages.dev/fxc"
     },
     "link6": {
       "type": "hls",
-      "url": "https://hugh.cdn.rumble.cloud/live/k1ub38pe/live-hls/pvyy-hhsa/chunklist_i1.m3u8"
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
     },
     "link7": {
       "type": "redirect",
-      "url": "https://yonotv.pages.dev/fc"
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     }
   },
   "ararat": {
