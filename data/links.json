@@ -282,7 +282,10 @@
     "link7": null
   },
   "newzealand": {
-    "common": null,
+    "common": {
+      "type": "hls",
+      "url": "https://hls-harbor-livepush.akamaized.net/live_cdn/nsqIStpj8PaG-Ev/emcQJ0pGpremocy/index.m3u8"
+    },
     "link1": {
       "type": "iframe",
       "url": "https://freecdn.st/hembedplayer/csstream1/1/960/540"
