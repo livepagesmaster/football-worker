@@ -289,7 +289,7 @@
     },
     "link2": {
       "type": "iframe",
-      "url": "https://taifood-bog.asia/embed/247-willow"
+      "url": "https://taifood-blog.asia/embed/247-willow"
     },
     "link3": {
       "type": "iframe",
@@ -301,7 +301,7 @@
     },
     "link5": {
       "type": "iframe",
-      "url": "https://hlsplayers.pages.dev/iframe?url=https://freecdn.st/hembedplayer/csstream1/1/960/540"
+      "url": "https://freecdn.st/hembedplayer/csstream1/1/960/540"
     },
     "link6": {
       "type": "redirect",
