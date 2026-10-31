@@ -55,7 +55,7 @@
         "code": "BOR"
       },
       "time": "26/10/31 23:15:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Bundesliga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=bayern"
@@ -95,7 +95,7 @@
         "code": "DEP"
       },
       "time": "26/11/01 01:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "LaLiga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=barcelona"
@@ -115,7 +115,7 @@
         "code": "INT"
       },
       "time": "26/11/01 01:30:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=milan"
@@ -135,7 +135,7 @@
         "code": "EST"
       },
       "time": "26/11/01 02:15:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Liga Portugal",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=fc"
