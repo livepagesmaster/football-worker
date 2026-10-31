@@ -282,10 +282,7 @@
     "link7": null
   },
   "newzealand": {
-    "common": {
-      "type": "hls",
-      "url": "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8"
-    },
+    "common": null,
     "link1": {
       "type": "iframe",
       "url": "https://freecdn.st/hembedplayer/csstream1/1/960/540"
