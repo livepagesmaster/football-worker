@@ -821,13 +821,34 @@
   },
   "sudurpaschim": {
     "common": null,
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link1": {
+      "type": "hls",
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+    },
+    "link2": {
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+    },
+    "link4": {
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+    },
+    "link5": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/fxc"
+    },
+    "link6": {
+      "type": "hls",
+      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+    }
   },
   "fiorentina": {
     "common": {
