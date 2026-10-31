@@ -105,11 +105,11 @@
     "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/carabao-cup/2026-10-28/mci-bha"
+      "url": "https://taifood-blog.asia/embed/pl/2026-10-31/mci-bha"
     },
     "link2": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/carabao-cup/2026-10-28/mci-bha"
+      "url": "https://taifood-blog.asia/embed/pl/2026-10-31/mci-bha"
     },
     "link3": {
       "type": "hls",
@@ -125,11 +125,11 @@
     },
     "link6": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/carabao-cup/2026-10-28/mci-bha"
+      "url": "https://taifood-blog.asia/embed/pl/2026-10-31/mci-bha"
     },
     "link7": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/carabao-cup/2026-10-28/mci-bha"
+      "url": "https://taifood-blog.asia/embed/pl/2026-10-31/mci-bha"
     }
   },
   "bologna": {
@@ -159,31 +159,31 @@
     "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://play.aurasportsplayer.cfd/dfb-pokal/1775"
+      "url": "https://taifood-blog.asia/embed/bundesliga/2026-10-31/bay-dor"
     },
     "link2": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/hd/hd3.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/bundesliga/2026-10-31/bay-dor"
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/02456966_tsc.m3u8"
+      "url": "https://live05.yefpwmc.app/live/99121525_tsc.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/02456966_tsc.m3u8"
+      "url": "https://live05.yefpwmc.app/live/99121525_tsc.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/02456966_tsc.m3u8"
+      "url": "https://live05.yefpwmc.app/live/99121525_tsc.m3u8"
     },
     "link6": {
       "type": "iframe",
-      "url": "https://play.aurasportsplayer.cfd/dfb-pokal/1775"
+      "url": "https://taifood-blog.asia/embed/bundesliga/2026-10-31/bay-dor"
     },
     "link7": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/hd/hd3.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/bundesliga/2026-10-31/bay-dor"
     }
   },
   "atlanta": {
@@ -698,31 +698,31 @@
     "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/seriea/2026-10-28/mil-bol"
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-31/mil-int"
     },
     "link2": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/seriea/2026-10-28/mil-bol"
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-31/mil-int"
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/07428422_tsc.m3u8"
+      "url": "https://live05.yefpwmc.app/live/07808742_tsc.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/07428422_tsc.m3u8"
+      "url": "https://live05.yefpwmc.app/live/07808742_tsc.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/07428422_tsc.m3u8"
+      "url": "https://live05.yefpwmc.app/live/07808742_tsc.m3u8"
     },
     "link6": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/seriea/2026-10-28/mil-bol"
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-31/mil-int"
     },
     "link7": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/seriea/2026-10-28/mil-bol"
+      "url": "https://taifood-blog.asia/embed/seriea/2026-10-31/mil-int"
     }
   },
   "genoa": {
@@ -752,17 +752,35 @@
     "link7": null
   },
   "fc": {
-    "common": {
+    "common": null,
+    "link1": {
       "type": "redirect",
       "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
     },
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link2": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/33860426_tsc.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/33860426_tsc.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/33860426_tsc.m3u8"
+    },
+    "link6": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+    }
   },
   "santos": {
     "common": null,
@@ -907,6 +925,99 @@
     "link7": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ligue1/2026-10-30/hac-psg"
+    }
+  },
+  "chelsea": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/pl/2026-10-31/che-mun"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/pl/2026-10-31/che-mun"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/pl/2026-10-31/che-mun"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/pl/2026-10-31/che-mun"
+    }
+  },
+  "levante": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/laliga/2026-10-31/lev-atm"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/laliga/2026-10-31/lev-atm"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/78905744_tsc.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/78905744_tsc.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/78905744_tsc.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/laliga/2026-10-31/lev-atm"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/laliga/2026-10-31/lev-atm"
+    }
+  },
+  "barcelona": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/laliga/2026-10-31/bar-ala"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/laliga/2026-10-31/bar-ala"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/laliga/2026-10-31/bar-ala"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/laliga/2026-10-31/bar-ala"
     }
   }
 }
