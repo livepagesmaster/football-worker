@@ -916,16 +916,16 @@
   "kathmandu": {
     "common": null,
     "link1": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "type": "hls",
+      "url": "https://mini.allinonereborn.site/fcw/player_world.html?url=https%3A%2F%2Fallinonereborn2.online%2Ffctest%2Fplaylists%2Fmatch_4250364_ENG%2Fenglish.m3u8"
     },
     "link2": {
       "type": "redirect",
       "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     },
     "link3": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "type": "hls",
+      "url": "https://mini.allinonereborn.site/fcw/player_world.html?url=https%3A%2F%2Fallinonereborn2.online%2Ffctest%2Fplaylists%2Fmatch_4250364_ENG%2Fenglish.m3u8\""
     },
     "link4": {
       "type": "redirect",
