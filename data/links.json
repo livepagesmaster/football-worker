@@ -823,31 +823,31 @@
     "common": null,
     "link1": {
       "type": "hls",
-      "url": "https://ott-nlive.nettvstreamz.com/npl/live_match6/tracks-v1a1/mono.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTAvMzEvMjAyNiA0OjMwOjA3IFBNJmhhc2hfdmFsdWU9SHpWOG5tc2w2aTdNN2NhZCtUL0F0dz09JnZhbGlkbWludXRlcz02MCZpZD1leUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpTVXpJMU5pSjkuZXlKbGVIQWlPakUzT1RNMU9UVTVNVFVzSW5OMVluTmpjbWxpWlhKZmFXUWlPaUkxTkRRM09UWWlMQ0p6ZEdJaU9pSm5iRjh4TVRZNE56UXdOREkxTWpJMk5qQTVNakl5TnpndE1UQTNJbjAuWGpKM0E0ekZXSWpWSFVnczZIOWNrU0RiVWRHb0d1NVhpNkV4Q1ljQUpjRQ=="
+      "url": "https://ott-nettv-02.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMi8yMDI2IDg6MDI6NDEgQU0maGFzaF92YWx1ZT1zWVhRMVU4QUxQSmZEQ1RLTmNqK2ZBPT0mdmFsaWRtaW51dGVzPTE0NDAmaWQ9MjAw"
     },
     "link2": {
       "type": "redirect",
-      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+      "url": "https://yakotv.pages.dev/nfc"
     },
     "link3": {
       "type": "hls",
-      "url": "https://ott-nlive.nettvstreamz.com/npl/live_match6/tracks-v1a1/mono.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTAvMzEvMjAyNiA0OjMwOjA3IFBNJmhhc2hfdmFsdWU9SHpWOG5tc2w2aTdNN2NhZCtUL0F0dz09JnZhbGlkbWludXRlcz02MCZpZD1leUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpTVXpJMU5pSjkuZXlKbGVIQWlPakUzT1RNMU9UVTVNVFVzSW5OMVluTmpjbWxpWlhKZmFXUWlPaUkxTkRRM09UWWlMQ0p6ZEdJaU9pSm5iRjh4TVRZNE56UXdOREkxTWpJMk5qQTVNakl5TnpndE1UQTNJbjAuWGpKM0E0ekZXSWpWSFVnczZIOWNrU0RiVWRHb0d1NVhpNkV4Q1ljQUpjRQ=="
+      "url": "https://ott-nettv-02.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMi8yMDI2IDg6MDI6NDEgQU0maGFzaF92YWx1ZT1zWVhRMVU4QUxQSmZEQ1RLTmNqK2ZBPT0mdmFsaWRtaW51dGVzPTE0NDAmaWQ9MjAw"
     },
     "link4": {
-      "type": "redirect",
-      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+      "type": "hls",
+      "url": "https://cdn07.vdocipher.com/ap-south-1/1d3b4140-95c6-44be-a0f2-ca1e85a57182/out.m3u8"
     },
     "link5": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://yakotv.pages.dev/nfc"
     },
     "link6": {
-      "type": "hls",
-      "url": "https://ott-nlive.nettvstreamz.com/npl/live_match6/tracks-v1a1/mono.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTAvMzEvMjAyNiA0OjMwOjA3IFBNJmhhc2hfdmFsdWU9SHpWOG5tc2w2aTdNN2NhZCtUL0F0dz09JnZhbGlkbWludXRlcz02MCZpZD1leUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpTVXpJMU5pSjkuZXlKbGVIQWlPakUzT1RNMU9UVTVNVFVzSW5OMVluTmpjbWxpWlhKZmFXUWlPaUkxTkRRM09UWWlMQ0p6ZEdJaU9pSm5iRjh4TVRZNE56UXdOREkxTWpJMk5qQTVNakl5TnpndE1UQTNJbjAuWGpKM0E0ekZXSWpWSFVnczZIOWNrU0RiVWRHb0d1NVhpNkV4Q1ljQUpjRQ=="
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     },
     "link7": {
       "type": "redirect",
-      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+      "url": "https://yakotv.pages.dev/fxc"
     }
   },
   "fiorentina": {
