@@ -924,16 +924,16 @@
       "url": "https://yakotv.pages.dev/nfc"
     },
     "link3": {
-      "type": "hls",
-      "url": "https://mini.allinonereborn.site/fcw/player_world.html?url=https%3A%2F%2Fallinonereborn2.online%2Ffctest%2Fplaylists%2Fmatch_4250364_ENG%2Fenglish.m3u8"
-    },
-    "link4": {
       "type": "redirect",
       "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     },
-    "link5": {
+    "link4": {
       "type": "hls",
       "url": "https://mini.allinonereborn.site/fcw/player_world.html?url=https%3A%2F%2Fallinonereborn2.online%2Ffctest%2Fplaylists%2Fmatch_4250364_ENG%2Fenglish.m3u8"
+    },
+    "link5": {
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     },
     "link6": {
       "type": "redirect",
