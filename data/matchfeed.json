@@ -1,84 +1,104 @@
 {
   "matches": [
     {
-      "id": "racing",
+      "id": "pakhtakor",
       "team1": {
-        "name": "Racing Santander",
-        "img": "https://img.singhs.com.np/team/8696.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8696.png",
-        "code": "RAC"
+        "name": "Pakhtakor Tashkent",
+        "img": "https://img.singhs.com.np/team/102141.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/102141.png",
+        "code": "PAK"
       },
       "team2": {
-        "name": "Real Madrid",
-        "img": "https://img.singhs.com.np/team/8633.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8633.png",
-        "code": "REA"
+        "name": "Al Nassr FC",
+        "img": "https://img.singhs.com.np/team/101918.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/101918.png",
+        "code": "AL "
       },
-      "time": "26/11/01 21:00:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "LaLiga",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=racing"
-    },
-    {
-      "id": "liverpool",
-      "team1": {
-        "name": "Liverpool",
-        "img": "https://img.singhs.com.np/team/8650.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8650.png",
-        "code": "LIV"
-      },
-      "team2": {
-        "name": "Arsenal",
-        "img": "https://img.singhs.com.np/team/9825.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9825.png",
-        "code": "ARS"
-      },
-      "time": "26/11/01 22:15:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "Premier League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=liverpool"
-    },
-    {
-      "id": "juventus",
-      "team1": {
-        "name": "Juventus",
-        "img": "https://img.singhs.com.np/team/9885.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9885.png",
-        "code": "JUV"
-      },
-      "team2": {
-        "name": "Napoli",
-        "img": "https://img.singhs.com.np/team/9875.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9875.png",
-        "code": "NAP"
-      },
-      "time": "26/11/02 01:30:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "Serie A",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=juventus"
-    },
-    {
-      "id": "new",
-      "team1": {
-        "name": "New England Revolution",
-        "img": "https://img.singhs.com.np/team/6580.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6580.png",
-        "code": "NER"
-      },
-      "team2": {
-        "name": "Inter Miami CF",
-        "img": "https://img.singhs.com.np/team/960720.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/960720.png",
-        "code": "IMC"
-      },
-      "time": "26/11/02 05:45:00",
+      "time": "26/11/02 19:30:00",
       "status": "Upcoming",
       "endTime": 2.2,
-      "type": "Major League Soccer",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=new"
+      "type": "AFC Champions League Elite West",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=pakhtakor"
+    },
+    {
+      "id": "sassuolo",
+      "team1": {
+        "name": "Sassuolo",
+        "img": "https://img.singhs.com.np/team/7943.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/7943.png",
+        "code": "SAS"
+      },
+      "team2": {
+        "name": "Fiorentina",
+        "img": "https://img.singhs.com.np/team/8535.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8535.png",
+        "code": "FIO"
+      },
+      "time": "26/11/02 23:15:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "Serie A",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=sassuolo"
+    },
+    {
+      "id": "atalanta",
+      "team1": {
+        "name": "Atalanta",
+        "img": "https://img.singhs.com.np/team/8524.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8524.png",
+        "code": "ATA"
+      },
+      "team2": {
+        "name": "Parma",
+        "img": "https://img.singhs.com.np/team/10167.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10167.png",
+        "code": "PAR"
+      },
+      "time": "26/11/03 01:30:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "Serie A",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=atalanta"
+    },
+    {
+      "id": "newcastle",
+      "team1": {
+        "name": "Newcastle United",
+        "img": "https://img.singhs.com.np/team/10261.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10261.png",
+        "code": "NEW"
+      },
+      "team2": {
+        "name": "Everton",
+        "img": "https://img.singhs.com.np/team/8668.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8668.png",
+        "code": "EVE"
+      },
+      "time": "26/11/03 01:45:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "Premier League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=newcastle"
+    },
+    {
+      "id": "rb",
+      "team1": {
+        "name": "RB Bragantino",
+        "img": "https://img.singhs.com.np/team/109705.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/109705.png",
+        "code": "RB "
+      },
+      "team2": {
+        "name": "Santos",
+        "img": "https://img.singhs.com.np/team/8514.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8514.png",
+        "code": "SAN"
+      },
+      "time": "26/11/03 04:45:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "Série A",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=rb"
     }
   ]
 }
