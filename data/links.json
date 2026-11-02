@@ -1162,7 +1162,10 @@
     }
   },
   "pakhtakor": {
-    "common": null,
+    "common": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
@@ -1212,12 +1215,33 @@
   },
   "rb": {
     "common": null,
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link1": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/bra/br1.php"
+    },
+    "link2": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/bra/br1.php"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/49572724.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/49572724.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/49572724.m3u8"
+    },
+    "link6": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/bra/br1.php"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://ww1.sportsonnline.click/channels/bra/br1.php"
+    }
   }
 }
