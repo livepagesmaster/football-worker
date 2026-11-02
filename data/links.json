@@ -1160,5 +1160,64 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/mls/2026-11-01/ne-mia"
     }
+  },
+  "pakhtakor": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "sassuolo": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/seriea/2026-11-02/sas-fio"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "atalanta": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/seriea/2026-11-02/ata-par"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "newcastle": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/pl/2026-11-02/new-eve"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "rb": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
   }
 }
