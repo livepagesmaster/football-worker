@@ -914,7 +914,10 @@
     }
   },
   "kathmandu": {
-    "common": null,
+    "common": {
+      "type": "hls",
+      "url": "https://cdn07.vdocipher.com/ap-south-1/1d3b4140-95c6-44be-a0f2-ca1e85a57182/out.m3u8"
+    },
     "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/nfc"
