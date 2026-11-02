@@ -15,7 +15,7 @@
         "code": "AL "
       },
       "time": "26/11/02 19:30:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "AFC Champions League Elite West",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=pakhtakor"
@@ -35,7 +35,7 @@
         "code": "FIO"
       },
       "time": "26/11/02 23:15:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=sassuolo"
@@ -55,7 +55,7 @@
         "code": "PAR"
       },
       "time": "26/11/03 01:30:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=atalanta"
@@ -75,7 +75,7 @@
         "code": "EVE"
       },
       "time": "26/11/03 01:45:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=newcastle"
@@ -95,7 +95,7 @@
         "code": "SAN"
       },
       "time": "26/11/03 04:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Série A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=rb"
