@@ -396,7 +396,10 @@
     "link7": null
   },
   "biratnagar": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nfc"
+    },
     "link1": {
       "type": "hls",
       "url": "https://ott-nettv-02.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMi8yMDI2IDg6MDI6NDEgQU0maGFzaF92YWx1ZT1zWVhRMVU4QUxQSmZEQ1RLTmNqK2ZBPT0mdmFsaWRtaW51dGVzPTE0NDAmaWQ9MjAw"
@@ -1428,6 +1431,16 @@
       "type": "hls",
       "url": "https://live05.miekgo.app/live/18812304.m3u8"
     },
+    "link6": null,
+    "link7": null
+  },
+  "lumbini-zaofz": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
     "link6": null,
     "link7": null
   }
