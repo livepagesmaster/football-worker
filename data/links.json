@@ -113,15 +113,15 @@
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
     },
     "link6": {
       "type": "iframe",
@@ -1049,15 +1049,15 @@
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/07428422.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/07428422.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/07428422.m3u8"
     },
     "link6": {
       "type": "iframe",
@@ -1264,9 +1264,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/gal-vfb"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/07428422.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/07428422.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/07428422.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/gal-vfb"
@@ -1286,9 +1295,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/shk-scp"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/87547578.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/87547578.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/87547578.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/shk-scp"
@@ -1308,9 +1326,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/atm-bay"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/97885009.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/97885009.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/97885009.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/atm-bay"
@@ -1330,9 +1357,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/vil-psg"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/07808742.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/07808742.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/07808742.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/vil-psg"
@@ -1352,9 +1388,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/fey-int"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/99121525.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/99121525.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/99121525.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/fey-int"
@@ -1365,12 +1410,24 @@
     }
   },
   "bodglimt": {
-    "common": null,
+    "common": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/18812304.m3u8"
+    },
     "link1": null,
     "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/18812304.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/18812304.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/18812304.m3u8"
+    },
     "link6": null,
     "link7": null
   }
