@@ -323,27 +323,27 @@
     },
     "link2": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://yakotv.pages.dev/nfc"
     },
     "link3": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
+      "url": "https://yakotv.pages.dev/fxc"
     },
     "link4": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://yakotv.pages.dev/nfc"
     },
     "link5": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
+      "url": "https://yakotv.pages.dev/fxc"
     },
     "link6": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://yakotv.pages.dev/nfc"
     },
     "link7": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
+      "url": "https://yakotv.pages.dev/fxc"
     }
   },
   "ararat": {
