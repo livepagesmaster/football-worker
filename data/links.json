@@ -399,27 +399,27 @@
     "common": null,
     "link1": {
       "type": "hls",
-      "url": "https://hugh.cdn.rumble.cloud/live/t5qc33px/live-hls/jb9a-9hin/chunklist_i1_DVR.m3u8"
+      "url": "https://ott-nettv-02.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMi8yMDI2IDg6MDI6NDEgQU0maGFzaF92YWx1ZT1zWVhRMVU4QUxQSmZEQ1RLTmNqK2ZBPT0mdmFsaWRtaW51dGVzPTE0NDAmaWQ9MjAw"
     },
     "link2": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://yakotv.pages.dev/nfc"
     },
     "link3": {
-      "type": "redirect",
-      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+      "type": "hls",
+      "url": "https://ott-nettv-02.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMi8yMDI2IDg6MDI6NDEgQU0maGFzaF92YWx1ZT1zWVhRMVU4QUxQSmZEQ1RLTmNqK2ZBPT0mdmFsaWRtaW51dGVzPTE0NDAmaWQ9MjAw"
     },
     "link4": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://yakotv.pages.dev/nfc"
     },
     "link5": {
-      "type": "iframe",
-      "url": "https://my.finalspot.top/hembedplayer/NEPALCRIC/4/500/400"
+      "type": "redirect",
+      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
     },
     "link6": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://yakotv.pages.dev/nfc"
     },
     "link7": {
       "type": "redirect",
@@ -1243,5 +1243,15 @@
       "type": "redirect",
       "url": "https://ww1.sportsonnline.click/channels/bra/br1.php"
     }
+  },
+  "chitwan": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
   }
 }
