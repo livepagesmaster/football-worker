@@ -17,6 +17,7 @@
   .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
   .topbar h1 { font-size: 22px; font-weight: 800; }
   .btn-save { background: #16a34a; color: #fff; padding: 10px 20px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
+  .btn-save:disabled { opacity: 0.7; cursor: default; }
   
   /* TABS */
   .tabs { display: flex; gap: 10px; margin-bottom: 16px; }
@@ -55,7 +56,6 @@
     <button class="btn-save" id="saveBtn">Save to Cloudflare</button>
   </div>
   
-  <!-- TABS ADDED BACK -->
   <div class="tabs">
     <div class="tab active" onclick="switchTab('football')">Football</div>
     <div class="tab" onclick="switchTab('cricket')">Cricket</div>
@@ -82,8 +82,69 @@ const LINKS_URL = 'https://football-feed.pages.dev/links.json';
 let activeMatches = { football: [], cricket: [], others: [] };
 let currentLinks = {};
 let currentTab = 'football';
+let matchIdMap = new Map(); // match object -> unique id (stable per page load)
 
 function getToken() { return localStorage.getItem(TOKEN_KEY); }
+
+/* ---------------- Unique ID assignment ---------------- */
+
+function hashStr(s) {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+    return (h >>> 0).toString(36).slice(0, 5);
+}
+
+function getBaseMatchId(m) {
+    if (m.id) return String(m.id);
+    const firstWord = (m.team1?.name || 'match').split(' ')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+    return firstWord || 'match';
+}
+
+// Deterministic signature so the same match always gets the same suffixed id across reloads.
+function getMatchSignature(m) {
+    return [
+        m.team1?.name || '',
+        m.team2?.name || '',
+        m.time || '',
+        m.league || '',
+        m.type || ''
+    ].join('|');
+}
+
+function assignUniqueIds() {
+    matchIdMap = new Map();
+    const used = new Set();
+
+    // Iterate all tabs so collisions across tabs are also prevented
+    Object.keys(activeMatches).forEach(tab => {
+        activeMatches[tab].forEach(m => {
+            const base = getBaseMatchId(m);
+            let candidate = base;
+
+            if (used.has(candidate)) {
+                const sig = getMatchSignature(m);
+                let suffix = hashStr(sig);
+                candidate = `${base}-${suffix}`;
+
+                // Extremely unlikely, but if two identical-signature matches collide, add a counter
+                let n = 2;
+                while (used.has(candidate)) {
+                    candidate = `${base}-${suffix}-${n}`;
+                    n++;
+                }
+            }
+
+            used.add(candidate);
+            matchIdMap.set(m, candidate);
+        });
+    });
+}
+
+function getUniqueMatchId(m) {
+    return matchIdMap.get(m) || getBaseMatchId(m);
+}
+
+/* ---------------- Auth ---------------- */
 
 async function unlock() {
     const token = document.getElementById("tokenInput").value.trim();
@@ -102,6 +163,8 @@ function showApp() {
     loadData();
 }
 
+/* ---------------- Data ---------------- */
+
 async function loadData() {
     try {
         const [fb, cr, ot, linksRes] = await Promise.all([
@@ -118,6 +181,7 @@ async function loadData() {
         if(linksRes && linksRes.ok) currentLinks = await linksRes.json();
         else currentLinks = {};
         
+        assignUniqueIds();
         renderList();
     } catch(e) {
         console.error(e);
@@ -133,12 +197,7 @@ function switchTab(tab) {
     renderList();
 }
 
-function getMatchId(m) {
-    if (m.id) return m.id;
-    // Fallback for cricket/others: use first word of team1
-    let firstWord = (m.team1?.name || 'match').split(' ')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
-    return firstWord || 'match';
-}
+/* ---------------- Rendering ---------------- */
 
 function renderList() {
     const container = document.getElementById("matchesList");
@@ -150,7 +209,7 @@ function renderList() {
     }
 
     container.innerHTML = matches.map(m => {
-        const matchId = getMatchId(m);
+        const matchId = getUniqueMatchId(m);
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
         const saved = currentLinks[matchId] || {};
         
@@ -198,6 +257,8 @@ window.toggleItem = function(safeId) {
     document.getElementById(`card-${safeId}`).classList.toggle('open');
 }
 
+/* ---------------- Save ---------------- */
+
 function detectLinkType(url) {
     if (!url) return 'redirect';
     const lower = url.toLowerCase();
@@ -214,7 +275,7 @@ document.getElementById("saveBtn").onclick = () => {
 
     // Save links for ALL matches across ALL tabs
     Object.values(activeMatches).flat().forEach(m => {
-        const matchId = getMatchId(m);
+        const matchId = getUniqueMatchId(m);
         const safeId = matchId.replace(/[^a-zA-Z0-9]/g, '');
         
         if(document.getElementById(`common-${safeId}`)) {
@@ -270,6 +331,8 @@ async function pushToGitHub(dataObj) {
         btn.disabled = false;
     }
 }
+
+/* ---------------- Boot ---------------- */
 
 if(getToken()) {
     fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`, { headers: { Authorization: `Bearer ${getToken()}` } })
