@@ -562,15 +562,15 @@
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.meung.app/live/16226575_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/87547578.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.meung.app/live/16226575_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/87547578.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.meung.app/live/16226575_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/87547578.m3u8"
     },
     "link6": {
       "type": "iframe",
@@ -769,15 +769,15 @@
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/33860426_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/33860426.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/33860426_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/33860426.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/33860426_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/33860426.m3u8"
     },
     "link6": {
       "type": "iframe",
@@ -1225,15 +1225,15 @@
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.miekgo.app/live/49572724.m3u8"
+      "url": "https://live05.miekgo.app/live/02456966.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.miekgo.app/live/49572724.m3u8"
+      "url": "https://live05.miekgo.app/live/02456966.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.miekgo.app/live/49572724.m3u8"
+      "url": "https://live05.miekgo.app/live/02456966.m3u8"
     },
     "link6": {
       "type": "iframe",
@@ -1466,9 +1466,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/aek-rma"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/aek-rma"
@@ -1488,9 +1497,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fen-liv"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/33982309.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/33982309.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/33982309.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fen-liv"
@@ -1502,16 +1520,40 @@
   },
   "slavia": {
     "common": null,
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/slp-ars"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/slp-ars"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/slp-ars"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/slp-ars"
+    }
   },
   "viking": {
-    "common": null,
+    "common": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/07808742.m3u8"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
