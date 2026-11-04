@@ -553,12 +553,12 @@
   "borussia": {
     "common": null,
     "link1": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/hd/hd3.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/dor-bet"
     },
     "link2": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/hd/hd3.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/dor-bet"
     },
     "link3": {
       "type": "hls",
@@ -573,12 +573,12 @@
       "url": "https://live05.meung.app/live/16226575_tsc.m3u8"
     },
     "link6": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/hd/hd3.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/dor-bet"
     },
     "link7": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/hd/hd3.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/dor-bet"
     }
   },
   "roma": {
@@ -760,12 +760,12 @@
   "fc": {
     "common": null,
     "link1": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fcp-nap"
     },
     "link2": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fcp-nap"
     },
     "link3": {
       "type": "hls",
@@ -780,12 +780,12 @@
       "url": "https://live05.yefpwmc.app/live/33860426_tsc.m3u8"
     },
     "link6": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fcp-nap"
     },
     "link7": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fcp-nap"
     }
   },
   "santos": {
@@ -1216,12 +1216,12 @@
   "rb": {
     "common": null,
     "link1": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/bra/br1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/rbl-mci"
     },
     "link2": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/bra/br1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/rbl-mci"
     },
     "link3": {
       "type": "hls",
@@ -1236,12 +1236,12 @@
       "url": "https://live05.miekgo.app/live/49572724.m3u8"
     },
     "link6": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/bra/br1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/rbl-mci"
     },
     "link7": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/bra/br1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/rbl-mci"
     }
   },
   "chitwan": {
@@ -1452,6 +1452,70 @@
       "type": "redirect",
       "url": "https://yakotv.pages.dev/nfc"
     },
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "aek": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/aek-rma"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/aek-rma"
+    },
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/aek-rma"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/aek-rma"
+    }
+  },
+  "fenerbahe": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fen-liv"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fen-liv"
+    },
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fen-liv"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fen-liv"
+    }
+  },
+  "slavia": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "viking": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
     "link5": null,
     "link6": null,
     "link7": null
