@@ -147,13 +147,25 @@
   },
   "real": {
     "common": null,
-    "link1": null,
-    "link2": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/rso-lyon"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/rso-lyon"
+    },
     "link3": null,
     "link4": null,
     "link5": null,
-    "link6": null,
-    "link7": null
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/rso-lyon"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/rso-lyon"
+    }
   },
   "bayern": {
     "common": null,
@@ -704,11 +716,11 @@
     "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/seriea/2026-10-31/mil-int"
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/mil-fer"
     },
     "link2": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/seriea/2026-10-31/mil-int"
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/mil-fer"
     },
     "link3": {
       "type": "hls",
@@ -724,11 +736,11 @@
     },
     "link6": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/seriea/2026-10-31/mil-int"
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/mil-fer"
     },
     "link7": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/seriea/2026-10-31/mil-int"
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/mil-fer"
     }
   },
   "genoa": {
@@ -885,12 +897,12 @@
   "benfica": {
     "common": null,
     "link1": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/slb-lech"
     },
     "link2": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/slb-lech"
     },
     "link3": {
       "type": "hls",
@@ -905,12 +917,12 @@
       "url": "https://live05.yefpwmc.app/live/87547578_tsc.m3u8"
     },
     "link6": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/slb-lech"
     },
     "link7": {
-      "type": "redirect",
-      "url": "https://ww1.sportsonnline.click/channels/pt/sporttv1.php"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/slb-lech"
     }
   },
   "kathmandu": {
@@ -1561,5 +1573,71 @@
     "link5": null,
     "link6": null,
     "link7": null
+  },
+  "bayer": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/b04-olm"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/b04-olm"
+    },
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/b04-olm"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/b04-olm"
+    }
+  },
+  "az": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/az-juv"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/az-juv"
+    },
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/az-juv"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/az-juv"
+    }
+  },
+  "crystal": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/cry-tsg"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/cry-tsg"
+    },
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/cry-tsg"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uel/2026-11-05/cry-tsg"
+    }
   }
 }
