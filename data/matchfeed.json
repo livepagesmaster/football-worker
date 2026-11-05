@@ -15,7 +15,7 @@
         "code": "MAR"
       },
       "time": "26/11/06 01:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Europa League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=bayer"
@@ -35,7 +35,7 @@
         "code": "FER"
       },
       "time": "26/11/05 23:30:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Europa League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=milan"
@@ -55,7 +55,7 @@
         "code": "JUV"
       },
       "time": "26/11/06 01:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Europa League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=az"
@@ -75,7 +75,7 @@
         "code": "LYO"
       },
       "time": "26/11/05 23:30:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Europa League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=real"
@@ -95,7 +95,7 @@
         "code": "HOF"
       },
       "time": "26/11/05 23:30:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Europa League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=crystal"
@@ -115,7 +115,7 @@
         "code": "LEC"
       },
       "time": "26/11/06 01:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Europa League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=benfica"
