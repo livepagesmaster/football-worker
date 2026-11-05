@@ -316,7 +316,10 @@
     }
   },
   "lumbini": {
-    "common": null,
+    "common": {
+      "type": "hls",
+      "url": "https://hugh.cdn.rumble.cloud/live/k1ub38pe/live-hls/n3h2-u0sl/chunklist_i1_DVR.m3u8"
+    },
     "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/nfc"
