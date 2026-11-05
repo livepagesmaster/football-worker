@@ -1,96 +1,6 @@
 {
   "matches": [
     {
-      "team1": "CD Olimpia",
-      "team2": "Juticalpa",
-      "team1_logo": "https://img.singhs.com.np/team/6336.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6336.png",
-      "team2_logo": "https://img.singhs.com.np/team/655719.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/655719.png",
-      "league": "Liga Nacional - Apertura",
-      "league_id": 337,
-      "league_country": "HON",
-      "start": "2026-11-05T01:30Z",
-      "duration": 2.2,
-      "event_id": 6365908,
-      "slug": "cdolimpia"
-    },
-    {
-      "team1": "Universitario de Deportes",
-      "team2": "Sport Boys",
-      "team1_logo": "https://img.singhs.com.np/team/4409.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/4409.png",
-      "team2_logo": "https://img.singhs.com.np/team/4412.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/4412.png",
-      "league": "Liga 1",
-      "league_id": 131,
-      "league_country": "PER",
-      "start": "2026-11-05T01:30Z",
-      "duration": 2.2,
-      "event_id": 1000017279,
-      "slug": "universitariodedeportes"
-    },
-    {
-      "team1": "Millonarios",
-      "team2": "América de Cali",
-      "team1_logo": "https://img.singhs.com.np/team/4403.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/4403.png",
-      "team2_logo": "https://img.singhs.com.np/team/10280.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10280.png",
-      "league": "Primera A",
-      "league_id": 274,
-      "league_country": "COL",
-      "start": "2026-11-05T01:30Z",
-      "duration": 2.2,
-      "event_id": 1000014210,
-      "slug": "millonarios"
-    },
-    {
-      "team1": "Escorpiones",
-      "team2": "LD Alajuelense",
-      "team1_logo": "https://img.singhs.com.np/team/1285005.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1285005.png",
-      "team2_logo": "https://img.singhs.com.np/team/6335.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6335.png",
-      "league": "Primera Division Apertura",
-      "league_id": 121,
-      "league_country": "CRC",
-      "start": "2026-11-05T02:00Z",
-      "duration": 2.2,
-      "event_id": 5961129,
-      "slug": "escorpiones"
-    },
-    {
-      "team1": "Sydney Olympic",
-      "team2": "Oakleigh Cannons",
-      "team1_logo": "https://img.singhs.com.np/team/162234.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/162234.png",
-      "team2_logo": "https://img.singhs.com.np/team/162311.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/162311.png",
-      "league": "Australian Championship Grp. C",
-      "league_id": 8938,
-      "league_country": "AUS",
-      "start": "2026-11-05T08:30Z",
-      "duration": 2.2,
-      "event_id": 6284021,
-      "slug": "sydneyolympic"
-    },
-    {
-      "team1": "Pakistan",
-      "team2": "India",
-      "team1_logo": "https://img.singhs.com.np/team/5910.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/5910.png",
-      "team2_logo": "https://img.singhs.com.np/team/6329.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6329.png",
-      "league": "SAFF Championship Grp. B",
-      "league_id": 9876,
-      "league_country": "INT",
-      "start": "2026-11-05T09:30Z",
-      "duration": 2.2,
-      "event_id": 6415449,
-      "slug": "pakistan"
-    },
-    {
       "team1": "Lion City Sailors FC",
       "team2": "Adelaide United",
       "team1_logo": "https://img.singhs.com.np/team/67366.png",
@@ -104,21 +14,6 @@
       "duration": 2.2,
       "event_id": 6054756,
       "slug": "lioncitysailorsfc"
-    },
-    {
-      "team1": "Machida Zelvia",
-      "team2": "Shanghai Shenhua",
-      "team1_logo": "https://img.singhs.com.np/team/194011.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/194011.png",
-      "team2_logo": "https://img.singhs.com.np/team/6628.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6628.png",
-      "league": "AFC Champions League Two - G",
-      "league_id": 9469,
-      "league_country": "INT",
-      "start": "2026-11-05T10:00Z",
-      "duration": 2.2,
-      "event_id": 6054838,
-      "slug": "machidazelvia"
     },
     {
       "team1": "Kitchee",
@@ -1411,6 +1306,21 @@
       "slug": "obolonkyiv"
     },
     {
+      "team1": "Polissya Zhytomyr",
+      "team2": "Veres Rivne",
+      "team1_logo": "https://img.singhs.com.np/team/1181312.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1181312.png",
+      "team2_logo": "https://img.singhs.com.np/team/1175395.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1175395.png",
+      "league": "Premier League",
+      "league_id": 441,
+      "league_country": "UKR",
+      "start": "2026-11-06T11:00Z",
+      "duration": 2.2,
+      "event_id": 5909207,
+      "slug": "polissyazhytomyr"
+    },
+    {
       "team1": "Van",
       "team2": "Pyunik",
       "team1_logo": "https://img.singhs.com.np/team/1078400.png",
@@ -1711,21 +1621,6 @@
       "slug": "birminghamu21"
     },
     {
-      "team1": "Polissya Zhytomyr",
-      "team2": "Veres Rivne",
-      "team1_logo": "https://img.singhs.com.np/team/1181312.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1181312.png",
-      "team2_logo": "https://img.singhs.com.np/team/1175395.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1175395.png",
-      "league": "Premier League",
-      "league_id": 441,
-      "league_country": "UKR",
-      "start": "2026-11-06T13:30Z",
-      "duration": 2.2,
-      "event_id": 5909207,
-      "slug": "polissyazhytomyr"
-    },
-    {
       "team1": "Sogdiana",
       "team2": "Dinamo Samarkand",
       "team1_logo": "https://img.singhs.com.np/team/115129.png",
@@ -1891,6 +1786,21 @@
       "slug": "septemvrisofia"
     },
     {
+      "team1": "Kun Khalifat",
+      "team2": "Kano Pillars",
+      "team1_logo": "https://img.singhs.com.np/team/1791630.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1791630.png",
+      "team2_logo": "https://img.singhs.com.np/team/102059.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/102059.png",
+      "league": "NPFL",
+      "league_id": 533,
+      "league_country": "NGA",
+      "start": "2026-11-06T15:00Z",
+      "duration": 2.2,
+      "event_id": 6103165,
+      "slug": "kunkhalifat"
+    },
+    {
       "team1": "Gomel",
       "team2": "Arsenal Dzerzhinsk",
       "team1_logo": "https://img.singhs.com.np/team/10060.png",
@@ -1996,21 +1906,6 @@
       "slug": "fkneftchi"
     },
     {
-      "team1": "Gandzasar",
-      "team2": "Syunik",
-      "team1_logo": "https://img.singhs.com.np/team/1388663.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1388663.png",
-      "team2_logo": "https://img.singhs.com.np/team/6569.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6569.png",
-      "league": "Premier League",
-      "league_id": 118,
-      "league_country": "ARM",
-      "start": "2026-11-06T16:00Z",
-      "duration": 2.2,
-      "event_id": 5973000,
-      "slug": "gandzasar"
-    },
-    {
       "team1": "Lokomotiv Moscow",
       "team2": "Rubin Kazan",
       "team1_logo": "https://img.singhs.com.np/team/8710.png",
@@ -2084,6 +1979,21 @@
       "duration": 2.2,
       "event_id": 5764527,
       "slug": "vejleboldklub"
+    },
+    {
+      "team1": "Hassania Agadir",
+      "team2": "RS Berkane",
+      "team1_logo": "https://img.singhs.com.np/team/102037.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/102037.png",
+      "team2_logo": "https://img.singhs.com.np/team/316652.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/316652.png",
+      "league": "Botola Pro",
+      "league_id": 530,
+      "league_country": "MAR",
+      "start": "2026-11-06T17:00Z",
+      "duration": 2.2,
+      "event_id": 6487513,
+      "slug": "hassaniaagadir"
     },
     {
       "team1": "AEK Larnaca",
@@ -2549,21 +2459,6 @@
       "duration": 2.2,
       "event_id": 5905975,
       "slug": "viktoriakln1904"
-    },
-    {
-      "team1": "Hassania Agadir",
-      "team2": "RS Berkane",
-      "team1_logo": "https://img.singhs.com.np/team/102037.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/102037.png",
-      "team2_logo": "https://img.singhs.com.np/team/316652.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/316652.png",
-      "league": "Botola Pro",
-      "league_id": 530,
-      "league_country": "MAR",
-      "start": "2026-11-06T18:00Z",
-      "duration": 2.2,
-      "event_id": 6487513,
-      "slug": "hassaniaagadir"
     },
     {
       "team1": "Zamalek SC",
@@ -3059,6 +2954,21 @@
       "duration": 2.2,
       "event_id": 5781802,
       "slug": "willemii"
+    },
+    {
+      "team1": "Santarém",
+      "team2": "Mafra",
+      "team1_logo": "https://img.singhs.com.np/team/1074312.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1074312.png",
+      "team2_logo": "https://img.singhs.com.np/team/47535.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/47535.png",
+      "league": "Liga 3 Zona B",
+      "league_id": 9112,
+      "league_country": "POR",
+      "start": "2026-11-06T19:00Z",
+      "duration": 2.2,
+      "event_id": 5991327,
+      "slug": "santarm"
     },
     {
       "team1": "Boulogne",
@@ -3601,19 +3511,19 @@
       "slug": "sevilla"
     },
     {
-      "team1": "Santarém",
-      "team2": "Mafra",
-      "team1_logo": "https://img.singhs.com.np/team/1074312.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1074312.png",
-      "team2_logo": "https://img.singhs.com.np/team/47535.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/47535.png",
+      "team1": "CF Os Belenenses",
+      "team2": "Lusitano de Évora",
+      "team1_logo": "https://img.singhs.com.np/team/1296841.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1296841.png",
+      "team2_logo": "https://img.singhs.com.np/team/888452.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/888452.png",
       "league": "Liga 3 Zona B",
       "league_id": 9112,
       "league_country": "POR",
       "start": "2026-11-06T20:00Z",
       "duration": 2.2,
-      "event_id": 5991327,
-      "slug": "santarm"
+      "event_id": 5991326,
+      "slug": "cfosbelenenses"
     },
     {
       "team1": "Connah's Quay Nomads",
@@ -3856,6 +3766,21 @@
       "slug": "incaaruba"
     },
     {
+      "team1": "DC Power FC (W)",
+      "team2": "Lexington SC (W)",
+      "team1_logo": "https://img.singhs.com.np/team/1669152.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1669152.png",
+      "team2_logo": "https://img.singhs.com.np/team/1669154.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1669154.png",
+      "league": "USL Super League",
+      "league_id": 10699,
+      "league_country": "USA",
+      "start": "2026-11-07T00:00Z",
+      "duration": 2.2,
+      "event_id": 5887403,
+      "slug": "dcpowerfcw"
+    },
+    {
       "team1": "Fort Lauderdale United FC (W)",
       "team2": "Tampa Bay Sun FC (W)",
       "team1_logo": "https://img.singhs.com.np/team/1669153.png",
@@ -3884,21 +3809,6 @@
       "duration": 2.2,
       "event_id": 5977415,
       "slug": "cruzazulw"
-    },
-    {
-      "team1": "Guastatoya",
-      "team2": "CD Suchitepéquez",
-      "team1_logo": "https://img.singhs.com.np/team/188303.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/188303.png",
-      "team2_logo": "https://img.singhs.com.np/team/49756.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/49756.png",
-      "league": "Liga Nacional Apertura",
-      "league_id": 336,
-      "league_country": "GUA",
-      "start": "2026-11-07T01:00Z",
-      "duration": 2.2,
-      "event_id": 5861319,
-      "slug": "guastatoya"
     },
     {
       "team1": "Auckland City FC",
@@ -4019,6 +3929,66 @@
       "duration": 2.2,
       "event_id": 5977417,
       "slug": "chivasw"
+    },
+    {
+      "team1": "Alianza FC",
+      "team2": "CD Árabe Unido",
+      "team1_logo": "https://img.singhs.com.np/team/165473.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165473.png",
+      "team2_logo": "https://img.singhs.com.np/team/165468.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165468.png",
+      "league": "LPF Apertura",
+      "league_id": 9039,
+      "league_country": "PAN",
+      "start": "2026-11-07T01:30Z",
+      "duration": 2.2,
+      "event_id": 5954370,
+      "slug": "alianzafc"
+    },
+    {
+      "team1": "CD Plaza Amador",
+      "team2": "Sporting San Miguelito",
+      "team1_logo": "https://img.singhs.com.np/team/165476.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165476.png",
+      "team2_logo": "https://img.singhs.com.np/team/165472.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165472.png",
+      "league": "LPF Apertura",
+      "league_id": 9039,
+      "league_country": "PAN",
+      "start": "2026-11-07T01:30Z",
+      "duration": 2.2,
+      "event_id": 5954371,
+      "slug": "cdplazaamador"
+    },
+    {
+      "team1": "UMECIT FC",
+      "team2": "Tauro FC",
+      "team1_logo": "https://img.singhs.com.np/team/1514007.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1514007.png",
+      "team2_logo": "https://img.singhs.com.np/team/165469.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165469.png",
+      "league": "LPF Apertura",
+      "league_id": 9039,
+      "league_country": "PAN",
+      "start": "2026-11-07T01:30Z",
+      "duration": 2.2,
+      "event_id": 5954372,
+      "slug": "umecitfc"
+    },
+    {
+      "team1": "Guastatoya",
+      "team2": "CD Suchitepéquez",
+      "team1_logo": "https://img.singhs.com.np/team/188303.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/188303.png",
+      "team2_logo": "https://img.singhs.com.np/team/49756.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/49756.png",
+      "league": "Liga Nacional Apertura",
+      "league_id": 336,
+      "league_country": "GUA",
+      "start": "2026-11-07T02:00Z",
+      "duration": 2.2,
+      "event_id": 5861319,
+      "slug": "guastatoya"
     },
     {
       "team1": "FC Juárez (W)",
@@ -5251,6 +5221,21 @@
       "slug": "fakel"
     },
     {
+      "team1": "Epitsentr Kamianets-Podilskyi",
+      "team2": "Kryvbas",
+      "team1_logo": "https://img.singhs.com.np/team/1395678.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1395678.png",
+      "team2_logo": "https://img.singhs.com.np/team/558259.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/558259.png",
+      "league": "Premier League",
+      "league_id": 441,
+      "league_country": "UKR",
+      "start": "2026-11-07T11:00Z",
+      "duration": 2.2,
+      "event_id": 5909202,
+      "slug": "epitsentrkamianetspodilskyi"
+    },
+    {
       "team1": "FC Kharkiv",
       "team2": "Karpaty",
       "team1_logo": "https://img.singhs.com.np/team/949030.png",
@@ -5609,6 +5594,21 @@
       "duration": 2.2,
       "event_id": 5881725,
       "slug": "vflosnabrck"
+    },
+    {
+      "team1": "Middelfart",
+      "team2": "Næstved",
+      "team1_logo": "https://img.singhs.com.np/team/9969.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9969.png",
+      "team2_logo": "https://img.singhs.com.np/team/8112.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8112.png",
+      "league": "2. Division",
+      "league_id": 239,
+      "league_country": "DEN",
+      "start": "2026-11-07T12:00Z",
+      "duration": 2.2,
+      "event_id": 5864745,
+      "slug": "middelfart"
     },
     {
       "team1": "Fortuna Hjørring (W)",
@@ -6451,21 +6451,6 @@
       "slug": "fa2000"
     },
     {
-      "team1": "Middelfart",
-      "team2": "Næstved",
-      "team1_logo": "https://img.singhs.com.np/team/9969.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9969.png",
-      "team2_logo": "https://img.singhs.com.np/team/8112.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8112.png",
-      "league": "2. Division",
-      "league_id": 239,
-      "league_country": "DEN",
-      "start": "2026-11-07T13:00Z",
-      "duration": 2.2,
-      "event_id": 5864745,
-      "slug": "middelfart"
-    },
-    {
       "team1": "Frem",
       "team2": "Ishøj IF",
       "team1_logo": "https://img.singhs.com.np/team/8250.png",
@@ -7276,21 +7261,6 @@
       "slug": "etoiledusahel"
     },
     {
-      "team1": "Etoile Métlaoui",
-      "team2": "Zarzis",
-      "team1_logo": "https://img.singhs.com.np/team/405958.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/405958.png",
-      "team2_logo": "https://img.singhs.com.np/team/102112.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/102112.png",
-      "league": "Ligue I",
-      "league_id": 544,
-      "league_country": "TUN",
-      "start": "2026-11-07T13:30Z",
-      "duration": 2.2,
-      "event_id": 6050548,
-      "slug": "etoilemtlaoui"
-    },
-    {
       "team1": "PS Sakiet Eddaïer",
       "team2": "Club Africain",
       "team1_logo": "https://img.singhs.com.np/team/2147000.png",
@@ -7319,21 +7289,6 @@
       "duration": 2.2,
       "event_id": 5847223,
       "slug": "fkakhmat"
-    },
-    {
-      "team1": "Epitsentr Kamianets-Podilskyi",
-      "team2": "Kryvbas",
-      "team1_logo": "https://img.singhs.com.np/team/1395678.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1395678.png",
-      "team2_logo": "https://img.singhs.com.np/team/558259.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/558259.png",
-      "league": "Premier League",
-      "league_id": 441,
-      "league_country": "UKR",
-      "start": "2026-11-07T13:30Z",
-      "duration": 2.2,
-      "event_id": 5909202,
-      "slug": "epitsentrkamianetspodilskyi"
     },
     {
       "team1": "Pro Vercelli",
@@ -9571,21 +9526,6 @@
       "slug": "athleticclubw"
     },
     {
-      "team1": "Gateshead FC",
-      "team2": "Tamworth",
-      "team1_logo": "https://img.singhs.com.np/team/6189.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6189.png",
-      "team2_logo": "https://img.singhs.com.np/team/10254.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10254.png",
-      "league": "National League",
-      "league_id": 117,
-      "league_country": "ENG",
-      "start": "2026-11-07T15:00Z",
-      "duration": 2.2,
-      "event_id": 5906513,
-      "slug": "gatesheadfc"
-    },
-    {
       "team1": "AFC Telford United",
       "team2": "Spalding United",
       "team1_logo": "https://img.singhs.com.np/team/6315.png",
@@ -9991,19 +9931,19 @@
       "slug": "workington"
     },
     {
-      "team1": "Sporting Lagos",
-      "team2": "Rivers United FC",
-      "team1_logo": "https://img.singhs.com.np/team/1533792.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1533792.png",
-      "team2_logo": "https://img.singhs.com.np/team/184466.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/184466.png",
-      "league": "NPFL",
-      "league_id": 533,
-      "league_country": "NGA",
+      "team1": "FK Velež Mostar",
+      "team2": "Čelik Zenica",
+      "team1_logo": "https://img.singhs.com.np/team/10122.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10122.png",
+      "team2_logo": "https://img.singhs.com.np/team/10109.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10109.png",
+      "league": "Premier League",
+      "league_id": 267,
+      "league_country": "BIH",
       "start": "2026-11-07T15:00Z",
       "duration": 2.2,
-      "event_id": 6103160,
-      "slug": "sportinglagos"
+      "event_id": 6141011,
+      "slug": "fkvelemostar"
     },
     {
       "team1": "FC Noah",
@@ -11161,81 +11101,6 @@
       "slug": "videotonfcfehrvr"
     },
     {
-      "team1": "Borac Banja Luka",
-      "team2": "Radnik Bijeljina",
-      "team1_logo": "https://img.singhs.com.np/team/10116.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10116.png",
-      "team2_logo": "https://img.singhs.com.np/team/10124.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10124.png",
-      "league": "Premier League",
-      "league_id": 267,
-      "league_country": "BIH",
-      "start": "2026-11-07T16:00Z",
-      "duration": 2.2,
-      "event_id": 6141008,
-      "slug": "boracbanjaluka"
-    },
-    {
-      "team1": "FK Velež Mostar",
-      "team2": "Čelik Zenica",
-      "team1_logo": "https://img.singhs.com.np/team/10122.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10122.png",
-      "team2_logo": "https://img.singhs.com.np/team/10109.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10109.png",
-      "league": "Premier League",
-      "league_id": 267,
-      "league_country": "BIH",
-      "start": "2026-11-07T16:00Z",
-      "duration": 2.2,
-      "event_id": 6141011,
-      "slug": "fkvelemostar"
-    },
-    {
-      "team1": "Široki Brijeg",
-      "team2": "Željezničar",
-      "team1_logo": "https://img.singhs.com.np/team/10112.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10112.png",
-      "team2_logo": "https://img.singhs.com.np/team/10108.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10108.png",
-      "league": "Premier League",
-      "league_id": 267,
-      "league_country": "BIH",
-      "start": "2026-11-07T16:00Z",
-      "duration": 2.2,
-      "event_id": 6141009,
-      "slug": "irokibrijeg"
-    },
-    {
-      "team1": "Sloga Doboj",
-      "team2": "BSK Banja Luka",
-      "team1_logo": "https://img.singhs.com.np/team/187928.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/187928.png",
-      "team2_logo": "https://img.singhs.com.np/team/187927.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/187927.png",
-      "league": "Premier League",
-      "league_id": 267,
-      "league_country": "BIH",
-      "start": "2026-11-07T16:00Z",
-      "duration": 2.2,
-      "event_id": 6141010,
-      "slug": "slogadoboj"
-    },
-    {
-      "team1": "Zrinjski Mostar",
-      "team2": "FK Sarajevo",
-      "team1_logo": "https://img.singhs.com.np/team/10107.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10107.png",
-      "team2_logo": "https://img.singhs.com.np/team/10105.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10105.png",
-      "league": "Premier League",
-      "league_id": 267,
-      "league_country": "BIH",
-      "start": "2026-11-07T16:00Z",
-      "duration": 2.2,
-      "event_id": 6141012,
-      "slug": "zrinjskimostar"
-    },
-    {
       "team1": "CF Intercity",
       "team2": "Elche Ilicitano",
       "team1_logo": "https://img.singhs.com.np/team/1112101.png",
@@ -12059,6 +11924,21 @@
       "duration": 2.2,
       "event_id": 6545748,
       "slug": "ucd"
+    },
+    {
+      "team1": "Široki Brijeg",
+      "team2": "Željezničar",
+      "team1_logo": "https://img.singhs.com.np/team/10112.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10112.png",
+      "team2_logo": "https://img.singhs.com.np/team/10108.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10108.png",
+      "league": "Premier League",
+      "league_id": 267,
+      "league_country": "BIH",
+      "start": "2026-11-07T17:30Z",
+      "duration": 2.2,
+      "event_id": 6141009,
+      "slug": "irokibrijeg"
     },
     {
       "team1": "Aris Thessaloniki",
@@ -12886,6 +12766,51 @@
       "slug": "deportivomixco"
     },
     {
+      "team1": "CD Universitario",
+      "team2": "Veraguas United",
+      "team1_logo": "https://img.singhs.com.np/team/165475.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165475.png",
+      "team2_logo": "https://img.singhs.com.np/team/1603136.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1603136.png",
+      "league": "LPF Apertura",
+      "league_id": 9039,
+      "league_country": "PAN",
+      "start": "2026-11-07T21:00Z",
+      "duration": 2.2,
+      "event_id": 5954373,
+      "slug": "cduniversitario"
+    },
+    {
+      "team1": "Herrera FC",
+      "team2": "Independiente de La Chorrera",
+      "team1_logo": "https://img.singhs.com.np/team/1514006.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1514006.png",
+      "team2_logo": "https://img.singhs.com.np/team/464250.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/464250.png",
+      "league": "LPF Apertura",
+      "league_id": 9039,
+      "league_country": "PAN",
+      "start": "2026-11-07T21:00Z",
+      "duration": 2.2,
+      "event_id": 5954374,
+      "slug": "herrerafc"
+    },
+    {
+      "team1": "San Francisco FC",
+      "team2": "Union Cocle",
+      "team1_logo": "https://img.singhs.com.np/team/98585.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/98585.png",
+      "team2_logo": "https://img.singhs.com.np/team/1888923.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1888923.png",
+      "league": "LPF Apertura",
+      "league_id": 9039,
+      "league_country": "PAN",
+      "start": "2026-11-07T21:00Z",
+      "duration": 2.2,
+      "event_id": 5954375,
+      "slug": "sanfranciscofc"
+    },
+    {
       "team1": "CD Platense Municipal",
       "team2": "CD Cacahuatique",
       "team1_logo": "https://img.singhs.com.np/team/1280075.png",
@@ -13139,21 +13064,6 @@
       "duration": 2.2,
       "event_id": 1000017464,
       "slug": "libertad"
-    },
-    {
-      "team1": "CSD Municipal",
-      "team2": "Aurora FC",
-      "team1_logo": "https://img.singhs.com.np/team/9933.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9933.png",
-      "team2_logo": "https://img.singhs.com.np/team/188294.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/188294.png",
-      "league": "Liga Nacional Apertura",
-      "league_id": 336,
-      "league_country": "GUA",
-      "start": "2026-11-07T23:00Z",
-      "duration": 2.2,
-      "event_id": 5861321,
-      "slug": "csdmunicipal"
     },
     {
       "team1": "Inter Santa Tecla",
@@ -13469,51 +13379,6 @@
       "duration": 2.2,
       "event_id": 5190806,
       "slug": "nutico"
-    },
-    {
-      "team1": "Sporting San Miguelito",
-      "team2": "CD Árabe Unido",
-      "team1_logo": "https://img.singhs.com.np/team/165472.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165472.png",
-      "team2_logo": "https://img.singhs.com.np/team/165468.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165468.png",
-      "league": "LPF Apertura",
-      "league_id": 9039,
-      "league_country": "PAN",
-      "start": "2026-11-08T01:00Z",
-      "duration": 2.2,
-      "event_id": 5954376,
-      "slug": "sportingsanmiguelito"
-    },
-    {
-      "team1": "Tauro FC",
-      "team2": "Alianza FC",
-      "team1_logo": "https://img.singhs.com.np/team/165469.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165469.png",
-      "team2_logo": "https://img.singhs.com.np/team/165473.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165473.png",
-      "league": "LPF Apertura",
-      "league_id": 9039,
-      "league_country": "PAN",
-      "start": "2026-11-08T01:00Z",
-      "duration": 2.2,
-      "event_id": 5954377,
-      "slug": "taurofc"
-    },
-    {
-      "team1": "UMECIT FC",
-      "team2": "CD Plaza Amador",
-      "team1_logo": "https://img.singhs.com.np/team/1514007.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1514007.png",
-      "team2_logo": "https://img.singhs.com.np/team/165476.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165476.png",
-      "league": "LPF Apertura",
-      "league_id": 9039,
-      "league_country": "PAN",
-      "start": "2026-11-08T01:00Z",
-      "duration": 2.2,
-      "event_id": 5954378,
-      "slug": "umecitfc"
     },
     {
       "team1": "Auckland FC B",
@@ -14641,6 +14506,21 @@
       "slug": "krylyasovetovsamara"
     },
     {
+      "team1": "Bukovyna Chernivtsi",
+      "team2": "FC Kolos Kovalivka",
+      "team1_logo": "https://img.singhs.com.np/team/205684.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/205684.png",
+      "team2_logo": "https://img.singhs.com.np/team/599924.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/599924.png",
+      "league": "Premier League",
+      "league_id": 441,
+      "league_country": "UKR",
+      "start": "2026-11-08T11:00Z",
+      "duration": 2.2,
+      "event_id": 5909201,
+      "slug": "bukovynachernivtsi"
+    },
+    {
       "team1": "Zorya",
       "team2": "LNZ Cherkasy",
       "team1_logo": "https://img.singhs.com.np/team/7770.png",
@@ -14669,6 +14549,21 @@
       "duration": 2.2,
       "event_id": 5987551,
       "slug": "imislifk"
+    },
+    {
+      "team1": "Syunik",
+      "team2": "Gandzasar",
+      "team1_logo": "https://img.singhs.com.np/team/6569.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6569.png",
+      "team2_logo": "https://img.singhs.com.np/team/1388663.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1388663.png",
+      "league": "Premier League",
+      "league_id": 118,
+      "league_country": "ARM",
+      "start": "2026-11-08T11:00Z",
+      "duration": 2.2,
+      "event_id": 5973000,
+      "slug": "syunik"
     },
     {
       "team1": "CD Teruel",
@@ -15509,6 +15404,21 @@
       "duration": 2.2,
       "event_id": 5215572,
       "slug": "nemangrodno"
+    },
+    {
+      "team1": "Sloga Doboj",
+      "team2": "BSK Banja Luka",
+      "team1_logo": "https://img.singhs.com.np/team/187928.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/187928.png",
+      "team2_logo": "https://img.singhs.com.np/team/187927.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/187927.png",
+      "league": "Premier League",
+      "league_id": 267,
+      "league_country": "BIH",
+      "start": "2026-11-08T12:00Z",
+      "duration": 2.2,
+      "event_id": 6141010,
+      "slug": "slogadoboj"
     },
     {
       "team1": "Arsimi",
@@ -16711,19 +16621,19 @@
       "slug": "ksd"
     },
     {
-      "team1": "Bukovyna Chernivtsi",
-      "team2": "FC Kolos Kovalivka",
-      "team1_logo": "https://img.singhs.com.np/team/205684.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/205684.png",
-      "team2_logo": "https://img.singhs.com.np/team/599924.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/599924.png",
-      "league": "Premier League",
-      "league_id": 441,
-      "league_country": "UKR",
+      "team1": "Etoile Métlaoui",
+      "team2": "Zarzis",
+      "team1_logo": "https://img.singhs.com.np/team/405958.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/405958.png",
+      "team2_logo": "https://img.singhs.com.np/team/102112.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/102112.png",
+      "league": "Ligue I",
+      "league_id": 544,
+      "league_country": "TUN",
       "start": "2026-11-08T13:30Z",
       "duration": 2.2,
-      "event_id": 5909201,
-      "slug": "bukovynachernivtsi"
+      "event_id": 6050548,
+      "slug": "etoilemtlaoui"
     },
     {
       "team1": "Sabah FK",
@@ -17236,6 +17146,21 @@
       "slug": "fcminsk"
     },
     {
+      "team1": "Borac Banja Luka",
+      "team2": "Radnik Bijeljina",
+      "team1_logo": "https://img.singhs.com.np/team/10116.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10116.png",
+      "team2_logo": "https://img.singhs.com.np/team/10124.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10124.png",
+      "league": "Premier League",
+      "league_id": 267,
+      "league_country": "BIH",
+      "start": "2026-11-08T14:00Z",
+      "duration": 2.2,
+      "event_id": 6141008,
+      "slug": "boracbanjaluka"
+    },
+    {
       "team1": "Nk Brinje Grosuplje",
       "team2": "Aluminij",
       "team1_logo": "https://img.singhs.com.np/team/1153473.png",
@@ -17746,21 +17671,6 @@
       "slug": "varzim"
     },
     {
-      "team1": "CF Os Belenenses",
-      "team2": "Lusitano de Évora",
-      "team1_logo": "https://img.singhs.com.np/team/1296841.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1296841.png",
-      "team2_logo": "https://img.singhs.com.np/team/888452.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/888452.png",
-      "league": "Liga 3 Zona B",
-      "league_id": 9112,
-      "league_country": "POR",
-      "start": "2026-11-08T15:00Z",
-      "duration": 2.2,
-      "event_id": 5991326,
-      "slug": "cfosbelenenses"
-    },
-    {
       "team1": "Vitória de Sernache",
       "team2": "Atlético",
       "team1_logo": "https://img.singhs.com.np/team/560912.png",
@@ -17849,36 +17759,6 @@
       "duration": 2.2,
       "event_id": 6103168,
       "slug": "enugurangers"
-    },
-    {
-      "team1": "Ikorodu City",
-      "team2": "Inter Lagos",
-      "team1_logo": "https://img.singhs.com.np/team/1661097.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1661097.png",
-      "team2_logo": "https://img.singhs.com.np/team/2133882.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/2133882.png",
-      "league": "NPFL",
-      "league_id": 533,
-      "league_country": "NGA",
-      "start": "2026-11-08T15:00Z",
-      "duration": 2.2,
-      "event_id": 6103164,
-      "slug": "ikoroducity"
-    },
-    {
-      "team1": "Kun Khalifat",
-      "team2": "Kano Pillars",
-      "team1_logo": "https://img.singhs.com.np/team/1791630.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1791630.png",
-      "team2_logo": "https://img.singhs.com.np/team/102059.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/102059.png",
-      "league": "NPFL",
-      "league_id": 533,
-      "league_country": "NGA",
-      "start": "2026-11-08T15:00Z",
-      "duration": 2.2,
-      "event_id": 6103165,
-      "slug": "kunkhalifat"
     },
     {
       "team1": "Nasarawa United",
@@ -19141,6 +19021,21 @@
       "slug": "legiawarszawa"
     },
     {
+      "team1": "Zrinjski Mostar",
+      "team2": "FK Sarajevo",
+      "team1_logo": "https://img.singhs.com.np/team/10107.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10107.png",
+      "team2_logo": "https://img.singhs.com.np/team/10105.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10105.png",
+      "league": "Premier League",
+      "league_id": 267,
+      "league_country": "BIH",
+      "start": "2026-11-08T16:30Z",
+      "duration": 2.2,
+      "event_id": 6141012,
+      "slug": "zrinjskimostar"
+    },
+    {
       "team1": "Radomlje",
       "team2": "NK Celje",
       "team1_logo": "https://img.singhs.com.np/team/272871.png",
@@ -20251,21 +20146,6 @@
       "slug": "washingtonspiritw"
     },
     {
-      "team1": "DC Power FC (W)",
-      "team2": "Lexington SC (W)",
-      "team1_logo": "https://img.singhs.com.np/team/1669152.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1669152.png",
-      "team2_logo": "https://img.singhs.com.np/team/1669154.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1669154.png",
-      "league": "USL Super League",
-      "league_id": 10699,
-      "league_country": "USA",
-      "start": "2026-11-08T20:00Z",
-      "duration": 2.2,
-      "event_id": 5887403,
-      "slug": "dcpowerfcw"
-    },
-    {
       "team1": "Vasco da Gama",
       "team2": "Palmeiras",
       "team1_logo": "https://img.singhs.com.np/team/10276.png",
@@ -20384,51 +20264,6 @@
       "duration": 2.2,
       "event_id": 5861317,
       "slug": "cobanimperial"
-    },
-    {
-      "team1": "CD Universitario",
-      "team2": "Herrera FC",
-      "team1_logo": "https://img.singhs.com.np/team/165475.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/165475.png",
-      "team2_logo": "https://img.singhs.com.np/team/1514006.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1514006.png",
-      "league": "LPF Apertura",
-      "league_id": 9039,
-      "league_country": "PAN",
-      "start": "2026-11-08T21:00Z",
-      "duration": 2.2,
-      "event_id": 5954379,
-      "slug": "cduniversitario"
-    },
-    {
-      "team1": "San Francisco FC",
-      "team2": "Veraguas United",
-      "team1_logo": "https://img.singhs.com.np/team/98585.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/98585.png",
-      "team2_logo": "https://img.singhs.com.np/team/1603136.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1603136.png",
-      "league": "LPF Apertura",
-      "league_id": 9039,
-      "league_country": "PAN",
-      "start": "2026-11-08T21:00Z",
-      "duration": 2.2,
-      "event_id": 5954380,
-      "slug": "sanfranciscofc"
-    },
-    {
-      "team1": "Union Cocle",
-      "team2": "Independiente de La Chorrera",
-      "team1_logo": "https://img.singhs.com.np/team/1888923.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1888923.png",
-      "team2_logo": "https://img.singhs.com.np/team/464250.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/464250.png",
-      "league": "LPF Apertura",
-      "league_id": 9039,
-      "league_country": "PAN",
-      "start": "2026-11-08T21:00Z",
-      "duration": 2.2,
-      "event_id": 5954381,
-      "slug": "unioncocle"
     },
     {
       "team1": "Montréal Roses FC (W)",
@@ -21031,6 +20866,21 @@
       "slug": "csdinamobucureti"
     },
     {
+      "team1": "Ikorodu City",
+      "team2": "Inter Lagos",
+      "team1_logo": "https://img.singhs.com.np/team/1661097.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1661097.png",
+      "team2_logo": "https://img.singhs.com.np/team/2133882.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/2133882.png",
+      "league": "NPFL",
+      "league_id": 533,
+      "league_country": "NGA",
+      "start": "2026-11-09T15:00Z",
+      "duration": 2.2,
+      "event_id": 6103164,
+      "slug": "ikoroducity"
+    },
+    {
       "team1": "Etar",
       "team2": "Montana",
       "team1_logo": "https://img.singhs.com.np/team/10135.png",
@@ -21571,6 +21421,21 @@
       "slug": "almokawloonalarab"
     },
     {
+      "team1": "Sporting Lagos",
+      "team2": "Rivers United FC",
+      "team1_logo": "https://img.singhs.com.np/team/1533792.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1533792.png",
+      "team2_logo": "https://img.singhs.com.np/team/184466.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/184466.png",
+      "league": "NPFL",
+      "league_id": 533,
+      "league_country": "NGA",
+      "start": "2026-11-10T15:00Z",
+      "duration": 2.2,
+      "event_id": 6103160,
+      "slug": "sportinglagos"
+    },
+    {
       "team1": "Metalul Buzău",
       "team2": "Steaua București",
       "team1_logo": "https://img.singhs.com.np/team/1661158.png",
@@ -21644,6 +21509,21 @@
       "duration": 2.2,
       "event_id": 1000022290,
       "slug": "feyenoordw"
+    },
+    {
+      "team1": "CD Badajoz",
+      "team2": "Tenerife",
+      "team1_logo": "https://img.singhs.com.np/team/7873.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/7873.png",
+      "team2_logo": "https://img.singhs.com.np/team/9867.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9867.png",
+      "league": "Copa del Rey",
+      "league_id": 138,
+      "league_country": "ESP",
+      "start": "2026-11-10T19:00Z",
+      "duration": 2.2,
+      "event_id": 6386050,
+      "slug": "cdbadajoz"
     },
     {
       "team1": "Mijas-Las Lagunas",
@@ -23264,6 +23144,36 @@
       "duration": 2.2,
       "event_id": 6540022,
       "slug": "deportesquindo"
+    },
+    {
+      "team1": "New Zealand",
+      "team2": "India",
+      "team1_logo": "https://img.singhs.com.np/team/5820.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/5820.png",
+      "team2_logo": "https://img.singhs.com.np/team/6329.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6329.png",
+      "league": "Friendlies",
+      "league_id": 114,
+      "league_country": "INT",
+      "start": "2026-11-12T06:00Z",
+      "duration": 2.2,
+      "event_id": 5924778,
+      "slug": "newzealand"
+    },
+    {
+      "team1": "APIA Leichhardt FC",
+      "team2": "Adelaide City",
+      "team1_logo": "https://img.singhs.com.np/team/162237.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/162237.png",
+      "team2_logo": "https://img.singhs.com.np/team/162276.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/162276.png",
+      "league": "Australian Championship Grp. B",
+      "league_id": 8938,
+      "league_country": "AUS",
+      "start": "2026-11-12T08:30Z",
+      "duration": 2.2,
+      "event_id": 6284011,
+      "slug": "apialeichhardtfc"
     }
   ]
 }
