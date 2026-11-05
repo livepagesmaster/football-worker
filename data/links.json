@@ -155,9 +155,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/uel/2026-11-05/rso-lyon"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/78905744.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/78905744.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/78905744.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/uel/2026-11-05/rso-lyon"
@@ -724,15 +733,15 @@
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/07808742_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/02456966.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/07808742_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/02456966.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/07808742_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/02456966.m3u8"
     },
     "link6": {
       "type": "iframe",
@@ -906,15 +915,15 @@
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/87547578_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/33860426.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/87547578_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/33860426.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/87547578_tsc.m3u8"
+      "url": "https://live05.miekgo.app/live/33860426.m3u8"
     },
     "link6": {
       "type": "iframe",
@@ -1584,9 +1593,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/uel/2026-11-05/b04-olm"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/uel/2026-11-05/b04-olm"
@@ -1606,9 +1624,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/uel/2026-11-05/az-juv"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/78905744.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/78905744.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/78905744.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/uel/2026-11-05/az-juv"
@@ -1628,9 +1655,18 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/uel/2026-11-05/cry-tsg"
     },
-    "link3": null,
-    "link4": null,
-    "link5": null,
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.miekgo.app/live/08552895.m3u8"
+    },
     "link6": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/uel/2026-11-05/cry-tsg"
