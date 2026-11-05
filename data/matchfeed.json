@@ -99,6 +99,26 @@
       "endTime": 2.2,
       "type": "Europa League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=crystal"
+    },
+    {
+      "id": "benfica",
+      "team1": {
+        "name": "Benfica",
+        "img": "https://img.singhs.com.np/team/9772.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9772.png",
+        "code": "BEN"
+      },
+      "team2": {
+        "name": "Lech Poznań",
+        "img": "https://img.singhs.com.np/team/2182.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/2182.png",
+        "code": "LEC"
+      },
+      "time": "26/11/06 01:45:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "Europa League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=benfica"
     }
   ]
 }
