@@ -1,6 +1,9 @@
 {
   "everton": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/pl/2026-11-06/eve-cov"
+    },
     "link1": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/carabao-cup/2026-10-29/eve-new"
