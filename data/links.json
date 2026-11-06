@@ -841,7 +841,10 @@
     }
   },
   "sudurpaschim": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nfc"
+    },
     "link1": {
       "type": "hls",
       "url": "https://ott-nettv-02.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMi8yMDI2IDg6MDI6NDEgQU0maGFzaF92YWx1ZT1zWVhRMVU4QUxQSmZEQ1RLTmNqK2ZBPT0mdmFsaWRtaW51dGVzPTE0NDAmaWQ9MjAw"
