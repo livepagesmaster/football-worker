@@ -1677,17 +1677,35 @@
     }
   },
   "india": {
-    "common": {
+    "common": null,
+    "link1": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/247-willow-sports"
     },
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-willow-sports"
+    },
+    "link3": {
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-willow"
+    },
+    "link4": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-willow-sports"
+    },
+    "link5": {
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-willow"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-willow-sports"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-willow"
+    }
   },
   "uae": {
     "common": null,
