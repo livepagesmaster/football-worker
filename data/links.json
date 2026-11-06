@@ -1269,7 +1269,10 @@
     }
   },
   "chitwan": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
