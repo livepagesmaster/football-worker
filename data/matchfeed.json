@@ -15,7 +15,7 @@
         "code": "TOT"
       },
       "time": "26/11/07 18:15:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=leeds"
@@ -35,7 +35,7 @@
         "code": "HUL"
       },
       "time": "26/11/07 20:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=arsenal"
@@ -75,7 +75,7 @@
         "code": "NEW"
       },
       "time": "26/11/07 20:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=fulham"
@@ -95,7 +95,7 @@
         "code": "ELV"
       },
       "time": "26/11/07 20:15:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Bundesliga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=borussia"
@@ -115,7 +115,7 @@
         "code": "BAY"
       },
       "time": "26/11/07 20:15:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Bundesliga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=mainz"
