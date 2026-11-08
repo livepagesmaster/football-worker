@@ -698,8 +698,8 @@
   },
   "inter": {
     "common": {
-      "type": "hls",
-      "url": "https://live05.wecile.app/live/02456966.m3u8"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/seriea/2026-11-08/int-como"
     },
     "link1": {
       "type": "iframe",
@@ -764,7 +764,7 @@
   "genoa": {
     "common": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/seriea/2026-10-28/gen-juv"
+      "url": "https://taifood-blog.asia/embed/seriea/2026-11-08/gen-mil"
     },
     "link1": null,
     "link2": null,
@@ -886,7 +886,7 @@
   "fiorentina": {
     "common": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/seriea/2026-10-29/fio-ata"
+      "url": "https://taifood-blog.asia/embed/seriea/2026-11-08/fio-juv"
     },
     "link1": null,
     "link2": null,
@@ -1356,7 +1356,10 @@
     }
   },
   "atltico": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/laliga/2026-11-08/atm-bar"
+    },
     "link1": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/atm-bay"
@@ -1664,7 +1667,10 @@
     }
   },
   "crystal": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/pl/2026-11-08/cry-liv"
+    },
     "link1": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/uel/2026-11-05/cry-tsg"
@@ -1980,7 +1986,10 @@
     "link7": null
   },
   "sunderland": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/pl/2026-11-08/sun-che"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
