@@ -35,7 +35,7 @@
         "code": "MIL"
       },
       "time": "26/11/08 19:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=genoa"
@@ -55,7 +55,7 @@
         "code": "CHE"
       },
       "time": "26/11/08 19:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=sunderland"
@@ -75,7 +75,7 @@
         "code": "LIV"
       },
       "time": "26/11/08 19:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=crystal"
@@ -95,7 +95,7 @@
         "code": "AST"
       },
       "time": "26/11/08 22:15:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=manchester"
@@ -115,7 +115,7 @@
         "code": "COM"
       },
       "time": "26/11/08 22:45:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=inter"
