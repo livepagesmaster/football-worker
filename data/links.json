@@ -105,7 +105,10 @@
     "link7": null
   },
   "manchester": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/pl/2026-11-08/mun-avl"
+    },
     "link1": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/mun-roma"
