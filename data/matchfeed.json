@@ -135,7 +135,7 @@
         "code": "REA"
       },
       "time": "26/11/08 01:45:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "LaLiga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=valencia"
@@ -155,7 +155,7 @@
         "code": "TRO"
       },
       "time": "26/11/08 01:50:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Ligue 1",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=paris"
@@ -175,7 +175,7 @@
         "code": "MOR"
       },
       "time": "26/11/08 02:15:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Liga Portugal",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=sporting"
@@ -195,7 +195,7 @@
         "code": "CHA"
       },
       "time": "26/11/08 02:45:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Major League Soccer",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=inter"
