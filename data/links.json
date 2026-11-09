@@ -485,10 +485,7 @@
     }
   },
   "pokhara": {
-    "common": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
-    },
+    "common": null,
     "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/nfc"
