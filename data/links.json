@@ -485,7 +485,10 @@
     }
   },
   "pokhara": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nfc"
+    },
     "link1": {
       "type": "redirect",
       "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
