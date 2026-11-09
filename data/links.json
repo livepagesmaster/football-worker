@@ -1284,17 +1284,35 @@
     }
   },
   "chitwan": {
-    "common": {
+    "common": null,
+    "link1": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nfc"
+    },
+    "link2": {
       "type": "redirect",
       "url": "https://wearwait.net/e/2259bb3d9sr2r"
     },
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link3": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nfc"
+    },
+    "link4": {
+      "type": "redirect",
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
+    },
+    "link5": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nfc"
+    },
+    "link6": {
+      "type": "redirect",
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nfc"
+    }
   },
   "galatasaray": {
     "common": null,
