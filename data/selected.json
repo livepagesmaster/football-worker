@@ -1,111 +1,6 @@
 {
   "matches": [
     {
-      "team1": "Napoli",
-      "team2": "Lazio",
-      "team1_logo": "https://img.singhs.com.np/team/9875.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9875.png",
-      "team2_logo": "https://img.singhs.com.np/team/8543.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8543.png",
-      "league": "Serie A",
-      "league_id": 55,
-      "league_country": "ITA",
-      "start": "2026-11-08T11:30Z",
-      "duration": 2.2,
-      "event_id": 5749746,
-      "slug": "napoli"
-    },
-    {
-      "team1": "Genoa",
-      "team2": "Milan",
-      "team1_logo": "https://img.singhs.com.np/team/10233.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10233.png",
-      "team2_logo": "https://img.singhs.com.np/team/8564.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8564.png",
-      "league": "Serie A",
-      "league_id": 55,
-      "league_country": "ITA",
-      "start": "2026-11-08T14:00Z",
-      "duration": 2.2,
-      "event_id": 5749743,
-      "slug": "genoa"
-    },
-    {
-      "team1": "Sunderland",
-      "team2": "Chelsea",
-      "team1_logo": "https://img.singhs.com.np/team/8472.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8472.png",
-      "team2_logo": "https://img.singhs.com.np/team/8455.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8455.png",
-      "league": "Premier League",
-      "league_id": 47,
-      "league_country": "ENG",
-      "start": "2026-11-08T14:00Z",
-      "duration": 2.2,
-      "event_id": 5795514,
-      "slug": "sunderland"
-    },
-    {
-      "team1": "Crystal Palace",
-      "team2": "Liverpool",
-      "team1_logo": "https://img.singhs.com.np/team/9826.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9826.png",
-      "team2_logo": "https://img.singhs.com.np/team/8650.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8650.png",
-      "league": "Premier League",
-      "league_id": 47,
-      "league_country": "ENG",
-      "start": "2026-11-08T14:00Z",
-      "duration": 2.2,
-      "event_id": 5795507,
-      "slug": "crystalpalace"
-    },
-    {
-      "team1": "Manchester United",
-      "team2": "Aston Villa",
-      "team1_logo": "https://img.singhs.com.np/team/10260.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10260.png",
-      "team2_logo": "https://img.singhs.com.np/team/10252.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10252.png",
-      "league": "Premier League",
-      "league_id": 47,
-      "league_country": "ENG",
-      "start": "2026-11-08T16:30Z",
-      "duration": 2.2,
-      "event_id": 5795512,
-      "slug": "manchesterunited"
-    },
-    {
-      "team1": "Inter",
-      "team2": "Como",
-      "team1_logo": "https://img.singhs.com.np/team/8636.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8636.png",
-      "team2_logo": "https://img.singhs.com.np/team/10171.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10171.png",
-      "league": "Serie A",
-      "league_id": 55,
-      "league_country": "ITA",
-      "start": "2026-11-08T17:00Z",
-      "duration": 2.2,
-      "event_id": 5749744,
-      "slug": "inter"
-    },
-    {
-      "team1": "Fiorentina",
-      "team2": "Juventus",
-      "team1_logo": "https://img.singhs.com.np/team/8535.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8535.png",
-      "team2_logo": "https://img.singhs.com.np/team/9885.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9885.png",
-      "league": "Serie A",
-      "league_id": 55,
-      "league_country": "ITA",
-      "start": "2026-11-08T19:45Z",
-      "duration": 2.2,
-      "event_id": 5749742,
-      "slug": "fiorentina"
-    },
-    {
       "team1": "Atlético Madrid",
       "team2": "Barcelona",
       "team1_logo": "https://img.singhs.com.np/team/9906.png",
@@ -121,5 +16,5 @@
       "slug": "atlticomadrid"
     }
   ],
-  "updated_at": "2026-11-08T06:33:12.464Z"
+  "updated_at": "2026-11-09T04:51:09.746Z"
 }
