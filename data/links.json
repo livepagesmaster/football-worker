@@ -471,32 +471,32 @@
   "karnali": {
     "common": null,
     "link1": {
-      "type": "hls",
-      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/rdrn"
     },
     "link2": {
-      "type": "hls",
-      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+      "type": "redirect",
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
     },
     "link3": {
-      "type": "hls",
-      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/rdrn"
     },
     "link4": {
       "type": "redirect",
-      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
     },
     "link5": {
-      "type": "hls",
-      "url": "https://ottnlive-fstream.nettvstreamz.com/live_hls/npl_match_3/playlist.m3u8"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/rdrn"
     },
     "link6": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
     },
     "link7": {
       "type": "redirect",
-      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+      "url": "https://yakotv.pages.dev/rdrn"
     }
   },
   "pokhara": {
