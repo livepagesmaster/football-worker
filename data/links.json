@@ -299,17 +299,35 @@
     "link7": null
   },
   "england": {
-    "common": {
+    "common": null,
+    "link1": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/247-willow"
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/eng-cro"
     },
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/eng-cro"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/eng-cro"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/eng-cro"
+    }
   },
   "newzealand": {
     "common": null,
@@ -2021,5 +2039,98 @@
     "link5": null,
     "link6": null,
     "link7": null
+  },
+  "turkiye": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/tur-bel"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/tur-bel"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/tur-bel"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/tur-bel"
+    }
+  },
+  "italy": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/ita-fra"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/ita-fra"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/ita-fra"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/ita-fra"
+    }
+  },
+  "czechia": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/cze-esp"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/cze-esp"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/07428422.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/07428422.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/07428422.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/cze-esp"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-12/cze-esp"
+    }
   }
 }
