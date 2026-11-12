@@ -438,37 +438,34 @@
     "link7": null
   },
   "biratnagar": {
-    "common": {
+    "common": null,
+    "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/rdrn"
     },
-    "link1": {
-      "type": "hls",
-      "url": "https://ott-nettv-02.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMi8yMDI2IDg6MDI6NDEgQU0maGFzaF92YWx1ZT1zWVhRMVU4QUxQSmZEQ1RLTmNqK2ZBPT0mdmFsaWRtaW51dGVzPTE0NDAmaWQ9MjAw"
-    },
     "link2": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
     },
     "link3": {
-      "type": "hls",
-      "url": "https://ott-nettv-02.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9MTEvMi8yMDI2IDg6MDI6NDEgQU0maGFzaF92YWx1ZT1zWVhRMVU4QUxQSmZEQ1RLTmNqK2ZBPT0mdmFsaWRtaW51dGVzPTE0NDAmaWQ9MjAw"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/rdrn"
     },
     "link4": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
     },
     "link5": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://yakotv.pages.dev/rdrn"
     },
     "link6": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
     },
     "link7": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/fxc"
+      "url": "https://yakotv.pages.dev/rdrn"
     }
   },
   "karnali": {
