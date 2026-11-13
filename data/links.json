@@ -962,37 +962,34 @@
     }
   },
   "kathmandu": {
-    "common": {
-      "type": "redirect",
-      "url": "https://wearwait.net/e/2259bb3d9sr2r"
-    },
+    "common": null,
     "link1": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
+      "url": "https://yakotv.pages.dev/rdrn"
     },
     "link2": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
     },
     "link3": {
       "type": "redirect",
-      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+      "url": "https://yakotv.pages.dev/rdrn"
     },
     "link4": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
     },
     "link5": {
-      "type": "iframe",
-      "url": "https://my.finalspot.top/hembedplayer/NEPALCRIC/4/500/400"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/rdrn"
     },
     "link6": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nfc"
+      "url": "https://wearwait.net/e/2259bb3d9sr2r"
     },
     "link7": {
       "type": "redirect",
-      "url": "https://truckrefuse.net/e/66ci9zl8uuao6"
+      "url": "https://yakotv.pages.dev/rdrn"
     }
   },
   "le": {
