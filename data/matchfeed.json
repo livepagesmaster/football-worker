@@ -15,7 +15,7 @@
         "code": "SOU"
       },
       "time": "26/11/13 20:15:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Friendlies",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=saudi"
@@ -35,7 +35,7 @@
         "code": "GER"
       },
       "time": "26/11/14 01:30:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "UEFA Nations League A Grp. 2",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=serbia"
@@ -55,7 +55,7 @@
         "code": "GRE"
       },
       "time": "26/11/14 01:30:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "UEFA Nations League A Grp. 2",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=netherlands"
@@ -75,7 +75,7 @@
         "code": "SWI"
       },
       "time": "26/11/14 01:30:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "UEFA Nations League B Grp. 1",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=slovenia"
