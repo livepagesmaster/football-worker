@@ -2243,7 +2243,10 @@
     }
   },
   "argentina": {
-    "common": null,
+    "common": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
+    },
     "link1": null,
     "link2": null,
     "link3": {
@@ -2262,7 +2265,10 @@
     "link7": null
   },
   "colombia": {
-    "common": null,
+    "common": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/59444581.m3u8"
+    },
     "link1": null,
     "link2": null,
     "link3": {
