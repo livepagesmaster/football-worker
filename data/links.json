@@ -2151,8 +2151,14 @@
   },
   "serbia": {
     "common": null,
-    "link1": null,
-    "link2": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/srb-ger"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/srb-ger"
+    },
     "link3": {
       "type": "hls",
       "url": "https://live05.wecile.app/live/08552895.m3u8"
@@ -2165,13 +2171,25 @@
       "type": "hls",
       "url": "https://live05.wecile.app/live/08552895.m3u8"
     },
-    "link6": null,
-    "link7": null
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/srb-ger"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/srb-ger"
+    }
   },
   "netherlands": {
     "common": null,
-    "link1": null,
-    "link2": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/ned-gre"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/ned-gre"
+    },
     "link3": {
       "type": "hls",
       "url": "https://live05.wecile.app/live/07428422.m3u8"
@@ -2184,13 +2202,25 @@
       "type": "hls",
       "url": "https://live05.wecile.app/live/07428422.m3u8"
     },
-    "link6": null,
-    "link7": null
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/ned-gre"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/ned-gre"
+    }
   },
   "slovenia": {
     "common": null,
-    "link1": null,
-    "link2": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/svn-sui"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/svn-sui"
+    },
     "link3": {
       "type": "hls",
       "url": "https://live05.wecile.app/live/75748097.m3u8"
@@ -2203,8 +2233,14 @@
       "type": "hls",
       "url": "https://live05.wecile.app/live/75748097.m3u8"
     },
-    "link6": null,
-    "link7": null
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/svn-sui"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-13/svn-sui"
+    }
   },
   "argentina": {
     "common": null,
