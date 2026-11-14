@@ -2339,7 +2339,10 @@
     "link7": null
   },
   "romania": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-14/rou-pol"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
@@ -2349,7 +2352,10 @@
     "link7": null
   },
   "sweden": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-14/swe-bih"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
