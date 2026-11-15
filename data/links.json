@@ -2363,5 +2363,57 @@
     "link5": null,
     "link6": null,
     "link7": null
+  },
+  "france": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-15/fra-tur"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "belgium": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-15/bel-ita"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "croatia": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-15/cro-cze"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "spain": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-15/esp-eng"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
   }
 }
