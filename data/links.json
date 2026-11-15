@@ -500,17 +500,14 @@
     }
   },
   "pokhara": {
-    "common": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/rdrn"
-    },
+    "common": null,
     "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/rdrn"
     },
     "link2": {
       "type": "redirect",
-      "url": "https://wearwait.net/e/2259bb3d9sr2r"
+      "url": "https://waterera.net/e/ffqfkwieppunw"
     },
     "link3": {
       "type": "redirect",
@@ -518,7 +515,7 @@
     },
     "link4": {
       "type": "redirect",
-      "url": "https://wearwait.net/e/2259bb3d9sr2r"
+      "url": "https://waterera.net/e/ffqfkwieppunw"
     },
     "link5": {
       "type": "redirect",
@@ -526,7 +523,7 @@
     },
     "link6": {
       "type": "redirect",
-      "url": "https://wearwait.net/e/2259bb3d9sr2r"
+      "url": "https://waterera.net/e/ffqfkwieppunw"
     },
     "link7": {
       "type": "redirect",
