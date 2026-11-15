@@ -500,7 +500,10 @@
     }
   },
   "pokhara": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/rdrn"
+    },
     "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/rdrn"
