@@ -2415,5 +2415,44 @@
     "link5": null,
     "link6": null,
     "link7": null
+  },
+  "germany": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-16/ger-ned"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "greece": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-16/gre-srb"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
+  },
+  "switzerland": {
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-16/sui-sco"
+    },
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
   }
 }
