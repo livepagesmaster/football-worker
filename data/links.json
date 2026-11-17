@@ -2243,12 +2243,15 @@
     }
   },
   "argentina": {
-    "common": {
-      "type": "hls",
-      "url": "https://live05.wecile.app/live/08552895.m3u8"
+    "common": null,
+    "link1": {
+      "type": "redirect",
+      "url": "https://streamxhd.sbs/live1.php?stream=dsports"
     },
-    "link1": null,
-    "link2": null,
+    "link2": {
+      "type": "redirect",
+      "url": "https://streamxhd.sbs/live1.php?stream=dsports"
+    },
     "link3": {
       "type": "hls",
       "url": "https://live05.wecile.app/live/08552895.m3u8"
@@ -2261,8 +2264,14 @@
       "type": "hls",
       "url": "https://live05.wecile.app/live/08552895.m3u8"
     },
-    "link6": null,
-    "link7": null
+    "link6": {
+      "type": "redirect",
+      "url": "https://streamxhd.sbs/live1.php?stream=dsports"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://streamxhd.sbs/live1.php?stream=dsports"
+    }
   },
   "colombia": {
     "common": {
