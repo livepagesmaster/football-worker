@@ -2482,7 +2482,10 @@
     "link7": null
   },
   "wales": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-17/wal-por"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
@@ -2492,7 +2495,10 @@
     "link7": null
   },
   "denmark": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-17/den-nor"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
@@ -2502,7 +2508,10 @@
     "link7": null
   },
   "poland": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-17/pol-swe"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
@@ -2512,7 +2521,10 @@
     "link7": null
   },
   "ukraine": {
-    "common": null,
+    "common": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/uefa-nations-league/2026-11-17/ukr-geo"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
