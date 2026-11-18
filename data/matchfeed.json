@@ -1,46 +1,6 @@
 {
   "matches": [
     {
-      "id": "singapore",
-      "team1": {
-        "name": "Singapore",
-        "img": "https://img.singhs.com.np/team/5825.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/5825.png",
-        "code": "SIN"
-      },
-      "team2": {
-        "name": "Brazil",
-        "img": "https://img.singhs.com.np/team/8256.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8256.png",
-        "code": "BRA"
-      },
-      "time": "26/11/17 15:45:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "Friendlies",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=singapore"
-    },
-    {
-      "id": "japan",
-      "team1": {
-        "name": "Japan",
-        "img": "https://img.singhs.com.np/team/6715.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6715.png",
-        "code": "JAP"
-      },
-      "team2": {
-        "name": "Paraguay",
-        "img": "https://img.singhs.com.np/team/6724.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6724.png",
-        "code": "PAR"
-      },
-      "time": "26/11/17 18:55:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "Friendlies",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=japan"
-    },
-    {
       "id": "wales",
       "team1": {
         "name": "Wales",
@@ -59,66 +19,6 @@
       "endTime": 2.2,
       "type": "UEFA Nations League A Grp. 4",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=wales"
-    },
-    {
-      "id": "denmark",
-      "team1": {
-        "name": "Denmark",
-        "img": "https://img.singhs.com.np/team/8238.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8238.png",
-        "code": "DEN"
-      },
-      "team2": {
-        "name": "Norway",
-        "img": "https://img.singhs.com.np/team/8492.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8492.png",
-        "code": "NOR"
-      },
-      "time": "26/11/18 01:30:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "UEFA Nations League A Grp. 4",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=denmark"
-    },
-    {
-      "id": "poland",
-      "team1": {
-        "name": "Poland",
-        "img": "https://img.singhs.com.np/team/8568.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8568.png",
-        "code": "POL"
-      },
-      "team2": {
-        "name": "Sweden",
-        "img": "https://img.singhs.com.np/team/8520.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8520.png",
-        "code": "SWE"
-      },
-      "time": "26/11/18 01:30:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "UEFA Nations League B Grp. 4",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=poland"
-    },
-    {
-      "id": "ukraine",
-      "team1": {
-        "name": "Ukraine",
-        "img": "https://img.singhs.com.np/team/6718.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6718.png",
-        "code": "UKR"
-      },
-      "team2": {
-        "name": "Georgia",
-        "img": "https://img.singhs.com.np/team/8268.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8268.png",
-        "code": "GEO"
-      },
-      "time": "26/11/18 01:30:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "UEFA Nations League B Grp. 2",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=ukraine"
     },
     {
       "id": "argentina",
