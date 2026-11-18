@@ -1,36 +1,6 @@
 {
   "matches": [
     {
-      "team1": "Singapore",
-      "team2": "Brazil",
-      "team1_logo": "https://img.singhs.com.np/team/5825.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/5825.png",
-      "team2_logo": "https://img.singhs.com.np/team/8256.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8256.png",
-      "league": "Friendlies",
-      "league_id": 114,
-      "league_country": "INT",
-      "start": "2026-11-17T10:00Z",
-      "duration": 2.2,
-      "event_id": 6487085,
-      "slug": "singapore"
-    },
-    {
-      "team1": "Japan",
-      "team2": "Paraguay",
-      "team1_logo": "https://img.singhs.com.np/team/6715.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6715.png",
-      "team2_logo": "https://img.singhs.com.np/team/6724.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6724.png",
-      "league": "Friendlies",
-      "league_id": 114,
-      "league_country": "INT",
-      "start": "2026-11-17T13:10Z",
-      "duration": 2.2,
-      "event_id": 6539356,
-      "slug": "japan"
-    },
-    {
       "team1": "Wales",
       "team2": "Portugal",
       "team1_logo": "https://img.singhs.com.np/team/5790.png",
@@ -44,51 +14,6 @@
       "duration": 2.2,
       "event_id": 5181872,
       "slug": "wales"
-    },
-    {
-      "team1": "Denmark",
-      "team2": "Norway",
-      "team1_logo": "https://img.singhs.com.np/team/8238.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8238.png",
-      "team2_logo": "https://img.singhs.com.np/team/8492.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8492.png",
-      "league": "UEFA Nations League A Grp. 4",
-      "league_id": 9806,
-      "league_country": "INT",
-      "start": "2026-11-17T19:45Z",
-      "duration": 2.2,
-      "event_id": 5181871,
-      "slug": "denmark"
-    },
-    {
-      "team1": "Poland",
-      "team2": "Sweden",
-      "team1_logo": "https://img.singhs.com.np/team/8568.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8568.png",
-      "team2_logo": "https://img.singhs.com.np/team/8520.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8520.png",
-      "league": "UEFA Nations League B Grp. 4",
-      "league_id": 9807,
-      "league_country": "INT",
-      "start": "2026-11-17T19:45Z",
-      "duration": 2.2,
-      "event_id": 5181848,
-      "slug": "poland"
-    },
-    {
-      "team1": "Ukraine",
-      "team2": "Georgia",
-      "team1_logo": "https://img.singhs.com.np/team/6718.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6718.png",
-      "team2_logo": "https://img.singhs.com.np/team/8268.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8268.png",
-      "league": "UEFA Nations League B Grp. 2",
-      "league_id": 9807,
-      "league_country": "INT",
-      "start": "2026-11-17T19:45Z",
-      "duration": 2.2,
-      "event_id": 5181811,
-      "slug": "ukraine"
     },
     {
       "team1": "Argentina",
@@ -106,5 +31,5 @@
       "slug": "argentina"
     }
   ],
-  "updated_at": "2026-11-17T04:43:05.713Z"
+  "updated_at": "2026-11-18T05:29:59.292Z"
 }
