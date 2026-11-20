@@ -1737,7 +1737,7 @@
     "common": null,
     "link1": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nss"
+      "url": "https://yakotv.pages.dev/jjfc"
     },
     "link2": {
       "type": "hls",
@@ -1753,7 +1753,7 @@
     },
     "link5": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nss"
+      "url": "https://yakotv.pages.dev/jjfc"
     },
     "link6": {
       "type": "redirect",
@@ -1761,7 +1761,7 @@
     },
     "link7": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/nss"
+      "url": "https://yakotv.pages.dev/jjfc"
     }
   },
   "uae": {
