@@ -1734,37 +1734,34 @@
     }
   },
   "india": {
-    "common": {
+    "common": null,
+    "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/nss"
     },
-    "link1": {
-      "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/247-willow"
-    },
     "link2": {
-      "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/247-willow"
+      "type": "hls",
+      "url": "https://hugh.cdn.rumble.cloud/live/k1ub38pe/live-hls/5a4l-d5q3/chunklist_i1_DVR.m3u8"
     },
     "link3": {
-      "type": "iframe",
-      "url": "https://embedindia.st/embed/247-willow"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nss"
     },
     "link4": {
-      "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/247-willow"
+      "type": "hls",
+      "url": "https://hugh.cdn.rumble.cloud/live/k1ub38pe/live-hls/5a4l-d5q3/chunklist_i1_DVR.m3u8"
     },
     "link5": {
-      "type": "iframe",
-      "url": "https://embedindia.st/embed/247-willow"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nss"
     },
     "link6": {
-      "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/247-willow"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nss"
     },
     "link7": {
-      "type": "iframe",
-      "url": "https://embedindia.st/embed/247-willow"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/nss"
     }
   },
   "uae": {
