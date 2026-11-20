@@ -186,31 +186,31 @@
     "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/bundesliga/2026-10-31/bay-dor"
+      "url": "https://taifood-blog.asia/embed/bundesliga/2026-11-20/bay-koe"
     },
     "link2": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/bundesliga/2026-10-31/bay-dor"
+      "url": "https://taifood-blog.asia/embed/bundesliga/2026-11-20/bay-koe"
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/99121525_tsc.m3u8"
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/99121525_tsc.m3u8"
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/99121525_tsc.m3u8"
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
     },
     "link6": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/bundesliga/2026-10-31/bay-dor"
+      "url": "https://taifood-blog.asia/embed/bundesliga/2026-11-20/bay-koe"
     },
     "link7": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/bundesliga/2026-10-31/bay-dor"
+      "url": "https://taifood-blog.asia/embed/bundesliga/2026-11-20/bay-koe"
     }
   },
   "atlanta": {
@@ -806,7 +806,10 @@
     "link7": null
   },
   "fc": {
-    "common": null,
+    "common": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/18812304.m3u8"
+    },
     "link1": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-04/fcp-nap"
@@ -912,26 +915,35 @@
     "link7": null
   },
   "al": {
-    "common": {
+    "common": null,
+    "link1": {
+      "type": "redirect",
+      "url": "https://sportsoonline.click/channels/hd/hd8.php"
+    },
+    "link2": {
+      "type": "redirect",
+      "url": "https://sportsoonline.click/channels/hd/hd8.php"
+    },
+    "link3": {
       "type": "hls",
       "url": "https://live05.wecile.app/live/33982309.m3u8"
     },
-    "link1": null,
-    "link2": null,
-    "link3": {
-      "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
-    },
     "link4": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.yefpwmc.app/live/08552895_tsc.m3u8"
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
     },
-    "link6": null,
-    "link7": null
+    "link6": {
+      "type": "redirect",
+      "url": "https://sportsoonline.click/channels/hd/hd8.php"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://sportsoonline.click/channels/hd/hd8.php"
+    }
   },
   "benfica": {
     "common": null,
