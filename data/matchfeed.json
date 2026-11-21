@@ -115,7 +115,7 @@
         "code": "PAR"
       },
       "time": "26/11/21 22:00:00",
-      "status": "LIVE",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Ligue 1",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=nice"
@@ -135,7 +135,7 @@
         "code": "ARS"
       },
       "time": "26/11/21 23:15:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=newcastle"
@@ -155,7 +155,7 @@
         "code": "TOR"
       },
       "time": "26/11/22 01:30:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Serie A",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=napoli"
@@ -175,7 +175,7 @@
         "code": "CEL"
       },
       "time": "26/11/22 01:45:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "LaLiga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=real"
@@ -195,7 +195,7 @@
         "code": "COL"
       },
       "time": "26/11/22 04:45:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Major League Soccer Playoff",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=inter"
