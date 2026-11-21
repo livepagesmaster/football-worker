@@ -15,7 +15,7 @@
         "code": "FUL"
       },
       "time": "26/11/21 18:15:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=manchester"
@@ -35,7 +35,7 @@
         "code": "BOR"
       },
       "time": "26/11/21 20:15:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Bundesliga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=borussia"
@@ -55,7 +55,7 @@
         "code": "PAD"
       },
       "time": "26/11/21 20:15:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Bundesliga",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=bayer"
@@ -75,7 +75,7 @@
         "code": "IPS"
       },
       "time": "26/11/21 20:45:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=tottenham"
@@ -95,7 +95,7 @@
         "code": "LEE"
       },
       "time": "26/11/21 20:45:00",
-      "status": "Upcoming",
+      "status": "Ended",
       "endTime": 2.2,
       "type": "Premier League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=chelsea"
@@ -115,7 +115,7 @@
         "code": "PAR"
       },
       "time": "26/11/21 22:00:00",
-      "status": "Upcoming",
+      "status": "LIVE",
       "endTime": 2.2,
       "type": "Ligue 1",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=nice"
