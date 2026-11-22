@@ -1792,17 +1792,35 @@
     }
   },
   "uae": {
-    "common": {
+    "common": null,
+    "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/ddf"
     },
-    "link1": null,
-    "link2": null,
-    "link3": null,
-    "link4": null,
-    "link5": null,
-    "link6": null,
-    "link7": null
+    "link2": {
+      "type": "hls",
+      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2018457/criclive2211/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795369765~acl=/*~id=66135959852873016590239154379660~hmac=0aedb9ac3457175d10c8bef8868cf21c994db2e4df99f8eb3144e778cb04ff06"
+    },
+    "link3": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/ddf"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2018457/criclive2211/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795369765~acl=/*~id=66135959852873016590239154379660~hmac=0aedb9ac3457175d10c8bef8868cf21c994db2e4df99f8eb3144e778cb04ff06"
+    },
+    "link5": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/ddf"
+    },
+    "link6": {
+      "type": "hls",
+      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2018457/criclive2211/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795369765~acl=/*~id=66135959852873016590239154379660~hmac=0aedb9ac3457175d10c8bef8868cf21c994db2e4df99f8eb3144e778cb04ff06"
+    },
+    "link7": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/ddf"
+    }
   },
   "india-1088b": {
     "common": null,
