@@ -1781,32 +1781,32 @@
   "india": {
     "common": null,
     "link1": {
-      "type": "hls",
-      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2119921/cricodi_2011/HIN/std_lrh-800300010.m3u8?hdnea=exp=1795211773~acl=/*~id=76948268902062468843895461111021~hmac=d949091fecf4c22fd2ca351f4d9da867d84b54d858155007fa953d08dddf3b2f"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-willow"
     },
     "link2": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/jjfc"
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-willow"
     },
     "link3": {
-      "type": "hls",
-      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2119931/cricodi_2011/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795212383~acl=/*~id=60920279732789701494417664140758~hmac=1039f6999025efbd5a84133818a902a0abcc48e0d42b8e3f919e805e0d337e78"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-willow"
     },
     "link4": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/jjfc"
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-willow"
     },
     "link5": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/jjfc"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-willow"
     },
     "link6": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/jjfc"
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-willow"
     },
     "link7": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/jjfc"
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-willow"
     }
   },
   "uae": {
@@ -2803,6 +2803,37 @@
     "link7": {
       "type": "hls",
       "url": "https://sonyeventsglobal.akamaized.net/hls/live/2119931/cricodi_2211/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795381891~acl=/*~id=18716087647869343740419066739704~hmac=e8c0cbd005358f1a7896c53e1ffc902ab3e54133fc6344c072422c8360602242"
+    }
+  },
+  "australia": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-fox-cricket"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-fox-cricket"
+    },
+    "link3": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-fox-cricket"
+    },
+    "link4": {
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-fox-cricket"
+    },
+    "link5": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-fox-cricket"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://embedindia.st/embed/247-fox-cricket"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/247-fox-cricket"
     }
   }
 }
