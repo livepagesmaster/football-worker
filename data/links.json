@@ -255,37 +255,34 @@
     }
   },
   "pakistan": {
-    "common": {
+    "common": null,
+    "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/ddf"
     },
-    "link1": {
-      "type": "iframe",
-      "url": "https://embedindia.st/embed/247-willow-2"
-    },
     "link2": {
-      "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/247-willow-2"
+      "type": "hls",
+      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2120299/Criclive2411/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795556775~acl=/*~id=54510579337378137787007273084546~hmac=3172b584cdd715240eb0176695cd0193eb9bf31527dbbf1ce8695737f4e5b917"
     },
     "link3": {
-      "type": "iframe",
-      "url": "https://embedindia.st/embed/247-willow-2"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/ddf"
     },
     "link4": {
-      "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/247-willow-2"
+      "type": "hls",
+      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2120299/Criclive2411/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795556775~acl=/*~id=54510579337378137787007273084546~hmac=3172b584cdd715240eb0176695cd0193eb9bf31527dbbf1ce8695737f4e5b917"
     },
     "link5": {
-      "type": "iframe",
-      "url": "https://embedindia.st/embed/247-willow-2"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/ddf"
     },
     "link6": {
-      "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/247-willow-2"
+      "type": "hls",
+      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2120299/Criclive2411/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795556775~acl=/*~id=54510579337378137787007273084546~hmac=3172b584cdd715240eb0176695cd0193eb9bf31527dbbf1ce8695737f4e5b917"
     },
     "link7": {
-      "type": "iframe",
-      "url": "https://embedindia.st/embed/247-willow-2"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/ddf"
     }
   },
   "oman": {
