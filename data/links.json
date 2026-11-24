@@ -1785,31 +1785,31 @@
     "common": null,
     "link1": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/ddf"
+      "url": "https://yakotv.pages.dev/jjfc"
     },
     "link2": {
-      "type": "iframe",
-      "url": "https://embedindia.st/embed/247-willow"
+      "type": "hls",
+      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2119921/cricodi_2411/HIN/std_lrh-800300010.m3u8?hdnea=exp=1795542763~acl=/*~id=97278515014243774300347429330991~hmac=8285d77965c5f58d5a792becee26ae5c8395f4475c0c1f69b1183c14761ff2bf"
     },
     "link3": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/ddf"
+      "url": "https://yakotv.pages.dev/jjfc"
     },
     "link4": {
-      "type": "iframe",
-      "url": "https://embedindia.st/embed/247-willow"
+      "type": "hls",
+      "url": "https://sonyeventsglobal.akaamaized.net/hls/live/2119931/cricodi_2411/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795556775~acl=/*~id=54510579337378137787007273084546~hmac=3172b584cdd715240eb0176695cd0193eb9bf31527dbbf1ce8695737f4e5b917"
     },
     "link5": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/ddf"
+      "url": "https://yakotv.pages.dev/jjfc"
     },
     "link6": {
-      "type": "iframe",
-      "url": "https://embedindia.st/embed/247-willow"
+      "type": "hls",
+      "url": "https://sonyeventsglobal.akaamaized.net/hls/live/2119931/cricodi_2411/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795556775~acl=/*~id=54510579337378137787007273084546~hmac=3172b584cdd715240eb0176695cd0193eb9bf31527dbbf1ce8695737f4e5b917"
     },
     "link7": {
-      "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/247-willow"
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/jjfc"
     }
   },
   "uae": {
