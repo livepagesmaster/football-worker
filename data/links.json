@@ -909,17 +909,14 @@
     "link7": null
   },
   "al": {
-    "common": {
-      "type": "hls",
-      "url": "https://live05.wecile.app/live/75915087.m3u8"
-    },
+    "common": null,
     "link1": {
       "type": "redirect",
-      "url": "https://sportsoonline.click/channels/hd/hd8.php"
+      "url": "https://streamxhd.sbs/live1.php?stream=disney4"
     },
     "link2": {
       "type": "redirect",
-      "url": "https://sportsoonline.click/channels/hd/hd8.php"
+      "url": "https://streamxhd.sbs/live1.php?stream=disney4"
     },
     "link3": {
       "type": "hls",
@@ -935,11 +932,11 @@
     },
     "link6": {
       "type": "redirect",
-      "url": "https://sportsoonline.click/channels/hd/hd8.php"
+      "url": "https://streamxhd.sbs/live1.php?stream=disney4"
     },
     "link7": {
       "type": "redirect",
-      "url": "https://sportsoonline.click/channels/hd/hd8.php"
+      "url": "https://streamxhd.sbs/live1.php?stream=disney4"
     }
   },
   "benfica": {
