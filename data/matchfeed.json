@@ -139,6 +139,26 @@
       "endTime": 2.2,
       "type": "Champions League",
       "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=slovan"
+    },
+    {
+      "id": "al",
+      "team1": {
+        "name": "Al Nassr FC",
+        "img": "https://img.singhs.com.np/team/101918.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/101918.png",
+        "code": "AL "
+      },
+      "team2": {
+        "name": "Al-Sadd",
+        "img": "https://img.singhs.com.np/team/101895.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/101895.png",
+        "code": "AL-"
+      },
+      "time": "26/11/25 00:00:00",
+      "status": "Upcoming",
+      "endTime": 2.2,
+      "type": "AFC Champions League Elite West",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=al"
     }
   ]
 }
