@@ -115,15 +115,16 @@
 <script>
   // --- INTERNAL CONFIGURATION ---
   const APP_CONFIG = {
+    user: 'livepagesmaster',
     jsonRepo: 'football-worker',
-    jsonBranch: 'livepagesmaster',
-    jsonPath: 'data/blogs.json', // <--- Fixed: File is inside the data folder
+    jsonBranch: 'main', // <--- FIXED: Changed from livepagesmaster to main
+    jsonPath: 'data/blogs.json',
     htmlRepo: 'whats-eating-gilbert-grape',
     htmlBranch: 'main',
     htmlFolder: 'blogs'
   };
 
-  let config = { token: '', user: '' };
+  let config = { token: '' };
   let currentBlogs = [];
 
   // --- INITIALIZATION ---
@@ -146,7 +147,6 @@
 
   async function saveSetup() {
     const token = document.getElementById('setupToken').value.trim();
-
     if (!token) return showSetupError('Please enter your token.');
 
     const btn = document.getElementById('saveSetupBtn');
@@ -155,24 +155,20 @@
     document.getElementById('setupError').style.display = 'none';
 
     try {
-      // 1. Verify Token & Auto-detect Username
       const userRes = await fetch('https://api.github.com/user', {
         headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json' }
       });
-      if (!userRes.ok) throw new Error('Invalid token.');
-      const userData = await userRes.json();
-      const user = userData.login;
+      if (!userRes.ok) throw new Error(`Token Invalid (HTTP ${userRes.status})`);
 
-      // 2. Verify JSON File Access
-      const jsonUrl = `https://api.github.com/repos/${user}/${APP_CONFIG.jsonRepo}/contents/${APP_CONFIG.jsonPath}?ref=${APP_CONFIG.jsonBranch}`;
+      const jsonUrl = `https://api.github.com/repos/${APP_CONFIG.user}/${APP_CONFIG.jsonRepo}/contents/${APP_CONFIG.jsonPath}?ref=${APP_CONFIG.jsonBranch}`;
       const jsonRes = await fetch(jsonUrl, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json' } });
       
-      if (jsonRes.status === 404) {
-        throw new Error(`Could not find the JSON file. Ensure the token has access to the repo.`);
+      if (!jsonRes.ok) {
+        const errData = await jsonRes.json();
+        throw new Error(`API Error ${jsonRes.status}: ${errData.message}.`);
       }
-      if (!jsonRes.ok) throw new Error(`GitHub API Error: ${jsonRes.status}`);
 
-      config = { token, user };
+      config = { token };
       localStorage.setItem('gh_dashboard_config', JSON.stringify(config));
       
       document.getElementById('setupModal').classList.add('hidden');
@@ -194,45 +190,21 @@
     btn.textContent = 'Verify & Enter';
   }
 
-  // --- UTILS ---
-  function getHeaders() {
-    return {
-      'Authorization': `Bearer ${config.token}`,
-      'Accept': 'application/vnd.github.v3+json'
-    };
-  }
-
-  function setStatus(msg, isErr = false) {
-    const el = document.getElementById('status');
-    el.textContent = msg;
-    el.className = 'status ' + (isErr ? 'err' : 'ok');
-  }
-
+  function getHeaders() { return { 'Authorization': `Bearer ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }; }
+  function setStatus(msg, isErr = false) { const el = document.getElementById('status'); el.textContent = msg; el.className = 'status ' + (isErr ? 'err' : 'ok'); }
+  
   function autoFormatSlug() {
     const title = document.getElementById('blogTitle').value;
     const slugInput = document.getElementById('blogSlug');
-    if (!slugInput.dataset.edited) {
-      slugInput.value = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-    }
+    if (!slugInput.dataset.edited) slugInput.value = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   }
-  document.getElementById('blogSlug').addEventListener('input', function() {
-    this.dataset.edited = 'true';
-  });
+  document.getElementById('blogSlug').addEventListener('input', function() { this.dataset.edited = 'true'; });
 
-  function b64EncodeUnicode(str) {
-    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
-      return String.fromCharCode('0x' + p1);
-    }));
-  }
-  function b64DecodeUnicode(str) {
-    return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-  }
+  function b64EncodeUnicode(str) { return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) { return String.fromCharCode('0x' + p1); })); }
+  function b64DecodeUnicode(str) { return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) { return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2); }).join('')); }
 
-  // --- GITHUB API WRAPPERS ---
   async function getFile(repo, branch, path) {
-    const url = `https://api.github.com/repos/${config.user}/${repo}/contents/${path}?ref=${branch}`;
+    const url = `https://api.github.com/repos/${APP_CONFIG.user}/${repo}/contents/${path}?ref=${branch}`;
     const res = await fetch(url, { headers: getHeaders() });
     if (res.status === 404) return null;
     if (!res.ok) throw new Error(`Failed to fetch file. HTTP ${res.status}`);
@@ -243,51 +215,28 @@
     let sha;
     const existing = await getFile(repo, branch, path);
     if (existing) sha = existing.sha;
-
-    const url = `https://api.github.com/repos/${config.user}/${repo}/contents/${path}`;
+    const url = `https://api.github.com/repos/${APP_CONFIG.user}/${repo}/contents/${path}`;
     const body = { message: message, content: b64EncodeUnicode(content), branch: branch };
     if (sha) body.sha = sha;
-
-    const res = await fetch(url, {
-      method: 'PUT',
-      headers: getHeaders(),
-      body: JSON.stringify(body)
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.message || `Failed to write file. HTTP ${res.status}`);
-    }
+    const res = await fetch(url, { method: 'PUT', headers: getHeaders(), body: JSON.stringify(body) });
+    if (!res.ok) { const err = await res.json(); throw new Error(err.message || `Failed to write file. HTTP ${res.status}`); }
     return await res.json();
   }
 
   async function deleteFile(repo, branch, path, message) {
     const existing = await getFile(repo, branch, path);
     if (!existing) return;
-
-    const url = `https://api.github.com/repos/${config.user}/${repo}/contents/${path}`;
-    const res = await fetch(url, {
-      method: 'DELETE',
-      headers: getHeaders(),
-      body: JSON.stringify({ message, sha: existing.sha, branch })
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.message || `Failed to delete file. HTTP ${res.status}`);
-    }
+    const url = `https://api.github.com/repos/${APP_CONFIG.user}/${repo}/contents/${path}`;
+    const res = await fetch(url, { method: 'DELETE', headers: getHeaders(), body: JSON.stringify({ message, sha: existing.sha, branch }) });
+    if (!res.ok) { const err = await res.json(); throw new Error(err.message || `Failed to delete file. HTTP ${res.status}`); }
   }
 
-  // --- CORE LOGIC ---
   async function loadBlogs() {
     try {
       setStatus('Loading blogs…');
       document.getElementById('blogList').innerHTML = '<p style="color:var(--text-muted); font-size:0.9rem;">Loading…</p>';
-
       const file = await getFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath);
-      
-      if (!file) {
-        throw new Error(`Could not find the JSON file.`);
-      }
-      
+      if (!file) throw new Error(`Could not find the JSON file.`);
       const data = JSON.parse(b64DecodeUnicode(file.content));
       currentBlogs = data.all || [];
       renderList();
@@ -301,164 +250,76 @@
 
   function renderList() {
     const container = document.getElementById('blogList');
-    if (!currentBlogs.length) {
-      container.innerHTML = '<p style="color:var(--text-muted); font-size:0.9rem;">No blogs yet.</p>';
-      return;
-    }
+    if (!currentBlogs.length) { container.innerHTML = '<p style="color:var(--text-muted); font-size:0.9rem;">No blogs yet.</p>'; return; }
     container.innerHTML = currentBlogs.map((b, i) => `
       <div class="blog-item">
-        <div>
-          <h3>${b.title}</h3>
-          <p>/${b.slug}</p>
-        </div>
+        <div><h3>${b.title}</h3><p>/${b.slug}</p></div>
         <div class="blog-actions">
           <button class="btn btn-outline" onclick="editBlog(${i})" style="padding:0.4rem 0.8rem; font-size:0.8rem;">Edit</button>
           <button class="btn btn-danger" onclick="deleteBlog(${i})" style="padding:0.4rem 0.8rem; font-size:0.8rem;">Delete</button>
         </div>
-      </div>
-    `).join('');
+      </div>`).join('');
   }
 
   function clearForm() {
-    document.getElementById('blogTitle').value = '';
-    document.getElementById('blogSlug').value = '';
-    document.getElementById('blogSlug').removeAttribute('data-edited');
-    document.getElementById('blogSnippet').value = '';
-    document.getElementById('blogContent').value = '';
-    document.getElementById('publishBtn').textContent = 'Publish Blog';
-    document.getElementById('publishBtn').dataset.editIndex = '';
+    document.getElementById('blogTitle').value = ''; document.getElementById('blogSlug').value = ''; document.getElementById('blogSlug').removeAttribute('data-edited');
+    document.getElementById('blogSnippet').value = ''; document.getElementById('blogContent').value = '';
+    document.getElementById('publishBtn').textContent = 'Publish Blog'; document.getElementById('publishBtn').dataset.editIndex = '';
   }
 
   function editBlog(index) {
     const b = currentBlogs[index];
-    document.getElementById('blogTitle').value = b.title;
-    document.getElementById('blogSlug').value = b.slug;
-    document.getElementById('blogSlug').dataset.edited = 'true';
-    document.getElementById('blogSnippet').value = b.snippet;
-    document.getElementById('blogContent').value = b._content || '<p>Edit content here...</p>'; 
-    
-    document.getElementById('publishBtn').textContent = 'Update Blog';
-    document.getElementById('publishBtn').dataset.editIndex = index;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('blogTitle').value = b.title; document.getElementById('blogSlug').value = b.slug; document.getElementById('blogSlug').dataset.edited = 'true';
+    document.getElementById('blogSnippet').value = b.snippet; document.getElementById('blogContent').value = b._content || '<p>Edit content here...</p>';
+    document.getElementById('publishBtn').textContent = 'Update Blog'; document.getElementById('publishBtn').dataset.editIndex = index; window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   async function publishBlog() {
-    const title = document.getElementById('blogTitle').value.trim();
-    const slug = document.getElementById('blogSlug').value.trim();
-    const snippet = document.getElementById('blogSnippet').value.trim();
-    const content = document.getElementById('blogContent').value.trim();
-    const btn = document.getElementById('publishBtn');
-    const editIndex = btn.dataset.editIndex;
-
+    const title = document.getElementById('blogTitle').value.trim(); const slug = document.getElementById('blogSlug').value.trim();
+    const snippet = document.getElementById('blogSnippet').value.trim(); const content = document.getElementById('blogContent').value.trim();
+    const btn = document.getElementById('publishBtn'); const editIndex = btn.dataset.editIndex;
     if (!title || !slug || !snippet) return alert('Title, slug, and snippet are required.');
 
-    btn.disabled = true;
-    btn.textContent = 'Publishing…';
-    setStatus('Publishing…');
+    btn.disabled = true; btn.textContent = 'Publishing…'; setStatus('Publishing…');
 
     try {
       const htmlContent = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title} — Yashintv</title>
-  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' rel='stylesheet'/>
-  <style>
-    body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1f2937; max-width: 800px; margin: 0 auto; padding: 2rem; background: #f4f6f9; }
-    .content-box { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    h1 { font-size: 2rem; margin-bottom: 1rem; color: #111827; }
-    .meta { color: #6b7280; font-size: 0.9rem; margin-bottom: 2rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 1rem; }
-    p { margin-bottom: 1rem; }
-    a { color: #4338ca; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back-link { display: inline-block; margin-bottom: 1rem; font-weight: 600; }
-  </style>
-</head>
-<body>
-  <a href="../" class="back-link">← Back to Home</a>
-  <div class="content-box">
-    <h1>${title}</h1>
-    <div class="meta">Published on ${new Date().toISOString().split('T')[0]} · By Admin</div>
-    <div class="post-content">
-      ${content}
-    </div>
-  </div>
-</body>
-</html>`;
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${title} — Yashintv</title><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' rel='stylesheet'/><style>body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1f2937; max-width: 800px; margin: 0 auto; padding: 2rem; background: #f4f6f9; }.content-box { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }h1 { font-size: 2rem; margin-bottom: 1rem; color: #111827; }.meta { color: #6b7280; font-size: 0.9rem; margin-bottom: 2rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 1rem; }p { margin-bottom: 1rem; }a { color: #4338ca; text-decoration: none; }a:hover { text-decoration: underline; }.back-link { display: inline-block; margin-bottom: 1rem; font-weight: 600; }</style></head><body><a href="../" class="back-link">← Back to Home</a><div class="content-box"><h1>${title}</h1><div class="meta">Published on ${new Date().toISOString().split('T')[0]} · By Admin</div><div class="post-content">${content}</div></div></body></html>`;
 
       let updatedBlogs = [...currentBlogs];
-      const blogEntry = {
-        slug: slug,
-        title: title,
-        snippet: snippet,
-        date: new Date().toISOString().split('T')[0],
-        file: `${slug}.html`
-      };
+      const blogEntry = { slug: slug, title: title, snippet: snippet, date: new Date().toISOString().split('T')[0], file: `${slug}.html` };
 
-      if (editIndex !== '') {
-        blogEntry.date = currentBlogs[editIndex].date || blogEntry.date;
-        updatedBlogs[editIndex] = blogEntry;
-      } else {
-        updatedBlogs.unshift(blogEntry);
-      }
+      if (editIndex !== '') { blogEntry.date = currentBlogs[editIndex].date || blogEntry.date; updatedBlogs[editIndex] = blogEntry; } 
+      else { updatedBlogs.unshift(blogEntry); }
 
       updatedBlogs.sort((a, b) => new Date(b.date) - new Date(a.date));
       const latest = updatedBlogs.slice(0, 5);
-
-      const jsonPayload = {
-        updated_at: new Date().toISOString(),
-        count: updatedBlogs.length,
-        latest: latest,
-        all: updatedBlogs
-      };
+      const jsonPayload = { updated_at: new Date().toISOString(), count: updatedBlogs.length, latest: latest, all: updatedBlogs };
 
       const htmlPath = APP_CONFIG.htmlFolder ? `${APP_CONFIG.htmlFolder}/${slug}.html` : `${slug}.html`;
       await putFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, htmlPath, htmlContent, `Add blog: ${title}`);
-      
       await putFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath, JSON.stringify(jsonPayload, null, 2), `Update feed: ${title}`);
 
-      setStatus('Success! Changes deployed.');
-      clearForm();
-      loadBlogs();
-
-    } catch (err) {
-      console.error(err);
-      setStatus('Failed: ' + err.message, true);
-    } finally {
-      btn.disabled = false;
-      btn.textContent = editIndex !== '' ? 'Update Blog' : 'Publish Blog';
-    }
+      setStatus('Success! Changes deployed.'); clearForm(); loadBlogs();
+    } catch (err) { console.error(err); setStatus('Failed: ' + err.message, true); } 
+    finally { btn.disabled = false; btn.textContent = editIndex !== '' ? 'Update Blog' : 'Publish Blog'; }
   }
 
   async function deleteBlog(index) {
     if (!confirm(`Are you sure you want to delete "${currentBlogs[index].title}"?`)) return;
-
     setStatus('Deleting…');
     try {
       const b = currentBlogs[index];
-      
       const htmlPath = APP_CONFIG.htmlFolder ? `${APP_CONFIG.htmlFolder}/${b.file}` : b.file;
       await deleteFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, htmlPath, `Delete blog: ${b.title}`);
 
       let updatedBlogs = currentBlogs.filter((_, i) => i !== index);
       const latest = updatedBlogs.slice(0, 5);
-      const jsonPayload = {
-        updated_at: new Date().toISOString(),
-        count: updatedBlogs.length,
-        latest: latest,
-        all: updatedBlogs
-      };
+      const jsonPayload = { updated_at: new Date().toISOString(), count: updatedBlogs.length, latest: latest, all: updatedBlogs };
 
       await putFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath, JSON.stringify(jsonPayload, null, 2), `Remove blog: ${b.title}`);
-
-      setStatus('Deleted successfully.');
-      loadBlogs();
-    } catch (err) {
-      console.error(err);
-      setStatus('Delete failed: ' + err.message, true);
-    }
+      setStatus('Deleted successfully.'); loadBlogs();
+    } catch (err) { console.error(err); setStatus('Delete failed: ' + err.message, true); }
   }
 </script>
 </body>
