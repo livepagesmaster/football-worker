@@ -16,7 +16,7 @@
   
   .header { display: flex; justify-content: space-between; align-items: center; }
   h1 { font-size: 1.5rem; }
-  .status { font-size: 0.85rem; padding: 4px 10px; border-radius: 20px; background: #e5e7eb; }
+  .status { font-size: 0.85rem; padding: 4px 10px; border-radius: 20px; background: #e5e7eb; font-weight: 600; }
   .status.ok { background: #d1fae5; color: #065f46; }
   .status.err { background: #fee2e2; color: #991b1b; }
 
@@ -44,9 +44,10 @@
   /* Modal & Loading */
   .token-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 100; }
   .token-modal.hidden { display: none; }
-  .modal-content { background: var(--surface); padding: 2rem; border-radius: var(--radius); max-width: 400px; width: 90%; }
+  .modal-content { background: var(--surface); padding: 2rem; border-radius: var(--radius); max-width: 450px; width: 90%; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
   
   #dashboardContent { display: none; }
+  .error-msg { color: var(--danger); font-size: 0.9rem; margin-top: 1rem; }
 </style>
 </head>
 <body>
@@ -58,6 +59,7 @@
     <p style="font-size:0.85rem; margin-bottom:1rem; color:var(--text-muted);">Paste your fine-grained PAT. It must have <b>Contents: Read & Write</b> for both <code>football-worker</code> and <code>whats-eating-gilbert-grape</code>.</p>
     <input type="password" id="tokenInput" placeholder="github_pat_..." style="margin-bottom:1rem;">
     <button class="btn btn-primary" id="saveTokenBtn" onclick="saveToken()" style="width:100%;">Verify & Save Token</button>
+    <div id="tokenError" class="error-msg" style="display:none;"></div>
   </div>
 </div>
 
@@ -114,10 +116,10 @@
 
   let token = localStorage.getItem('gh_token');
   let currentBlogs = [];
+  let ghUser = null;
 
   // --- INIT ---
   document.addEventListener('DOMContentLoaded', () => {
-    // If we have a token saved, show dashboard immediately (it will verify on load)
     if (token) {
       document.getElementById('tokenModal').classList.add('hidden');
       document.getElementById('dashboardContent').style.display = 'grid';
@@ -127,19 +129,22 @@
 
   async function saveToken() {
     const val = document.getElementById('tokenInput').value.trim();
-    if (!val) return alert('Token cannot be empty.');
+    if (!val) return;
     
     const btn = document.getElementById('saveTokenBtn');
+    const errDiv = document.getElementById('tokenError');
     btn.disabled = true;
     btn.textContent = 'Verifying…';
+    errDiv.style.display = 'none';
 
     try {
-      // Verify token works
       const res = await fetch('https://api.github.com/user', {
         headers: { 'Authorization': `Bearer ${val}`, 'Accept': 'application/vnd.github.v3+json' }
       });
       if (!res.ok) throw new Error('Invalid token');
-
+      const data = await res.json();
+      ghUser = data.login;
+      
       token = val;
       localStorage.setItem('gh_token', token);
       
@@ -147,7 +152,8 @@
       document.getElementById('dashboardContent').style.display = 'grid';
       loadBlogs();
     } catch (err) {
-      alert('Invalid token or missing permissions. Please check and try again.');
+      errDiv.textContent = 'Invalid token or missing permissions. Please check and try again.';
+      errDiv.style.display = 'block';
       btn.disabled = false;
       btn.textContent = 'Verify & Save Token';
     }
@@ -191,10 +197,10 @@
 
   // --- GITHUB API WRAPPERS ---
   async function getFile(repo, branch, path) {
-    const url = `https://api.github.com/repos/${getUser()}/${repo}/contents/${path}?ref=${branch}`;
+    const url = `https://api.github.com/repos/${ghUser}/${repo}/contents/${path}?ref=${branch}`;
     const res = await fetch(url, { headers: getHeaders() });
     if (res.status === 404) return null;
-    if (!res.ok) throw new Error(`Failed to fetch ${path}: ${res.status}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
     return await res.json();
   }
 
@@ -203,12 +209,8 @@
     const existing = await getFile(repo, branch, path);
     if (existing) sha = existing.sha;
 
-    const url = `https://api.github.com/repos/${getUser()}/${repo}/contents/${path}`;
-    const body = {
-      message: message,
-      content: b64EncodeUnicode(content),
-      branch: branch
-    };
+    const url = `https://api.github.com/repos/${ghUser}/${repo}/contents/${path}`;
+    const body = { message: message, content: b64EncodeUnicode(content), branch: branch };
     if (sha) body.sha = sha;
 
     const res = await fetch(url, {
@@ -216,7 +218,10 @@
       headers: getHeaders(),
       body: JSON.stringify(body)
     });
-    if (!res.ok) throw new Error(`Failed to write ${path}: ${res.status}`);
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.message || `HTTP ${res.status}`);
+    }
     return await res.json();
   }
 
@@ -224,30 +229,36 @@
     const existing = await getFile(repo, branch, path);
     if (!existing) return;
 
-    const url = `https://api.github.com/repos/${getUser()}/${repo}/contents/${path}`;
+    const url = `https://api.github.com/repos/${ghUser}/${repo}/contents/${path}`;
     const res = await fetch(url, {
       method: 'DELETE',
       headers: getHeaders(),
       body: JSON.stringify({ message, sha: existing.sha, branch })
     });
-    if (!res.ok) throw new Error(`Failed to delete ${path}: ${res.status}`);
-  }
-
-  async function getUser() {
-    if (window._ghUser) return window._ghUser;
-    const res = await fetch('https://api.github.com/user', { headers: getHeaders() });
-    if (!res.ok) throw new Error('Invalid token');
-    const data = await res.json();
-    window._ghUser = data.login;
-    return data.login;
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.message || `HTTP ${res.status}`);
+    }
   }
 
   // --- CORE LOGIC ---
   async function loadBlogs() {
     try {
       setStatus('Loading blogs…');
+      document.getElementById('blogList').innerHTML = '<p style="color:var(--text-muted); font-size:0.9rem;">Loading…</p>';
+
+      if (!ghUser) {
+        const userRes = await fetch('https://api.github.com/user', { headers: getHeaders() });
+        if (!userRes.ok) throw new Error('Invalid token');
+        const userData = await userRes.json();
+        ghUser = userData.login;
+      }
+
       const file = await getFile(REPO_WORKER, BRANCH_WORKER, PATH_JSON);
-      if (!file) throw new Error('blogs.json not found');
+      
+      if (!file) {
+        throw new Error(`Could not find ${PATH_JSON} on branch ${BRANCH_WORKER} in ${REPO_WORKER}.`);
+      }
       
       const data = JSON.parse(b64DecodeUnicode(file.content));
       currentBlogs = data.all || [];
@@ -255,13 +266,8 @@
       setStatus('Connected');
     } catch (err) {
       console.error(err);
-      setStatus(err.message, true);
-      if (err.message.includes('Invalid token') || err.message.includes('401')) {
-        localStorage.removeItem('gh_token');
-        token = null;
-        document.getElementById('dashboardContent').style.display = 'none';
-        document.getElementById('tokenModal').classList.remove('hidden');
-      }
+      setStatus('Error', true);
+      document.getElementById('blogList').innerHTML = `<p class="error-msg">${err.message}</p>`;
     }
   }
 
