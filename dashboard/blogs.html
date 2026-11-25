@@ -256,13 +256,29 @@
     document.getElementById('publishBtn').dataset.editIndex = '';
   }
 
-  function editBlog(index) {
+  async function editBlog(index) {
     const b = currentBlogs[index];
     document.getElementById('blogTitle').value = b.title;
-    document.getElementById('blogContent').value = b._content || '<p>Edit content here...</p>';
+    document.getElementById('blogContent').value = 'Loading content...'; 
+    
     document.getElementById('publishBtn').textContent = 'Update Blog';
     document.getElementById('publishBtn').dataset.editIndex = index;
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Fetch the actual HTML file to get the content
+    try {
+      const file = await getFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, `${APP_CONFIG.htmlFolder}/${b.file}`);
+      if (file) {
+        const html = b64DecodeUnicode(file.content);
+        // Extract everything inside <div class="post-content"> ... </div>
+        const match = html.match(/<div class="post-content">([\s\S]*?)<\/div>\s*<\/div>\s*<\/body>/);
+        document.getElementById('blogContent').value = match ? match[1].trim() : '<p>Could not parse content.</p>';
+      } else {
+        document.getElementById('blogContent').value = '<p>File not found.</p>';
+      }
+    } catch (e) {
+      document.getElementById('blogContent').value = '<p>Error loading content.</p>';
+    }
   }
 
   async function publishBlog() {
@@ -285,7 +301,7 @@
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = content;
       let plainText = tempDiv.textContent || tempDiv.innerText || "";
-      plainText = plainText.replace(/\s+/g, ' ').trim(); // clean up newlines
+      plainText = plainText.replace(/\s+/g, ' ').trim();
       const snippet = plainText.length > 160 ? plainText.substring(0, 157) + '...' : plainText;
 
       // 3. Build HTML page
@@ -325,16 +341,19 @@
       const blogEntry = {
         slug: slug,
         title: title,
-        snippet: snippet, // Auto-generated
+        snippet: snippet,
         date: new Date().toISOString().split('T')[0],
         file: `${slug}.html`
       };
 
       if (editIndex !== '') {
-        blogEntry.date = currentBlogs[editIndex].date || blogEntry.date;
+        // Safe check for date existence
+        const oldBlog = currentBlogs[editIndex];
+        blogEntry.date = (oldBlog && oldBlog.date) ? oldBlog.date : blogEntry.date;
+        
         // If the slug changed, delete the old file
-        if (currentBlogs[editIndex].slug !== slug) {
-           await deleteFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, `${APP_CONFIG.htmlFolder}/${currentBlogs[editIndex].file}`, `Remove old file: ${currentBlogs[editIndex].title}`);
+        if (oldBlog && oldBlog.slug !== slug) {
+           await deleteFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, `${APP_CONFIG.htmlFolder}/${oldBlog.file}`, `Remove old file: ${oldBlog.title}`);
         }
         updatedBlogs[editIndex] = blogEntry;
       } else {
