@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog Dashboard | Yashintv</title>
+<title>Blog Dashboard</title>
 <style>
   :root {
     --bg: #f4f6f9; --surface: #ffffff; --text: #1f2937; --text-muted: #6b7280;
@@ -41,25 +41,67 @@
   .blog-item p { font-size: 0.8rem; color: var(--text-muted); }
   .blog-actions { display: flex; gap: 0.5rem; }
 
-  /* Modal & Loading */
-  .token-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 100; }
-  .token-modal.hidden { display: none; }
-  .modal-content { background: var(--surface); padding: 2rem; border-radius: var(--radius); max-width: 450px; width: 90%; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+  /* Setup Modal */
+  .setup-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 100; }
+  .setup-modal.hidden { display: none; }
+  .modal-content { background: var(--surface); padding: 2rem; border-radius: var(--radius); max-width: 500px; width: 90%; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-height: 90vh; overflow-y: auto; }
   
   #dashboardContent { display: none; }
   .error-msg { color: var(--danger); font-size: 0.9rem; margin-top: 1rem; }
+  
+  /* Settings Grid */
+  .settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 </style>
 </head>
 <body>
 
-<!-- Token Modal -->
-<div class="token-modal" id="tokenModal">
+<!-- Setup Modal -->
+<div class="setup-modal" id="setupModal">
   <div class="modal-content">
-    <h2 style="margin-bottom:1rem;">GitHub Token Required</h2>
-    <p style="font-size:0.85rem; margin-bottom:1rem; color:var(--text-muted);">Paste your fine-grained PAT. It must have <b>Contents: Read & Write</b> for both <code>football-worker</code> and <code>whats-eating-gilbert-grape</code>.</p>
-    <input type="password" id="tokenInput" placeholder="github_pat_..." style="margin-bottom:1rem;">
-    <button class="btn btn-primary" id="saveTokenBtn" onclick="saveToken()" style="width:100%;">Verify & Save Token</button>
-    <div id="tokenError" class="error-msg" style="display:none;"></div>
+    <h2 style="margin-bottom:1rem;">Dashboard Setup</h2>
+    <p style="font-size:0.85rem; margin-bottom:1rem; color:var(--text-muted);">Enter your details below. These are saved only in your browser's local storage and are never sent anywhere except directly to the GitHub API.</p>
+    
+    <div class="form-group">
+      <label>GitHub Token (PAT with Contents: Read & Write)</label>
+      <input type="password" id="setupToken" placeholder="github_pat_...">
+    </div>
+    
+    <div class="form-group">
+      <label>GitHub Username</label>
+      <input type="text" id="setupUser" placeholder="e.g., octocat">
+    </div>
+    
+    <div class="settings-grid">
+      <div class="form-group">
+        <label>JSON Repo Name</label>
+        <input type="text" id="setupJsonRepo" placeholder="e.g., my-data-repo">
+      </div>
+      <div class="form-group">
+        <label>JSON Branch</label>
+        <input type="text" id="setupJsonBranch" placeholder="e.g., main">
+      </div>
+      <div class="form-group">
+        <label>HTML Repo Name</label>
+        <input type="text" id="setupHtmlRepo" placeholder="e.g., my-website-repo">
+      </div>
+      <div class="form-group">
+        <label>HTML Branch</label>
+        <input type="text" id="setupHtmlBranch" placeholder="e.g., main">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>JSON File Path</label>
+      <input type="text" id="setupJsonPath" placeholder="e.g., blogs.json">
+    </div>
+    
+    <div class="form-group">
+      <label>HTML Folder Path</label>
+      <input type="text" id="setupHtmlFolder" placeholder="e.g., blogs">
+    </div>
+
+    <button class="btn btn-primary" id="saveSetupBtn" onclick="saveSetup()" style="width:100%; margin-top:1rem;">Verify & Save Setup</button>
+    <div id="setupError" class="error-msg" style="display:none;"></div>
   </div>
 </div>
 
@@ -67,7 +109,10 @@
 <div class="container" id="dashboardContent">
   <div class="header">
     <h1>Blog Dashboard</h1>
-    <div id="status" class="status">Connecting…</div>
+    <div style="display:flex; gap:1rem; align-items:center;">
+      <div id="status" class="status">Connecting…</div>
+      <button class="btn btn-outline" onclick="openSetup()" style="padding:0.4rem 0.8rem; font-size:0.8rem;">Settings</button>
+    </div>
   </div>
 
   <!-- Editor -->
@@ -75,15 +120,15 @@
     <h2>Create / Edit Blog</h2>
     <div class="form-group">
       <label>Title</label>
-      <input type="text" id="blogTitle" placeholder="e.g., Mohamed Salah: The Journey">
+      <input type="text" id="blogTitle" placeholder="Blog Title">
     </div>
     <div class="form-group">
       <label>Slug (URL-friendly, no spaces, lowercase)</label>
-      <input type="text" id="blogSlug" placeholder="e.g., salah-journey" oninput="autoFormatSlug()">
+      <input type="text" id="blogSlug" placeholder="blog-slug" oninput="autoFormatSlug()">
     </div>
     <div class="form-group">
       <label>Snippet (Short teaser for the homepage)</label>
-      <textarea id="blogSnippet" rows="2" placeholder="Mohamed Salah has become one of the biggest names..."></textarea>
+      <textarea id="blogSnippet" rows="2" placeholder="Short teaser..."></textarea>
     </div>
     <div class="form-group">
       <label>Content (HTML allowed)</label>
@@ -105,63 +150,101 @@
 </div>
 
 <script>
-  // --- CONFIG ---
-  const REPO_WORKER = 'football-worker';
-  const BRANCH_WORKER = 'livepagesmaster';
-  const PATH_JSON = 'data/blogs.json';
-  
-  const REPO_MAIN = 'whats-eating-gilbert-grape';
-  const BRANCH_MAIN = 'main';
-  const PATH_BLOGS_FOLDER = 'blogs';
-
-  let token = localStorage.getItem('gh_token');
+  // --- CONFIGURATION (Loaded from LocalStorage) ---
+  let config = {
+    token: '', user: '', jsonRepo: '', jsonBranch: '', jsonPath: '',
+    htmlRepo: '', htmlBranch: '', htmlFolder: ''
+  };
   let currentBlogs = [];
-  let ghUser = null;
 
-  // --- INIT ---
+  // --- INITIALIZATION ---
   document.addEventListener('DOMContentLoaded', () => {
-    if (token) {
-      document.getElementById('tokenModal').classList.add('hidden');
+    const savedConfig = localStorage.getItem('gh_dashboard_config');
+    if (savedConfig) {
+      config = JSON.parse(savedConfig);
+      document.getElementById('setupModal').classList.add('hidden');
       document.getElementById('dashboardContent').style.display = 'grid';
       loadBlogs();
+    } else {
+      openSetup();
     }
   });
 
-  async function saveToken() {
-    const val = document.getElementById('tokenInput').value.trim();
-    if (!val) return;
-    
-    const btn = document.getElementById('saveTokenBtn');
-    const errDiv = document.getElementById('tokenError');
+  function openSetup() {
+    document.getElementById('setupModal').classList.remove('hidden');
+    document.getElementById('setupToken').value = config.token || '';
+    document.getElementById('setupUser').value = config.user || '';
+    document.getElementById('setupJsonRepo').value = config.jsonRepo || '';
+    document.getElementById('setupJsonBranch').value = config.jsonBranch || '';
+    document.getElementById('setupJsonPath').value = config.jsonPath || '';
+    document.getElementById('setupHtmlRepo').value = config.htmlRepo || '';
+    document.getElementById('setupHtmlBranch').value = config.htmlBranch || '';
+    document.getElementById('setupHtmlFolder').value = config.htmlFolder || '';
+  }
+
+  async function saveSetup() {
+    const newConfig = {
+      token: document.getElementById('setupToken').value.trim(),
+      user: document.getElementById('setupUser').value.trim(),
+      jsonRepo: document.getElementById('setupJsonRepo').value.trim(),
+      jsonBranch: document.getElementById('setupJsonBranch').value.trim(),
+      jsonPath: document.getElementById('setupJsonPath').value.trim(),
+      htmlRepo: document.getElementById('setupHtmlRepo').value.trim(),
+      htmlBranch: document.getElementById('setupHtmlBranch').value.trim(),
+      htmlFolder: document.getElementById('setupHtmlFolder').value.trim().replace(/^\/+|\/+$/g, '') // Remove leading/trailing slashes
+    };
+
+    if (!newConfig.token || !newConfig.user || !newConfig.jsonRepo || !newConfig.jsonBranch || !newConfig.jsonPath) {
+      return showSetupError('Please fill in all required fields.');
+    }
+
+    const btn = document.getElementById('saveSetupBtn');
     btn.disabled = true;
     btn.textContent = 'Verifying…';
-    errDiv.style.display = 'none';
+    document.getElementById('setupError').style.display = 'none';
 
     try {
-      const res = await fetch('https://api.github.com/user', {
-        headers: { 'Authorization': `Bearer ${val}`, 'Accept': 'application/vnd.github.v3+json' }
+      // Test Token
+      const userRes = await fetch('https://api.github.com/user', {
+        headers: { 'Authorization': `Bearer ${newConfig.token}`, 'Accept': 'application/vnd.github.v3+json' }
       });
-      if (!res.ok) throw new Error('Invalid token');
-      const data = await res.json();
-      ghUser = data.login;
+      if (!userRes.ok) throw new Error('Invalid token or insufficient permissions.');
       
-      token = val;
-      localStorage.setItem('gh_token', token);
+      // Test JSON File
+      const jsonUrl = `https://api.github.com/repos/${newConfig.user}/${newConfig.jsonRepo}/contents/${newConfig.jsonPath}?ref=${newConfig.jsonBranch}`;
+      const jsonRes = await fetch(jsonUrl, { headers: { 'Authorization': `Bearer ${newConfig.token}`, 'Accept': 'application/vnd.github.v3+json' } });
       
-      document.getElementById('tokenModal').classList.add('hidden');
+      if (jsonRes.status === 404) {
+        throw new Error(`Could not find JSON file at ${newConfig.jsonPath} on branch ${newConfig.jsonBranch} in ${newConfig.jsonRepo}. Check your paths and branch names.`);
+      }
+      if (!jsonRes.ok) throw new Error(`GitHub API Error: ${jsonRes.status}`);
+
+      config = newConfig;
+      localStorage.setItem('gh_dashboard_config', JSON.stringify(config));
+      
+      document.getElementById('setupModal').classList.add('hidden');
       document.getElementById('dashboardContent').style.display = 'grid';
       loadBlogs();
     } catch (err) {
-      errDiv.textContent = 'Invalid token or missing permissions. Please check and try again.';
-      errDiv.style.display = 'block';
+      showSetupError(err.message);
       btn.disabled = false;
-      btn.textContent = 'Verify & Save Token';
+      btn.textContent = 'Verify & Save Setup';
     }
   }
 
+  function showSetupError(msg) {
+    const errDiv = document.getElementById('setupError');
+    errDiv.textContent = msg;
+    errDiv.style.display = 'block';
+    const btn = document.getElementById('saveSetupBtn');
+    btn.disabled = false;
+    btn.textContent = 'Verify & Save Setup';
+  }
+
+  // --- UTILS ---
   function getHeaders() {
     return {
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${config.token}`,
       'Accept': 'application/vnd.github.v3+json'
     };
   }
@@ -183,7 +266,6 @@
     this.dataset.edited = 'true';
   });
 
-  // --- B64 HELPERS ---
   function b64EncodeUnicode(str) {
     return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
       return String.fromCharCode('0x' + p1);
@@ -197,10 +279,10 @@
 
   // --- GITHUB API WRAPPERS ---
   async function getFile(repo, branch, path) {
-    const url = `https://api.github.com/repos/${ghUser}/${repo}/contents/${path}?ref=${branch}`;
+    const url = `https://api.github.com/repos/${config.user}/${repo}/contents/${path}?ref=${branch}`;
     const res = await fetch(url, { headers: getHeaders() });
     if (res.status === 404) return null;
-    if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+    if (!res.ok) throw new Error(`Failed to fetch file. HTTP ${res.status}`);
     return await res.json();
   }
 
@@ -209,7 +291,7 @@
     const existing = await getFile(repo, branch, path);
     if (existing) sha = existing.sha;
 
-    const url = `https://api.github.com/repos/${ghUser}/${repo}/contents/${path}`;
+    const url = `https://api.github.com/repos/${config.user}/${repo}/contents/${path}`;
     const body = { message: message, content: b64EncodeUnicode(content), branch: branch };
     if (sha) body.sha = sha;
 
@@ -220,7 +302,7 @@
     });
     if (!res.ok) {
       const err = await res.json();
-      throw new Error(err.message || `HTTP ${res.status}`);
+      throw new Error(err.message || `Failed to write file. HTTP ${res.status}`);
     }
     return await res.json();
   }
@@ -229,7 +311,7 @@
     const existing = await getFile(repo, branch, path);
     if (!existing) return;
 
-    const url = `https://api.github.com/repos/${ghUser}/${repo}/contents/${path}`;
+    const url = `https://api.github.com/repos/${config.user}/${repo}/contents/${path}`;
     const res = await fetch(url, {
       method: 'DELETE',
       headers: getHeaders(),
@@ -237,7 +319,7 @@
     });
     if (!res.ok) {
       const err = await res.json();
-      throw new Error(err.message || `HTTP ${res.status}`);
+      throw new Error(err.message || `Failed to delete file. HTTP ${res.status}`);
     }
   }
 
@@ -247,17 +329,10 @@
       setStatus('Loading blogs…');
       document.getElementById('blogList').innerHTML = '<p style="color:var(--text-muted); font-size:0.9rem;">Loading…</p>';
 
-      if (!ghUser) {
-        const userRes = await fetch('https://api.github.com/user', { headers: getHeaders() });
-        if (!userRes.ok) throw new Error('Invalid token');
-        const userData = await userRes.json();
-        ghUser = userData.login;
-      }
-
-      const file = await getFile(REPO_WORKER, BRANCH_WORKER, PATH_JSON);
+      const file = await getFile(config.jsonRepo, config.jsonBranch, config.jsonPath);
       
       if (!file) {
-        throw new Error(`Could not find ${PATH_JSON} on branch ${BRANCH_WORKER} in ${REPO_WORKER}.`);
+        throw new Error(`Could not find the JSON file at the specified path.`);
       }
       
       const data = JSON.parse(b64DecodeUnicode(file.content));
@@ -386,8 +461,12 @@
         all: updatedBlogs
       };
 
-      await putFile(REPO_MAIN, BRANCH_MAIN, `${PATH_BLOGS_FOLDER}/${slug}.html`, htmlContent, `Add blog: ${title}`);
-      await putFile(REPO_WORKER, BRANCH_WORKER, PATH_JSON, JSON.stringify(jsonPayload, null, 2), `Update feed: ${title}`);
+      // Save HTML (using config for folder)
+      const htmlPath = config.htmlFolder ? `${config.htmlFolder}/${slug}.html` : `${slug}.html`;
+      await putFile(config.htmlRepo, config.htmlBranch, htmlPath, htmlContent, `Add blog: ${title}`);
+      
+      // Save JSON
+      await putFile(config.jsonRepo, config.jsonBranch, config.jsonPath, JSON.stringify(jsonPayload, null, 2), `Update feed: ${title}`);
 
       setStatus('Success! Changes deployed.');
       clearForm();
@@ -409,8 +488,11 @@
     try {
       const b = currentBlogs[index];
       
-      await deleteFile(REPO_MAIN, BRANCH_MAIN, `${PATH_BLOGS_FOLDER}/${b.file}`, `Delete blog: ${b.title}`);
+      // Delete HTML
+      const htmlPath = config.htmlFolder ? `${config.htmlFolder}/${b.file}` : b.file;
+      await deleteFile(config.htmlRepo, config.htmlBranch, htmlPath, `Delete blog: ${b.title}`);
 
+      // Update JSON
       let updatedBlogs = currentBlogs.filter((_, i) => i !== index);
       const latest = updatedBlogs.slice(0, 5);
       const jsonPayload = {
@@ -420,7 +502,7 @@
         all: updatedBlogs
       };
 
-      await putFile(REPO_WORKER, BRANCH_WORKER, PATH_JSON, JSON.stringify(jsonPayload, null, 2), `Remove blog: ${b.title}`);
+      await putFile(config.jsonRepo, config.jsonBranch, config.jsonPath, JSON.stringify(jsonPayload, null, 2), `Remove blog: ${b.title}`);
 
       setStatus('Deleted successfully.');
       loadBlogs();
