@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Dashboard | Yashintv</title>
+<style>
+  :root {
+    --bg: #f4f6f9; --surface: #ffffff; --text: #1f2937; --text-muted: #6b7280;
+    --border: #e5e7eb; --primary: #4338ca; --danger: #ef4444;
+    --radius: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); padding: 2rem; line-height: 1.5; }
+  .container { max-width: 900px; margin: 0 auto; display: grid; gap: 2rem; }
+  
+  .header { display: flex; justify-content: space-between; align-items: center; }
+  h1 { font-size: 1.5rem; }
+  .status { font-size: 0.85rem; padding: 4px 10px; border-radius: 20px; background: #e5e7eb; }
+  .status.ok { background: #d1fae5; color: #065f46; }
+  .status.err { background: #fee2e2; color: #991b1b; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .card h2 { font-size: 1.1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+
+  .form-group { margin-bottom: 1rem; }
+  label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--text-muted); }
+  input, textarea { width: 100%; padding: 0.6rem; border: 1px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 0.95rem; }
+  textarea { resize: vertical; min-height: 120px; }
+  
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.6rem 1.2rem; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: opacity 0.2s; text-decoration: none; color: inherit; }
+  .btn:hover { opacity: 0.8; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-primary { background: var(--primary); color: white; }
+  .btn-danger { background: var(--danger); color: white; }
+  .btn-outline { background: transparent; border: 1px solid var(--border); }
+  
+  .blog-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .blog-item { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 6px; }
+  .blog-item h3 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .blog-item p { font-size: 0.8rem; color: var(--text-muted); }
+  .blog-actions { display: flex; gap: 0.5rem; }
+
+  .token-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 100; }
+  .token-modal.hidden { display: none; }
+  .modal-content { background: var(--surface); padding: 2rem; border-radius: var(--radius); max-width: 400px; width: 90%; }
+</style>
+</head>
+<body>
+
+<!-- Token Modal -->
+<div class="token-modal" id="tokenModal">
+  <div class="modal-content">
+    <h2 style="margin-bottom:1rem;">GitHub Token Required</h2>
+    <p style="font-size:0.85rem; margin-bottom:1rem; color:var(--text-muted);">Paste your fine-grained PAT. It must have <b>Contents: Read & Write</b> for both <code>football-worker</code> and <code>whats-eating-gilbert-grape</code>.</p>
+    <input type="password" id="tokenInput" placeholder="github_pat_..." style="margin-bottom:1rem;">
+    <button class="btn btn-primary" onclick="saveToken()" style="width:100%;">Save Token</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="header">
+    <h1>Blog Dashboard</h1>
+    <div id="status" class="status">Connecting…</div>
+  </div>
+
+  <!-- Editor -->
+  <div class="card">
+    <h2>Create / Edit Blog</h2>
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" id="blogTitle" placeholder="e.g., Mohamed Salah: The Journey">
+    </div>
+    <div class="form-group">
+      <label>Slug (URL-friendly, no spaces, lowercase)</label>
+      <input type="text" id="blogSlug" placeholder="e.g., salah-journey" oninput="autoFormatSlug()">
+    </div>
+    <div class="form-group">
+      <label>Snippet (Short teaser for the homepage)</label>
+      <textarea id="blogSnippet" rows="2" placeholder="Mohamed Salah has become one of the biggest names..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Content (HTML allowed)</label>
+      <textarea id="blogContent" placeholder="<p>Full blog post here...</p>"></textarea>
+    </div>
+    <div style="display:flex; gap:0.5rem; margin-top:1rem;">
+      <button class="btn btn-primary" id="publishBtn" onclick="publishBlog()">Publish Blog</button>
+      <button class="btn btn-outline" onclick="clearForm()">Clear</button>
+    </div>
+  </div>
+
+  <!-- List -->
+  <div class="card">
+    <h2>Manage Blogs</h2>
+    <div class="blog-list" id="blogList">
+      <p style="color:var(--text-muted); font-size:0.9rem;">Loading blogs…</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // --- CONFIG ---
+  const REPO_WORKER = 'football-worker';
+  const BRANCH_WORKER = 'livepagesmaster';
+  const PATH_JSON = 'data/blogs.json';
+  
+  const REPO_MAIN = 'whats-eating-gilbert-grape';
+  const BRANCH_MAIN = 'main';
+  const PATH_BLOGS_FOLDER = 'blogs';
+
+  let token = localStorage.getItem('gh_token');
+  let currentBlogs = [];
+
+  // --- INIT ---
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!token) {
+      document.getElementById('tokenModal').classList.remove('hidden');
+    } else {
+      loadBlogs();
+    }
+  });
+
+  function saveToken() {
+    const val = document.getElementById('tokenInput').value.trim();
+    if (!val) return alert('Token cannot be empty.');
+    token = val;
+    localStorage.setItem('gh_token', token);
+    document.getElementById('tokenModal').classList.add('hidden');
+    loadBlogs();
+  }
+
+  function getHeaders() {
+    return {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/vnd.github.v3+json'
+    };
+  }
+
+  function setStatus(msg, isErr = false) {
+    const el = document.getElementById('status');
+    el.textContent = msg;
+    el.className = 'status ' + (isErr ? 'err' : 'ok');
+  }
+
+  function autoFormatSlug() {
+    const title = document.getElementById('blogTitle').value;
+    const slugInput = document.getElementById('blogSlug');
+    if (!slugInput.dataset.edited) {
+      slugInput.value = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+  }
+  document.getElementById('blogSlug').addEventListener('input', function() {
+    this.dataset.edited = 'true';
+  });
+
+  // --- B64 HELPERS ---
+  function b64EncodeUnicode(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+      return String.fromCharCode('0x' + p1);
+    }));
+  }
+  function b64DecodeUnicode(str) {
+    return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+  }
+
+  // --- GITHUB API WRAPPERS ---
+  async function getFile(repo, branch, path) {
+    const url = `https://api.github.com/repos/${getUser()}/${repo}/contents/${path}?ref=${branch}`;
+    const res = await fetch(url, { headers: getHeaders() });
+    if (res.status === 404) return null;
+    if (!res.ok) throw new Error(`Failed to fetch ${path}: ${res.status}`);
+    return await res.json();
+  }
+
+  async function putFile(repo, branch, path, content, message) {
+    let sha;
+    const existing = await getFile(repo, branch, path);
+    if (existing) sha = existing.sha;
+
+    const url = `https://api.github.com/repos/${getUser()}/${repo}/contents/${path}`;
+    const body = {
+      message: message,
+      content: b64EncodeUnicode(content),
+      branch: branch
+    };
+    if (sha) body.sha = sha;
+
+    const res = await fetch(url, {
+      method: 'PUT',
+      headers: getHeaders(),
+      body: JSON.stringify(body)
+    });
+    if (!res.ok) throw new Error(`Failed to write ${path}: ${res.status}`);
+    return await res.json();
+  }
+
+  async function deleteFile(repo, branch, path, message) {
+    const existing = await getFile(repo, branch, path);
+    if (!existing) return; // Already gone
+
+    const url = `https://api.github.com/repos/${getUser()}/${repo}/contents/${path}`;
+    const res = await fetch(url, {
+      method: 'DELETE',
+      headers: getHeaders(),
+      body: JSON.stringify({ message, sha: existing.sha, branch })
+    });
+    if (!res.ok) throw new Error(`Failed to delete ${path}: ${res.status}`);
+  }
+
+  async function getUser() {
+    // Extract username from the token payload by making a simple request once
+    // Since we don't store it, we can just fetch it from GitHub or infer from repo
+    // For simplicity, let's just use the API to get the authenticated user and cache it.
+    if (window._ghUser) return window._ghUser;
+    const res = await fetch('https://api.github.com/user', { headers: getHeaders() });
+    if (!res.ok) throw new Error('Invalid token');
+    const data = await res.json();
+    window._ghUser = data.login;
+    return data.login;
+  }
+
+  // --- CORE LOGIC ---
+  async function loadBlogs() {
+    try {
+      setStatus('Loading blogs…');
+      const file = await getFile(REPO_WORKER, BRANCH_WORKER, PATH_JSON);
+      if (!file) throw new Error('blogs.json not found');
+      
+      const data = JSON.parse(b64DecodeUnicode(file.content));
+      currentBlogs = data.all || [];
+      renderList();
+      setStatus('Connected');
+    } catch (err) {
+      console.error(err);
+      setStatus(err.message, true);
+      if (err.message.includes('Invalid token') || err.message.includes('401')) {
+        localStorage.removeItem('gh_token');
+        document.getElementById('tokenModal').classList.remove('hidden');
+      }
+    }
+  }
+
+  function renderList() {
+    const container = document.getElementById('blogList');
+    if (!currentBlogs.length) {
+      container.innerHTML = '<p style="color:var(--text-muted); font-size:0.9rem;">No blogs yet.</p>';
+      return;
+    }
+    container.innerHTML = currentBlogs.map((b, i) => `
+      <div class="blog-item">
+        <div>
+          <h3>${b.title}</h3>
+          <p>/${b.slug}</p>
+        </div>
+        <div class="blog-actions">
+          <button class="btn btn-outline" onclick="editBlog(${i})" style="padding:0.4rem 0.8rem; font-size:0.8rem;">Edit</button>
+          <button class="btn btn-danger" onclick="deleteBlog(${i})" style="padding:0.4rem 0.8rem; font-size:0.8rem;">Delete</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function clearForm() {
+    document.getElementById('blogTitle').value = '';
+    document.getElementById('blogSlug').value = '';
+    document.getElementById('blogSlug').removeAttribute('data-edited');
+    document.getElementById('blogSnippet').value = '';
+    document.getElementById('blogContent').value = '';
+    document.getElementById('publishBtn').textContent = 'Publish Blog';
+    document.getElementById('publishBtn').dataset.editIndex = '';
+  }
+
+  function editBlog(index) {
+    const b = currentBlogs[index];
+    document.getElementById('blogTitle').value = b.title;
+    document.getElementById('blogSlug').value = b.slug;
+    document.getElementById('blogSlug').dataset.edited = 'true';
+    document.getElementById('blogSnippet').value = b.snippet;
+    
+    // Attempt to load existing content if possible, else placeholder
+    document.getElementById('blogContent').value = b._content || '<p>Edit content here...</p>'; 
+    
+    document.getElementById('publishBtn').textContent = 'Update Blog';
+    document.getElementById('publishBtn').dataset.editIndex = index;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  async function publishBlog() {
+    const title = document.getElementById('blogTitle').value.trim();
+    const slug = document.getElementById('blogSlug').value.trim();
+    const snippet = document.getElementById('blogSnippet').value.trim();
+    const content = document.getElementById('blogContent').value.trim();
+    const btn = document.getElementById('publishBtn');
+    const editIndex = btn.dataset.editIndex;
+
+    if (!title || !slug || !snippet) return alert('Title, slug, and snippet are required.');
+
+    btn.disabled = true;
+    btn.textContent = 'Publishing…';
+    setStatus('Publishing…');
+
+    try {
+      // 1. Create HTML file content
+      const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title} — Yashintv</title>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' rel='stylesheet'/>
+  <style>
+    body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1f2937; max-width: 800px; margin: 0 auto; padding: 2rem; background: #f4f6f9; }
+    .content-box { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    h1 { font-size: 2rem; margin-bottom: 1rem; color: #111827; }
+    .meta { color: #6b7280; font-size: 0.9rem; margin-bottom: 2rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 1rem; }
+    p { margin-bottom: 1rem; }
+    a { color: #4338ca; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back-link { display: inline-block; margin-bottom: 1rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <a href="../" class="back-link">← Back to Home</a>
+  <div class="content-box">
+    <h1>${title}</h1>
+    <div class="meta">Published on ${new Date().toISOString().split('T')[0]} · By Admin</div>
+    <div class="post-content">
+      ${content}
+    </div>
+  </div>
+</body>
+</html>`;
+
+      // 2. Prepare JSON updates
+      let updatedBlogs = [...currentBlogs];
+      const blogEntry = {
+        slug: slug,
+        title: title,
+        snippet: snippet,
+        date: new Date().toISOString().split('T')[0],
+        file: `${slug}.html` // Relative to /blogs/ folder
+      };
+
+      if (editIndex !== '') {
+        // Preserve original date if editing
+        blogEntry.date = currentBlogs[editIndex].date || blogEntry.date;
+        updatedBlogs[editIndex] = blogEntry;
+      } else {
+        updatedBlogs.unshift(blogEntry); // Add to top
+      }
+
+      // Sort newest first for 'all'
+      updatedBlogs.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const latest = updatedBlogs.slice(0, 5);
+
+      const jsonPayload = {
+        updated_at: new Date().toISOString(),
+        count: updatedBlogs.length,
+        latest: latest,
+        all: updatedBlogs
+      };
+
+      // 3. Commit to whats-eating-gilbert-grape (HTML)
+      await putFile(REPO_MAIN, BRANCH_MAIN, `${PATH_BLOGS_FOLDER}/${slug}.html`, htmlContent, `Add blog: ${title}`);
+
+      // 4. Commit to football-worker (JSON)
+      await putFile(REPO_WORKER, BRANCH_WORKER, PATH_JSON, JSON.stringify(jsonPayload, null, 2), `Update feed: ${title}`);
+
+      setStatus('Success! Changes deployed.');
+      clearForm();
+      loadBlogs(); // Refresh list
+
+    } catch (err) {
+      console.error(err);
+      setStatus('Failed: ' + err.message, true);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = editIndex !== '' ? 'Update Blog' : 'Publish Blog';
+    }
+  }
+
+  async function deleteBlog(index) {
+    if (!confirm(`Are you sure you want to delete "${currentBlogs[index].title}"?`)) return;
+
+    setStatus('Deleting…');
+    try {
+      const b = currentBlogs[index];
+      
+      // 1. Delete HTML
+      await deleteFile(REPO_MAIN, BRANCH_MAIN, `${PATH_BLOGS_FOLDER}/${b.file}`, `Delete blog: ${b.title}`);
+
+      // 2. Update JSON
+      let updatedBlogs = currentBlogs.filter((_, i) => i !== index);
+      const latest = updatedBlogs.slice(0, 5);
+      const jsonPayload = {
+        updated_at: new Date().toISOString(),
+        count: updatedBlogs.length,
+        latest: latest,
+        all: updatedBlogs
+      };
+
+      await putFile(REPO_WORKER, BRANCH_WORKER, PATH_JSON, JSON.stringify(jsonPayload, null, 2), `Remove blog: ${b.title}`);
+
+      setStatus('Deleted successfully.');
+      loadBlogs();
+    } catch (err) {
+      console.error(err);
+      setStatus('Delete failed: ' + err.message, true);
+    }
+  }
+</script>
+</body>
+</html>
