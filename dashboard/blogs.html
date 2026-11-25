@@ -47,7 +47,7 @@
   .modal-content { background: var(--surface); padding: 2rem; border-radius: var(--radius); max-width: 400px; width: 90%; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
   
   #dashboardContent { display: none; }
-  .error-msg { color: var(--danger); font-size: 0.9rem; margin-top: 1rem; }
+  .error-msg { color: var(--danger); font-size: 0.9rem; margin-top: 1rem; word-break: break-all; }
 </style>
 </head>
 <body>
@@ -117,7 +117,7 @@
   const APP_CONFIG = {
     jsonRepo: 'football-worker',
     jsonBranch: 'livepagesmaster',
-    jsonPath: 'blogs.json',
+    jsonPath: 'data/blogs.json', // <--- Fixed: File is inside the data folder
     htmlRepo: 'whats-eating-gilbert-grape',
     htmlBranch: 'main',
     htmlFolder: 'blogs'
@@ -168,9 +168,9 @@
       const jsonRes = await fetch(jsonUrl, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json' } });
       
       if (jsonRes.status === 404) {
-        throw new Error(`Could not find the JSON file. Ensure the token has access to the repo and the file exists at ${APP_CONFIG.jsonPath}.`);
+        throw new Error(`Could not find the JSON file. Ensure the token has access to the repo.`);
       }
-      if (!jsonRes.ok) throw new Error(`API Error: ${jsonRes.status}`);
+      if (!jsonRes.ok) throw new Error(`GitHub API Error: ${jsonRes.status}`);
 
       config = { token, user };
       localStorage.setItem('gh_dashboard_config', JSON.stringify(config));
@@ -285,7 +285,7 @@
       const file = await getFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath);
       
       if (!file) {
-        throw new Error(`Could not find the JSON file at the specified path.`);
+        throw new Error(`Could not find the JSON file.`);
       }
       
       const data = JSON.parse(b64DecodeUnicode(file.content));
