@@ -1,1 +1,22 @@
-
+{
+  "updated_at": "2026-11-25T08:18:31.882256Z",
+  "count": 1,
+  "latest": [
+    {
+      "slug": "salah-journey",
+      "title": "Mohamed Salah: The Journey of Egypt's Football Superstar",
+      "snippet": "Mohamed Salah has become one of the biggest names in modern football. Known for his speed, finishing, and incredible consistency at the highest level.",
+      "date": "2024-11-25",
+      "file": "salah-journey.html"
+    }
+  ],
+  "all": [
+    {
+      "slug": "salah-journey",
+      "title": "Mohamed Salah: The Journey of Egypt's Football Superstar",
+      "snippet": "Mohamed Salah has become one of the biggest names in modern football. Known for his speed, finishing, and incredible consistency at the highest level.",
+      "date": "2024-11-25",
+      "file": "salah-journey.html"
+    }
+  ]
+}
