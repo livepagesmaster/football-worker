@@ -261,6 +261,8 @@
 
   async function editBlog(index) {
     const b = currentBlogs[index];
+    if (!b) return alert('Blog not found in memory. Please click Refresh.');
+    
     document.getElementById('blogTitle').value = b.title;
     document.getElementById('blogContent').value = 'Loading content...'; 
     
@@ -295,9 +297,10 @@
     setStatus('Publishing…');
 
     try {
-      // 1. Fetch LATEST JSON to get accurate SHA (Fixes the conflict error)
+      // 1. Fetch LATEST JSON to get accurate SHA
       const latestJsonFile = await getFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath);
       if (!latestJsonFile) throw new Error("Could not find blogs.json");
+      
       const latestJsonSha = latestJsonFile.sha;
       let updatedBlogs = JSON.parse(b64DecodeUnicode(latestJsonFile.content)).all || [];
 
@@ -354,7 +357,7 @@
         const oldBlog = currentBlogs[editIndex];
         blogEntry.date = (oldBlog && oldBlog.date) ? oldBlog.date : blogEntry.date;
         
-        const freshIndex = updatedBlogs.findIndex(b => b.slug === oldBlog.slug);
+        const freshIndex = updatedBlogs.findIndex(x => x.slug === oldBlog.slug);
         if (freshIndex !== -1) {
            updatedBlogs[freshIndex] = blogEntry;
         } else {
@@ -382,17 +385,17 @@
       const htmlPath = `${APP_CONFIG.htmlFolder}/${slug}.html`;
       await putFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, htmlPath, htmlContent, `Add/Update blog: ${title}`);
       
-      // Save JSON using the fresh SHA
+      // Save JSON using the correct SHA
       await putFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath, JSON.stringify(jsonPayload, null, 2), `Update feed: ${title}`, latestJsonSha);
 
       setStatus('Success! Changes deployed.');
       clearForm();
-      loadBlogs(); // Refresh list instantly
+      loadBlogs();
 
     } catch (err) {
       console.error(err);
       setStatus('Failed: ' + err.message, true);
-      alert('Error: ' + err.message);
+      alert('Error saving: ' + err.message);
     } finally {
       btn.disabled = false;
       btn.textContent = editIndex !== '' ? 'Update Blog' : 'Publish Blog';
@@ -400,6 +403,7 @@
   }
 
   async function deleteBlog(index) {
+    if (!currentBlogs[index]) return alert('Blog not found.');
     if (!confirm(`Are you sure you want to delete "${currentBlogs[index].title}"?`)) return;
 
     setStatus('Deleting…');
@@ -430,7 +434,7 @@
     } catch (err) {
       console.error(err);
       setStatus('Delete failed: ' + err.message, true);
-      alert('Error: ' + err.message);
+      alert('Error deleting: ' + err.message);
     }
   }
 </script>
