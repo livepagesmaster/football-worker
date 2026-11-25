@@ -56,10 +56,10 @@
 <div class="setup-modal" id="setupModal">
   <div class="modal-content">
     <h2 style="margin-bottom:1rem;">Access Dashboard</h2>
-    <p style="font-size:0.85rem; margin-bottom:1rem; color:var(--text-muted);">Paste your GitHub token. It will be saved only in your browser.</p>
+    <p style="font-size:0.85rem; margin-bottom:1rem; color:var(--text-muted);">Enter your token. It will be saved only in your browser.</p>
     
     <div class="form-group">
-      <label>GitHub Token (PAT)</label>
+      <label>Token</label>
       <input type="password" id="setupToken" placeholder="github_pat_...">
     </div>
 
@@ -163,14 +163,14 @@
       const userData = await userRes.json();
       const user = userData.login;
 
-      // 2. Verify Repo Access
+      // 2. Verify JSON File Access
       const jsonUrl = `https://api.github.com/repos/${user}/${APP_CONFIG.jsonRepo}/contents/${APP_CONFIG.jsonPath}?ref=${APP_CONFIG.jsonBranch}`;
       const jsonRes = await fetch(jsonUrl, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json' } });
       
       if (jsonRes.status === 404) {
-        throw new Error(`Could not find the JSON file. Ensure the token has access to the repo.`);
+        throw new Error(`Could not find the JSON file. Ensure the token has access to the repo and the file exists at ${APP_CONFIG.jsonPath}.`);
       }
-      if (!jsonRes.ok) throw new Error(`GitHub API Error: ${jsonRes.status}`);
+      if (!jsonRes.ok) throw new Error(`API Error: ${jsonRes.status}`);
 
       config = { token, user };
       localStorage.setItem('gh_dashboard_config', JSON.stringify(config));
@@ -285,7 +285,7 @@
       const file = await getFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath);
       
       if (!file) {
-        throw new Error(`Could not find the JSON file.`);
+        throw new Error(`Could not find the JSON file at the specified path.`);
       }
       
       const data = JSON.parse(b64DecodeUnicode(file.content));
