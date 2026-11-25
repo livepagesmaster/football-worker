@@ -260,7 +260,7 @@
 
   async function editBlog(index) {
     const b = currentBlogs[index];
-    if (!b) return alert('Blog not found in memory. Please refresh the page.');
+    if (!b) return alert('Blog not found. Please refresh.');
     
     document.getElementById('blogTitle').value = b.title;
     document.getElementById('blogContent').value = 'Loading content...'; 
@@ -340,7 +340,7 @@
       const htmlPath = `${APP_CONFIG.htmlFolder}/${slug}.html`;
       await putFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, htmlPath, htmlContent, `Add/Update blog: ${title}`);
 
-      // 4. Fetch BRAND NEW JSON SHA right after (fixes conflict errors)
+      // 4. Fetch FRESH JSON SHA
       const latestJsonFile = await getFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath);
       if (!latestJsonFile) throw new Error("Could not find blogs.json");
       
@@ -356,23 +356,19 @@
         file: `${slug}.html`
       };
 
-      if (editIndex !== '') {
+      if (editIndex !== '' && editIndex !== undefined && currentBlogs[editIndex]) {
         const oldBlog = currentBlogs[editIndex];
-        if (oldBlog) {
-          blogEntry.date = oldBlog.date || blogEntry.date;
-          
-          const freshIndex = updatedBlogs.findIndex(x => x.slug === oldBlog.slug);
-          if (freshIndex !== -1) {
-             updatedBlogs[freshIndex] = blogEntry;
-          } else {
-             updatedBlogs.unshift(blogEntry);
-          }
-          
-          if (oldBlog.slug !== slug) {
-             await deleteFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, `${APP_CONFIG.htmlFolder}/${oldBlog.file}`, `Remove old file: ${oldBlog.title}`);
-          }
+        blogEntry.date = oldBlog.date || blogEntry.date;
+        
+        const freshIndex = updatedBlogs.findIndex(x => x.slug === oldBlog.slug);
+        if (freshIndex !== -1) {
+           updatedBlogs[freshIndex] = blogEntry;
         } else {
-          updatedBlogs.unshift(blogEntry);
+           updatedBlogs.unshift(blogEntry);
+        }
+        
+        if (oldBlog.slug !== slug) {
+           await deleteFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, `${APP_CONFIG.htmlFolder}/${oldBlog.file}`, `Remove old file: ${oldBlog.title}`);
         }
       } else {
         updatedBlogs.unshift(blogEntry);
@@ -401,7 +397,7 @@
       alert('Error saving: ' + err.message);
     } finally {
       btn.disabled = false;
-      btn.textContent = editIndex !== '' ? 'Update Blog' : 'Publish Blog';
+      btn.textContent = editIndex !== '' && editIndex !== undefined ? 'Update Blog' : 'Publish Blog';
     }
   }
 
@@ -416,7 +412,6 @@
       const htmlPath = `${APP_CONFIG.htmlFolder}/${b.file}`;
       await deleteFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, htmlPath, `Delete blog: ${b.title}`);
 
-      // Fetch brand new SHA
       const latestFile = await getFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath);
       if (!latestFile) throw new Error("Could not find blogs.json");
       
