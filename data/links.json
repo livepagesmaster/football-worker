@@ -528,37 +528,34 @@
     }
   },
   "paris": {
-    "common": {
-      "type": "hls",
-      "url": "https://live05.wecile.app/live/16226575.m3u8"
-    },
+    "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-26/psg-lyon"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/psg-roma"
     },
     "link2": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-26/psg-lyon"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/psg-roma"
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/16226575.m3u8"
+      "url": "https://live05.wecile.app/live/88508431.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/16226575.m3u8"
+      "url": "https://live05.wecile.app/live/88508431.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/16226575.m3u8"
+      "url": "https://live05.wecile.app/live/88508431.m3u8"
     },
     "link6": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-26/psg-lyon"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/psg-roma"
     },
     "link7": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ligue1/2026-10-26/psg-lyon"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/psg-roma"
     }
   },
   "fleetwood": {
@@ -715,31 +712,31 @@
     "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/mls/2026-11-21/mia-clb"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/int-vfb"
     },
     "link2": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/mls/2026-11-21/mia-clb"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/int-vfb"
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/02456966.m3u8"
+      "url": "https://live05.wecile.app/live/78905744.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/02456966.m3u8"
+      "url": "https://live05.wecile.app/live/78905744.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/02456966.m3u8"
+      "url": "https://live05.wecile.app/live/78905744.m3u8"
     },
     "link6": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/mls/2026-11-21/mia-clb"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/int-vfb"
     },
     "link7": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/mls/2026-11-21/mia-clb"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/int-vfb"
     }
   },
   "milan": {
@@ -1409,65 +1406,62 @@
     "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/shk-scp"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/shk-fen"
     },
     "link2": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/shk-scp"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/shk-fen"
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.miekgo.app/live/87547578.m3u8"
+      "url": "https://live05.wecile.app/live/07808742.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.miekgo.app/live/87547578.m3u8"
+      "url": "https://live05.wecile.app/live/07808742.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.miekgo.app/live/87547578.m3u8"
+      "url": "https://live05.wecile.app/live/07808742.m3u8"
     },
     "link6": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/shk-scp"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/shk-fen"
     },
     "link7": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/shk-scp"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/shk-fen"
     }
   },
   "atltico": {
-    "common": {
-      "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/laliga/2026-11-08/atm-bar"
-    },
+    "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/atm-bay"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/atm-vfk"
     },
     "link2": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/atm-bay"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/atm-vfk"
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.miekgo.app/live/97885009.m3u8"
+      "url": "https://live05.wecile.app/live/97885009.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.miekgo.app/live/97885009.m3u8"
+      "url": "https://live05.wecile.app/live/97885009.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.miekgo.app/live/97885009.m3u8"
+      "url": "https://live05.wecile.app/live/97885009.m3u8"
     },
     "link6": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/atm-bay"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/atm-vfk"
     },
     "link7": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/ucl/2026-11-03/atm-bay"
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/atm-vfk"
     }
   },
   "villarreal": {
@@ -2059,26 +2053,35 @@
     }
   },
   "sporting": {
-    "common": {
-      "type": "hls",
-      "url": "https://live05.wecile.app/live/49572724.m3u8"
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/scp-mun"
     },
-    "link1": null,
-    "link2": null,
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/scp-mun"
+    },
     "link3": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/49572724.m3u8"
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/49572724.m3u8"
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/49572724.m3u8"
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
     },
-    "link6": null,
-    "link7": null
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/scp-mun"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/scp-mun"
+    }
   },
   "napoli": {
     "common": null,
@@ -2877,6 +2880,99 @@
     "link7": {
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-24/slb-bet"
+    }
+  },
+  "sabah": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/sab-bar"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/sab-bar"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/33982309.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/sab-bar"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/sab-bar"
+    }
+  },
+  "lille": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/lill-bay"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/lill-bay"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/16226575.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/16226575.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/16226575.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/lill-bay"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/lill-bay"
+    }
+  },
+  "club": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/bru-liv"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/bru-liv"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/bru-liv"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/bru-liv"
     }
   }
 }
