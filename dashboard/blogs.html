@@ -74,7 +74,6 @@
     <h1>Blog Dashboard</h1>
     <div style="display:flex; gap:1rem; align-items:center;">
       <div id="status" class="status">Connecting…</div>
-      <button class="btn btn-outline" onclick="loadBlogs()" style="padding:0.4rem 0.8rem; font-size:0.8rem;">Refresh</button>
       <button class="btn btn-outline" onclick="openSetup()" style="padding:0.4rem 0.8rem; font-size:0.8rem;">Settings</button>
     </div>
   </div>
@@ -261,7 +260,7 @@
 
   async function editBlog(index) {
     const b = currentBlogs[index];
-    if (!b) return alert('Blog not found in memory. Please click Refresh.');
+    if (!b) return alert('Blog not found in memory. Please refresh the page.');
     
     document.getElementById('blogTitle').value = b.title;
     document.getElementById('blogContent').value = 'Loading content...'; 
@@ -297,14 +296,7 @@
     setStatus('Publishing…');
 
     try {
-      // 1. Fetch LATEST JSON to get accurate SHA
-      const latestJsonFile = await getFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath);
-      if (!latestJsonFile) throw new Error("Could not find blogs.json");
-      
-      const latestJsonSha = latestJsonFile.sha;
-      let updatedBlogs = JSON.parse(b64DecodeUnicode(latestJsonFile.content)).all || [];
-
-      // 2. Auto-generate Slug and Snippet
+      // 1. Auto-generate Slug and Snippet
       const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = content;
@@ -312,7 +304,7 @@
       plainText = plainText.replace(/\s+/g, ' ').trim();
       const snippet = plainText.length > 160 ? plainText.substring(0, 157) + '...' : plainText;
 
-      // 3. Build HTML page
+      // 2. Build HTML page
       const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
@@ -344,7 +336,18 @@
 </body>
 </html>`;
 
-      // 4. Update Array
+      // 3. Save HTML FIRST
+      const htmlPath = `${APP_CONFIG.htmlFolder}/${slug}.html`;
+      await putFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, htmlPath, htmlContent, `Add/Update blog: ${title}`);
+
+      // 4. Fetch BRAND NEW JSON SHA right after (fixes conflict errors)
+      const latestJsonFile = await getFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath);
+      if (!latestJsonFile) throw new Error("Could not find blogs.json");
+      
+      const latestJsonSha = latestJsonFile.sha;
+      let updatedBlogs = JSON.parse(b64DecodeUnicode(latestJsonFile.content)).all || [];
+
+      // 5. Update Array
       const blogEntry = {
         slug: slug,
         title: title,
@@ -355,17 +358,21 @@
 
       if (editIndex !== '') {
         const oldBlog = currentBlogs[editIndex];
-        blogEntry.date = (oldBlog && oldBlog.date) ? oldBlog.date : blogEntry.date;
-        
-        const freshIndex = updatedBlogs.findIndex(x => x.slug === oldBlog.slug);
-        if (freshIndex !== -1) {
-           updatedBlogs[freshIndex] = blogEntry;
+        if (oldBlog) {
+          blogEntry.date = oldBlog.date || blogEntry.date;
+          
+          const freshIndex = updatedBlogs.findIndex(x => x.slug === oldBlog.slug);
+          if (freshIndex !== -1) {
+             updatedBlogs[freshIndex] = blogEntry;
+          } else {
+             updatedBlogs.unshift(blogEntry);
+          }
+          
+          if (oldBlog.slug !== slug) {
+             await deleteFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, `${APP_CONFIG.htmlFolder}/${oldBlog.file}`, `Remove old file: ${oldBlog.title}`);
+          }
         } else {
-           updatedBlogs.unshift(blogEntry);
-        }
-        
-        if (oldBlog && oldBlog.slug !== slug) {
-           await deleteFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, `${APP_CONFIG.htmlFolder}/${oldBlog.file}`, `Remove old file: ${oldBlog.title}`);
+          updatedBlogs.unshift(blogEntry);
         }
       } else {
         updatedBlogs.unshift(blogEntry);
@@ -381,11 +388,7 @@
         all: updatedBlogs
       };
 
-      // 5. Save to GitHub
-      const htmlPath = `${APP_CONFIG.htmlFolder}/${slug}.html`;
-      await putFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, htmlPath, htmlContent, `Add/Update blog: ${title}`);
-      
-      // Save JSON using the correct SHA
+      // 6. Save JSON
       await putFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath, JSON.stringify(jsonPayload, null, 2), `Update feed: ${title}`, latestJsonSha);
 
       setStatus('Success! Changes deployed.');
@@ -413,7 +416,7 @@
       const htmlPath = `${APP_CONFIG.htmlFolder}/${b.file}`;
       await deleteFile(APP_CONFIG.htmlRepo, APP_CONFIG.htmlBranch, htmlPath, `Delete blog: ${b.title}`);
 
-      // Refresh JSON SHA before updating
+      // Fetch brand new SHA
       const latestFile = await getFile(APP_CONFIG.jsonRepo, APP_CONFIG.jsonBranch, APP_CONFIG.jsonPath);
       if (!latestFile) throw new Error("Could not find blogs.json");
       
