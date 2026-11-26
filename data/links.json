@@ -2979,7 +2979,10 @@
     }
   },
   "bangladesh": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/ddf"
+    },
     "link1": null,
     "link2": null,
     "link3": null,
