@@ -1785,37 +1785,34 @@
     }
   },
   "india": {
-    "common": {
+    "common": null,
+    "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/ddf"
     },
-    "link1": {
-      "type": "redirect",
-      "url": "https://yakotv.pages.dev/jjfc"
-    },
     "link2": {
       "type": "hls",
-      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2119921/cricodi_2411/HIN/std_lrh-800300010.m3u8?hdnea=exp=1795542763~acl=/*~id=97278515014243774300347429330991~hmac=8285d77965c5f58d5a792becee26ae5c8395f4475c0c1f69b1183c14761ff2bf"
+      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2119921/cricodi_2611/HIN/std_lrh-800300010.m3u8?hdnea=exp=1795728410~acl=/*~id=39357828164591386393245846354652~hmac=cfb509783e8cf3fe9015367b0aaee379bb1be4e302693188d9a467f5001d0596"
     },
     "link3": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/jjfc"
+      "url": "https://yakotv.pages.dev/ddf"
     },
     "link4": {
       "type": "hls",
-      "url": "https://sonyeventsglobal.akaamaized.net/hls/live/2119931/cricodi_2411/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795556775~acl=/*~id=54510579337378137787007273084546~hmac=3172b584cdd715240eb0176695cd0193eb9bf31527dbbf1ce8695737f4e5b917"
+      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2119931/cricodi_2611/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795728410~acl=/*~id=39357828164591386393245846354652~hmac=cfb509783e8cf3fe9015367b0aaee379bb1be4e302693188d9a467f5001d0596"
     },
     "link5": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/jjfc"
+      "url": "https://yakotv.pages.dev/ddf"
     },
     "link6": {
       "type": "hls",
-      "url": "https://sonyeventsglobal.akaamaized.net/hls/live/2119931/cricodi_2411/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795556775~acl=/*~id=54510579337378137787007273084546~hmac=3172b584cdd715240eb0176695cd0193eb9bf31527dbbf1ce8695737f4e5b917"
+      "url": "https://sonyeventsglobal.akamaized.net/hls/live/2119931/cricodi_2611/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795728410~acl=/*~id=39357828164591386393245846354652~hmac=cfb509783e8cf3fe9015367b0aaee379bb1be4e302693188d9a467f5001d0596"
     },
     "link7": {
       "type": "redirect",
-      "url": "https://yakotv.pages.dev/jjfc"
+      "url": "https://yakotv.pages.dev/ddf"
     }
   },
   "uae": {
