@@ -1,164 +1,84 @@
 {
   "matches": [
     {
-      "id": "sabah",
+      "id": "dinamo",
       "team1": {
-        "name": "Sabah FK",
-        "img": "https://img.singhs.com.np/team/951893.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/951893.png",
-        "code": "SAB"
+        "name": "Dinamo Zagreb",
+        "img": "https://img.singhs.com.np/team/10156.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10156.png",
+        "code": "DIN"
       },
       "team2": {
-        "name": "Barcelona",
-        "img": "https://img.singhs.com.np/team/8634.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8634.png",
-        "code": "BAR"
-      },
-      "time": "26/11/25 23:30:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "Champions League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=sabah"
-    },
-    {
-      "id": "paris",
-      "team1": {
-        "name": "Paris Saint-Germain",
-        "img": "https://img.singhs.com.np/team/9847.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9847.png",
-        "code": "PAR"
-      },
-      "team2": {
-        "name": "Roma",
-        "img": "https://img.singhs.com.np/team/8686.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8686.png",
-        "code": "ROM"
-      },
-      "time": "26/11/26 01:45:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "Champions League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=paris"
-    },
-    {
-      "id": "sporting",
-      "team1": {
-        "name": "Sporting CP",
-        "img": "https://img.singhs.com.np/team/9768.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9768.png",
-        "code": "SPO"
-      },
-      "team2": {
-        "name": "Manchester United",
-        "img": "https://img.singhs.com.np/team/10260.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10260.png",
-        "code": "MAN"
-      },
-      "time": "26/11/26 01:45:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "Champions League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=sporting"
-    },
-    {
-      "id": "lille",
-      "team1": {
-        "name": "Lille",
-        "img": "https://img.singhs.com.np/team/8639.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8639.png",
-        "code": "LIL"
-      },
-      "team2": {
-        "name": "Bayern München",
-        "img": "https://img.singhs.com.np/team/9823.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9823.png",
+        "name": "Bayer Leverkusen",
+        "img": "https://img.singhs.com.np/team/8178.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8178.png",
         "code": "BAY"
       },
-      "time": "26/11/26 01:45:00",
-      "status": "Ended",
+      "time": "26/11/26 23:30:00",
+      "status": "Upcoming",
       "endTime": 2.2,
-      "type": "Champions League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=lille"
+      "type": "Europa League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=dinamo"
     },
     {
-      "id": "club",
+      "id": "olympiacos",
       "team1": {
-        "name": "Club Brugge",
-        "img": "https://img.singhs.com.np/team/8342.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8342.png",
-        "code": "CLU"
+        "name": "Olympiacos",
+        "img": "https://img.singhs.com.np/team/8638.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8638.png",
+        "code": "OLY"
       },
       "team2": {
-        "name": "Liverpool",
-        "img": "https://img.singhs.com.np/team/8650.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8650.png",
-        "code": "LIV"
+        "name": "Milan",
+        "img": "https://img.singhs.com.np/team/8564.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8564.png",
+        "code": "MIL"
       },
-      "time": "26/11/26 01:45:00",
-      "status": "Ended",
+      "time": "26/11/26 23:30:00",
+      "status": "Upcoming",
       "endTime": 2.2,
-      "type": "Champions League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=club"
+      "type": "Europa League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=olympiacos"
     },
     {
-      "id": "inter",
+      "id": "juventus",
       "team1": {
-        "name": "Inter",
-        "img": "https://img.singhs.com.np/team/8636.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8636.png",
-        "code": "INT"
+        "name": "Juventus",
+        "img": "https://img.singhs.com.np/team/9885.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9885.png",
+        "code": "JUV"
       },
       "team2": {
-        "name": "VfB Stuttgart",
-        "img": "https://img.singhs.com.np/team/10269.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10269.png",
-        "code": "VFB"
+        "name": "Omonia Nicosia",
+        "img": "https://img.singhs.com.np/team/8044.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8044.png",
+        "code": "OMO"
       },
-      "time": "26/11/26 01:45:00",
-      "status": "Ended",
+      "time": "26/11/27 01:45:00",
+      "status": "Upcoming",
       "endTime": 2.2,
-      "type": "Champions League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=inter"
+      "type": "Europa League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=juventus"
     },
     {
-      "id": "atltico",
+      "id": "crystal",
       "team1": {
-        "name": "Atlético Madrid",
-        "img": "https://img.singhs.com.np/team/9906.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9906.png",
-        "code": "ATL"
+        "name": "Crystal Palace",
+        "img": "https://img.singhs.com.np/team/9826.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9826.png",
+        "code": "CRY"
       },
       "team2": {
-        "name": "Viking",
-        "img": "https://img.singhs.com.np/team/8478.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8478.png",
-        "code": "VIK"
+        "name": "Real Sociedad",
+        "img": "https://img.singhs.com.np/team/8560.png",
+        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8560.png",
+        "code": "REA"
       },
-      "time": "26/11/26 01:45:00",
-      "status": "Ended",
+      "time": "26/11/27 01:45:00",
+      "status": "Upcoming",
       "endTime": 2.2,
-      "type": "Champions League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=atltico"
-    },
-    {
-      "id": "shakhtar",
-      "team1": {
-        "name": "Shakhtar Donetsk",
-        "img": "https://img.singhs.com.np/team/9728.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/9728.png",
-        "code": "SHA"
-      },
-      "team2": {
-        "name": "Fenerbahçe",
-        "img": "https://img.singhs.com.np/team/8695.png",
-        "img_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8695.png",
-        "code": "FEN"
-      },
-      "time": "26/11/26 01:45:00",
-      "status": "Ended",
-      "endTime": 2.2,
-      "type": "Champions League",
-      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=shakhtar"
+      "type": "Europa League",
+      "redirectUrl": "https://www.yashintv.xyz/p/match-details.html?id=crystal"
     }
   ]
 }
