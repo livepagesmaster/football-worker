@@ -1785,7 +1785,10 @@
     }
   },
   "india": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/ddf"
+    },
     "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/jjfc"
@@ -2974,5 +2977,15 @@
       "type": "iframe",
       "url": "https://taifood-blog.asia/embed/ucl/2026-11-25/bru-liv"
     }
+  },
+  "bangladesh": {
+    "common": null,
+    "link1": null,
+    "link2": null,
+    "link3": null,
+    "link4": null,
+    "link5": null,
+    "link6": null,
+    "link7": null
   }
 }
