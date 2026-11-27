@@ -391,7 +391,8 @@
         title: title,
         snippet: snippet,
         date: new Date().toISOString().split('T')[0],
-        file: `${slug}.html`
+        file: `${slug}.html`,
+        body: plainText
       };
 
       if (editIndex !== '' && editIndex !== undefined && currentBlogs[editIndex]) {
