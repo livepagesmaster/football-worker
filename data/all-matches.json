@@ -1,96 +1,6 @@
 {
   "matches": [
     {
-      "team1": "Santiago Wanderers",
-      "team2": "Deportes Recoleta",
-      "team1_logo": "https://img.singhs.com.np/team/1849.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1849.png",
-      "team2_logo": "https://img.singhs.com.np/team/1264972.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1264972.png",
-      "league": "Primera B - Promotion Play-offs - 1st Round",
-      "league_id": 9126,
-      "league_country": "CHI",
-      "start": "2026-11-26T22:00Z",
-      "duration": 2.2,
-      "event_id": 1000024446,
-      "slug": "santiagowanderers"
-    },
-    {
-      "team1": "Cerro Porteño",
-      "team2": "Libertad",
-      "team1_logo": "https://img.singhs.com.np/team/6295.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6295.png",
-      "team2_logo": "https://img.singhs.com.np/team/6620.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6620.png",
-      "league": "Cup",
-      "league_id": 10230,
-      "league_country": "PAR",
-      "start": "2026-11-26T22:30Z",
-      "duration": 2.2,
-      "event_id": 6802523,
-      "slug": "cerroporteo"
-    },
-    {
-      "team1": "São Paulo",
-      "team2": "Remo",
-      "team1_logo": "https://img.singhs.com.np/team/10277.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10277.png",
-      "team2_logo": "https://img.singhs.com.np/team/1626.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1626.png",
-      "league": "Série A",
-      "league_id": 268,
-      "league_country": "BRA",
-      "start": "2026-11-26T23:00Z",
-      "duration": 2.2,
-      "event_id": 5103726,
-      "slug": "sopaulo"
-    },
-    {
-      "team1": "Montevideo City Torque",
-      "team2": "Nacional",
-      "team1_logo": "https://img.singhs.com.np/team/395613.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/395613.png",
-      "team2_logo": "https://img.singhs.com.np/team/8304.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8304.png",
-      "league": "Cup",
-      "league_id": 10342,
-      "league_country": "URU",
-      "start": "2026-11-27T00:30Z",
-      "duration": 2.2,
-      "event_id": 6628834,
-      "slug": "montevideocitytorque"
-    },
-    {
-      "team1": "Pachuca",
-      "team2": "Chivas",
-      "team1_logo": "https://img.singhs.com.np/team/7848.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/7848.png",
-      "team2_logo": "https://img.singhs.com.np/team/7807.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/7807.png",
-      "league": "Liga MX - Apertura - Quarter-finals",
-      "league_id": 230,
-      "league_country": "MEX",
-      "start": "2026-11-27T01:00Z",
-      "duration": 2.2,
-      "event_id": 1000022851,
-      "slug": "pachuca"
-    },
-    {
-      "team1": "León",
-      "team2": "Cruz Azul",
-      "team1_logo": "https://img.singhs.com.np/team/1841.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1841.png",
-      "team2_logo": "https://img.singhs.com.np/team/6578.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6578.png",
-      "league": "Liga MX - Apertura - Quarter-finals",
-      "league_id": 230,
-      "league_country": "MEX",
-      "start": "2026-11-27T03:10Z",
-      "duration": 2.2,
-      "event_id": 1000022852,
-      "slug": "len"
-    },
-    {
       "team1": "Broadmeadow Magic",
       "team2": "Lions FC",
       "team1_logo": "https://img.singhs.com.np/team/162253.png",
@@ -1231,21 +1141,6 @@
       "slug": "fcheidenheim"
     },
     {
-      "team1": "SKU Amstetten",
-      "team2": "SKN St. Pölten",
-      "team1_logo": "https://img.singhs.com.np/team/8326.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8326.png",
-      "team2_logo": "https://img.singhs.com.np/team/1907.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1907.png",
-      "league": "2. Liga",
-      "league_id": 119,
-      "league_country": "AUT",
-      "start": "2026-11-27T17:30Z",
-      "duration": 2.2,
-      "event_id": 5875030,
-      "slug": "skuamstetten"
-    },
-    {
       "team1": "FC Dinamo City",
       "team2": "Partizani",
       "team1_logo": "https://img.singhs.com.np/team/10027.png",
@@ -1454,21 +1349,6 @@
       "duration": 2.2,
       "event_id": 5910949,
       "slug": "bfcdynamo"
-    },
-    {
-      "team1": "Chemnitzer FC",
-      "team2": "Hertha Berlin II",
-      "team1_logo": "https://img.singhs.com.np/team/6596.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/6596.png",
-      "team2_logo": "https://img.singhs.com.np/team/8186.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8186.png",
-      "league": "Regionalliga Northeast",
-      "league_id": 512,
-      "league_country": "GER",
-      "start": "2026-11-27T18:00Z",
-      "duration": 2.2,
-      "event_id": 5910950,
-      "slug": "chemnitzerfc"
     },
     {
       "team1": "Sønderjyske",
@@ -1816,21 +1696,6 @@
       "slug": "winterthur"
     },
     {
-      "team1": "FC Wacker Innsbruck",
-      "team2": "First Vienna FC",
-      "team1_logo": "https://img.singhs.com.np/team/10010.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10010.png",
-      "team2_logo": "https://img.singhs.com.np/team/2030.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/2030.png",
-      "league": "2. Liga",
-      "league_id": 119,
-      "league_country": "AUT",
-      "start": "2026-11-27T19:30Z",
-      "duration": 2.2,
-      "event_id": 5875036,
-      "slug": "fcwackerinnsbruck"
-    },
-    {
       "team1": "Górnik Zabrze",
       "team2": "Wisła Płock",
       "team1_logo": "https://img.singhs.com.np/team/8020.png",
@@ -1859,6 +1724,21 @@
       "duration": 2.2,
       "event_id": 5861999,
       "slug": "chrobrygogw"
+    },
+    {
+      "team1": "FC Wacker Innsbruck",
+      "team2": "First Vienna FC",
+      "team1_logo": "https://img.singhs.com.np/team/10010.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/10010.png",
+      "team2_logo": "https://img.singhs.com.np/team/2030.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/2030.png",
+      "league": "2. Liga",
+      "league_id": 119,
+      "league_country": "AUT",
+      "start": "2026-11-27T19:30Z",
+      "duration": 2.2,
+      "event_id": 5875036,
+      "slug": "fcwackerinnsbruck"
     },
     {
       "team1": "Largs Thistle",
@@ -4711,21 +4591,6 @@
       "slug": "lokomotiveleipzig"
     },
     {
-      "team1": "VSG Altglienicke",
-      "team2": "Erzgebirge Aue",
-      "team1_logo": "https://img.singhs.com.np/team/339999.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/339999.png",
-      "team2_logo": "https://img.singhs.com.np/team/8319.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8319.png",
-      "league": "Regionalliga Northeast",
-      "league_id": 512,
-      "league_country": "GER",
-      "start": "2026-11-28T13:00Z",
-      "duration": 2.2,
-      "event_id": 5910947,
-      "slug": "vsgaltglienicke"
-    },
-    {
       "team1": "Eintracht Frankfurt II",
       "team2": "Hessen Kassel",
       "team1_logo": "https://img.singhs.com.np/team/9813.png",
@@ -5804,6 +5669,21 @@
       "duration": 2.2,
       "event_id": 5875035,
       "slug": "rapidwienii"
+    },
+    {
+      "team1": "SKU Amstetten",
+      "team2": "SKN St. Pölten",
+      "team1_logo": "https://img.singhs.com.np/team/8326.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8326.png",
+      "team2_logo": "https://img.singhs.com.np/team/1907.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1907.png",
+      "league": "2. Liga",
+      "league_id": 119,
+      "league_country": "AUT",
+      "start": "2026-11-28T14:30Z",
+      "duration": 2.2,
+      "event_id": 5875030,
+      "slug": "skuamstetten"
     },
     {
       "team1": "SW Bregenz",
@@ -12976,21 +12856,6 @@
       "slug": "svdrochtersenassel"
     },
     {
-      "team1": "FSV Zwickau",
-      "team2": "Carl Zeiss Jena",
-      "team1_logo": "https://img.singhs.com.np/team/95202.png",
-      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/95202.png",
-      "team2_logo": "https://img.singhs.com.np/team/8320.png",
-      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/8320.png",
-      "league": "Regionalliga Northeast",
-      "league_id": 512,
-      "league_country": "GER",
-      "start": "2026-11-29T13:00Z",
-      "duration": 2.2,
-      "event_id": 5910955,
-      "slug": "fsvzwickau"
-    },
-    {
       "team1": "Tasmania Berlin",
       "team2": "Magdeburg II",
       "team1_logo": "https://img.singhs.com.np/team/585141.png",
@@ -14639,6 +14504,21 @@
       "duration": 2.2,
       "event_id": 1000019195,
       "slug": "brightonhovealbionu21"
+    },
+    {
+      "team1": "Westdyke (W)",
+      "team2": "St. Johnstone (W)",
+      "team1_logo": "https://img.singhs.com.np/team/1824825.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1824825.png",
+      "team2_logo": "https://img.singhs.com.np/team/1798971.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1798971.png",
+      "league": "SWF Scottish Cup - 3rd Round",
+      "league_id": 11020,
+      "league_country": "SCO",
+      "start": "2026-11-29T15:00Z",
+      "duration": 2.2,
+      "event_id": 1000022420,
+      "slug": "westdykew"
     },
     {
       "team1": "Deportivo A Coruña",
@@ -18436,6 +18316,21 @@
       "slug": "nykbingfc"
     },
     {
+      "team1": "CR Bélouizdad",
+      "team2": "AS Douanes",
+      "team1_logo": "https://img.singhs.com.np/team/101633.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/101633.png",
+      "team2_logo": "https://img.singhs.com.np/team/2161020.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/2161020.png",
+      "league": "CAF Confed Cup - 2nd Preliminary Round",
+      "league_id": 9468,
+      "league_country": "INT",
+      "start": "2026-12-01T19:00Z",
+      "duration": 2.2,
+      "event_id": 1000021274,
+      "slug": "crblouizdad"
+    },
+    {
       "team1": "Leyton Orient",
       "team2": "Peterborough United",
       "team1_logo": "https://img.singhs.com.np/team/8351.png",
@@ -22139,6 +22034,36 @@
       "duration": 2.2,
       "event_id": 6806760,
       "slug": "coquimbounido"
+    },
+    {
+      "team1": "Aurora",
+      "team2": "Independiente Petrolero",
+      "team1_logo": "https://img.singhs.com.np/team/49720.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/49720.png",
+      "team2_logo": "https://img.singhs.com.np/team/958325.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/958325.png",
+      "league": "Primera División",
+      "league_id": 144,
+      "league_country": "BOL",
+      "start": "2026-12-04T00:00Z",
+      "duration": 2.2,
+      "event_id": 1000022394,
+      "slug": "aurora"
+    },
+    {
+      "team1": "Singida Black Stars",
+      "team2": "TBC",
+      "team1_logo": "https://img.singhs.com.np/team/1171766.png",
+      "team1_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/1171766.png",
+      "team2_logo": "https://img.singhs.com.np/team/2.png",
+      "team2_logo_fallback": "https://images.fotmob.com/image_resources/logo/teamlogo/2.png",
+      "league": "CAF Confed Cup - C",
+      "league_id": 9468,
+      "league_country": "INT",
+      "start": "2026-12-04T00:00Z",
+      "duration": 2.2,
+      "event_id": 1000022909,
+      "slug": "singidablackstars"
     }
   ]
 }
