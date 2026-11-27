@@ -303,8 +303,8 @@
       let plainText = tempDiv.textContent || tempDiv.innerText || "";
       plainText = plainText.replace(/\s+/g, ' ').trim();
       
-      // Exactly ~2 lines of text (180 chars)
-      const snippet = plainText.length > 180 ? plainText.substring(0, 177) + '...' : plainText;
+      // Increased to 230 chars to guarantee 2 full lines
+      const snippet = plainText.length > 230 ? plainText.substring(0, 227) + '...' : plainText;
 
       // 2. Build HTML page
       const htmlContent = `
@@ -355,7 +355,6 @@
     }
     img { max-width: 100%; height: auto; border-radius: 8px; }
     
-    /* Mobile Responsiveness */
     @media (max-width: 600px) {
       body { padding: 1rem 0.5rem; }
       .content-box { padding: 1.5rem 1rem; }
