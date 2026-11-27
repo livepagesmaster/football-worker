@@ -1935,31 +1935,31 @@
     "common": null,
     "link1": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/pl/2026-11-07/nfo-mci"
+      "url": "https://taifood-blog.asia/embed/pl/2026-11-27/nfo-che"
     },
     "link2": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/pl/2026-11-07/nfo-mci"
+      "url": "https://taifood-blog.asia/embed/pl/2026-11-27/nfo-che"
     },
     "link3": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/97885009.m3u8"
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
     },
     "link4": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/97885009.m3u8"
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
     },
     "link5": {
       "type": "hls",
-      "url": "https://live05.wecile.app/live/97885009.m3u8"
+      "url": "https://live05.wecile.app/live/08552895.m3u8"
     },
     "link6": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/pl/2026-11-07/nfo-mci"
+      "url": "https://taifood-blog.asia/embed/pl/2026-11-27/nfo-che"
     },
     "link7": {
       "type": "iframe",
-      "url": "https://taifood-blog.asia/embed/pl/2026-11-07/nfo-mci"
+      "url": "https://taifood-blog.asia/embed/pl/2026-11-27/nfo-che"
     }
   },
   "fulham": {
@@ -3016,5 +3016,36 @@
     "link5": null,
     "link6": null,
     "link7": null
+  },
+  "columbus": {
+    "common": null,
+    "link1": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/mls/2026-11-27/clb-mia"
+    },
+    "link2": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/mls/2026-11-27/clb-mia"
+    },
+    "link3": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/02456966.m3u8"
+    },
+    "link4": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/02456966.m3u8"
+    },
+    "link5": {
+      "type": "hls",
+      "url": "https://live05.wecile.app/live/02456966.m3u8"
+    },
+    "link6": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/mls/2026-11-27/clb-mia"
+    },
+    "link7": {
+      "type": "iframe",
+      "url": "https://taifood-blog.asia/embed/mls/2026-11-27/clb-mia"
+    }
   }
 }
