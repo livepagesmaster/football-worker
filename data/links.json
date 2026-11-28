@@ -255,7 +255,10 @@
     }
   },
   "pakistan": {
-    "common": null,
+    "common": {
+      "type": "redirect",
+      "url": "https://yakotv.pages.dev/ddf"
+    },
     "link1": {
       "type": "redirect",
       "url": "https://yakotv.pages.dev/ddf"
